@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDC Transport Tracker | GIZ-SLOCAT</title>
+    <meta name="description" content="Interactive dashboard tracking transport-related targets and measures in Nationally Determined Contributions (NDCs)">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Chart.js for charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    
+    <!-- jsPDF for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo-placeholder">
+                    <!-- Logos will be added here -->
+                    <span class="logo-text">CHANGING TRANSPORT</span>
+                </div>
+                <h1 class="header-title">NDC Transport Tracker</h1>
+            </div>
+            <div class="header-right">
+                <span class="last-updated" id="lastUpdated">Loading...</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="tab-navigation">
+        <button class="tab-button active" data-tab="tab1">
+            Progress in Transport Targets
+        </button>
+        <button class="tab-button" data-tab="tab2">
+            Leading Measures for Decarbonisation
+        </button>
+    </nav>
+
+    <!-- Tab 1: Progress in Transport Targets -->
+    <div class="tab-content active" id="tab1">
+        <div class="tab-header">
+            <div class="tab-title-section">
+                <h2>Progress in NDC Transport Targets</h2>
+                <button class="info-tooltip" data-tooltip="tab1-info">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                        <path d="M10 14V10M10 6H10.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Filters -->
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label for="tab1-generation">Show NDCs from:</label>
+                    <select id="tab1-generation" class="filter-select">
+                        <option value="latest">Latest Active NDC</option>
+                        <option value="all">All Generations</option>
+                        <option value="gen1">First Generation</option>
+                        <option value="gen2">Second Generation</option>
+                        <option value="gen3">Third Generation</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="tab1-region">Region:</label>
+                    <select id="tab1-region" class="filter-select">
+                        <option value="all">All Regions</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Latin America and the Caribbean">Latin America & Caribbean</option>
+                        <option value="Northern America">Northern America</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                </div>
+                
+                <!-- View Toggle -->
+                <div class="view-toggle">
+                    <button class="toggle-button active" data-view="chart">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <rect x="2" y="10" width="4" height="8"/>
+                            <rect x="8" y="5" width="4" height="13"/>
+                            <rect x="14" y="7" width="4" height="11"/>
+                        </svg>
+                        Chart
+                    </button>
+                    <button class="toggle-button" data-view="map">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Map
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart View -->
+        <div class="visualization-container" id="tab1-chart-view">
+            <div class="chart-wrapper">
+                <canvas id="tab1-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Map View -->
+        <div class="visualization-container hidden" id="tab1-map-view">
+            <div id="tab1-map" class="map-container"></div>
+            <div class="map-legend">
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #9DBE3D;"></span>
+                    <span>Includes transport targets</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #DADADA;"></span>
+                    <span>No transport targets</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Button -->
+        <div class="action-buttons">
+            <button class="btn-download" id="tab1-download">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 12l-5-5h3V3h4v4h3l-5 5zm-6 5h12v2H4v-2z"/>
+                </svg>
+                Download PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Tab 2: Leading Measures -->
+    <div class="tab-content" id="tab2">
+        <div class="tab-header">
+            <div class="tab-title-section">
+                <h2>Leading Measures for Decarbonisation</h2>
+                <button class="info-tooltip" data-tooltip="tab2-info">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                        <path d="M10 14V10M10 6H10.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Filters -->
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label for="tab2-generation">Show data from:</label>
+                    <select id="tab2-generation" class="filter-select">
+                        <option value="latest">Latest Active NDC</option>
+                        <option value="all">All Generations</option>
+                        <option value="gen1">First Generation</option>
+                        <option value="gen2">Second Generation</option>
+                        <option value="gen3">Third Generation</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="tab2-region">Region:</label>
+                    <select id="tab2-region" class="filter-select">
+                        <option value="all">All Regions</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Latin America and the Caribbean">Latin America & Caribbean</option>
+                        <option value="Northern America">Northern America</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                </div>
+                
+                <!-- View Toggle -->
+                <div class="view-toggle">
+                    <button class="toggle-button active" data-view="chart">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <rect x="2" y="10" width="4" height="8"/>
+                            <rect x="8" y="5" width="4" height="13"/>
+                            <rect x="14" y="7" width="4" height="11"/>
+                        </svg>
+                        Chart
+                    </button>
+                    <button class="toggle-button" data-view="map">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Map
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart View -->
+        <div class="visualization-container" id="tab2-chart-view">
+            <div class="chart-wrapper">
+                <canvas id="tab2-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Map View -->
+        <div class="visualization-container hidden" id="tab2-map-view">
+            <div id="tab2-map" class="map-container"></div>
+            <div class="map-legend">
+                <div class="legend-title">Mitigation Measures</div>
+                <div class="legend-gradient">
+                    <span class="legend-label">Few</span>
+                    <div class="gradient-bar"></div>
+                    <span class="legend-label">Many</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Button -->
+        <div class="action-buttons">
+            <button class="btn-download" id="tab2-download">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 12l-5-5h3V3h4v4h3l-5 5zm-6 5h12v2H4v-2z"/>
+                </svg>
+                Download PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Tooltip Modals -->
+    <div class="tooltip-modal" id="tooltip-tab1-info">
+        <div class="tooltip-content">
+            <button class="tooltip-close">×</button>
+            <p>This chart shows the percentage of NDCs that include transport-related targets across three generations of submissions. 169 represents the total number of NDCs in the global system (excluding EU member states which report collectively).</p>
+        </div>
+    </div>
+
+    <div class="tooltip-modal" id="tooltip-tab2-info">
+        <div class="tooltip-content">
+            <button class="tooltip-close">×</button>
+            <p>Electrification and mode shift lead as the most common mitigation measures, each featured in over 100 NDCs. Data shows mentions of mitigation measures by category across all active NDCs.</p>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading">
+        <div class="loading-spinner"></div>
+        <p>Loading dashboard data...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

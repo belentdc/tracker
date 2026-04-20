@@ -1,0 +1,5285 @@
+{
+  "metadata": {
+    "total_possible_ndcs": 169,
+    "last_updated": "2026-04-17",
+    "data_source": "GIZ-SLOCAT Transport Tracker Database"
+  },
+  "tab1": {
+    "generations": {
+      "gen1": {
+        "name": "First Generation",
+        "period": "2015-2019",
+        "total_submitted": 168,
+        "with_transport": 38,
+        "regions": {
+          "Asia": {
+            "total": 46,
+            "with_transport": 14
+          },
+          "Oceania": {
+            "total": 16,
+            "with_transport": 1
+          },
+          "Latin America and the Caribbean": {
+            "total": 33,
+            "with_transport": 6
+          },
+          "Africa": {
+            "total": 53,
+            "with_transport": 16
+          },
+          "Europe": {
+            "total": 18,
+            "with_transport": 1
+          },
+          "Northern America": {
+            "total": 2,
+            "with_transport": 0
+          }
+        }
+      },
+      "gen2": {
+        "name": "Second Generation",
+        "period": "2020-2024",
+        "total_submitted": 148,
+        "with_transport": 73,
+        "regions": {
+          "Oceania": {
+            "total": 13,
+            "with_transport": 7
+          },
+          "Asia": {
+            "total": 42,
+            "with_transport": 18
+          },
+          "Latin America and the Caribbean": {
+            "total": 29,
+            "with_transport": 18
+          },
+          "Europe": {
+            "total": 15,
+            "with_transport": 5
+          },
+          "Africa": {
+            "total": 47,
+            "with_transport": 25
+          },
+          "Northern America": {
+            "total": 2,
+            "with_transport": 0
+          }
+        }
+      },
+      "gen3": {
+        "name": "Third Generation",
+        "period": "2024-ongoing",
+        "total_submitted": 117,
+        "with_transport": 67,
+        "regions": {
+          "Asia": {
+            "total": 31,
+            "with_transport": 15
+          },
+          "Latin America and the Caribbean": {
+            "total": 24,
+            "with_transport": 17
+          },
+          "Europe": {
+            "total": 15,
+            "with_transport": 5
+          },
+          "Northern America": {
+            "total": 2,
+            "with_transport": 1
+          },
+          "Africa": {
+            "total": 32,
+            "with_transport": 22
+          },
+          "Oceania": {
+            "total": 13,
+            "with_transport": 7
+          }
+        }
+      }
+    },
+    "countries": {
+      "Philippines": {
+        "name": "Philippines",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Yemen": {
+        "name": "Yemen",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Brunei Darussalam": {
+        "name": "Brunei Darussalam",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Papua New Guinea": {
+        "name": "Papua New Guinea",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Nauru": {
+        "name": "Nauru",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Panama": {
+        "name": "Panama",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Belize": {
+        "name": "Belize",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Barbados": {
+        "name": "Barbados",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Fiji": {
+        "name": "Fiji",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Grenada": {
+        "name": "Grenada",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Maldives": {
+        "name": "Maldives",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Marshall Islands": {
+        "name": "Marshall Islands",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Mauritius": {
+        "name": "Mauritius",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Palau": {
+        "name": "Palau",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Saint Kitts and Nevis": {
+        "name": "Saint Kitts and Nevis",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Saint Lucia": {
+        "name": "Saint Lucia",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Samoa": {
+        "name": "Samoa",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Somalia": {
+        "name": "Somalia",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Tuvalu": {
+        "name": "Tuvalu",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Seychelles": {
+        "name": "Seychelles",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Guyana": {
+        "name": "Guyana",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          }
+        }
+      },
+      "Norway": {
+        "name": "Norway",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Saint Vincent and the Grenadines": {
+        "name": "Saint Vincent and the Grenadines",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Peru": {
+        "name": "Peru",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Cameroon": {
+        "name": "Cameroon",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Cook Islands": {
+        "name": "Cook Islands",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          }
+        }
+      },
+      "China": {
+        "name": "China",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "United States of America": {
+        "name": "United States of America",
+        "region": "Northern America",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Lao People’s Democratic Republic": {
+        "name": "Lao People’s Democratic Republic",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Micronesia (Federated States of)": {
+        "name": "Micronesia (Federated States of)",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Morocco": {
+        "name": "Morocco",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Ukraine": {
+        "name": "Ukraine",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Albania": {
+        "name": "Albania",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Antigua and Barbuda": {
+        "name": "Antigua and Barbuda",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Bangladesh": {
+        "name": "Bangladesh",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Belarus": {
+        "name": "Belarus",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Brazil": {
+        "name": "Brazil",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Dominica": {
+        "name": "Dominica",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Eswatini": {
+        "name": "Eswatini",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Ghana": {
+        "name": "Ghana",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          }
+        }
+      },
+      "Guinea": {
+        "name": "Guinea",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Honduras": {
+        "name": "Honduras",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Iceland": {
+        "name": "Iceland",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Kiribati": {
+        "name": "Kiribati",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Madagascar": {
+        "name": "Madagascar",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Mexico": {
+        "name": "Mexico",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Mongolia": {
+        "name": "Mongolia",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Namibia": {
+        "name": "Namibia",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          }
+        }
+      },
+      "Niger": {
+        "name": "Niger",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Singapore": {
+        "name": "Singapore",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Solomon Islands": {
+        "name": "Solomon Islands",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Thailand": {
+        "name": "Thailand",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Tonga": {
+        "name": "Tonga",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Uganda": {
+        "name": "Uganda",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          }
+        }
+      },
+      "United Arab Emirates": {
+        "name": "United Arab Emirates",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Vanuatu": {
+        "name": "Vanuatu",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Mali": {
+        "name": "Mali",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "India": {
+        "name": "India",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Democratic People's Republic of Korea": {
+        "name": "Democratic People's Republic of Korea",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Bolivia (Plurinational State of)": {
+        "name": "Bolivia (Plurinational State of)",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "European Union": {
+        "name": "European Union",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Nepal": {
+        "name": "Nepal",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "New Zealand": {
+        "name": "New Zealand",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Rwanda": {
+        "name": "Rwanda",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Central African Republic": {
+        "name": "Central African Republic",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Costa Rica": {
+        "name": "Costa Rica",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Paraguay": {
+        "name": "Paraguay",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Algeria": {
+        "name": "Algeria",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          }
+        }
+      },
+      "Turkmenistan": {
+        "name": "Turkmenistan",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Côte D'Ivoire": {
+        "name": "Côte D'Ivoire",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Monaco": {
+        "name": "Monaco",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Niue": {
+        "name": "Niue",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Bahamas": {
+        "name": "Bahamas",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Sierra Leone": {
+        "name": "Sierra Leone",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "South Africa": {
+        "name": "South Africa",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Gabon": {
+        "name": "Gabon",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Sao Tome and Principe": {
+        "name": "Sao Tome and Principe",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Republic of Korea": {
+        "name": "Republic of Korea",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Saudi Arabia": {
+        "name": "Saudi Arabia",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Viet Nam": {
+        "name": "Viet Nam",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          }
+        }
+      },
+      "Jordan": {
+        "name": "Jordan",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Indonesia": {
+        "name": "Indonesia",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Sri Lanka": {
+        "name": "Sri Lanka",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Gambia (Republic of The)": {
+        "name": "Gambia (Republic of The)",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Japan": {
+        "name": "Japan",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Australia": {
+        "name": "Australia",
+        "region": "Oceania",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Pakistan": {
+        "name": "Pakistan",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Botswana": {
+        "name": "Botswana",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Burkina Faso": {
+        "name": "Burkina Faso",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Djibouti": {
+        "name": "Djibouti",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Malaysia": {
+        "name": "Malaysia",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Argentina": {
+        "name": "Argentina",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          }
+        }
+      },
+      "Israel": {
+        "name": "Israel",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Afghanistan": {
+        "name": "Afghanistan",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          }
+        }
+      },
+      "Comoros": {
+        "name": "Comoros",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Kazakhstan": {
+        "name": "Kazakhstan",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Zambia": {
+        "name": "Zambia",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Kenya": {
+        "name": "Kenya",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Bahrain": {
+        "name": "Bahrain",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Cuba": {
+        "name": "Cuba",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Azerbaijan": {
+        "name": "Azerbaijan",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Chad": {
+        "name": "Chad",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Lesotho": {
+        "name": "Lesotho",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Guatemala": {
+        "name": "Guatemala",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          }
+        }
+      },
+      "Cambodia": {
+        "name": "Cambodia",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Chile": {
+        "name": "Chile",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Tunisia": {
+        "name": "Tunisia",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Mauritania": {
+        "name": "Mauritania",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Ethiopia": {
+        "name": "Ethiopia",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Bosnia and Herzegovina": {
+        "name": "Bosnia and Herzegovina",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Tajikistan": {
+        "name": "Tajikistan",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Armenia": {
+        "name": "Armenia",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Andorra": {
+        "name": "Andorra",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "El Salvador": {
+        "name": "El Salvador",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Jamaica": {
+        "name": "Jamaica",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Congo": {
+        "name": "Congo",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Georgia": {
+        "name": "Georgia",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Canada": {
+        "name": "Canada",
+        "region": "Northern America",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Nigeria": {
+        "name": "Nigeria",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Republic of Moldova": {
+        "name": "Republic of Moldova",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Qatar": {
+        "name": "Qatar",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Togo": {
+        "name": "Togo",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Egypt": {
+        "name": "Egypt",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          }
+        }
+      },
+      "Malawi": {
+        "name": "Malawi",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Serbia": {
+        "name": "Serbia",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Haiti": {
+        "name": "Haiti",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Sudan": {
+        "name": "Sudan",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          }
+        }
+      },
+      "Zimbabwe": {
+        "name": "Zimbabwe",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Timor-Leste": {
+        "name": "Timor-Leste",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Palestine": {
+        "name": "Palestine",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Bhutan": {
+        "name": "Bhutan",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Myanmar": {
+        "name": "Myanmar",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Liechtenstein": {
+        "name": "Liechtenstein",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Cabo Verde": {
+        "name": "Cabo Verde",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Dominican Republic": {
+        "name": "Dominican Republic",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Switzerland": {
+        "name": "Switzerland",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Benin": {
+        "name": "Benin",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Uruguay": {
+        "name": "Uruguay",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Democratic Republic of the Congo": {
+        "name": "Democratic Republic of the Congo",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Montenegro": {
+        "name": "Montenegro",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Republic of North Macedonia": {
+        "name": "Republic of North Macedonia",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Burundi": {
+        "name": "Burundi",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Trinidad and Tobago": {
+        "name": "Trinidad and Tobago",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Venezuela, Bolivarian Republic of": {
+        "name": "Venezuela, Bolivarian Republic of",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Kuwait": {
+        "name": "Kuwait",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "United Republic of Tanzania": {
+        "name": "United Republic of Tanzania",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Mozambique": {
+        "name": "Mozambique",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Eritrea": {
+        "name": "Eritrea",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Colombia": {
+        "name": "Colombia",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Liberia": {
+        "name": "Liberia",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": true,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Nicaragua": {
+        "name": "Nicaragua",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "San Marino": {
+        "name": "San Marino",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          }
+        }
+      },
+      "Guinea Bissau": {
+        "name": "Guinea Bissau",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Equatorial Guinea": {
+        "name": "Equatorial Guinea",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Uzbekistan": {
+        "name": "Uzbekistan",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Syrian Arab Republic": {
+        "name": "Syrian Arab Republic",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          }
+        }
+      },
+      "Suriname": {
+        "name": "Suriname",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Ecuador": {
+        "name": "Ecuador",
+        "region": "Latin America and the Caribbean",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Oman": {
+        "name": "Oman",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          }
+        }
+      },
+      "Lebanon": {
+        "name": "Lebanon",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Kyrgyzstan": {
+        "name": "Kyrgyzstan",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Angola": {
+        "name": "Angola",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Russian Federation": {
+        "name": "Russian Federation",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.1"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Senegal": {
+        "name": "Senegal",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.1"
+          }
+        }
+      },
+      "South Sudan": {
+        "name": "South Sudan",
+        "region": "Africa",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          }
+        }
+      },
+      "Türkiye": {
+        "name": "Türkiye",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Iraq": {
+        "name": "Iraq",
+        "region": "Asia",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.1"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "Vatican": {
+        "name": "Vatican",
+        "region": "Europe",
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
+          }
+        }
+      },
+      "United Kingdom": {
+        "name": "United Kingdom",
+        "region": "Europe",
+        "generations": {
+          "gen2": {
+            "has_transport": false,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        }
+      }
+    }
+  },
+  "tab2": {
+    "categories_latest": {
+      "Alternative fuels": {
+        "ndcs_count": 90,
+        "countries_count": 90,
+        "mentions": 172
+      },
+      "Energy efficiency": {
+        "ndcs_count": 97,
+        "countries_count": 97,
+        "mentions": 193
+      },
+      "Mode shift and demand management": {
+        "ndcs_count": 114,
+        "countries_count": 114,
+        "mentions": 349
+      },
+      "Transport system improvements": {
+        "ndcs_count": 87,
+        "countries_count": 87,
+        "mentions": 231
+      },
+      "Electrification": {
+        "ndcs_count": 118,
+        "countries_count": 118,
+        "mentions": 312
+      },
+      "Aviation and maritime": {
+        "ndcs_count": 42,
+        "countries_count": 42,
+        "mentions": 105
+      }
+    },
+    "categories_by_generation": {
+      "gen1": {
+        "Alternative fuels": {
+          "ndcs_count": 122,
+          "mentions": 304
+        },
+        "Energy efficiency": {
+          "ndcs_count": 112,
+          "mentions": 208
+        },
+        "Transport system improvements": {
+          "ndcs_count": 128,
+          "mentions": 410
+        },
+        "Mode shift and demand management": {
+          "ndcs_count": 155,
+          "mentions": 612
+        },
+        "Electrification": {
+          "ndcs_count": 109,
+          "mentions": 278
+        },
+        "Aviation and maritime": {
+          "ndcs_count": 38,
+          "mentions": 91
+        }
+      },
+      "gen2": {
+        "Mode shift and demand management": {
+          "ndcs_count": 106,
+          "mentions": 290
+        },
+        "Transport system improvements": {
+          "ndcs_count": 73,
+          "mentions": 173
+        },
+        "Energy efficiency": {
+          "ndcs_count": 75,
+          "mentions": 148
+        },
+        "Alternative fuels": {
+          "ndcs_count": 73,
+          "mentions": 120
+        },
+        "Electrification": {
+          "ndcs_count": 95,
+          "mentions": 174
+        },
+        "Aviation and maritime": {
+          "ndcs_count": 26,
+          "mentions": 57
+        }
+      },
+      "gen3": {
+        "Alternative fuels": {
+          "ndcs_count": 66,
+          "mentions": 121
+        },
+        "Electrification": {
+          "ndcs_count": 92,
+          "mentions": 264
+        },
+        "Energy efficiency": {
+          "ndcs_count": 67,
+          "mentions": 134
+        },
+        "Mode shift and demand management": {
+          "ndcs_count": 83,
+          "mentions": 263
+        },
+        "Transport system improvements": {
+          "ndcs_count": 60,
+          "mentions": 167
+        },
+        "Aviation and maritime": {
+          "ndcs_count": 35,
+          "mentions": 90
+        }
+      },
+      "all": {
+        "Alternative fuels": {
+          "ndcs_count": 261,
+          "mentions": 545
+        },
+        "Energy efficiency": {
+          "ndcs_count": 254,
+          "mentions": 490
+        },
+        "Mode shift and demand management": {
+          "ndcs_count": 344,
+          "mentions": 1165
+        },
+        "Transport system improvements": {
+          "ndcs_count": 261,
+          "mentions": 750
+        },
+        "Electrification": {
+          "ndcs_count": 296,
+          "mentions": 716
+        },
+        "Aviation and maritime": {
+          "ndcs_count": 99,
+          "mentions": 238
+        }
+      }
+    },
+    "countries": {
+      "Afghanistan": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Albania": {
+        "total_mentions": 6,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Algeria": {
+        "total_mentions": 1,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          }
+        ]
+      },
+      "Antigua and Barbuda": {
+        "total_mentions": 6,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Argentina": {
+        "total_mentions": 16,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 5
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 4
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 3
+          }
+        ]
+      },
+      "Cameroon": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Cook Islands": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Democratic Republic of the Congo": {
+        "total_mentions": 9,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 5
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Dominica": {
+        "total_mentions": 23,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 8
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 6
+          },
+          {
+            "category": "Electrification",
+            "count": 5
+          }
+        ]
+      },
+      "Dominican Republic": {
+        "total_mentions": 11,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 6
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          }
+        ]
+      },
+      "Egypt": {
+        "total_mentions": 16,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 6
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 4
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 3
+          }
+        ]
+      },
+      "Equatorial Guinea": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Gambia (Republic of The)": {
+        "total_mentions": 9,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 4
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 2
+          }
+        ]
+      },
+      "Ghana": {
+        "total_mentions": 1,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Guatemala": {
+        "total_mentions": 7,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 3
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Haiti": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 3
+          }
+        ]
+      },
+      "Israel": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Kiribati": {
+        "total_mentions": 9,
+        "top_categories": [
+          {
+            "category": "Aviation and maritime",
+            "count": 5
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Lao People’s Democratic Republic": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Malawi": {
+        "total_mentions": 4,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Mali": {
+        "total_mentions": 1,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          }
+        ]
+      },
+      "Myanmar": {
+        "total_mentions": 21,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 7
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 5
+          },
+          {
+            "category": "Electrification",
+            "count": 4
+          }
+        ]
+      },
+      "Niger": {
+        "total_mentions": 2,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          }
+        ]
+      },
+      "Palestine": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 4
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Papua New Guinea": {
+        "total_mentions": 7,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 3
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Saint Kitts and Nevis": {
+        "total_mentions": 2,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 2
+          }
+        ]
+      },
+      "Senegal": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "South Sudan": {
+        "total_mentions": 10,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 3
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 3
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 3
+          }
+        ]
+      },
+      "Sudan": {
+        "total_mentions": 9,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          }
+        ]
+      },
+      "Syrian Arab Republic": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 3
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Tajikistan": {
+        "total_mentions": 10,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 4
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          }
+        ]
+      },
+      "Timor-Leste": {
+        "total_mentions": 2,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Togo": {
+        "total_mentions": 6,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 3
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Turkmenistan": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          }
+        ]
+      },
+      "Uganda": {
+        "total_mentions": 17,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 8
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 5
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          }
+        ]
+      },
+      "United Republic of Tanzania": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 4
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          }
+        ]
+      },
+      "Viet Nam": {
+        "total_mentions": 9,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 3
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          }
+        ]
+      },
+      "Madagascar": {
+        "total_mentions": 4,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 2
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Oman": {
+        "total_mentions": 11,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 4
+          },
+          {
+            "category": "Electrification",
+            "count": 3
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          }
+        ]
+      },
+      "Namibia": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 5
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "United Arab Emirates": {
+        "total_mentions": 17,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 11
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          }
+        ]
+      },
+      "Brazil": {
+        "total_mentions": 18,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 6
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 5
+          },
+          {
+            "category": "Electrification",
+            "count": 3
+          }
+        ]
+      },
+      "United States of America": {
+        "total_mentions": 16,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 4
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 4
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 4
+          }
+        ]
+      },
+      "Australia": {
+        "total_mentions": 9,
+        "top_categories": [
+          {
+            "category": "Aviation and maritime",
+            "count": 3
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          }
+        ]
+      },
+      "Botswana": {
+        "total_mentions": 6,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Benin": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Uruguay": {
+        "total_mentions": 15,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 5
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 4
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 3
+          }
+        ]
+      },
+      "Switzerland": {
+        "total_mentions": 1,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "United Kingdom": {
+        "total_mentions": 13,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 4
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 4
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          }
+        ]
+      },
+      "Azerbaijan": {
+        "total_mentions": 17,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 5
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 3
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          }
+        ]
+      },
+      "Andorra": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Lesotho": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Ecuador": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Saint Lucia": {
+        "total_mentions": 6,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 3
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Singapore": {
+        "total_mentions": 10,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 6
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 3
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Belize": {
+        "total_mentions": 13,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 4
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 2
+          }
+        ]
+      },
+      "Marshall Islands": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Aviation and maritime",
+            "count": 2
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Canada": {
+        "total_mentions": 43,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 15
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 15
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 6
+          }
+        ]
+      },
+      "Cabo Verde": {
+        "total_mentions": 4,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 1
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          }
+        ]
+      },
+      "Montenegro": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Cuba": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Maldives": {
+        "total_mentions": 7,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 3
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Kenya": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Republic of Moldova": {
+        "total_mentions": 15,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 5
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 4
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 3
+          }
+        ]
+      },
+      "Nepal": {
+        "total_mentions": 10,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          }
+        ]
+      },
+      "Cambodia": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 1
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          }
+        ]
+      },
+      "Monaco": {
+        "total_mentions": 9,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 3
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 3
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          }
+        ]
+      },
+      "Chile": {
+        "total_mentions": 10,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 4
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 1
+          }
+        ]
+      },
+      "China": {
+        "total_mentions": 28,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 9
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 7
+          },
+          {
+            "category": "Electrification",
+            "count": 5
+          }
+        ]
+      },
+      "Niue": {
+        "total_mentions": 2,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 1
+          }
+        ]
+      },
+      "Solomon Islands": {
+        "total_mentions": 12,
+        "top_categories": [
+          {
+            "category": "Aviation and maritime",
+            "count": 4
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 3
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          }
+        ]
+      },
+      "Costa Rica": {
+        "total_mentions": 36,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 10
+          },
+          {
+            "category": "Electrification",
+            "count": 10
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 8
+          }
+        ]
+      },
+      "Barbados": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 3
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 2
+          }
+        ]
+      },
+      "Liechtenstein": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 1
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Vatican": {
+        "total_mentions": 2,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Angola": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 3
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          }
+        ]
+      },
+      "Iceland": {
+        "total_mentions": 1,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Somalia": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Côte D'Ivoire": {
+        "total_mentions": 20,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 5
+          },
+          {
+            "category": "Electrification",
+            "count": 5
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 4
+          }
+        ]
+      },
+      "European Union": {
+        "total_mentions": 11,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 5
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 2
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          }
+        ]
+      },
+      "Jordan": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 3
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Eswatini": {
+        "total_mentions": 4,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Nigeria": {
+        "total_mentions": 6,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Tonga": {
+        "total_mentions": 19,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 6
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 4
+          },
+          {
+            "category": "Electrification",
+            "count": 3
+          }
+        ]
+      },
+      "Fiji": {
+        "total_mentions": 22,
+        "top_categories": [
+          {
+            "category": "Aviation and maritime",
+            "count": 6
+          },
+          {
+            "category": "Electrification",
+            "count": 6
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 5
+          }
+        ]
+      },
+      "Vanuatu": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Aviation and maritime",
+            "count": 3
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Micronesia (Federated States of)": {
+        "total_mentions": 6,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Pakistan": {
+        "total_mentions": 22,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 5
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 5
+          },
+          {
+            "category": "Electrification",
+            "count": 4
+          }
+        ]
+      },
+      "Liberia": {
+        "total_mentions": 13,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 4
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 3
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          }
+        ]
+      },
+      "Sri Lanka": {
+        "total_mentions": 14,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 5
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 4
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 3
+          }
+        ]
+      },
+      "Bolivia (Plurinational State of)": {
+        "total_mentions": 14,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 10
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 4
+          }
+        ]
+      },
+      "Ethiopia": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Nicaragua": {
+        "total_mentions": 1,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Sao Tome and Principe": {
+        "total_mentions": 9,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          }
+        ]
+      },
+      "Bangladesh": {
+        "total_mentions": 18,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 7
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 6
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 4
+          }
+        ]
+      },
+      "Russian Federation": {
+        "total_mentions": 12,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 6
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          }
+        ]
+      },
+      "Mauritius": {
+        "total_mentions": 16,
+        "top_categories": [
+          {
+            "category": "Aviation and maritime",
+            "count": 5
+          },
+          {
+            "category": "Electrification",
+            "count": 4
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          }
+        ]
+      },
+      "Tuvalu": {
+        "total_mentions": 11,
+        "top_categories": [
+          {
+            "category": "Aviation and maritime",
+            "count": 5
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Mexico": {
+        "total_mentions": 51,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 15
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 13
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 10
+          }
+        ]
+      },
+      "Kyrgyzstan": {
+        "total_mentions": 7,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 2
+          }
+        ]
+      },
+      "Saint Vincent and the Grenadines": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 5
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Lebanon": {
+        "total_mentions": 23,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 10
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 6
+          },
+          {
+            "category": "Electrification",
+            "count": 3
+          }
+        ]
+      },
+      "Morocco": {
+        "total_mentions": 25,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 8
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 6
+          },
+          {
+            "category": "Electrification",
+            "count": 4
+          }
+        ]
+      },
+      "Malaysia": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "South Africa": {
+        "total_mentions": 1,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Indonesia": {
+        "total_mentions": 7,
+        "top_categories": [
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          }
+        ]
+      },
+      "Zambia": {
+        "total_mentions": 6,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Mauritania": {
+        "total_mentions": 6,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Venezuela, Bolivarian Republic of": {
+        "total_mentions": 15,
+        "top_categories": [
+          {
+            "category": "Aviation and maritime",
+            "count": 6
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 5
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          }
+        ]
+      },
+      "Qatar": {
+        "total_mentions": 11,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 2
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          }
+        ]
+      },
+      "Thailand": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Aviation and maritime",
+            "count": 4
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          }
+        ]
+      },
+      "Guinea": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Peru": {
+        "total_mentions": 9,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 5
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          }
+        ]
+      },
+      "Uzbekistan": {
+        "total_mentions": 10,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 3
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 3
+          }
+        ]
+      },
+      "Türkiye": {
+        "total_mentions": 2,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          }
+        ]
+      },
+      "Paraguay": {
+        "total_mentions": 7,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 4
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Bahamas": {
+        "total_mentions": 12,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 5
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 3
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 2
+          }
+        ]
+      },
+      "Rwanda": {
+        "total_mentions": 13,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 5
+          },
+          {
+            "category": "Electrification",
+            "count": 4
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 2
+          }
+        ]
+      },
+      "Belarus": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 1
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Bhutan": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Burundi": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 1
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          }
+        ]
+      },
+      "Djibouti": {
+        "total_mentions": 9,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 4
+          },
+          {
+            "category": "Electrification",
+            "count": 4
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          }
+        ]
+      },
+      "Iraq": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          }
+        ]
+      },
+      "Suriname": {
+        "total_mentions": 7,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          }
+        ]
+      },
+      "Yemen": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          }
+        ]
+      },
+      "Kazakhstan": {
+        "total_mentions": 16,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 5
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 4
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 4
+          }
+        ]
+      },
+      "Panama": {
+        "total_mentions": 1,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Sierra Leone": {
+        "total_mentions": 17,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 5
+          },
+          {
+            "category": "Electrification",
+            "count": 4
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 3
+          }
+        ]
+      },
+      "Colombia": {
+        "total_mentions": 27,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 11
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 9
+          },
+          {
+            "category": "Electrification",
+            "count": 3
+          }
+        ]
+      },
+      "Republic of Korea": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 1
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 1
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Saudi Arabia": {
+        "total_mentions": 2,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 1
+          }
+        ]
+      },
+      "Gabon": {
+        "total_mentions": 7,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 3
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 3
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "El Salvador": {
+        "total_mentions": 8,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 5
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 3
+          }
+        ]
+      },
+      "Burkina Faso": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 1
+          }
+        ]
+      },
+      "Nauru": {
+        "total_mentions": 21,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 6
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 5
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 5
+          }
+        ]
+      },
+      "Armenia": {
+        "total_mentions": 16,
+        "top_categories": [
+          {
+            "category": "Mode shift and demand management",
+            "count": 7
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 4
+          },
+          {
+            "category": "Electrification",
+            "count": 4
+          }
+        ]
+      },
+      "Samoa": {
+        "total_mentions": 6,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 2
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Honduras": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 1
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          }
+        ]
+      },
+      "Trinidad and Tobago": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      },
+      "Palau": {
+        "total_mentions": 12,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 4
+          },
+          {
+            "category": "Aviation and maritime",
+            "count": 4
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          }
+        ]
+      },
+      "Congo": {
+        "total_mentions": 3,
+        "top_categories": [
+          {
+            "category": "Energy efficiency",
+            "count": 1
+          },
+          {
+            "category": "Transport system improvements",
+            "count": 1
+          },
+          {
+            "category": "Electrification",
+            "count": 1
+          }
+        ]
+      },
+      "Eritrea": {
+        "total_mentions": 11,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 3
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 3
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 3
+          }
+        ]
+      },
+      "Georgia": {
+        "total_mentions": 11,
+        "top_categories": [
+          {
+            "category": "Transport system improvements",
+            "count": 5
+          },
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Alternative fuels",
+            "count": 2
+          }
+        ]
+      },
+      "Comoros": {
+        "total_mentions": 5,
+        "top_categories": [
+          {
+            "category": "Electrification",
+            "count": 2
+          },
+          {
+            "category": "Energy efficiency",
+            "count": 2
+          },
+          {
+            "category": "Mode shift and demand management",
+            "count": 1
+          }
+        ]
+      }
+    }
+  }
+}
