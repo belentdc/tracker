@@ -4,39 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NDC Transport Tracker | GIZ-SLOCAT</title>
-    <meta name="description" content="Interactive dashboard tracking transport-related targets and measures in Nationally Determined Contributions (NDCs)">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Leaflet for maps -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
-    <!-- Chart.js for charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
-    
-    <!-- jsPDF for PDF export -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- Tab Navigation -->
     <nav class="tab-navigation">
-        <button class="tab-button active" data-tab="tab1">
-            Progress in Transport Targets
-        </button>
-        <button class="tab-button" data-tab="tab2">
-            Leading Measures for Decarbonisation
-        </button>
+        <button class="tab-button active" data-tab="tab1">Progress in Transport Targets</button>
+        <button class="tab-button" data-tab="tab2">Leading Measures for Decarbonisation</button>
     </nav>
 
-    <!-- Tab 1: Progress in Transport Targets -->
+    <!-- ================================================================
+         TAB 1: Progress in NDC Transport Targets
+    ================================================================ -->
     <div class="tab-content active" id="tab1">
         <div class="tab-header">
             <div class="tab-title-section">
@@ -48,8 +36,6 @@
                     </svg>
                 </button>
             </div>
-            
-            <!-- Filters -->
             <div class="filters-section">
                 <div class="filter-group">
                     <label for="tab1-region">Region:</label>
@@ -63,65 +49,41 @@
                         <option value="Oceania">Oceania</option>
                     </select>
                 </div>
-                
-                <!-- View Toggle -->
                 <div class="view-toggle">
                     <button class="toggle-button active" data-view="chart">
-                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                            <rect x="2" y="10" width="4" height="8"/>
-                            <rect x="8" y="5" width="4" height="13"/>
-                            <rect x="14" y="7" width="4" height="11"/>
-                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><rect x="2" y="10" width="4" height="8"/><rect x="8" y="5" width="4" height="13"/><rect x="14" y="7" width="4" height="11"/></svg>
                         Chart
                     </button>
                     <button class="toggle-button" data-view="map">
-                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                         Map
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Chart View -->
         <div class="visualization-container" id="tab1-chart-view">
-            <div class="chart-wrapper">
-                <canvas id="tab1-chart"></canvas>
-            </div>
+            <div class="chart-wrapper"><canvas id="tab1-chart"></canvas></div>
         </div>
-
-        <!-- Map View -->
         <div class="visualization-container hidden" id="tab1-map-view">
             <div id="tab1-map" class="map-container"></div>
             <div class="map-legend" id="tab1-map-legend">
-                <div class="legend-item">
-                    <span class="legend-color" style="background-color: #9DBE3D;"></span>
-                    <span>Includes transport targets</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color" style="background-color: #C8D8E8;"></span>
-                    <span>No transport targets</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color" style="background-color: #ECECEC; border: 1px dashed #aaa;"></span>
-                    <span>No NDC submitted</span>
-                </div>
+                <div class="legend-item"><span class="legend-color" style="background:#9DBE3D"></span><span>Includes transport targets</span></div>
+                <div class="legend-item"><span class="legend-color" style="background:#C8D8E8"></span><span>No transport targets</span></div>
+                <div class="legend-item"><span class="legend-color" style="background:#ECECEC;border:1px dashed #aaa"></span><span>No NDC submitted</span></div>
             </div>
         </div>
-
-        <!-- Download Button -->
         <div class="action-buttons">
             <button class="btn-download" id="tab1-download">
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10 12l-5-5h3V3h4v4h3l-5 5zm-6 5h12v2H4v-2z"/>
-                </svg>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12l-5-5h3V3h4v4h3l-5 5zm-6 5h12v2H4v-2z"/></svg>
                 Download PDF
             </button>
         </div>
     </div>
 
-    <!-- Tab 2: Leading Measures -->
+    <!-- ================================================================
+         TAB 2: Leading Measures for Decarbonisation
+    ================================================================ -->
     <div class="tab-content" id="tab2">
         <div class="tab-header">
             <div class="tab-title-section">
@@ -133,32 +95,21 @@
                     </svg>
                 </button>
             </div>
-            
-            <!-- Filters -->
-            <div class="filters-section">
 
-                <!-- Generation multi-select toggles -->
+            <!-- CHART FILTERS (multi-select gens + region) -->
+            <div class="filters-section" id="tab2-chart-filters">
                 <div class="filter-group">
                     <label>Show data from:</label>
                     <div class="gen-toggle-group" id="tab2-gen-toggles">
-                        <button class="gen-toggle active" data-gen="latest" style="--gen-color: #9DBE3D;">
-                            Latest Active
-                        </button>
-                        <button class="gen-toggle" data-gen="gen1" style="--gen-color: #003D5C;">
-                            1st Generation
-                        </button>
-                        <button class="gen-toggle" data-gen="gen2" style="--gen-color: #00A4BD;">
-                            2nd Generation
-                        </button>
-                        <button class="gen-toggle" data-gen="gen3" style="--gen-color: #E8821A;">
-                            3rd Generation
-                        </button>
+                        <button class="gen-toggle active" data-gen="latest" style="--gen-color:#9DBE3D">Latest Active</button>
+                        <button class="gen-toggle" data-gen="gen1"   style="--gen-color:#003D5C">1st Generation</button>
+                        <button class="gen-toggle" data-gen="gen2"   style="--gen-color:#00A4BD">2nd Generation</button>
+                        <button class="gen-toggle" data-gen="gen3"   style="--gen-color:#E8821A">3rd Generation</button>
                     </div>
                 </div>
-
                 <div class="filter-group">
-                    <label for="tab2-region">Region:</label>
-                    <select id="tab2-region" class="filter-select">
+                    <label for="tab2-chart-region">Region:</label>
+                    <select id="tab2-chart-region" class="filter-select">
                         <option value="all">All Regions</option>
                         <option value="Africa">Africa</option>
                         <option value="Asia">Asia</option>
@@ -168,53 +119,90 @@
                         <option value="Oceania">Oceania</option>
                     </select>
                 </div>
-                
-                <!-- View Toggle -->
                 <div class="view-toggle">
                     <button class="toggle-button active" data-view="chart">
-                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                            <rect x="2" y="10" width="4" height="8"/>
-                            <rect x="8" y="5" width="4" height="13"/>
-                            <rect x="14" y="7" width="4" height="11"/>
-                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><rect x="2" y="10" width="4" height="8"/><rect x="8" y="5" width="4" height="13"/><rect x="14" y="7" width="4" height="11"/></svg>
                         Chart
                     </button>
                     <button class="toggle-button" data-view="map">
-                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Map
+                    </button>
+                </div>
+            </div>
+
+            <!-- MAP FILTERS (single-select gen + category + region) -->
+            <div class="filters-section hidden" id="tab2-map-filters">
+                <div class="filter-group">
+                    <label>Show data from:</label>
+                    <div class="gen-toggle-group" id="tab2-map-gen-toggles">
+                        <button class="gen-toggle active" data-gen="latest" style="--gen-color:#9DBE3D">Latest Active</button>
+                        <button class="gen-toggle" data-gen="gen1"   style="--gen-color:#003D5C">1st Generation</button>
+                        <button class="gen-toggle" data-gen="gen2"   style="--gen-color:#00A4BD">2nd Generation</button>
+                        <button class="gen-toggle" data-gen="gen3"   style="--gen-color:#E8821A">3rd Generation</button>
+                        <button class="btn-reset" id="tab2-map-reset">&#8635; Reset</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label for="tab2-map-category">Category:</label>
+                    <select id="tab2-map-category" class="filter-select">
+                        <option value="all">All categories</option>
+                        <option value="Electrification">Electrification</option>
+                        <option value="Mode shift and demand management">Mode shift and demand management</option>
+                        <option value="Transport system improvements">Transport system improvements</option>
+                        <option value="Energy efficiency">Energy efficiency</option>
+                        <option value="Alternative fuels">Alternative fuels</option>
+                        <option value="Aviation and maritime">Aviation and maritime</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="tab2-map-region">Region:</label>
+                    <select id="tab2-map-region" class="filter-select">
+                        <option value="all">All Regions</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Latin America and the Caribbean">Latin America & Caribbean</option>
+                        <option value="Northern America">Northern America</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                </div>
+                <div class="view-toggle">
+                    <button class="toggle-button" data-view="chart">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><rect x="2" y="10" width="4" height="8"/><rect x="8" y="5" width="4" height="13"/><rect x="14" y="7" width="4" height="11"/></svg>
+                        Chart
+                    </button>
+                    <button class="toggle-button active" data-view="map">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                         Map
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Chart View -->
+        <!-- Chart view -->
         <div class="visualization-container" id="tab2-chart-view">
-            <div class="chart-wrapper">
-                <canvas id="tab2-chart"></canvas>
-            </div>
+            <p class="chart-subtitle" id="tab2-chart-subtitle"></p>
+            <div class="chart-wrapper"><canvas id="tab2-chart"></canvas></div>
         </div>
 
-        <!-- Map View -->
+        <!-- Map view -->
         <div class="visualization-container hidden" id="tab2-map-view">
+            <p class="map-currently-showing" id="tab2-map-label"></p>
             <div id="tab2-map" class="map-container"></div>
-            <div class="map-legend">
-                <div class="legend-title">Total Mitigation Measures</div>
+            <div class="map-legend" id="tab2-map-legend">
+                <div class="legend-title">Measure mentions</div>
                 <div class="legend-gradient">
                     <span class="legend-label">Few</span>
-                    <div class="gradient-bar"></div>
+                    <div class="gradient-bar" id="tab2-gradient-bar"></div>
                     <span class="legend-label">Many</span>
                 </div>
             </div>
         </div>
 
-        <!-- Download Button -->
         <div class="action-buttons">
             <button class="btn-download" id="tab2-download">
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10 12l-5-5h3V3h4v4h3l-5 5zm-6 5h12v2H4v-2z"/>
-                </svg>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12l-5-5h3V3h4v4h3l-5 5zm-6 5h12v2H4v-2z"/></svg>
                 Download PDF
             </button>
         </div>
@@ -224,18 +212,28 @@
     <div class="tooltip-modal" id="tooltip-tab1-info">
         <div class="tooltip-content">
             <button class="tooltip-close">×</button>
-            <p>This chart shows the number of NDCs that include transport-related targets across three generations of submissions. 169 represents the total number of NDCs in the global system (excluding EU member states which report collectively through the EU NDC). Use the Region filter to explore results by geographic area.</p>
+            <h3>About this chart</h3>
+            <p>This chart shows how many NDCs include transport-related targets across three generations of submissions. 169 represents the total number of NDCs in the global system (excluding EU member states, which report collectively).</p>
+            <p>Use the Region filter to explore results by geographic area. Both the bars and the map update accordingly.</p>
         </div>
     </div>
 
     <div class="tooltip-modal" id="tooltip-tab2-info">
         <div class="tooltip-content">
             <button class="tooltip-close">×</button>
-            <p>This chart shows the number of NDCs mentioning each transport mitigation measure category. Select one or more NDC generations using the toggles to compare how priorities have shifted over time. Use the Region filter to explore regional patterns.</p>
+            <h3>About this chart</h3>
+            <p>This chart shows the number of NDCs mentioning each transport mitigation measure category, and how many times those measures are mentioned in total.</p>
+            <p>Use the generation toggles to compare how priorities have shifted over rounds. Multiple generations can be selected simultaneously to compare side by side.</p>
+            <p>The Region filter limits the analysis to countries in the selected geographic area.</p>
+            <hr class="tooltip-divider"/>
+            <h3>What do we mean by Active and Archived?</h3>
+            <p><strong>Active</strong> — the NDC a country currently operates under. This is their most recent, valid climate commitment.</p>
+            <p><strong>Archived</strong> — an NDC that has been superseded by a newer submission. For example, a country's 1st generation NDC becomes archived once they submit a 2nd generation one.</p>
+            <p>When viewing a specific generation (e.g. 1st Generation), both active and archived NDCs from that round are included — because an archived NDC still represents a real commitment made during that cycle. Only 7 countries still have a 1st generation NDC as their latest active; the remaining 161 have moved on to newer generations.</p>
         </div>
     </div>
 
-    <!-- Loading Overlay -->
+    <!-- Loading -->
     <div class="loading-overlay" id="loading">
         <div class="loading-spinner"></div>
         <p>Loading dashboard data...</p>
