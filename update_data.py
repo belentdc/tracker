@@ -329,6 +329,103 @@ def process_excel(excel_path):
 
     print(f"   ✓ Tab2 built: {len(cat_lgb_out)} categories")
 
+    # ── EU member states: map EU NDC data to all 27 members ───────────
+    print("🔄  Adding EU member states…")
+
+    EU_CODE = "EEU"
+    EU_MEMBER_ISO3 = [
+        "AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA",
+        "DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD",
+        "POL","PRT","ROU","SVK","SVN","ESP","SWE"
+    ]
+
+    EU_NAMES = {
+        "AUT":"Austria","BEL":"Belgium","BGR":"Bulgaria","HRV":"Croatia",
+        "CYP":"Cyprus","CZE":"Czechia","DNK":"Denmark","EST":"Estonia",
+        "FIN":"Finland","FRA":"France","DEU":"Germany","GRC":"Greece",
+        "HUN":"Hungary","IRL":"Ireland","ITA":"Italy","LVA":"Latvia",
+        "LTU":"Lithuania","LUX":"Luxembourg","MLT":"Malta","NLD":"Netherlands",
+        "POL":"Poland","PRT":"Portugal","ROU":"Romania","SVK":"Slovakia",
+        "SVN":"Slovenia","ESP":"Spain","SWE":"Sweden"
+    }
+
+    # Find EU NDC docs
+    eu_doc_ids_local = {
+        doc_id: info for doc_id, info in doc_id_info.items()
+        if info["code"] == EU_CODE
+    }
+
+    # Latest active EU doc
+    eu_best = None; eu_best_p = 0
+    for doc_id, info in eu_doc_ids_local.items():
+        if info["status"] != "Active": continue
+        p = GEN_PRIORITY[info["gen"]]
+        if p > eu_best_p:
+            eu_best_p = p; eu_best = (doc_id, info)
+
+    if eu_best:
+        latest_eu_doc_id = eu_best[0]
+        latest_eu_gen    = eu_best[1]["gen"]
+        latest_eu_has_t  = eu_best[1]["has_transport"] if "has_transport" in eu_best[1] else False
+
+        # EU gen cats from mitigation sheet
+        eu_gen_cats_local    = {}
+        eu_latest_cats_local = {}
+
+        for row in mit_sheet.iter_rows(min_row=2, values_only=True):
+            if not row[M_DOCID]: break
+            doc_id  = row[M_DOCID]
+            code    = str(row[M_CODE] or "").strip()
+            version = row[M_VERSION]
+            cat     = row[M_CATEGORY]
+            if code != EU_CODE or not cat: continue
+            if doc_id not in eu_doc_ids_local: continue
+            cat = str(cat).strip()
+            gen = get_gen(version)
+            if not gen: continue
+            if gen not in eu_gen_cats_local: eu_gen_cats_local[gen] = {}
+            eu_gen_cats_local[gen][cat] = eu_gen_cats_local[gen].get(cat, 0) + 1
+            if doc_id == latest_eu_doc_id:
+                eu_latest_cats_local[cat] = eu_latest_cats_local.get(cat, 0) + 1
+
+        # EU generation info
+        eu_gens_info = {}
+        for doc_id, info in eu_doc_ids_local.items():
+            gen = info["gen"]
+            if gen not in eu_gens_info:
+                eu_gens_info[gen] = {"has_transport": info.get("has_transport", False), "version": info["status"]}
+
+        # Re-scan doc sheet for EU has_transport per gen
+        for row in doc_sheet.iter_rows(min_row=2, values_only=True):
+            if not row[D_DOCID]: break
+            if row[D_CODE] != EU_CODE or row[D_TYPE] != "NDC": continue
+            gen = get_gen(row[D_VERSION])
+            if not gen: continue
+            has_t = str(row[D_TRANSPORT] or "").strip().lower() == "yes"
+            ver   = str(row[D_VERSION]).strip()
+            if gen not in eu_gens_info:
+                eu_gens_info[gen] = {"has_transport": has_t, "version": ver}
+            elif has_t:
+                eu_gens_info[gen]["has_transport"] = True
+                eu_gens_info[gen]["version"] = ver
+
+        # Add to tab1 countries and tab2 data
+        for iso3 in EU_MEMBER_ISO3:
+            countries_tab1[iso3] = {
+                "iso3":                 iso3,
+                "name":                 EU_NAMES.get(iso3, iso3),
+                "region":               "Europe",
+                "latest_active_gen":    latest_eu_gen,
+                "latest_has_transport": latest_eu_has_t,
+                "generations":          eu_gens_info,
+                "covered_by_eu":        True,
+            }
+            country_gen_cats[iso3]    = eu_gen_cats_local.copy()
+            country_latest_cats[iso3] = eu_latest_cats_local.copy()
+            latest_gen_map[iso3]      = latest_eu_gen
+
+        print(f"   ✓ Added {len(EU_MEMBER_ISO3)} EU member states (latest EU NDC: {latest_eu_gen}, transport: {latest_eu_has_t})")
+
     # ── Assemble final output ──────────────────────────────────────────
     output = {
         "metadata": {
