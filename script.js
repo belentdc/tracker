@@ -529,7 +529,7 @@ function updateMapLabel() {
 function updateMapGradientColor() {
     const cfg  = GEN_CONFIG[mapActiveGen];
     const bar  = document.getElementById('tab2-gradient-bar');
-    if (bar) bar.style.background = `linear-gradient(to right, ${cfg.light}, ${cfg.color})`;
+    if (bar) bar.style.background = `linear-gradient(to right, #f0f0f0, ${cfg.color})`;
 }
 
 function renderTab2Map() {
@@ -579,18 +579,13 @@ function renderTab2Map() {
         const b = parseInt(hex.slice(5,7),16);
         return [r,g,b];
     }
-    function hexLightToRgb(hex) {
-        // lighten by mixing 90% white
-        const [r,g,b] = hexToRgb(hex);
-        return [Math.round(r*0.3+255*0.7), Math.round(g*0.3+255*0.7), Math.round(b*0.3+255*0.7)];
-    }
-    const [fr,fg,fb] = hexLightToRgb(cfg.color);
     const [tr,tg,tb] = hexToRgb(cfg.color);
 
     function heatColor(val) {
-        if (!val) return `rgb(${fr},${fg},${fb})`;
+        if (!val) return '#f0f0f0';  // 0 mentions = neutral grey, no tint
         const t = Math.pow(val / maxVal, 0.6);
-        return `rgb(${Math.round(fr+(tr-fr)*t)},${Math.round(fg+(tg-fg)*t)},${Math.round(fb+(tb-fb)*t)})`;
+        // interpolate from white (#ffffff) to full gen colour
+        return `rgb(${Math.round(255+(tr-255)*t)},${Math.round(255+(tg-255)*t)},${Math.round(255+(tb-255)*t)})`;
     }
 
     tab2GeoLayer = L.geoJSON(worldGeoJSON, {

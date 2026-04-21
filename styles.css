@@ -281,7 +281,7 @@ body {
 
 .gradient-bar {
     flex:1; height:16px;
-    background: linear-gradient(to right, #dff0f5, var(--color-accent));
+    background: linear-gradient(to right, #f0f0f0, var(--color-accent));
     border-radius: var(--radius-sm);
     border: 1px solid rgba(0,0,0,0.1);
     transition: background 0.4s ease;
