@@ -263,11 +263,15 @@ function renderTab1Map(region) {
             }).join('');
             const tagCls  = cd.latest_has_transport ? 'yes' : 'no';
             const tagText = cd.latest_has_transport ? '&#10003; Transport target' : '&#10007; No transport target';
+            const euNote  = cd.covered_by_eu
+                ? `<div style="font-size:0.8rem;color:#6B7280;margin-top:4px;font-style:italic">Reports collectively through the EU NDC</div>`
+                : '';
             layer.bindPopup(`
                 <div class="popup-title">${cd.name}</div>
                 <div class="popup-info">
                     ${genLines}
                     <span class="popup-tag ${tagCls}" style="margin-top:6px;display:inline-block">${tagText}</span>
+                    ${euNote}
                 </div>
             `);
             layer.on({
@@ -629,9 +633,12 @@ function renderTab2Map() {
                 popupBody = `<div><strong>${cat}: ${total} mention${total !== 1 ? 's' : ''}</strong></div>`;
             }
 
+            const euNote2 = cd.covered_by_eu
+                ? `<div style="font-size:0.8rem;color:#6B7280;margin-top:4px;font-style:italic">Reports collectively through the EU NDC</div>`
+                : '';
             layer.bindPopup(`
                 <div class="popup-title">${cd.name} — ${genLabel}</div>
-                <div class="popup-info">${popupBody}</div>
+                <div class="popup-info">${popupBody}${euNote2}</div>
             `);
 
             layer.on({
