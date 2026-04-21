@@ -25,22 +25,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
-    <!-- Header -->
-    <header class="dashboard-header">
-        <div class="header-content">
-            <div class="header-left">
-                <div class="logo-placeholder">
-                    <!-- Logos will be added here -->
-                    <span class="logo-text">CHANGING TRANSPORT</span>
-                </div>
-                <h1 class="header-title">NDC Transport Tracker</h1>
-            </div>
-            <div class="header-right">
-                <span class="last-updated" id="lastUpdated">Loading...</span>
-            </div>
-        </div>
-    </header>
 
     <!-- Tab Navigation -->
     <nav class="tab-navigation">
@@ -68,17 +52,6 @@
             <!-- Filters -->
             <div class="filters-section">
                 <div class="filter-group">
-                    <label for="tab1-generation">Show NDCs from:</label>
-                    <select id="tab1-generation" class="filter-select">
-                        <option value="latest">Latest Active NDC</option>
-                        <option value="all">All Generations</option>
-                        <option value="gen1">First Generation</option>
-                        <option value="gen2">Second Generation</option>
-                        <option value="gen3">Third Generation</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
                     <label for="tab1-region">Region:</label>
                     <select id="tab1-region" class="filter-select">
                         <option value="all">All Regions</option>
@@ -94,7 +67,7 @@
                 <!-- View Toggle -->
                 <div class="view-toggle">
                     <button class="toggle-button active" data-view="chart">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
                             <rect x="2" y="10" width="4" height="8"/>
                             <rect x="8" y="5" width="4" height="13"/>
                             <rect x="14" y="7" width="4" height="11"/>
@@ -102,7 +75,7 @@
                         Chart
                     </button>
                     <button class="toggle-button" data-view="map">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                         </svg>
                         Map
@@ -121,14 +94,18 @@
         <!-- Map View -->
         <div class="visualization-container hidden" id="tab1-map-view">
             <div id="tab1-map" class="map-container"></div>
-            <div class="map-legend">
+            <div class="map-legend" id="tab1-map-legend">
                 <div class="legend-item">
                     <span class="legend-color" style="background-color: #9DBE3D;"></span>
                     <span>Includes transport targets</span>
                 </div>
                 <div class="legend-item">
-                    <span class="legend-color" style="background-color: #DADADA;"></span>
+                    <span class="legend-color" style="background-color: #C8D8E8;"></span>
                     <span>No transport targets</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #ECECEC; border: 1px dashed #aaa;"></span>
+                    <span>No NDC submitted</span>
                 </div>
             </div>
         </div>
@@ -136,7 +113,7 @@
         <!-- Download Button -->
         <div class="action-buttons">
             <button class="btn-download" id="tab1-download">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M10 12l-5-5h3V3h4v4h3l-5 5zm-6 5h12v2H4v-2z"/>
                 </svg>
                 Download PDF
@@ -159,17 +136,26 @@
             
             <!-- Filters -->
             <div class="filters-section">
+
+                <!-- Generation multi-select toggles -->
                 <div class="filter-group">
-                    <label for="tab2-generation">Show data from:</label>
-                    <select id="tab2-generation" class="filter-select">
-                        <option value="latest">Latest Active NDC</option>
-                        <option value="all">All Generations</option>
-                        <option value="gen1">First Generation</option>
-                        <option value="gen2">Second Generation</option>
-                        <option value="gen3">Third Generation</option>
-                    </select>
+                    <label>Show data from:</label>
+                    <div class="gen-toggle-group" id="tab2-gen-toggles">
+                        <button class="gen-toggle active" data-gen="latest" style="--gen-color: #9DBE3D;">
+                            Latest Active
+                        </button>
+                        <button class="gen-toggle" data-gen="gen1" style="--gen-color: #003D5C;">
+                            1st Generation
+                        </button>
+                        <button class="gen-toggle" data-gen="gen2" style="--gen-color: #00A4BD;">
+                            2nd Generation
+                        </button>
+                        <button class="gen-toggle" data-gen="gen3" style="--gen-color: #E8821A;">
+                            3rd Generation
+                        </button>
+                    </div>
                 </div>
-                
+
                 <div class="filter-group">
                     <label for="tab2-region">Region:</label>
                     <select id="tab2-region" class="filter-select">
@@ -186,7 +172,7 @@
                 <!-- View Toggle -->
                 <div class="view-toggle">
                     <button class="toggle-button active" data-view="chart">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
                             <rect x="2" y="10" width="4" height="8"/>
                             <rect x="8" y="5" width="4" height="13"/>
                             <rect x="14" y="7" width="4" height="11"/>
@@ -194,7 +180,7 @@
                         Chart
                     </button>
                     <button class="toggle-button" data-view="map">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                         </svg>
                         Map
@@ -214,7 +200,7 @@
         <div class="visualization-container hidden" id="tab2-map-view">
             <div id="tab2-map" class="map-container"></div>
             <div class="map-legend">
-                <div class="legend-title">Mitigation Measures</div>
+                <div class="legend-title">Total Mitigation Measures</div>
                 <div class="legend-gradient">
                     <span class="legend-label">Few</span>
                     <div class="gradient-bar"></div>
@@ -226,7 +212,7 @@
         <!-- Download Button -->
         <div class="action-buttons">
             <button class="btn-download" id="tab2-download">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M10 12l-5-5h3V3h4v4h3l-5 5zm-6 5h12v2H4v-2z"/>
                 </svg>
                 Download PDF
@@ -238,14 +224,14 @@
     <div class="tooltip-modal" id="tooltip-tab1-info">
         <div class="tooltip-content">
             <button class="tooltip-close">×</button>
-            <p>This chart shows the percentage of NDCs that include transport-related targets across three generations of submissions. 169 represents the total number of NDCs in the global system (excluding EU member states which report collectively).</p>
+            <p>This chart shows the number of NDCs that include transport-related targets across three generations of submissions. 169 represents the total number of NDCs in the global system (excluding EU member states which report collectively through the EU NDC). Use the Region filter to explore results by geographic area.</p>
         </div>
     </div>
 
     <div class="tooltip-modal" id="tooltip-tab2-info">
         <div class="tooltip-content">
             <button class="tooltip-close">×</button>
-            <p>Electrification and mode shift lead as the most common mitigation measures, each featured in over 100 NDCs. Data shows mentions of mitigation measures by category across all active NDCs.</p>
+            <p>This chart shows the number of NDCs mentioning each transport mitigation measure category. Select one or more NDC generations using the toggles to compare how priorities have shifted over time. Use the Region filter to explore regional patterns.</p>
         </div>
     </div>
 
