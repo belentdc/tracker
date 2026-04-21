@@ -2,7 +2,25 @@
   "metadata": {
     "total_possible_ndcs": 169,
     "last_updated": "2026-04-20",
-    "data_source": "GIZ-SLOCAT Transport Tracker Database"
+    "data_source": "GIZ-SLOCAT Transport Tracker Database",
+    "gen_counts": {
+      "gen1": {
+        "active": 7,
+        "archived": 163
+      },
+      "gen2": {
+        "active": 45,
+        "archived": 112
+      },
+      "gen3": {
+        "active": 117,
+        "archived": 6
+      },
+      "latest": {
+        "active": 169,
+        "archived": 0
+      }
+    }
   },
   "tab1": {
     "generations": {
@@ -5565,6 +5583,1169 @@
           "Mode shift and demand management": 1
         }
       }
+    },
+    "cat_latest_gen_breakdown": {
+      "Alternative fuels": {
+        "gen1_count": 4,
+        "gen2_count": 22,
+        "gen3_count": 64,
+        "mentions": 172
+      },
+      "Energy efficiency": {
+        "gen1_count": 3,
+        "gen2_count": 24,
+        "gen3_count": 70,
+        "mentions": 193
+      },
+      "Mode shift and demand management": {
+        "gen1_count": 3,
+        "gen2_count": 27,
+        "gen3_count": 84,
+        "mentions": 349
+      },
+      "Transport system improvements": {
+        "gen1_count": 2,
+        "gen2_count": 23,
+        "gen3_count": 62,
+        "mentions": 231
+      },
+      "Electrification": {
+        "gen1_count": 2,
+        "gen2_count": 23,
+        "gen3_count": 93,
+        "mentions": 312
+      },
+      "Aviation and maritime": {
+        "gen1_count": 0,
+        "gen2_count": 6,
+        "gen3_count": 36,
+        "mentions": 105
+      }
+    },
+    "cat_gen_active_archived": {
+      "gen1": {
+        "Alternative fuels": {
+          "active_countries": 4,
+          "archived_countries": 44,
+          "active_mentions": 6,
+          "archived_mentions": 50
+        },
+        "Energy efficiency": {
+          "active_countries": 3,
+          "archived_countries": 63,
+          "active_mentions": 5,
+          "archived_mentions": 100
+        },
+        "Electrification": {
+          "active_countries": 2,
+          "archived_countries": 28,
+          "active_mentions": 2,
+          "archived_mentions": 38
+        },
+        "Mode shift and demand management": {
+          "active_countries": 3,
+          "archived_countries": 73,
+          "active_mentions": 3,
+          "archived_mentions": 157
+        },
+        "Transport system improvements": {
+          "active_countries": 2,
+          "archived_countries": 55,
+          "active_mentions": 2,
+          "archived_mentions": 108
+        },
+        "Aviation and maritime": {
+          "active_countries": 0,
+          "archived_countries": 7,
+          "active_mentions": 0,
+          "archived_mentions": 14
+        }
+      },
+      "gen2": {
+        "Mode shift and demand management": {
+          "active_countries": 27,
+          "archived_countries": 69,
+          "active_mentions": 71,
+          "archived_mentions": 219
+        },
+        "Transport system improvements": {
+          "active_countries": 23,
+          "archived_countries": 45,
+          "active_mentions": 55,
+          "archived_mentions": 119
+        },
+        "Energy efficiency": {
+          "active_countries": 24,
+          "archived_countries": 45,
+          "active_mentions": 50,
+          "archived_mentions": 97
+        },
+        "Alternative fuels": {
+          "active_countries": 22,
+          "archived_countries": 47,
+          "active_mentions": 47,
+          "archived_mentions": 71
+        },
+        "Electrification": {
+          "active_countries": 23,
+          "archived_countries": 66,
+          "active_mentions": 42,
+          "archived_mentions": 135
+        },
+        "Aviation and maritime": {
+          "active_countries": 6,
+          "archived_countries": 19,
+          "active_mentions": 13,
+          "archived_mentions": 42
+        }
+      },
+      "gen3": {
+        "Alternative fuels": {
+          "active_countries": 64,
+          "archived_countries": 2,
+          "active_mentions": 119,
+          "archived_mentions": 2
+        },
+        "Electrification": {
+          "active_countries": 93,
+          "archived_countries": 3,
+          "active_mentions": 268,
+          "archived_mentions": 3
+        },
+        "Energy efficiency": {
+          "active_countries": 70,
+          "archived_countries": 2,
+          "active_mentions": 138,
+          "archived_mentions": 2
+        },
+        "Mode shift and demand management": {
+          "active_countries": 84,
+          "archived_countries": 2,
+          "active_mentions": 275,
+          "archived_mentions": 3
+        },
+        "Transport system improvements": {
+          "active_countries": 62,
+          "archived_countries": 1,
+          "active_mentions": 174,
+          "archived_mentions": 4
+        },
+        "Aviation and maritime": {
+          "active_countries": 36,
+          "archived_countries": 0,
+          "active_mentions": 92,
+          "archived_mentions": 0
+        }
+      }
+    },
+    "country_latest_cats": {
+      "AFG": {
+        "Alternative fuels": 2,
+        "Energy efficiency": 1
+      },
+      "ALB": {
+        "Mode shift and demand management": 2,
+        "Transport system improvements": 1,
+        "Energy efficiency": 1,
+        "Alternative fuels": 1,
+        "Electrification": 1
+      },
+      "DZA": {
+        "Alternative fuels": 1
+      },
+      "ATG": {
+        "Mode shift and demand management": 1,
+        "Alternative fuels": 2,
+        "Energy efficiency": 2,
+        "Electrification": 1
+      },
+      "ARG": {
+        "Energy efficiency": 3,
+        "Transport system improvements": 4,
+        "Alternative fuels": 5,
+        "Electrification": 2,
+        "Mode shift and demand management": 2
+      },
+      "CMR": {
+        "Energy efficiency": 2,
+        "Electrification": 1,
+        "Mode shift and demand management": 2
+      },
+      "COK": {
+        "Alternative fuels": 1,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 1
+      },
+      "COD": {
+        "Mode shift and demand management": 3,
+        "Transport system improvements": 5,
+        "Energy efficiency": 1
+      },
+      "DMA": {
+        "Alternative fuels": 8,
+        "Electrification": 5,
+        "Mode shift and demand management": 6,
+        "Aviation and maritime": 2,
+        "Transport system improvements": 1,
+        "Energy efficiency": 1
+      },
+      "DOM": {
+        "Mode shift and demand management": 6,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Energy efficiency": 2
+      },
+      "EGY": {
+        "Transport system improvements": 4,
+        "Mode shift and demand management": 6,
+        "Alternative fuels": 3,
+        "Aviation and maritime": 2,
+        "Electrification": 1
+      },
+      "GNQ": {
+        "Mode shift and demand management": 1,
+        "Electrification": 2,
+        "Transport system improvements": 2
+      },
+      "GMB": {
+        "Energy efficiency": 4,
+        "Mode shift and demand management": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 2
+      },
+      "GHA": {
+        "Transport system improvements": 1
+      },
+      "GTM": {
+        "Energy efficiency": 3,
+        "Mode shift and demand management": 1,
+        "Electrification": 2,
+        "Alternative fuels": 1
+      },
+      "HTI": {
+        "Energy efficiency": 3
+      },
+      "ISR": {
+        "Electrification": 2,
+        "Energy efficiency": 1
+      },
+      "KIR": {
+        "Aviation and maritime": 5,
+        "Mode shift and demand management": 2,
+        "Transport system improvements": 1,
+        "Alternative fuels": 1
+      },
+      "LAO": {
+        "Mode shift and demand management": 2,
+        "Transport system improvements": 1,
+        "Electrification": 1,
+        "Alternative fuels": 1
+      },
+      "MWI": {
+        "Mode shift and demand management": 1,
+        "Transport system improvements": 1,
+        "Alternative fuels": 2
+      },
+      "MLI": {
+        "Alternative fuels": 1
+      },
+      "MMR": {
+        "Mode shift and demand management": 7,
+        "Transport system improvements": 5,
+        "Electrification": 4,
+        "Energy efficiency": 3,
+        "Aviation and maritime": 2
+      },
+      "NER": {
+        "Energy efficiency": 2
+      },
+      "PSE": {
+        "Energy efficiency": 4,
+        "Mode shift and demand management": 1
+      },
+      "PNG": {
+        "Energy efficiency": 3,
+        "Transport system improvements": 1,
+        "Alternative fuels": 2,
+        "Electrification": 1
+      },
+      "KNA": {
+        "Electrification": 2
+      },
+      "SEN": {
+        "Mode shift and demand management": 1,
+        "Transport system improvements": 1,
+        "Electrification": 1
+      },
+      "SSD": {
+        "Electrification": 3,
+        "Transport system improvements": 3,
+        "Energy efficiency": 3,
+        "Alternative fuels": 1
+      },
+      "SDN": {
+        "Mode shift and demand management": 2,
+        "Alternative fuels": 2,
+        "Energy efficiency": 2,
+        "Transport system improvements": 2,
+        "Aviation and maritime": 1
+      },
+      "SYR": {
+        "Energy efficiency": 3,
+        "Mode shift and demand management": 1,
+        "Transport system improvements": 1,
+        "Alternative fuels": 2,
+        "Electrification": 1
+      },
+      "TJK": {
+        "Energy efficiency": 2,
+        "Electrification": 1,
+        "Alternative fuels": 1,
+        "Transport system improvements": 4,
+        "Mode shift and demand management": 2
+      },
+      "TLS": {
+        "Energy efficiency": 1,
+        "Transport system improvements": 1
+      },
+      "TGO": {
+        "Electrification": 1,
+        "Transport system improvements": 3,
+        "Mode shift and demand management": 1,
+        "Energy efficiency": 1
+      },
+      "TKM": {
+        "Mode shift and demand management": 2,
+        "Transport system improvements": 2,
+        "Energy efficiency": 2,
+        "Alternative fuels": 1,
+        "Electrification": 1
+      },
+      "UGA": {
+        "Energy efficiency": 1,
+        "Alternative fuels": 1,
+        "Mode shift and demand management": 8,
+        "Transport system improvements": 5,
+        "Electrification": 2
+      },
+      "TZA": {
+        "Mode shift and demand management": 4,
+        "Alternative fuels": 1
+      },
+      "VNM": {
+        "Transport system improvements": 3,
+        "Energy efficiency": 2,
+        "Mode shift and demand management": 1,
+        "Alternative fuels": 2,
+        "Electrification": 1
+      },
+      "MDG": {
+        "Transport system improvements": 2,
+        "Electrification": 1,
+        "Mode shift and demand management": 1
+      },
+      "OMN": {
+        "Mode shift and demand management": 2,
+        "Electrification": 3,
+        "Alternative fuels": 4,
+        "Energy efficiency": 1,
+        "Aviation and maritime": 1
+      },
+      "NAM": {
+        "Electrification": 2,
+        "Alternative fuels": 5,
+        "Mode shift and demand management": 1
+      },
+      "ARE": {
+        "Alternative fuels": 1,
+        "Electrification": 11,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 3,
+        "Transport system improvements": 1
+      },
+      "BRA": {
+        "Alternative fuels": 6,
+        "Electrification": 3,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 5,
+        "Transport system improvements": 3
+      },
+      "USA": {
+        "Alternative fuels": 1,
+        "Electrification": 4,
+        "Mode shift and demand management": 4,
+        "Transport system improvements": 4,
+        "Aviation and maritime": 3
+      },
+      "AUS": {
+        "Aviation and maritime": 3,
+        "Electrification": 2,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 2,
+        "Alternative fuels": 1
+      },
+      "BWA": {
+        "Alternative fuels": 1,
+        "Electrification": 1,
+        "Mode shift and demand management": 3,
+        "Transport system improvements": 1
+      },
+      "BEN": {
+        "Transport system improvements": 1,
+        "Mode shift and demand management": 2
+      },
+      "URY": {
+        "Alternative fuels": 4,
+        "Electrification": 2,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 5,
+        "Transport system improvements": 3
+      },
+      "CHE": {
+        "Energy efficiency": 1
+      },
+      "GBR": {
+        "Alternative fuels": 2,
+        "Electrification": 4,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 4,
+        "Aviation and maritime": 2
+      },
+      "AZE": {
+        "Aviation and maritime": 2,
+        "Transport system improvements": 3,
+        "Mode shift and demand management": 3,
+        "Energy efficiency": 3,
+        "Electrification": 5,
+        "Alternative fuels": 1
+      },
+      "AND": {
+        "Electrification": 1,
+        "Mode shift and demand management": 2
+      },
+      "LSO": {
+        "Electrification": 1,
+        "Energy efficiency": 2,
+        "Mode shift and demand management": 2
+      },
+      "ECU": {
+        "Alternative fuels": 1,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 1
+      },
+      "LCA": {
+        "Alternative fuels": 1,
+        "Electrification": 3,
+        "Mode shift and demand management": 1,
+        "Transport system improvements": 1
+      },
+      "SGP": {
+        "Alternative fuels": 3,
+        "Electrification": 1,
+        "Mode shift and demand management": 6
+      },
+      "BLZ": {
+        "Aviation and maritime": 2,
+        "Electrification": 4,
+        "Energy efficiency": 2,
+        "Transport system improvements": 1,
+        "Mode shift and demand management": 3,
+        "Alternative fuels": 1
+      },
+      "MHL": {
+        "Electrification": 1,
+        "Aviation and maritime": 2
+      },
+      "CAN": {
+        "Alternative fuels": 6,
+        "Electrification": 15,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 15,
+        "Transport system improvements": 5,
+        "Aviation and maritime": 1
+      },
+      "CPV": {
+        "Aviation and maritime": 1,
+        "Electrification": 2,
+        "Alternative fuels": 1
+      },
+      "MNE": {
+        "Alternative fuels": 1,
+        "Electrification": 1,
+        "Energy efficiency": 1
+      },
+      "CUB": {
+        "Electrification": 2,
+        "Energy efficiency": 1
+      },
+      "MDV": {
+        "Electrification": 2,
+        "Energy efficiency": 3,
+        "Mode shift and demand management": 1,
+        "Transport system improvements": 1
+      },
+      "KEN": {
+        "Energy efficiency": 1,
+        "Electrification": 1,
+        "Mode shift and demand management": 2,
+        "Transport system improvements": 1
+      },
+      "MDA": {
+        "Transport system improvements": 4,
+        "Alternative fuels": 2,
+        "Mode shift and demand management": 5,
+        "Energy efficiency": 3,
+        "Electrification": 1
+      },
+      "NPL": {
+        "Electrification": 2,
+        "Alternative fuels": 2,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 3,
+        "Transport system improvements": 2
+      },
+      "KHM": {
+        "Aviation and maritime": 1,
+        "Mode shift and demand management": 3,
+        "Alternative fuels": 1,
+        "Energy efficiency": 1,
+        "Transport system improvements": 1,
+        "Electrification": 1
+      },
+      "MCO": {
+        "Electrification": 3,
+        "Mode shift and demand management": 2,
+        "Alternative fuels": 1,
+        "Aviation and maritime": 3
+      },
+      "CHL": {
+        "Aviation and maritime": 1,
+        "Transport system improvements": 4,
+        "Alternative fuels": 2,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 1,
+        "Electrification": 1
+      },
+      "CHN": {
+        "Aviation and maritime": 7,
+        "Transport system improvements": 9,
+        "Alternative fuels": 4,
+        "Mode shift and demand management": 3,
+        "Electrification": 5
+      },
+      "NIU": {
+        "Alternative fuels": 1,
+        "Aviation and maritime": 1
+      },
+      "SLB": {
+        "Energy efficiency": 2,
+        "Electrification": 2,
+        "Alternative fuels": 3,
+        "Mode shift and demand management": 1,
+        "Aviation and maritime": 4
+      },
+      "CRI": {
+        "Aviation and maritime": 1,
+        "Mode shift and demand management": 8,
+        "Transport system improvements": 10,
+        "Electrification": 10,
+        "Energy efficiency": 5,
+        "Alternative fuels": 2
+      },
+      "BRB": {
+        "Electrification": 3,
+        "Mode shift and demand management": 1,
+        "Alternative fuels": 2,
+        "Transport system improvements": 2
+      },
+      "LIE": {
+        "Electrification": 1,
+        "Mode shift and demand management": 1,
+        "Energy efficiency": 1
+      },
+      "VAT": {
+        "Alternative fuels": 1,
+        "Electrification": 1
+      },
+      "AGO": {
+        "Energy efficiency": 2,
+        "Electrification": 3
+      },
+      "ISL": {
+        "Mode shift and demand management": 1
+      },
+      "SOM": {
+        "Energy efficiency": 1,
+        "Electrification": 1,
+        "Mode shift and demand management": 1
+      },
+      "CIV": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 3,
+        "Alternative fuels": 5,
+        "Electrification": 5,
+        "Transport system improvements": 1,
+        "Energy efficiency": 4
+      },
+      "EEU": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "JOR": {
+        "Mode shift and demand management": 2,
+        "Transport system improvements": 1,
+        "Energy efficiency": 1,
+        "Alternative fuels": 1,
+        "Electrification": 3
+      },
+      "SWZ": {
+        "Electrification": 1,
+        "Energy efficiency": 2,
+        "Transport system improvements": 1
+      },
+      "NGA": {
+        "Alternative fuels": 1,
+        "Electrification": 1,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 2,
+        "Aviation and maritime": 1
+      },
+      "TON": {
+        "Energy efficiency": 4,
+        "Mode shift and demand management": 6,
+        "Electrification": 3,
+        "Transport system improvements": 1,
+        "Alternative fuels": 3,
+        "Aviation and maritime": 2
+      },
+      "FJI": {
+        "Aviation and maritime": 6,
+        "Electrification": 6,
+        "Energy efficiency": 5,
+        "Mode shift and demand management": 3,
+        "Transport system improvements": 2
+      },
+      "VUT": {
+        "Mode shift and demand management": 1,
+        "Energy efficiency": 2,
+        "Electrification": 1,
+        "Alternative fuels": 1,
+        "Aviation and maritime": 3
+      },
+      "FSM": {
+        "Transport system improvements": 1,
+        "Mode shift and demand management": 2,
+        "Electrification": 1,
+        "Alternative fuels": 2
+      },
+      "PAK": {
+        "Mode shift and demand management": 5,
+        "Transport system improvements": 5,
+        "Alternative fuels": 2,
+        "Electrification": 4,
+        "Energy efficiency": 4,
+        "Aviation and maritime": 2
+      },
+      "LBR": {
+        "Transport system improvements": 3,
+        "Mode shift and demand management": 3,
+        "Electrification": 2,
+        "Energy efficiency": 4,
+        "Alternative fuels": 1
+      },
+      "LKA": {
+        "Mode shift and demand management": 5,
+        "Transport system improvements": 4,
+        "Electrification": 2,
+        "Energy efficiency": 3
+      },
+      "BOL": {
+        "Electrification": 10,
+        "Mode shift and demand management": 4
+      },
+      "ETH": {
+        "Electrification": 2,
+        "Energy efficiency": 1,
+        "Alternative fuels": 2
+      },
+      "NIC": {
+        "Electrification": 1
+      },
+      "STP": {
+        "Mode shift and demand management": 3,
+        "Electrification": 2,
+        "Energy efficiency": 2,
+        "Transport system improvements": 2
+      },
+      "BGD": {
+        "Electrification": 7,
+        "Transport system improvements": 6,
+        "Mode shift and demand management": 4,
+        "Energy efficiency": 1
+      },
+      "RUS": {
+        "Alternative fuels": 2,
+        "Electrification": 6,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 3
+      },
+      "MUS": {
+        "Aviation and maritime": 5,
+        "Mode shift and demand management": 3,
+        "Alternative fuels": 2,
+        "Transport system improvements": 2,
+        "Electrification": 4
+      },
+      "TUV": {
+        "Mode shift and demand management": 1,
+        "Electrification": 1,
+        "Transport system improvements": 1,
+        "Alternative fuels": 1,
+        "Energy efficiency": 2,
+        "Aviation and maritime": 5
+      },
+      "MEX": {
+        "Aviation and maritime": 5,
+        "Electrification": 15,
+        "Transport system improvements": 10,
+        "Energy efficiency": 7,
+        "Mode shift and demand management": 13,
+        "Alternative fuels": 1
+      },
+      "KGZ": {
+        "Mode shift and demand management": 2,
+        "Alternative fuels": 1,
+        "Electrification": 2,
+        "Transport system improvements": 2
+      },
+      "VCT": {
+        "Mode shift and demand management": 5,
+        "Energy efficiency": 2,
+        "Electrification": 1
+      },
+      "LBN": {
+        "Electrification": 3,
+        "Transport system improvements": 6,
+        "Mode shift and demand management": 10,
+        "Alternative fuels": 1,
+        "Energy efficiency": 3
+      },
+      "MAR": {
+        "Electrification": 4,
+        "Alternative fuels": 2,
+        "Transport system improvements": 8,
+        "Mode shift and demand management": 6,
+        "Energy efficiency": 4,
+        "Aviation and maritime": 1
+      },
+      "MYS": {
+        "Transport system improvements": 1,
+        "Mode shift and demand management": 2,
+        "Electrification": 1,
+        "Alternative fuels": 1
+      },
+      "ZAF": {
+        "Energy efficiency": 1
+      },
+      "IDN": {
+        "Alternative fuels": 2,
+        "Mode shift and demand management": 2,
+        "Energy efficiency": 2,
+        "Electrification": 1
+      },
+      "ZMB": {
+        "Electrification": 2,
+        "Mode shift and demand management": 3,
+        "Energy efficiency": 1
+      },
+      "MRT": {
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 3,
+        "Electrification": 1,
+        "Alternative fuels": 1
+      },
+      "VEN": {
+        "Alternative fuels": 2,
+        "Transport system improvements": 5,
+        "Mode shift and demand management": 2,
+        "Aviation and maritime": 6
+      },
+      "QAT": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 3,
+        "Transport system improvements": 1,
+        "Electrification": 2,
+        "Alternative fuels": 2,
+        "Energy efficiency": 1
+      },
+      "THA": {
+        "Aviation and maritime": 4,
+        "Alternative fuels": 2,
+        "Electrification": 2
+      },
+      "GIN": {
+        "Transport system improvements": 2,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 1,
+        "Electrification": 1
+      },
+      "PER": {
+        "Transport system improvements": 5,
+        "Mode shift and demand management": 2,
+        "Alternative fuels": 1,
+        "Electrification": 1
+      },
+      "UZB": {
+        "Electrification": 3,
+        "Mode shift and demand management": 3,
+        "Energy efficiency": 1,
+        "Alternative fuels": 3
+      },
+      "TUR": {
+        "Mode shift and demand management": 2
+      },
+      "PRY": {
+        "Electrification": 4,
+        "Transport system improvements": 1,
+        "Alternative fuels": 2
+      },
+      "BHS": {
+        "Transport system improvements": 2,
+        "Electrification": 5,
+        "Energy efficiency": 3,
+        "Mode shift and demand management": 2
+      },
+      "RWA": {
+        "Mode shift and demand management": 5,
+        "Electrification": 4,
+        "Transport system improvements": 2,
+        "Energy efficiency": 2
+      },
+      "BLR": {
+        "Electrification": 1,
+        "Transport system improvements": 1,
+        "Mode shift and demand management": 1
+      },
+      "BTN": {
+        "Energy efficiency": 1,
+        "Electrification": 2,
+        "Mode shift and demand management": 3,
+        "Transport system improvements": 1,
+        "Alternative fuels": 1
+      },
+      "BDI": {
+        "Electrification": 1,
+        "Transport system improvements": 1,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 1,
+        "Alternative fuels": 1
+      },
+      "DJI": {
+        "Mode shift and demand management": 4,
+        "Electrification": 4,
+        "Alternative fuels": 1
+      },
+      "IRQ": {
+        "Energy efficiency": 2,
+        "Transport system improvements": 1,
+        "Mode shift and demand management": 2,
+        "Electrification": 1,
+        "Alternative fuels": 2
+      },
+      "SUR": {
+        "Electrification": 2,
+        "Energy efficiency": 2,
+        "Mode shift and demand management": 2,
+        "Transport system improvements": 1
+      },
+      "YEM": {
+        "Energy efficiency": 1,
+        "Alternative fuels": 1,
+        "Electrification": 1,
+        "Mode shift and demand management": 2
+      },
+      "KAZ": {
+        "Electrification": 5,
+        "Mode shift and demand management": 4,
+        "Alternative fuels": 4,
+        "Energy efficiency": 1,
+        "Aviation and maritime": 1,
+        "Transport system improvements": 1
+      },
+      "PAN": {
+        "Transport system improvements": 1
+      },
+      "SLE": {
+        "Electrification": 4,
+        "Transport system improvements": 3,
+        "Alternative fuels": 2,
+        "Mode shift and demand management": 3,
+        "Energy efficiency": 5
+      },
+      "COL": {
+        "Energy efficiency": 2,
+        "Transport system improvements": 9,
+        "Mode shift and demand management": 11,
+        "Electrification": 3,
+        "Aviation and maritime": 2
+      },
+      "KOR": {
+        "Electrification": 1,
+        "Alternative fuels": 1,
+        "Mode shift and demand management": 1,
+        "Energy efficiency": 1,
+        "Aviation and maritime": 1
+      },
+      "SAU": {
+        "Energy efficiency": 1,
+        "Aviation and maritime": 1
+      },
+      "GAB": {
+        "Electrification": 3,
+        "Mode shift and demand management": 1,
+        "Transport system improvements": 3
+      },
+      "SLV": {
+        "Mode shift and demand management": 5,
+        "Transport system improvements": 3
+      },
+      "BFA": {
+        "Mode shift and demand management": 1,
+        "Electrification": 2,
+        "Aviation and maritime": 1,
+        "Energy efficiency": 1
+      },
+      "NRU": {
+        "Mode shift and demand management": 5,
+        "Electrification": 3,
+        "Energy efficiency": 6,
+        "Transport system improvements": 2,
+        "Alternative fuels": 5
+      },
+      "ARM": {
+        "Energy efficiency": 1,
+        "Transport system improvements": 4,
+        "Mode shift and demand management": 7,
+        "Electrification": 4
+      },
+      "WSM": {
+        "Transport system improvements": 1,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Aviation and maritime": 2
+      },
+      "HND": {
+        "Electrification": 1,
+        "Energy efficiency": 1,
+        "Transport system improvements": 1
+      },
+      "TTO": {
+        "Electrification": 2,
+        "Mode shift and demand management": 1
+      },
+      "PLW": {
+        "Energy efficiency": 2,
+        "Electrification": 4,
+        "Mode shift and demand management": 2,
+        "Aviation and maritime": 4
+      },
+      "COG": {
+        "Energy efficiency": 1,
+        "Transport system improvements": 1,
+        "Electrification": 1
+      },
+      "ERI": {
+        "Transport system improvements": 3,
+        "Mode shift and demand management": 3,
+        "Energy efficiency": 3,
+        "Electrification": 1,
+        "Alternative fuels": 1
+      },
+      "GEO": {
+        "Electrification": 2,
+        "Alternative fuels": 2,
+        "Mode shift and demand management": 2,
+        "Transport system improvements": 5
+      },
+      "COM": {
+        "Electrification": 2,
+        "Energy efficiency": 2,
+        "Mode shift and demand management": 1
+      }
+    },
+    "latest_gen_map": {
+      "GUY": "gen1",
+      "COK": "gen1",
+      "DZA": "gen1",
+      "AFG": "gen1",
+      "SMR": "gen1",
+      "SYR": "gen1",
+      "PRK": "gen2",
+      "GRD": "gen2",
+      "PNG": "gen2",
+      "SEN": "gen1",
+      "DOM": "gen2",
+      "ATG": "gen2",
+      "PHL": "gen2",
+      "MKD": "gen2",
+      "BIH": "gen2",
+      "ISR": "gen2",
+      "MWI": "gen2",
+      "TZA": "gen2",
+      "MMR": "gen2",
+      "LAO": "gen2",
+      "GMB": "gen2",
+      "SSD": "gen2",
+      "PSE": "gen2",
+      "ALB": "gen2",
+      "TGO": "gen2",
+      "BEN": "gen2",
+      "TCD": "gen2",
+      "KNA": "gen2",
+      "ARG": "gen2",
+      "GHA": "gen2",
+      "CMR": "gen2",
+      "MLI": "gen2",
+      "GNB": "gen2",
+      "KWT": "gen2",
+      "TJK": "gen2",
+      "NER": "gen2",
+      "COD": "gen2",
+      "GTM": "gen2",
+      "HTI": "gen2",
+      "DMA": "gen2",
+      "IND": "gen2",
+      "UGA": "gen2",
+      "SDN": "gen2",
+      "GNQ": "gen2",
+      "TLS": "gen2",
+      "VNM": "gen2",
+      "TKM": "gen2",
+      "KIR": "gen2",
+      "EGY": "gen2",
+      "OMN": "gen2",
+      "NAM": "gen2",
+      "MDG": "gen2",
+      "ARE": "gen3",
+      "BRA": "gen3",
+      "USA": "gen3",
+      "BWA": "gen3",
+      "URY": "gen3",
+      "CHE": "gen3",
+      "GBR": "gen3",
+      "NZL": "gen3",
+      "AND": "gen3",
+      "LSO": "gen3",
+      "ECU": "gen3",
+      "LCA": "gen3",
+      "MHL": "gen3",
+      "SGP": "gen3",
+      "ZWE": "gen3",
+      "CAN": "gen3",
+      "JPN": "gen3",
+      "MNE": "gen3",
+      "CUB": "gen3",
+      "MDV": "gen3",
+      "KEN": "gen3",
+      "MDA": "gen3",
+      "NPL": "gen3",
+      "BLZ": "gen3",
+      "NOR": "gen3",
+      "MCO": "gen3",
+      "NIU": "gen3",
+      "KHM": "gen3",
+      "SLB": "gen3",
+      "BRB": "gen3",
+      "SOM": "gen3",
+      "LIE": "gen3",
+      "ISL": "gen3",
+      "SRB": "gen3",
+      "AGO": "gen3",
+      "VAT": "gen3",
+      "AUS": "gen3",
+      "JOR": "gen3",
+      "NIC": "gen3",
+      "TUN": "gen3",
+      "SWZ": "gen3",
+      "JAM": "gen3",
+      "NGA": "gen3",
+      "CHL": "gen3",
+      "TON": "gen3",
+      "LBR": "gen3",
+      "FSM": "gen3",
+      "MNG": "gen3",
+      "PAK": "gen3",
+      "VUT": "gen3",
+      "LKA": "gen3",
+      "ETH": "gen3",
+      "TUV": "gen3",
+      "BGD": "gen3",
+      "BOL": "gen3",
+      "MUS": "gen3",
+      "RUS": "gen3",
+      "LBN": "gen3",
+      "MAR": "gen3",
+      "VCT": "gen3",
+      "STP": "gen3",
+      "SYC": "gen3",
+      "KGZ": "gen3",
+      "MYS": "gen3",
+      "ZAF": "gen3",
+      "IDN": "gen3",
+      "BRN": "gen3",
+      "MRT": "gen3",
+      "VEN": "gen3",
+      "ZMB": "gen3",
+      "CIV": "gen3",
+      "CPV": "gen3",
+      "CHN": "gen3",
+      "THA": "gen3",
+      "AZE": "gen3",
+      "EEU": "gen3",
+      "MOZ": "gen3",
+      "SUR": "gen3",
+      "FJI": "gen3",
+      "GIN": "gen3",
+      "PRY": "gen3",
+      "PER": "gen3",
+      "UZB": "gen3",
+      "BHS": "gen3",
+      "TUR": "gen3",
+      "BLR": "gen3",
+      "BTN": "gen3",
+      "BDI": "gen3",
+      "UKR": "gen3",
+      "DJI": "gen3",
+      "IRQ": "gen3",
+      "CRI": "gen3",
+      "MEX": "gen3",
+      "YEM": "gen3",
+      "QAT": "gen3",
+      "KAZ": "gen3",
+      "PAN": "gen3",
+      "BHR": "gen3",
+      "RWA": "gen3",
+      "SLE": "gen3",
+      "COL": "gen3",
+      "SLV": "gen3",
+      "GAB": "gen3",
+      "KOR": "gen3",
+      "ARM": "gen3",
+      "BFA": "gen3",
+      "SAU": "gen3",
+      "NRU": "gen3",
+      "WSM": "gen3",
+      "HND": "gen3",
+      "TTO": "gen3",
+      "PLW": "gen3",
+      "COG": "gen3",
+      "ERI": "gen3",
+      "CAF": "gen3",
+      "GEO": "gen3",
+      "COM": "gen3"
     }
   }
 }
