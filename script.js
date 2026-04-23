@@ -124,9 +124,14 @@ function initializeTab1() {
     }).addTo(tab1Map);
 
     document.getElementById('tab1-region').addEventListener('change', renderTab1);
+    document.getElementById('tab1-ghg-toggle').addEventListener('change', () => {
+        updateTab1Legend();
+        renderTab1();
+    });
     document.getElementById('tab1-download').addEventListener('click', () => downloadPDF('tab1'));
 
     renderTab1();
+    updateTab1Legend();
 }
 
 function switchTab1View(view) {
@@ -138,36 +143,66 @@ function switchTab1View(view) {
     if (view === 'map') setTimeout(() => tab1Map && tab1Map.invalidateSize(), 120);
 }
 
-function getTab1GenStats(region) {
-    const countries = dashboardData.tab1.countries;
-    const meta      = dashboardData.tab1.generations;
+function getTab1GenStats(region, ghgOnly) {
+    const gens      = dashboardData.tab1.generations;
     const result    = {};
 
     ['gen1', 'gen2', 'gen3'].forEach(gen => {
-        let submitted = 0, withTransport = 0;
-        Object.values(countries).forEach(c => {
-            if (region !== 'all' && c.region !== region) return;
-            if (!c.generations?.[gen]) return;
-            submitted++;
-            if (c.generations[gen].has_transport) withTransport++;
-        });
-        result[gen] = { name: meta[gen].name, period: meta[gen].period, submitted, withTransport };
+        const genData = gens[gen];
+        if (region === 'all') {
+            result[gen] = {
+                name:          genData.name,
+                period:        genData.period,
+                submitted:     genData.total_submitted,
+                withTransport: ghgOnly ? genData.with_ghg_transport : genData.with_transport,
+            };
+        } else {
+            const rd = genData.regions?.[region] || { total: 0, with_transport: 0, with_ghg_transport: 0 };
+            result[gen] = {
+                name:          genData.name,
+                period:        genData.period,
+                submitted:     rd.total,
+                withTransport: ghgOnly ? rd.with_ghg_transport : rd.with_transport,
+            };
+        }
     });
     return result;
 }
 
-function renderTab1() {
-    const region = document.getElementById('tab1-region').value;
-    renderTab1Chart(getTab1GenStats(region));
-    renderTab1Map(region);
+
+function updateTab1Legend() {
+    const ghgOnly = document.getElementById('tab1-ghg-toggle').checked;
+    const legend  = document.getElementById('tab1-map-legend');
+    if (!legend) return;
+    if (ghgOnly) {
+        legend.innerHTML = `
+            <div class="legend-item"><span class="legend-color" style="background:#003D5C"></span><span>Quantified GHG transport target</span></div>
+            <div class="legend-item"><span class="legend-color" style="background:#C8D8E8"></span><span>Transport target (non-GHG)</span></div>
+            <div class="legend-item"><span class="legend-color" style="background:#ECECEC;border:1px dashed #aaa"></span><span>No transport target / No NDC</span></div>`;
+    } else {
+        legend.innerHTML = `
+            <div class="legend-item"><span class="legend-color" style="background:#9DBE3D"></span><span>Includes transport targets</span></div>
+            <div class="legend-item"><span class="legend-color" style="background:#C8D8E8"></span><span>No transport targets</span></div>
+            <div class="legend-item"><span class="legend-color" style="background:#ECECEC;border:1px dashed #aaa"></span><span>No NDC submitted</span></div>`;
+    }
 }
 
-function renderTab1Chart(genStats) {
+function renderTab1() {
+    const region  = document.getElementById('tab1-region').value;
+    const ghgOnly = document.getElementById('tab1-ghg-toggle').checked;
+    renderTab1Chart(getTab1GenStats(region, ghgOnly), ghgOnly);
+    renderTab1Map(region, ghgOnly);
+}
+
+function renderTab1Chart(genStats, ghgOnly) {
     const ctx = document.getElementById('tab1-chart').getContext('2d');
     if (tab1Chart) tab1Chart.destroy();
 
-    const gens   = ['gen1', 'gen2', 'gen3'];
-    const labels = gens.map(g => `${genStats[g].name}\n(${genStats[g].period})`);
+    const gens        = ['gen1', 'gen2', 'gen3'];
+    const labels      = gens.map(g => `${genStats[g].name}\n(${genStats[g].period})`);
+    const transportColor = ghgOnly ? '#003D5C' : '#9DBE3D';
+    const transportBorder = ghgOnly ? '#002840' : '#7A9B2E';
+    const transportLabel  = ghgOnly ? 'With quantified GHG transport target' : 'With transport targets';
 
     tab1Chart = new Chart(ctx, {
         type: 'bar',
@@ -181,9 +216,9 @@ function renderTab1Chart(genStats) {
                     borderWidth: 1, borderRadius: 5, barPercentage: 0.6,
                 },
                 {
-                    label: 'With transport targets',
+                    label: transportLabel,
                     data: gens.map(g => genStats[g].withTransport),
-                    backgroundColor: '#9DBE3D', borderColor: '#7A9B2E',
+                    backgroundColor: transportColor, borderColor: transportBorder,
                     borderWidth: 1, borderRadius: 5, barPercentage: 0.6,
                 },
             ],
@@ -224,7 +259,7 @@ function renderTab1Chart(genStats) {
     });
 }
 
-function renderTab1Map(region) {
+function renderTab1Map(region, ghgOnly) {
     if (!worldGeoJSON) return;
     if (tab1GeoLayer) tab1GeoLayer.remove();
 
@@ -241,11 +276,21 @@ function renderTab1Map(region) {
             const cd       = allCountries[iso3];
             const inRegion = region === 'all' || regionCodes.has(iso3);
             if (!cd) return { fillColor: '#ECECEC', fillOpacity: 0.5, color: '#ccc', weight: 0.5 };
-            const hasT = cd.latest_has_transport;
+            const hasT    = cd.latest_has_transport;
+            const hasGHG  = cd.latest_has_ghg_transport;
+            // Color logic:
+            // GHG mode: dark green if GHG transport, grey if transport but no GHG, light blue if no transport
+            // Normal mode: green if transport, light blue if no transport
+            let fillColor;
+            if (ghgOnly) {
+                fillColor = hasGHG ? '#003D5C' : (hasT ? '#C8D8E8' : '#ECECEC');
+            } else {
+                fillColor = hasT ? '#9DBE3D' : '#C8D8E8';
+            }
             return {
-                fillColor:   hasT ? '#9DBE3D' : '#C8D8E8',
+                fillColor,
                 fillOpacity: inRegion ? 0.85 : 0.15,
-                color:       inRegion ? (hasT ? '#7A9B2E' : '#8AAEC8') : '#ccc',
+                color:       inRegion ? (hasGHG && ghgOnly ? '#002840' : (hasT ? '#8AAEC8' : '#bbb')) : '#ccc',
                 weight:      inRegion ? 0.8 : 0.4,
             };
         },
@@ -263,6 +308,8 @@ function renderTab1Map(region) {
             }).join('');
             const tagCls  = cd.latest_has_transport ? 'yes' : 'no';
             const tagText = cd.latest_has_transport ? '&#10003; Transport target' : '&#10007; No transport target';
+            const ghgTag  = cd.latest_has_ghg_transport
+                ? '<span class="popup-tag yes" style="margin-left:4px">GHG quantified</span>' : '';
             const euNote  = cd.covered_by_eu
                 ? `<div style="font-size:0.8rem;color:#6B7280;margin-top:4px;font-style:italic">Reports collectively through the EU NDC</div>`
                 : '';
@@ -270,7 +317,7 @@ function renderTab1Map(region) {
                 <div class="popup-title">${cd.name}</div>
                 <div class="popup-info">
                     ${genLines}
-                    <span class="popup-tag ${tagCls}" style="margin-top:6px;display:inline-block">${tagText}</span>
+                    <span class="popup-tag ${tagCls}" style="margin-top:6px;display:inline-block">${tagText}</span>${ghgTag}
                     ${euNote}
                 </div>
             `);
