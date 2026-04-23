@@ -29,30 +29,37 @@
         "period": "2015\u20132019",
         "total_submitted": 168,
         "with_transport": 38,
+        "with_ghg_transport": 18,
         "regions": {
           "Asia": {
             "total": 46,
-            "with_transport": 14
+            "with_transport": 14,
+            "with_ghg_transport": 4
           },
           "Oceania": {
             "total": 16,
-            "with_transport": 1
+            "with_transport": 1,
+            "with_ghg_transport": 1
           },
           "Latin America and the Caribbean": {
             "total": 33,
-            "with_transport": 6
+            "with_transport": 6,
+            "with_ghg_transport": 3
           },
           "Africa": {
             "total": 53,
-            "with_transport": 16
+            "with_transport": 16,
+            "with_ghg_transport": 9
           },
           "Europe": {
             "total": 18,
-            "with_transport": 1
+            "with_transport": 1,
+            "with_ghg_transport": 1
           },
           "Northern America": {
             "total": 2,
-            "with_transport": 0
+            "with_transport": 0,
+            "with_ghg_transport": 0
           }
         }
       },
@@ -61,30 +68,37 @@
         "period": "2020\u20132024",
         "total_submitted": 148,
         "with_transport": 69,
+        "with_ghg_transport": 28,
         "regions": {
-          "Oceania": {
-            "total": 13,
-            "with_transport": 5
-          },
           "Asia": {
             "total": 42,
-            "with_transport": 18
+            "with_transport": 18,
+            "with_ghg_transport": 8
+          },
+          "Oceania": {
+            "total": 13,
+            "with_transport": 5,
+            "with_ghg_transport": 3
           },
           "Latin America and the Caribbean": {
             "total": 29,
-            "with_transport": 18
-          },
-          "Europe": {
-            "total": 15,
-            "with_transport": 5
+            "with_transport": 18,
+            "with_ghg_transport": 4
           },
           "Africa": {
             "total": 47,
-            "with_transport": 23
+            "with_transport": 23,
+            "with_ghg_transport": 11
+          },
+          "Europe": {
+            "total": 15,
+            "with_transport": 5,
+            "with_ghg_transport": 2
           },
           "Northern America": {
             "total": 2,
-            "with_transport": 0
+            "with_transport": 0,
+            "with_ghg_transport": 0
           }
         }
       },
@@ -93,30 +107,37 @@
         "period": "2024\u2013ongoing",
         "total_submitted": 117,
         "with_transport": 68,
+        "with_ghg_transport": 35,
         "regions": {
           "Asia": {
             "total": 31,
-            "with_transport": 15
-          },
-          "Latin America and the Caribbean": {
-            "total": 24,
-            "with_transport": 17
-          },
-          "Europe": {
-            "total": 15,
-            "with_transport": 6
-          },
-          "Northern America": {
-            "total": 2,
-            "with_transport": 1
-          },
-          "Africa": {
-            "total": 32,
-            "with_transport": 22
+            "with_transport": 15,
+            "with_ghg_transport": 7
           },
           "Oceania": {
             "total": 13,
-            "with_transport": 7
+            "with_transport": 7,
+            "with_ghg_transport": 7
+          },
+          "Latin America and the Caribbean": {
+            "total": 24,
+            "with_transport": 17,
+            "with_ghg_transport": 6
+          },
+          "Africa": {
+            "total": 32,
+            "with_transport": 22,
+            "with_ghg_transport": 11
+          },
+          "Europe": {
+            "total": 15,
+            "with_transport": 6,
+            "with_ghg_transport": 4
+          },
+          "Northern America": {
+            "total": 2,
+            "with_transport": 1,
+            "with_ghg_transport": 0
           }
         }
       }
@@ -137,7 +158,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "YEM": {
         "iso3": "YEM",
@@ -154,7 +177,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "BRN": {
         "iso3": "BRN",
@@ -175,7 +200,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "PNG": {
         "iso3": "PNG",
@@ -192,7 +219,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "NRU": {
         "iso3": "NRU",
@@ -213,7 +242,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "PAN": {
         "iso3": "PAN",
@@ -234,7 +265,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "BLZ": {
         "iso3": "BLZ",
@@ -255,7 +288,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "BRB": {
         "iso3": "BRB",
@@ -276,7 +311,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "FJI": {
         "iso3": "FJI",
@@ -297,7 +334,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "GRD": {
         "iso3": "GRD",
@@ -314,7 +353,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "MDV": {
         "iso3": "MDV",
@@ -335,7 +376,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MHL": {
         "iso3": "MHL",
@@ -356,7 +399,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "MUS": {
         "iso3": "MUS",
@@ -377,7 +422,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "PLW": {
         "iso3": "PLW",
@@ -394,7 +441,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "KNA": {
         "iso3": "KNA",
@@ -411,7 +460,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "LCA": {
         "iso3": "LCA",
@@ -432,7 +483,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "WSM": {
         "iso3": "WSM",
@@ -453,7 +506,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "SOM": {
         "iso3": "SOM",
@@ -474,7 +529,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "TUV": {
         "iso3": "TUV",
@@ -495,7 +552,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "SYC": {
         "iso3": "SYC",
@@ -516,7 +575,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "GUY": {
         "iso3": "GUY",
@@ -529,7 +590,9 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "NOR": {
         "iso3": "NOR",
@@ -550,7 +613,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "VCT": {
         "iso3": "VCT",
@@ -567,7 +632,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "PER": {
         "iso3": "PER",
@@ -588,7 +655,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "CMR": {
         "iso3": "CMR",
@@ -605,7 +674,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "COK": {
         "iso3": "COK",
@@ -618,7 +689,9 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "CHN": {
         "iso3": "CHN",
@@ -639,7 +712,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "USA": {
         "iso3": "USA",
@@ -660,7 +735,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "LAO": {
         "iso3": "LAO",
@@ -677,7 +754,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "FSM": {
         "iso3": "FSM",
@@ -698,7 +777,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MAR": {
         "iso3": "MAR",
@@ -719,7 +800,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "UKR": {
         "iso3": "UKR",
@@ -740,7 +823,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "ALB": {
         "iso3": "ALB",
@@ -757,7 +842,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "ATG": {
         "iso3": "ATG",
@@ -774,7 +861,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "BGD": {
         "iso3": "BGD",
@@ -795,7 +884,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "BLR": {
         "iso3": "BLR",
@@ -816,7 +907,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "BRA": {
         "iso3": "BRA",
@@ -837,7 +930,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "DMA": {
         "iso3": "DMA",
@@ -854,7 +949,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "SWZ": {
         "iso3": "SWZ",
@@ -875,7 +972,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "GHA": {
         "iso3": "GHA",
@@ -892,7 +991,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "GIN": {
         "iso3": "GIN",
@@ -913,7 +1014,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "HND": {
         "iso3": "HND",
@@ -934,7 +1037,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "ISL": {
         "iso3": "ISL",
@@ -955,7 +1060,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "KIR": {
         "iso3": "KIR",
@@ -972,7 +1079,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MDG": {
         "iso3": "MDG",
@@ -989,7 +1098,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MEX": {
         "iso3": "MEX",
@@ -1010,7 +1121,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MNG": {
         "iso3": "MNG",
@@ -1031,7 +1144,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "NAM": {
         "iso3": "NAM",
@@ -1048,7 +1163,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "NER": {
         "iso3": "NER",
@@ -1065,7 +1182,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "SGP": {
         "iso3": "SGP",
@@ -1086,7 +1205,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "SLB": {
         "iso3": "SLB",
@@ -1107,7 +1228,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "THA": {
         "iso3": "THA",
@@ -1128,7 +1251,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "TON": {
         "iso3": "TON",
@@ -1149,7 +1274,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "UGA": {
         "iso3": "UGA",
@@ -1166,7 +1293,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "ARE": {
         "iso3": "ARE",
@@ -1187,7 +1316,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "VUT": {
         "iso3": "VUT",
@@ -1208,7 +1339,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "MLI": {
         "iso3": "MLI",
@@ -1225,7 +1358,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "IND": {
         "iso3": "IND",
@@ -1242,7 +1377,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "PRK": {
         "iso3": "PRK",
@@ -1259,7 +1396,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "BOL": {
         "iso3": "BOL",
@@ -1280,7 +1419,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "EEU": {
         "iso3": "EEU",
@@ -1301,7 +1442,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "NPL": {
         "iso3": "NPL",
@@ -1322,7 +1465,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "NZL": {
         "iso3": "NZL",
@@ -1343,7 +1488,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "RWA": {
         "iso3": "RWA",
@@ -1364,7 +1511,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "CAF": {
         "iso3": "CAF",
@@ -1385,7 +1534,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "CRI": {
         "iso3": "CRI",
@@ -1406,7 +1557,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "PRY": {
         "iso3": "PRY",
@@ -1427,7 +1580,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "DZA": {
         "iso3": "DZA",
@@ -1440,7 +1595,9 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "TKM": {
         "iso3": "TKM",
@@ -1457,7 +1614,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "CIV": {
         "iso3": "CIV",
@@ -1478,7 +1637,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MCO": {
         "iso3": "MCO",
@@ -1499,7 +1660,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "NIU": {
         "iso3": "NIU",
@@ -1516,7 +1679,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "BHS": {
         "iso3": "BHS",
@@ -1537,7 +1702,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "SLE": {
         "iso3": "SLE",
@@ -1558,7 +1725,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "ZAF": {
         "iso3": "ZAF",
@@ -1579,7 +1748,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "GAB": {
         "iso3": "GAB",
@@ -1600,7 +1771,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "STP": {
         "iso3": "STP",
@@ -1621,7 +1794,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "KOR": {
         "iso3": "KOR",
@@ -1642,7 +1817,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "SAU": {
         "iso3": "SAU",
@@ -1663,7 +1840,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "VNM": {
         "iso3": "VNM",
@@ -1680,7 +1859,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "JOR": {
         "iso3": "JOR",
@@ -1701,7 +1882,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "IDN": {
         "iso3": "IDN",
@@ -1722,7 +1905,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "LKA": {
         "iso3": "LKA",
@@ -1743,7 +1928,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "GMB": {
         "iso3": "GMB",
@@ -1760,7 +1947,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "JPN": {
         "iso3": "JPN",
@@ -1781,7 +1970,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "AUS": {
         "iso3": "AUS",
@@ -1802,7 +1993,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "PAK": {
         "iso3": "PAK",
@@ -1823,7 +2016,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "BWA": {
         "iso3": "BWA",
@@ -1840,7 +2035,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "BFA": {
         "iso3": "BFA",
@@ -1861,7 +2058,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "DJI": {
         "iso3": "DJI",
@@ -1878,7 +2077,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MYS": {
         "iso3": "MYS",
@@ -1899,7 +2100,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "ARG": {
         "iso3": "ARG",
@@ -1916,7 +2119,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "ISR": {
         "iso3": "ISR",
@@ -1933,7 +2138,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "AFG": {
         "iso3": "AFG",
@@ -1946,7 +2153,9 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "COM": {
         "iso3": "COM",
@@ -1967,7 +2176,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "KAZ": {
         "iso3": "KAZ",
@@ -1988,7 +2199,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "ZMB": {
         "iso3": "ZMB",
@@ -2009,7 +2222,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "KEN": {
         "iso3": "KEN",
@@ -2030,7 +2245,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "BHR": {
         "iso3": "BHR",
@@ -2051,7 +2268,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "CUB": {
         "iso3": "CUB",
@@ -2072,7 +2291,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "AZE": {
         "iso3": "AZE",
@@ -2093,7 +2314,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "TCD": {
         "iso3": "TCD",
@@ -2110,7 +2333,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "LSO": {
         "iso3": "LSO",
@@ -2127,7 +2352,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "GTM": {
         "iso3": "GTM",
@@ -2144,7 +2371,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "KHM": {
         "iso3": "KHM",
@@ -2165,7 +2394,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "CHL": {
         "iso3": "CHL",
@@ -2186,7 +2417,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "TUN": {
         "iso3": "TUN",
@@ -2207,7 +2440,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MRT": {
         "iso3": "MRT",
@@ -2228,7 +2463,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "ETH": {
         "iso3": "ETH",
@@ -2249,7 +2486,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "BIH": {
         "iso3": "BIH",
@@ -2266,7 +2505,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "TJK": {
         "iso3": "TJK",
@@ -2283,7 +2524,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "ARM": {
         "iso3": "ARM",
@@ -2304,7 +2547,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "AND": {
         "iso3": "AND",
@@ -2325,7 +2570,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "SLV": {
         "iso3": "SLV",
@@ -2346,7 +2593,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "JAM": {
         "iso3": "JAM",
@@ -2367,7 +2616,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "COG": {
         "iso3": "COG",
@@ -2388,7 +2639,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "GEO": {
         "iso3": "GEO",
@@ -2409,7 +2662,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "CAN": {
         "iso3": "CAN",
@@ -2430,7 +2685,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "NGA": {
         "iso3": "NGA",
@@ -2451,7 +2708,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MDA": {
         "iso3": "MDA",
@@ -2472,7 +2731,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "QAT": {
         "iso3": "QAT",
@@ -2493,7 +2754,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "TGO": {
         "iso3": "TGO",
@@ -2510,7 +2773,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "EGY": {
         "iso3": "EGY",
@@ -2527,7 +2792,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "MWI": {
         "iso3": "MWI",
@@ -2544,7 +2811,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "SRB": {
         "iso3": "SRB",
@@ -2565,7 +2834,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "HTI": {
         "iso3": "HTI",
@@ -2582,7 +2853,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "SDN": {
         "iso3": "SDN",
@@ -2599,7 +2872,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "ZWE": {
         "iso3": "ZWE",
@@ -2620,7 +2895,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "TLS": {
         "iso3": "TLS",
@@ -2637,7 +2914,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "PSE": {
         "iso3": "PSE",
@@ -2654,7 +2933,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "BTN": {
         "iso3": "BTN",
@@ -2675,7 +2956,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MMR": {
         "iso3": "MMR",
@@ -2692,7 +2975,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "LIE": {
         "iso3": "LIE",
@@ -2709,7 +2994,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "CPV": {
         "iso3": "CPV",
@@ -2730,7 +3017,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "DOM": {
         "iso3": "DOM",
@@ -2747,7 +3036,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "CHE": {
         "iso3": "CHE",
@@ -2768,7 +3059,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "BEN": {
         "iso3": "BEN",
@@ -2785,7 +3078,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "URY": {
         "iso3": "URY",
@@ -2806,7 +3101,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "COD": {
         "iso3": "COD",
@@ -2823,7 +3120,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MNE": {
         "iso3": "MNE",
@@ -2844,7 +3143,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MKD": {
         "iso3": "MKD",
@@ -2861,7 +3162,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "BDI": {
         "iso3": "BDI",
@@ -2882,7 +3185,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "TTO": {
         "iso3": "TTO",
@@ -2899,7 +3204,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "VEN": {
         "iso3": "VEN",
@@ -2920,7 +3227,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "KWT": {
         "iso3": "KWT",
@@ -2937,7 +3246,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "TZA": {
         "iso3": "TZA",
@@ -2954,7 +3265,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "MOZ": {
         "iso3": "MOZ",
@@ -2975,7 +3288,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "ERI": {
         "iso3": "ERI",
@@ -2992,7 +3307,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "COL": {
         "iso3": "COL",
@@ -3013,7 +3330,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "LBR": {
         "iso3": "LBR",
@@ -3034,7 +3353,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "NIC": {
         "iso3": "NIC",
@@ -3055,7 +3376,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "SMR": {
         "iso3": "SMR",
@@ -3068,7 +3391,9 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "GNB": {
         "iso3": "GNB",
@@ -3085,7 +3410,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "GNQ": {
         "iso3": "GNQ",
@@ -3102,7 +3429,9 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "UZB": {
         "iso3": "UZB",
@@ -3123,7 +3452,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "SYR": {
         "iso3": "SYR",
@@ -3136,7 +3467,9 @@
             "has_transport": false,
             "version": "NDC 1.1"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "SUR": {
         "iso3": "SUR",
@@ -3157,7 +3490,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "ECU": {
         "iso3": "ECU",
@@ -3174,7 +3509,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "OMN": {
         "iso3": "OMN",
@@ -3191,7 +3528,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "LBN": {
         "iso3": "LBN",
@@ -3212,7 +3551,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "KGZ": {
         "iso3": "KGZ",
@@ -3233,7 +3574,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "AGO": {
         "iso3": "AGO",
@@ -3254,7 +3597,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "RUS": {
         "iso3": "RUS",
@@ -3271,7 +3616,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "GBR": {
         "iso3": "GBR",
@@ -3288,7 +3635,9 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "SEN": {
         "iso3": "SEN",
@@ -3301,7 +3650,9 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "SSD": {
         "iso3": "SSD",
@@ -3318,7 +3669,9 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       },
       "TUR": {
         "iso3": "TUR",
@@ -3339,7 +3692,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": true
       },
       "IRQ": {
         "iso3": "IRQ",
@@ -3356,7 +3711,9 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
       },
       "VAT": {
         "iso3": "VAT",
@@ -3373,7 +3730,657 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false,
+        "had_transport_previously": false
+      },
+      "AUT": {
+        "iso3": "AUT",
+        "name": "Austria",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "BEL": {
+        "iso3": "BEL",
+        "name": "Belgium",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "BGR": {
+        "iso3": "BGR",
+        "name": "Bulgaria",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "HRV": {
+        "iso3": "HRV",
+        "name": "Croatia",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "CYP": {
+        "iso3": "CYP",
+        "name": "Cyprus",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "CZE": {
+        "iso3": "CZE",
+        "name": "Czechia",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "DNK": {
+        "iso3": "DNK",
+        "name": "Denmark",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "EST": {
+        "iso3": "EST",
+        "name": "Estonia",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "FIN": {
+        "iso3": "FIN",
+        "name": "Finland",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "FRA": {
+        "iso3": "FRA",
+        "name": "France",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "DEU": {
+        "iso3": "DEU",
+        "name": "Germany",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "GRC": {
+        "iso3": "GRC",
+        "name": "Greece",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "HUN": {
+        "iso3": "HUN",
+        "name": "Hungary",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "IRL": {
+        "iso3": "IRL",
+        "name": "Ireland",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "ITA": {
+        "iso3": "ITA",
+        "name": "Italy",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "LVA": {
+        "iso3": "LVA",
+        "name": "Latvia",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "LTU": {
+        "iso3": "LTU",
+        "name": "Lithuania",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "LUX": {
+        "iso3": "LUX",
+        "name": "Luxembourg",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "MLT": {
+        "iso3": "MLT",
+        "name": "MLT",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "NLD": {
+        "iso3": "NLD",
+        "name": "Netherlands",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "POL": {
+        "iso3": "POL",
+        "name": "Poland",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "PRT": {
+        "iso3": "PRT",
+        "name": "Portugal",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "ROU": {
+        "iso3": "ROU",
+        "name": "Romania",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "SVK": {
+        "iso3": "SVK",
+        "name": "Slovakia",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "SVN": {
+        "iso3": "SVN",
+        "name": "Slovenia",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "ESP": {
+        "iso3": "ESP",
+        "name": "Spain",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
+      },
+      "SWE": {
+        "iso3": "SWE",
+        "name": "Sweden",
+        "region": "Europe",
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
+        "generations": {
+          "gen1": {
+            "has_transport": false,
+            "version": "NDC 1.0"
+          },
+          "gen2": {
+            "has_transport": true,
+            "version": "NDC 2.1"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
+          }
+        },
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true,
+        "had_transport_previously": false
       }
     }
   },
@@ -5582,6 +6589,411 @@
           "Energy efficiency": 2,
           "Mode shift and demand management": 1
         }
+      },
+      "AUT": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "BEL": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "BGR": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "HRV": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "CYP": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "CZE": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "DNK": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "EST": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "FIN": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "FRA": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "DEU": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "GRC": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "HUN": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "IRL": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "ITA": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "LVA": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "LTU": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "LUX": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "MLT": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "NLD": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "POL": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "PRT": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "ROU": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "SVK": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "SVN": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "ESP": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
+      },
+      "SWE": {
+        "gen2": {
+          "Energy efficiency": 4,
+          "Mode shift and demand management": 2,
+          "Aviation and maritime": 3,
+          "Alternative fuels": 1
+        },
+        "gen3": {
+          "Aviation and maritime": 2,
+          "Mode shift and demand management": 5,
+          "Electrification": 2,
+          "Alternative fuels": 1,
+          "Transport system improvements": 1
+        }
       }
     },
     "cat_latest_gen_breakdown": {
@@ -6574,6 +7986,195 @@
         "Electrification": 2,
         "Energy efficiency": 2,
         "Mode shift and demand management": 1
+      },
+      "AUT": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "BEL": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "BGR": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "HRV": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "CYP": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "CZE": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "DNK": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "EST": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "FIN": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "FRA": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "DEU": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "GRC": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "HUN": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "IRL": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "ITA": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "LVA": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "LTU": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "LUX": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "MLT": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "NLD": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "POL": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "PRT": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "ROU": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "SVK": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "SVN": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "ESP": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
+      },
+      "SWE": {
+        "Aviation and maritime": 2,
+        "Mode shift and demand management": 5,
+        "Electrification": 2,
+        "Alternative fuels": 1,
+        "Transport system improvements": 1
       }
     },
     "latest_gen_map": {
@@ -6745,7 +8346,34 @@
       "ERI": "gen3",
       "CAF": "gen3",
       "GEO": "gen3",
-      "COM": "gen3"
+      "COM": "gen3",
+      "AUT": "gen3",
+      "BEL": "gen3",
+      "BGR": "gen3",
+      "HRV": "gen3",
+      "CYP": "gen3",
+      "CZE": "gen3",
+      "DNK": "gen3",
+      "EST": "gen3",
+      "FIN": "gen3",
+      "FRA": "gen3",
+      "DEU": "gen3",
+      "GRC": "gen3",
+      "HUN": "gen3",
+      "IRL": "gen3",
+      "ITA": "gen3",
+      "LVA": "gen3",
+      "LTU": "gen3",
+      "LUX": "gen3",
+      "MLT": "gen3",
+      "NLD": "gen3",
+      "POL": "gen3",
+      "PRT": "gen3",
+      "ROU": "gen3",
+      "SVK": "gen3",
+      "SVN": "gen3",
+      "ESP": "gen3",
+      "SWE": "gen3"
     }
   }
 }
