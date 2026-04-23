@@ -29,30 +29,37 @@
         "period": "2015\u20132019",
         "total_submitted": 168,
         "with_transport": 38,
+        "with_ghg_transport": 18,
         "regions": {
           "Asia": {
             "total": 46,
-            "with_transport": 14
+            "with_transport": 14,
+            "with_ghg_transport": 4
           },
           "Oceania": {
             "total": 16,
-            "with_transport": 1
+            "with_transport": 1,
+            "with_ghg_transport": 1
           },
           "Latin America and the Caribbean": {
             "total": 33,
-            "with_transport": 6
+            "with_transport": 6,
+            "with_ghg_transport": 3
           },
           "Africa": {
             "total": 53,
-            "with_transport": 16
+            "with_transport": 16,
+            "with_ghg_transport": 9
           },
           "Europe": {
             "total": 18,
-            "with_transport": 1
+            "with_transport": 1,
+            "with_ghg_transport": 1
           },
           "Northern America": {
             "total": 2,
-            "with_transport": 0
+            "with_transport": 0,
+            "with_ghg_transport": 0
           }
         }
       },
@@ -61,30 +68,37 @@
         "period": "2020\u20132024",
         "total_submitted": 148,
         "with_transport": 69,
+        "with_ghg_transport": 28,
         "regions": {
-          "Oceania": {
-            "total": 13,
-            "with_transport": 5
-          },
           "Asia": {
             "total": 42,
-            "with_transport": 18
+            "with_transport": 18,
+            "with_ghg_transport": 8
+          },
+          "Oceania": {
+            "total": 13,
+            "with_transport": 5,
+            "with_ghg_transport": 3
           },
           "Latin America and the Caribbean": {
             "total": 29,
-            "with_transport": 18
-          },
-          "Europe": {
-            "total": 15,
-            "with_transport": 5
+            "with_transport": 18,
+            "with_ghg_transport": 4
           },
           "Africa": {
             "total": 47,
-            "with_transport": 23
+            "with_transport": 23,
+            "with_ghg_transport": 11
+          },
+          "Europe": {
+            "total": 15,
+            "with_transport": 5,
+            "with_ghg_transport": 2
           },
           "Northern America": {
             "total": 2,
-            "with_transport": 0
+            "with_transport": 0,
+            "with_ghg_transport": 0
           }
         }
       },
@@ -93,30 +107,37 @@
         "period": "2024\u2013ongoing",
         "total_submitted": 117,
         "with_transport": 68,
+        "with_ghg_transport": 35,
         "regions": {
           "Asia": {
             "total": 31,
-            "with_transport": 15
-          },
-          "Latin America and the Caribbean": {
-            "total": 24,
-            "with_transport": 17
-          },
-          "Europe": {
-            "total": 15,
-            "with_transport": 6
-          },
-          "Northern America": {
-            "total": 2,
-            "with_transport": 1
-          },
-          "Africa": {
-            "total": 32,
-            "with_transport": 22
+            "with_transport": 15,
+            "with_ghg_transport": 7
           },
           "Oceania": {
             "total": 13,
-            "with_transport": 7
+            "with_transport": 7,
+            "with_ghg_transport": 7
+          },
+          "Latin America and the Caribbean": {
+            "total": 24,
+            "with_transport": 17,
+            "with_ghg_transport": 6
+          },
+          "Africa": {
+            "total": 32,
+            "with_transport": 22,
+            "with_ghg_transport": 11
+          },
+          "Europe": {
+            "total": 15,
+            "with_transport": 6,
+            "with_ghg_transport": 4
+          },
+          "Northern America": {
+            "total": 2,
+            "with_transport": 1,
+            "with_ghg_transport": 0
           }
         }
       }
@@ -137,7 +158,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "YEM": {
         "iso3": "YEM",
@@ -154,7 +176,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "BRN": {
         "iso3": "BRN",
@@ -175,7 +198,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "PNG": {
         "iso3": "PNG",
@@ -192,7 +216,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "NRU": {
         "iso3": "NRU",
@@ -213,7 +238,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "PAN": {
         "iso3": "PAN",
@@ -234,7 +260,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "BLZ": {
         "iso3": "BLZ",
@@ -255,7 +282,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "BRB": {
         "iso3": "BRB",
@@ -276,7 +304,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "FJI": {
         "iso3": "FJI",
@@ -297,7 +326,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "GRD": {
         "iso3": "GRD",
@@ -314,7 +344,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "MDV": {
         "iso3": "MDV",
@@ -335,7 +366,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MHL": {
         "iso3": "MHL",
@@ -356,7 +388,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "MUS": {
         "iso3": "MUS",
@@ -377,7 +410,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "PLW": {
         "iso3": "PLW",
@@ -394,7 +428,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "KNA": {
         "iso3": "KNA",
@@ -411,7 +446,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "LCA": {
         "iso3": "LCA",
@@ -432,7 +468,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "WSM": {
         "iso3": "WSM",
@@ -453,7 +490,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "SOM": {
         "iso3": "SOM",
@@ -474,7 +512,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "TUV": {
         "iso3": "TUV",
@@ -495,7 +534,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SYC": {
         "iso3": "SYC",
@@ -516,7 +556,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "GUY": {
         "iso3": "GUY",
@@ -529,7 +570,8 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "NOR": {
         "iso3": "NOR",
@@ -550,7 +592,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "VCT": {
         "iso3": "VCT",
@@ -567,7 +610,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "PER": {
         "iso3": "PER",
@@ -588,7 +632,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "CMR": {
         "iso3": "CMR",
@@ -605,7 +650,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "COK": {
         "iso3": "COK",
@@ -618,7 +664,8 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "CHN": {
         "iso3": "CHN",
@@ -639,7 +686,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "USA": {
         "iso3": "USA",
@@ -660,7 +708,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "LAO": {
         "iso3": "LAO",
@@ -677,7 +726,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "FSM": {
         "iso3": "FSM",
@@ -698,7 +748,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MAR": {
         "iso3": "MAR",
@@ -719,7 +770,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "UKR": {
         "iso3": "UKR",
@@ -740,7 +792,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "ALB": {
         "iso3": "ALB",
@@ -757,7 +810,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "ATG": {
         "iso3": "ATG",
@@ -774,7 +828,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "BGD": {
         "iso3": "BGD",
@@ -795,7 +850,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "BLR": {
         "iso3": "BLR",
@@ -816,7 +872,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "BRA": {
         "iso3": "BRA",
@@ -837,7 +894,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "DMA": {
         "iso3": "DMA",
@@ -854,7 +912,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "SWZ": {
         "iso3": "SWZ",
@@ -875,7 +934,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "GHA": {
         "iso3": "GHA",
@@ -892,7 +952,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "GIN": {
         "iso3": "GIN",
@@ -913,7 +974,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "HND": {
         "iso3": "HND",
@@ -934,7 +996,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "ISL": {
         "iso3": "ISL",
@@ -955,7 +1018,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "KIR": {
         "iso3": "KIR",
@@ -972,7 +1036,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MDG": {
         "iso3": "MDG",
@@ -989,7 +1054,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MEX": {
         "iso3": "MEX",
@@ -1010,7 +1076,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MNG": {
         "iso3": "MNG",
@@ -1031,7 +1098,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "NAM": {
         "iso3": "NAM",
@@ -1048,7 +1116,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "NER": {
         "iso3": "NER",
@@ -1065,7 +1134,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SGP": {
         "iso3": "SGP",
@@ -1086,7 +1156,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SLB": {
         "iso3": "SLB",
@@ -1107,7 +1178,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "THA": {
         "iso3": "THA",
@@ -1128,7 +1200,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "TON": {
         "iso3": "TON",
@@ -1149,7 +1222,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "UGA": {
         "iso3": "UGA",
@@ -1166,7 +1240,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "ARE": {
         "iso3": "ARE",
@@ -1187,7 +1262,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "VUT": {
         "iso3": "VUT",
@@ -1208,7 +1284,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "MLI": {
         "iso3": "MLI",
@@ -1225,7 +1302,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "IND": {
         "iso3": "IND",
@@ -1242,7 +1320,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "PRK": {
         "iso3": "PRK",
@@ -1259,7 +1338,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "BOL": {
         "iso3": "BOL",
@@ -1280,7 +1360,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "EEU": {
         "iso3": "EEU",
@@ -1301,7 +1382,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "NPL": {
         "iso3": "NPL",
@@ -1322,7 +1404,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "NZL": {
         "iso3": "NZL",
@@ -1343,7 +1426,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "RWA": {
         "iso3": "RWA",
@@ -1364,7 +1448,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "CAF": {
         "iso3": "CAF",
@@ -1385,7 +1470,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "CRI": {
         "iso3": "CRI",
@@ -1406,7 +1492,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "PRY": {
         "iso3": "PRY",
@@ -1427,7 +1514,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "DZA": {
         "iso3": "DZA",
@@ -1440,7 +1528,8 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "TKM": {
         "iso3": "TKM",
@@ -1457,7 +1546,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "CIV": {
         "iso3": "CIV",
@@ -1478,7 +1568,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MCO": {
         "iso3": "MCO",
@@ -1499,7 +1590,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "NIU": {
         "iso3": "NIU",
@@ -1516,7 +1608,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "BHS": {
         "iso3": "BHS",
@@ -1537,7 +1630,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SLE": {
         "iso3": "SLE",
@@ -1558,7 +1652,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "ZAF": {
         "iso3": "ZAF",
@@ -1579,7 +1674,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "GAB": {
         "iso3": "GAB",
@@ -1600,7 +1696,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "STP": {
         "iso3": "STP",
@@ -1621,7 +1718,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "KOR": {
         "iso3": "KOR",
@@ -1642,7 +1740,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SAU": {
         "iso3": "SAU",
@@ -1663,7 +1762,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "VNM": {
         "iso3": "VNM",
@@ -1680,7 +1780,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "JOR": {
         "iso3": "JOR",
@@ -1701,7 +1802,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "IDN": {
         "iso3": "IDN",
@@ -1722,7 +1824,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "LKA": {
         "iso3": "LKA",
@@ -1743,7 +1846,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "GMB": {
         "iso3": "GMB",
@@ -1760,7 +1864,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "JPN": {
         "iso3": "JPN",
@@ -1781,7 +1886,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "AUS": {
         "iso3": "AUS",
@@ -1802,7 +1908,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "PAK": {
         "iso3": "PAK",
@@ -1823,7 +1930,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "BWA": {
         "iso3": "BWA",
@@ -1840,7 +1948,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "BFA": {
         "iso3": "BFA",
@@ -1861,7 +1970,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "DJI": {
         "iso3": "DJI",
@@ -1878,7 +1988,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MYS": {
         "iso3": "MYS",
@@ -1899,7 +2010,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "ARG": {
         "iso3": "ARG",
@@ -1916,7 +2028,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "ISR": {
         "iso3": "ISR",
@@ -1933,7 +2046,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "AFG": {
         "iso3": "AFG",
@@ -1946,7 +2060,8 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "COM": {
         "iso3": "COM",
@@ -1967,7 +2082,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "KAZ": {
         "iso3": "KAZ",
@@ -1988,7 +2104,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "ZMB": {
         "iso3": "ZMB",
@@ -2009,7 +2126,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "KEN": {
         "iso3": "KEN",
@@ -2030,7 +2148,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "BHR": {
         "iso3": "BHR",
@@ -2051,7 +2170,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "CUB": {
         "iso3": "CUB",
@@ -2072,7 +2192,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "AZE": {
         "iso3": "AZE",
@@ -2093,7 +2214,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "TCD": {
         "iso3": "TCD",
@@ -2110,7 +2232,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "LSO": {
         "iso3": "LSO",
@@ -2127,7 +2250,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "GTM": {
         "iso3": "GTM",
@@ -2144,7 +2268,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "KHM": {
         "iso3": "KHM",
@@ -2165,7 +2290,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "CHL": {
         "iso3": "CHL",
@@ -2186,7 +2312,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "TUN": {
         "iso3": "TUN",
@@ -2207,7 +2334,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MRT": {
         "iso3": "MRT",
@@ -2228,7 +2356,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "ETH": {
         "iso3": "ETH",
@@ -2249,7 +2378,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "BIH": {
         "iso3": "BIH",
@@ -2266,7 +2396,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "TJK": {
         "iso3": "TJK",
@@ -2283,7 +2414,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "ARM": {
         "iso3": "ARM",
@@ -2304,7 +2436,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "AND": {
         "iso3": "AND",
@@ -2325,7 +2458,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "SLV": {
         "iso3": "SLV",
@@ -2346,7 +2480,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "JAM": {
         "iso3": "JAM",
@@ -2367,7 +2502,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "COG": {
         "iso3": "COG",
@@ -2388,7 +2524,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "GEO": {
         "iso3": "GEO",
@@ -2409,7 +2546,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "CAN": {
         "iso3": "CAN",
@@ -2430,7 +2568,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "NGA": {
         "iso3": "NGA",
@@ -2451,7 +2590,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MDA": {
         "iso3": "MDA",
@@ -2472,7 +2612,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "QAT": {
         "iso3": "QAT",
@@ -2493,7 +2634,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "TGO": {
         "iso3": "TGO",
@@ -2510,7 +2652,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "EGY": {
         "iso3": "EGY",
@@ -2527,7 +2670,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "MWI": {
         "iso3": "MWI",
@@ -2544,7 +2688,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SRB": {
         "iso3": "SRB",
@@ -2565,7 +2710,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "HTI": {
         "iso3": "HTI",
@@ -2582,7 +2728,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SDN": {
         "iso3": "SDN",
@@ -2599,7 +2746,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "ZWE": {
         "iso3": "ZWE",
@@ -2620,7 +2768,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "TLS": {
         "iso3": "TLS",
@@ -2637,7 +2786,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "PSE": {
         "iso3": "PSE",
@@ -2654,7 +2804,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "BTN": {
         "iso3": "BTN",
@@ -2675,7 +2826,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MMR": {
         "iso3": "MMR",
@@ -2692,7 +2844,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "LIE": {
         "iso3": "LIE",
@@ -2709,7 +2862,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "CPV": {
         "iso3": "CPV",
@@ -2730,7 +2884,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "DOM": {
         "iso3": "DOM",
@@ -2747,7 +2902,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "CHE": {
         "iso3": "CHE",
@@ -2768,7 +2924,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "BEN": {
         "iso3": "BEN",
@@ -2785,7 +2942,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "URY": {
         "iso3": "URY",
@@ -2806,7 +2964,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "COD": {
         "iso3": "COD",
@@ -2823,7 +2982,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MNE": {
         "iso3": "MNE",
@@ -2844,7 +3004,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MKD": {
         "iso3": "MKD",
@@ -2861,7 +3022,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "BDI": {
         "iso3": "BDI",
@@ -2882,7 +3044,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "TTO": {
         "iso3": "TTO",
@@ -2899,7 +3062,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "VEN": {
         "iso3": "VEN",
@@ -2920,7 +3084,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "KWT": {
         "iso3": "KWT",
@@ -2937,7 +3102,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "TZA": {
         "iso3": "TZA",
@@ -2954,7 +3120,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "MOZ": {
         "iso3": "MOZ",
@@ -2975,7 +3142,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "ERI": {
         "iso3": "ERI",
@@ -2992,7 +3160,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "COL": {
         "iso3": "COL",
@@ -3013,7 +3182,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "LBR": {
         "iso3": "LBR",
@@ -3034,7 +3204,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "NIC": {
         "iso3": "NIC",
@@ -3055,7 +3226,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SMR": {
         "iso3": "SMR",
@@ -3068,7 +3240,8 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "GNB": {
         "iso3": "GNB",
@@ -3085,7 +3258,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "GNQ": {
         "iso3": "GNQ",
@@ -3102,7 +3276,8 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "UZB": {
         "iso3": "UZB",
@@ -3123,7 +3298,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SYR": {
         "iso3": "SYR",
@@ -3136,7 +3312,8 @@
             "has_transport": false,
             "version": "NDC 1.1"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SUR": {
         "iso3": "SUR",
@@ -3157,7 +3334,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "ECU": {
         "iso3": "ECU",
@@ -3174,7 +3352,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "OMN": {
         "iso3": "OMN",
@@ -3191,7 +3370,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "LBN": {
         "iso3": "LBN",
@@ -3212,7 +3392,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "KGZ": {
         "iso3": "KGZ",
@@ -3233,7 +3414,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "AGO": {
         "iso3": "AGO",
@@ -3254,7 +3436,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "RUS": {
         "iso3": "RUS",
@@ -3271,7 +3454,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "GBR": {
         "iso3": "GBR",
@@ -3288,7 +3472,8 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SEN": {
         "iso3": "SEN",
@@ -3301,7 +3486,8 @@
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "SSD": {
         "iso3": "SSD",
@@ -3318,7 +3504,8 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": true
       },
       "TUR": {
         "iso3": "TUR",
@@ -3339,7 +3526,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "IRQ": {
         "iso3": "IRQ",
@@ -3356,7 +3544,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "VAT": {
         "iso3": "VAT",
@@ -3373,7 +3562,8 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        }
+        },
+        "latest_has_ghg_transport": false
       },
       "AUT": {
         "iso3": "AUT",
@@ -3395,7 +3585,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "BEL": {
         "iso3": "BEL",
@@ -3417,7 +3608,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "BGR": {
         "iso3": "BGR",
@@ -3439,7 +3631,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "HRV": {
         "iso3": "HRV",
@@ -3461,7 +3654,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "CYP": {
         "iso3": "CYP",
@@ -3483,7 +3677,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "CZE": {
         "iso3": "CZE",
@@ -3505,7 +3700,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "DNK": {
         "iso3": "DNK",
@@ -3527,7 +3723,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "EST": {
         "iso3": "EST",
@@ -3549,7 +3746,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "FIN": {
         "iso3": "FIN",
@@ -3571,7 +3769,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "FRA": {
         "iso3": "FRA",
@@ -3593,7 +3792,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "DEU": {
         "iso3": "DEU",
@@ -3615,7 +3815,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "GRC": {
         "iso3": "GRC",
@@ -3637,7 +3838,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "HUN": {
         "iso3": "HUN",
@@ -3659,7 +3861,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "IRL": {
         "iso3": "IRL",
@@ -3681,7 +3884,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "ITA": {
         "iso3": "ITA",
@@ -3703,7 +3907,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "LVA": {
         "iso3": "LVA",
@@ -3725,7 +3930,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "LTU": {
         "iso3": "LTU",
@@ -3747,7 +3953,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "LUX": {
         "iso3": "LUX",
@@ -3769,7 +3976,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "MLT": {
         "iso3": "MLT",
@@ -3791,7 +3999,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "NLD": {
         "iso3": "NLD",
@@ -3813,7 +4022,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "POL": {
         "iso3": "POL",
@@ -3835,7 +4045,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "PRT": {
         "iso3": "PRT",
@@ -3857,7 +4068,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "ROU": {
         "iso3": "ROU",
@@ -3879,7 +4091,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "SVK": {
         "iso3": "SVK",
@@ -3901,7 +4114,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "SVN": {
         "iso3": "SVN",
@@ -3923,7 +4137,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "ESP": {
         "iso3": "ESP",
@@ -3945,7 +4160,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       },
       "SWE": {
         "iso3": "SWE",
@@ -3967,7 +4183,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "latest_has_ghg_transport": true
       }
     }
   },
