@@ -1,4 +1,4 @@
-# 🚀 Setup Guide - NDC Transport Tracker
+# Setup Guide - NDC Transport Tracker
 
 ## Quick Start (5 minutes)
 
