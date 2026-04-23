@@ -16,15 +16,12 @@
 </head>
 <body>
 
-    <!-- Tab Navigation -->
     <nav class="tab-navigation">
         <button class="tab-button active" data-tab="tab1">Progress in Transport Targets</button>
         <button class="tab-button" data-tab="tab2">Leading Measures for Decarbonisation</button>
     </nav>
 
-    <!-- ================================================================
-         TAB 1: Progress in NDC Transport Targets
-    ================================================================ -->
+    <!-- TAB 1 -->
     <div class="tab-content active" id="tab1">
         <div class="tab-header">
             <div class="tab-title-section">
@@ -49,14 +46,6 @@
                         <option value="Oceania">Oceania</option>
                     </select>
                 </div>
-                <div class="filter-group filter-group--toggle">
-                    <label>Target type:</label>
-                    <label class="switch-label">
-                        <input type="checkbox" id="tab1-ghg-toggle" class="switch-input">
-                        <span class="switch-track"><span class="switch-thumb"></span></span>
-                        <span class="switch-text">Quantified GHG transport targets only</span>
-                    </label>
-                </div>
                 <div class="view-toggle">
                     <button class="toggle-button active" data-view="chart">
                         <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><rect x="2" y="10" width="4" height="8"/><rect x="8" y="5" width="4" height="13"/><rect x="14" y="7" width="4" height="11"/></svg>
@@ -71,13 +60,15 @@
         </div>
 
         <div class="visualization-container" id="tab1-chart-view">
+            <p class="chart-subtitle" id="tab1-chart-subtitle"></p>
             <div class="chart-wrapper"><canvas id="tab1-chart"></canvas></div>
         </div>
         <div class="visualization-container hidden" id="tab1-map-view">
             <div id="tab1-map" class="map-container"></div>
             <div class="map-legend" id="tab1-map-legend">
-                <div class="legend-item"><span class="legend-color" style="background:#9DBE3D"></span><span>Includes transport targets</span></div>
-                <div class="legend-item"><span class="legend-color" style="background:#C8D8E8"></span><span>No transport targets</span></div>
+                <div class="legend-item"><span class="legend-color" style="background:#9DBE3D"></span><span>Transport target in latest active NDC</span></div>
+                <div class="legend-item"><span class="legend-color" style="background:#7EC8E3"></span><span>Transport target in a previous NDC, not in latest</span></div>
+                <div class="legend-item"><span class="legend-color" style="background:#C8D8E8"></span><span>No transport target in any NDC</span></div>
                 <div class="legend-item"><span class="legend-color" style="background:#ECECEC;border:1px dashed #aaa"></span><span>No NDC submitted</span></div>
             </div>
         </div>
@@ -89,9 +80,7 @@
         </div>
     </div>
 
-    <!-- ================================================================
-         TAB 2: Leading Measures for Decarbonisation
-    ================================================================ -->
+    <!-- TAB 2 -->
     <div class="tab-content" id="tab2">
         <div class="tab-header">
             <div class="tab-title-section">
@@ -104,15 +93,15 @@
                 </button>
             </div>
 
-            <!-- CHART FILTERS (multi-select gens + region) -->
+            <!-- CHART FILTERS -->
             <div class="filters-section" id="tab2-chart-filters">
                 <div class="filter-group">
                     <label>Show data from:</label>
                     <div class="gen-toggle-group" id="tab2-gen-toggles">
                         <button class="gen-toggle active" data-gen="latest" style="--gen-color:#9DBE3D">Latest Active</button>
-                        <button class="gen-toggle" data-gen="gen1"   style="--gen-color:#003D5C">1st Generation</button>
-                        <button class="gen-toggle" data-gen="gen2"   style="--gen-color:#00A4BD">2nd Generation</button>
-                        <button class="gen-toggle" data-gen="gen3"   style="--gen-color:#E8821A">3rd Generation</button>
+                        <button class="gen-toggle" data-gen="gen1" style="--gen-color:#003D5C">1st Generation</button>
+                        <button class="gen-toggle" data-gen="gen2" style="--gen-color:#00A4BD">2nd Generation</button>
+                        <button class="gen-toggle" data-gen="gen3" style="--gen-color:#E8821A">3rd Generation</button>
                     </div>
                 </div>
                 <div class="filter-group">
@@ -139,15 +128,15 @@
                 </div>
             </div>
 
-            <!-- MAP FILTERS (single-select gen + category + region) -->
+            <!-- MAP FILTERS -->
             <div class="filters-section hidden" id="tab2-map-filters">
                 <div class="filter-group">
                     <label>Show data from:</label>
                     <div class="gen-toggle-group" id="tab2-map-gen-toggles">
                         <button class="gen-toggle active" data-gen="latest" style="--gen-color:#9DBE3D">Latest Active</button>
-                        <button class="gen-toggle" data-gen="gen1"   style="--gen-color:#003D5C">1st Generation</button>
-                        <button class="gen-toggle" data-gen="gen2"   style="--gen-color:#00A4BD">2nd Generation</button>
-                        <button class="gen-toggle" data-gen="gen3"   style="--gen-color:#E8821A">3rd Generation</button>
+                        <button class="gen-toggle" data-gen="gen1" style="--gen-color:#003D5C">1st Generation</button>
+                        <button class="gen-toggle" data-gen="gen2" style="--gen-color:#00A4BD">2nd Generation</button>
+                        <button class="gen-toggle" data-gen="gen3" style="--gen-color:#E8821A">3rd Generation</button>
                         <button class="btn-reset" id="tab2-map-reset">&#8635; Reset</button>
                     </div>
                 </div>
@@ -188,13 +177,10 @@
             </div>
         </div>
 
-        <!-- Chart view -->
         <div class="visualization-container" id="tab2-chart-view">
             <p class="chart-subtitle" id="tab2-chart-subtitle"></p>
             <div class="chart-wrapper"><canvas id="tab2-chart"></canvas></div>
         </div>
-
-        <!-- Map view -->
         <div class="visualization-container hidden" id="tab2-map-view">
             <p class="map-currently-showing" id="tab2-map-label"></p>
             <div id="tab2-map" class="map-container"></div>
@@ -207,7 +193,6 @@
                 </div>
             </div>
         </div>
-
         <div class="action-buttons">
             <button class="btn-download" id="tab2-download">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12l-5-5h3V3h4v4h3l-5 5zm-6 5h12v2H4v-2z"/></svg>
@@ -216,13 +201,20 @@
         </div>
     </div>
 
-    <!-- Tooltip Modals -->
+    <!-- Tooltips -->
     <div class="tooltip-modal" id="tooltip-tab1-info">
         <div class="tooltip-content">
             <button class="tooltip-close">×</button>
             <h3>About this chart</h3>
-            <p>This chart shows how many NDCs include transport-related targets across three generations of submissions. 169 represents the total number of NDCs in the global system (excluding EU member states, which report collectively).</p>
-            <p>Use the Region filter to explore results by geographic area. Both the bars and the map update accordingly.</p>
+            <p>This chart shows the percentage of NDCs that include transport-related targets across three generations of submissions. Each bar represents 100% of NDCs submitted in that generation — 168 in the 1st, 148 in the 2nd, and 117 in the 3rd.</p>
+            <p>Use the Region filter to explore results by geographic area. The subtitle shows the exact number of NDCs for the selected region.</p>
+            <hr class="tooltip-divider"/>
+            <h3>About the map</h3>
+            <p><strong>Green</strong> — country has a transport target in its latest active NDC.</p>
+            <p><strong>Light blue</strong> — country included transport targets in a previous NDC generation but not in its latest active submission.</p>
+            <p><strong>Grey</strong> — country has never included a transport target in any NDC.</p>
+            <p><strong>White / outline</strong> — country has not submitted an NDC.</p>
+            <p>EU member states are shown collectively based on the EU NDC, which is submitted on behalf of all 27 members.</p>
         </div>
     </div>
 
@@ -230,18 +222,16 @@
         <div class="tooltip-content">
             <button class="tooltip-close">×</button>
             <h3>About this chart</h3>
-            <p>This chart shows the number of NDCs mentioning each transport mitigation measure category, and how many times those measures are mentioned in total.</p>
-            <p>Use the generation toggles to compare how priorities have shifted over rounds. Multiple generations can be selected simultaneously to compare side by side.</p>
+            <p>This chart shows the number of NDCs mentioning each transport mitigation measure category. Use the generation toggles to compare how priorities have shifted over rounds. Multiple generations can be selected simultaneously.</p>
             <p>The Region filter limits the analysis to countries in the selected geographic area.</p>
             <hr class="tooltip-divider"/>
             <h3>What do we mean by Active and Archived?</h3>
-            <p><strong>Active</strong> — the NDC a country currently operates under. This is their most recent, valid climate commitment.</p>
-            <p><strong>Archived</strong> — an NDC that has been superseded by a newer submission. For example, a country's 1st generation NDC becomes archived once they submit a 2nd generation one.</p>
-            <p>When viewing a specific generation (e.g. 1st Generation), both active and archived NDCs from that round are included — because an archived NDC still represents a real commitment made during that cycle. Only 7 countries still have a 1st generation NDC as their latest active; the remaining 161 have moved on to newer generations.</p>
+            <p><strong>Active</strong> — the NDC a country currently operates under.</p>
+            <p><strong>Archived</strong> — superseded by a newer submission, but still represents the commitment made in that round.</p>
+            <p>When viewing a specific generation, both active and archived NDCs from that round are included.</p>
         </div>
     </div>
 
-    <!-- Loading -->
     <div class="loading-overlay" id="loading">
         <div class="loading-spinner"></div>
         <p>Loading dashboard data...</p>
