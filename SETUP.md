@@ -2,15 +2,7 @@
 
 ## Quick Start (5 minutes)
 
-### Step 1: Create GitHub Repository
-
-1. Go to https://github.com/new
-2. Repository name: `ndc-tracker` (or your choice)
-3. Description: "Interactive dashboard for NDC transport targets"
-4. **Make it PUBLIC** (required for GitHub Pages)
-5. Click "Create repository"
-
-### Step 2: Upload Files
+### Step 1: Upload Files
 
 **Option A: Drag & Drop (Easiest)**
 
@@ -39,31 +31,7 @@ git remote add origin https://github.com/YOUR-USERNAME/ndc-tracker.git
 git push -u origin main
 ```
 
-### Step 3: Enable GitHub Pages
-
-1. Go to your repository on GitHub
-2. Click "Settings" tab
-3. Click "Pages" in the left sidebar
-4. Under "Source", select "main" branch
-5. Click "Save"
-6. Wait 2-3 minutes
-
-Your dashboard will be live at:
-**`https://YOUR-USERNAME.github.io/ndc-tracker`**
-
-### Step 4: Test the Automation
-
-1. Go to the `data/` folder in your repository
-2. Click on the Excel file
-3. Click the pencil icon (Edit)
-4. Make a tiny change (add a space somewhere)
-5. Click "Commit changes"
-6. Go to "Actions" tab
-7. You should see "Update Dashboard Data" running
-8. Wait for it to finish (green checkmark)
-9. Check `data/processed/data.json` - it should be updated!
-
-### Step 5: Embed in WordPress
+### Step 2: Embed in WordPress
 
 In your WordPress page/post editor:
 
@@ -152,29 +120,6 @@ Edit `styles.css`, find `:root` section:
 1. Go to "Actions" tab
 2. Click "Update Dashboard Data" workflow
 3. Click "Enable workflow" if needed
-
----
-
-## 📞 Need Help?
-
-1. Check the Actions logs (detailed error messages)
-2. Verify Excel file format matches original
-3. Create an issue in your repository
-4. Check README.md for more detailed docs
-
----
-
-## ✅ Checklist
-
-- [ ] Repository created
-- [ ] Files uploaded
-- [ ] GitHub Pages enabled
-- [ ] Dashboard loads (visit the URL)
-- [ ] Test data update (upload new Excel)
-- [ ] GitHub Actions runs successfully
-- [ ] Embed code added to WordPress
-- [ ] Logos added (optional)
-- [ ] Colors customized (optional)
 
 ---
 
