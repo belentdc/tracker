@@ -33,7 +33,8 @@
                     </svg>
                 </button>
             </div>
-            <div class="filters-section">
+            <!-- Chart filters -->
+            <div class="filters-section" id="tab1-chart-filters">
                 <div class="filter-group">
                     <label for="tab1-region">Region:</label>
                     <select id="tab1-region" class="filter-select">
@@ -52,6 +53,19 @@
                         Chart
                     </button>
                     <button class="toggle-button" data-view="map">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Map
+                    </button>
+                </div>
+            </div>
+            <!-- Map filters -->
+            <div class="filters-section hidden" id="tab1-map-filters">
+                <div class="view-toggle">
+                    <button class="toggle-button" data-view="chart">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><rect x="2" y="10" width="4" height="8"/><rect x="8" y="5" width="4" height="13"/><rect x="14" y="7" width="4" height="11"/></svg>
+                        Chart
+                    </button>
+                    <button class="toggle-button active" data-view="map">
                         <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                         Map
                     </button>
@@ -130,49 +144,41 @@
 
             <!-- MAP FILTERS -->
             <div class="filters-section hidden" id="tab2-map-filters">
-                <div class="filter-group">
-                    <label>Show data from:</label>
-                    <div class="gen-toggle-group" id="tab2-map-gen-toggles">
-                        <button class="gen-toggle active" data-gen="latest" style="--gen-color:#9DBE3D">Latest Active</button>
-                        <button class="gen-toggle" data-gen="gen1" style="--gen-color:#003D5C">1st Generation</button>
-                        <button class="gen-toggle" data-gen="gen2" style="--gen-color:#00A4BD">2nd Generation</button>
-                        <button class="gen-toggle" data-gen="gen3" style="--gen-color:#E8821A">3rd Generation</button>
-                        <button class="btn-reset" id="tab2-map-reset">&#8635; Reset</button>
+                <!-- Row 1: generation toggles + view toggle -->
+                <div class="filter-row-1">
+                    <div class="filter-group">
+                        <label>Show data from:</label>
+                        <div class="gen-toggle-group" id="tab2-map-gen-toggles">
+                            <button class="gen-toggle active" data-gen="latest" style="--gen-color:#9DBE3D">Latest Active</button>
+                            <button class="gen-toggle" data-gen="gen1" style="--gen-color:#003D5C">1st Generation</button>
+                            <button class="gen-toggle" data-gen="gen2" style="--gen-color:#00A4BD">2nd Generation</button>
+                            <button class="gen-toggle" data-gen="gen3" style="--gen-color:#E8821A">3rd Generation</button>
+                            <button class="btn-reset" id="tab2-map-reset">&#8635; Reset</button>
+                        </div>
+                    </div>
+                    <div class="view-toggle" style="margin-left:auto">
+                        <button class="toggle-button" data-view="chart">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><rect x="2" y="10" width="4" height="8"/><rect x="8" y="5" width="4" height="13"/><rect x="14" y="7" width="4" height="11"/></svg>
+                            Chart
+                        </button>
+                        <button class="toggle-button active" data-view="map">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            Map
+                        </button>
                     </div>
                 </div>
-                <div class="filter-group">
-                    <label for="tab2-map-category">Category:</label>
-                    <select id="tab2-map-category" class="filter-select">
-                        <option value="all">All categories</option>
-                        <option value="Electrification">Electrification</option>
-                        <option value="Mode shift and demand management">Mode shift and demand management</option>
-                        <option value="Transport system improvements">Transport system improvements</option>
-                        <option value="Energy efficiency">Energy efficiency</option>
-                        <option value="Alternative fuels">Alternative fuels</option>
-                        <option value="Aviation and maritime">Aviation and maritime</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="tab2-map-region">Region:</label>
-                    <select id="tab2-map-region" class="filter-select">
-                        <option value="all">All Regions</option>
-                        <option value="Africa">Africa</option>
-                        <option value="Asia">Asia</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Latin America and the Caribbean">Latin America & Caribbean</option>
-                        <option value="Northern America">Northern America</option>
-                        <option value="Oceania">Oceania</option>
-                    </select>
-                </div>
-                <div class="view-toggle">
-                    <button class="toggle-button" data-view="chart">
-                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><rect x="2" y="10" width="4" height="8"/><rect x="8" y="5" width="4" height="13"/><rect x="14" y="7" width="4" height="11"/></svg>
-                        Chart
-                    </button>
-                    <button class="toggle-button active" data-view="map">
-                        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2C6.13 2 3 5.13 3 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        Map
-                    </button>
+                <!-- Row 2: category pills -->
+                <div class="filter-row-2">
+                    <label>Category:</label>
+                    <div class="cat-toggle-group" id="tab2-map-cat-toggles">
+                        <button class="cat-toggle active" data-cat="all">All</button>
+                        <button class="cat-toggle" data-cat="Electrification">Electrification</button>
+                        <button class="cat-toggle" data-cat="Mode shift and demand management">Mode shift</button>
+                        <button class="cat-toggle" data-cat="Transport system improvements">System improvements</button>
+                        <button class="cat-toggle" data-cat="Energy efficiency">Energy efficiency</button>
+                        <button class="cat-toggle" data-cat="Alternative fuels">Alternative fuels</button>
+                        <button class="cat-toggle" data-cat="Aviation and maritime">Aviation & maritime</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -206,15 +212,17 @@
         <div class="tooltip-content">
             <button class="tooltip-close">×</button>
             <h3>About this chart</h3>
-            <p>This chart shows the percentage of NDCs that include transport-related targets across three generations of submissions. Each bar represents 100% of NDCs submitted in that generation — 168 in the 1st, 148 in the 2nd, and 117 in the 3rd.</p>
-            <p>Use the Region filter to explore results by geographic area. The subtitle shows the exact number of NDCs for the selected region.</p>
+            <p>This chart shows the percentage of NDCs that include transport-related targets across three generations of submissions. Each bar represents 100% of NDCs submitted in that generation. Use the Region filter to explore results by geographic area. The subtitle updates to show the exact number of NDCs for the selected region.</p>
             <hr class="tooltip-divider"/>
             <h3>About the map</h3>
-            <p><strong>Green</strong> — country has a transport target in its latest active NDC.</p>
-            <p><strong>Light blue</strong> — country included transport targets in a previous NDC generation but not in its latest active submission.</p>
-            <p><strong>Grey</strong> — country has never included a transport target in any NDC.</p>
-            <p><strong>White / outline</strong> — country has not submitted an NDC.</p>
-            <p>EU member states are shown collectively based on the EU NDC, which is submitted on behalf of all 27 members.</p>
+            <p><strong>Transport target in latest active NDC</strong> The country's current operative NDC includes at least one transport-related target.</p>
+            <p><strong>Transport target in a previous NDC</strong> The country included transport targets in an earlier NDC submission. That NDC is now archived, meaning it has been superseded by a newer generation that does not carry the transport commitment forward.</p>
+            <p><strong>No transport target in any NDC</strong> The country has not included transport targets in any generation of NDC submissions.</p>
+            <p><strong>No NDC submitted</strong> The country has not submitted an NDC to the UNFCCC.</p>
+            <hr class="tooltip-divider"/>
+            <h3>What do Active and Archived mean?</h3>
+            <p>An <strong>active</strong> NDC is the climate commitment a country currently operates under. An <strong>archived</strong> NDC has been superseded by a newer submission. It remains on record as evidence of past commitments but is no longer the operative document.</p>
+            <p>EU member states are displayed collectively based on the EU NDC, submitted on behalf of all 27 members.</p>
         </div>
     </div>
 
@@ -222,13 +230,19 @@
         <div class="tooltip-content">
             <button class="tooltip-close">×</button>
             <h3>About this chart</h3>
-            <p>This chart shows the number of NDCs mentioning each transport mitigation measure category. Use the generation toggles to compare how priorities have shifted over rounds. Multiple generations can be selected simultaneously.</p>
-            <p>The Region filter limits the analysis to countries in the selected geographic area.</p>
+            <p>This chart shows the number of NDCs mentioning each transport mitigation measure category. Use the generation toggles to compare how priorities have shifted over rounds. Multiple generations can be selected simultaneously. The Region filter limits the analysis to countries in the selected geographic area.</p>
             <hr class="tooltip-divider"/>
-            <h3>What do we mean by Active and Archived?</h3>
-            <p><strong>Active</strong> — the NDC a country currently operates under.</p>
-            <p><strong>Archived</strong> — superseded by a newer submission, but still represents the commitment made in that round.</p>
-            <p>When viewing a specific generation, both active and archived NDCs from that round are included.</p>
+            <h3>About the map</h3>
+            <p><strong>Measure mentions by country</strong> The heat map shows how many times transport mitigation measures are mentioned in NDCs for the selected generation and categories. Darker colours indicate more mentions.</p>
+            <p><strong>Generation selection</strong> Only one generation can be selected at a time on the map. Use the Reset button to return to the Latest Active view.</p>
+            <p><strong>Category filter</strong> Select one or more measure categories to see how mentions are distributed geographically. When multiple categories are selected, the map shows the combined total of mentions. The country popup shows the breakdown per selected category.</p>
+            <p><strong>Data note</strong> The map reflects mentions in submitted NDCs only. EU member states are displayed collectively based on the EU NDC, submitted on behalf of all 27 members.</p>
+            <hr class="tooltip-divider"/>
+            <h3>What do Active and Archived mean?</h3>
+            <p>An <strong>active</strong> NDC is the climate commitment a country currently operates under. An <strong>archived</strong> NDC has been superseded by a newer submission. It remains on record as evidence of past commitments but is no longer the operative document. When viewing a specific generation, both active and archived NDCs from that round are included.</p>
+            <hr class="tooltip-divider"/>
+            <h3>Legal note</h3>
+            <p>The boundaries and names shown on this map do not imply official endorsement or acceptance by GIZ. This map is for illustrative purposes only and does not imply any opinion on the part of GIZ concerning the legal status of any country or territory, or concerning the delimitation of frontiers or boundaries. Country polygons sourced from Natural Earth (naturalearthdata.com), a public domain dataset.</p>
         </div>
     </div>
 
