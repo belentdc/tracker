@@ -14,6 +14,7 @@ let tab2GeoLayer  = null;
 let chartActiveGens = ['latest'];
 let mapActiveGen    = 'latest';
 let lastChartGen    = 'latest';
+let mapActiveCats   = new Set(['all']); // 'all' means all categories
 
 const GEN_CONFIG = {
     latest: { label: 'Latest Active NDC', color: '#9DBE3D', border: '#7A9B2E' },
@@ -113,10 +114,8 @@ function initializeTab1() {
         btn.addEventListener('click', () => switchTab1View(btn.dataset.view)));
 
     tab1Map = L.map('tab1-map', { zoomControl: true, scrollWheelZoom: false }).setView([20, 10], 2);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-        subdomains: 'abcd', maxZoom: 19,
-    }).addTo(tab1Map);
+    tab1Map.attributionControl.setPrefix('Natural Earth (naturalearthdata.com) | For illustrative purposes only. Borders do not reflect GIZ\'s official position.');
+
 
     document.getElementById('tab1-region').addEventListener('change', renderTab1);
     document.getElementById('tab1-download').addEventListener('click', () => downloadPDF('tab1'));
@@ -129,6 +128,8 @@ function switchTab1View(view) {
         b.classList.toggle('active', b.dataset.view === view));
     document.getElementById('tab1-chart-view').classList.toggle('hidden', view !== 'chart');
     document.getElementById('tab1-map-view').classList.toggle('hidden', view !== 'map');
+    document.getElementById('tab1-chart-filters').classList.toggle('hidden', view !== 'chart');
+    document.getElementById('tab1-map-filters').classList.toggle('hidden', view !== 'map');
     if (view === 'map') setTimeout(() => tab1Map && tab1Map.invalidateSize(), 120);
 }
 
@@ -464,19 +465,49 @@ function initializeTab2() {
 
     // Reset button
     document.getElementById('tab2-map-reset').addEventListener('click', () => {
-        mapActiveGen = 'latest';
+        mapActiveGen  = 'latest';
+        mapActiveCats = new Set(['all']);
         document.querySelectorAll('#tab2-map-gen-toggles .gen-toggle').forEach(b =>
             b.classList.toggle('active', b.dataset.gen === 'latest'));
-        document.getElementById('tab2-map-category').value = 'all';
-        document.getElementById('tab2-map-region').value = 'all';
+        document.querySelectorAll('#tab2-map-cat-toggles .cat-toggle').forEach(b =>
+            b.classList.toggle('active', b.dataset.cat === 'all'));
         updateMapGradientColor();
         renderTab2Map();
         updateMapLabel();
     });
 
     document.getElementById('tab2-chart-region').addEventListener('change', renderTab2Chart);
-    document.getElementById('tab2-map-category').addEventListener('change', () => { renderTab2Map(); updateMapLabel(); });
-    document.getElementById('tab2-map-region').addEventListener('change', renderTab2Map);
+    // Category toggle buttons (multi-select)
+    document.querySelectorAll('#tab2-map-cat-toggles .cat-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const cat = btn.dataset.cat;
+            if (cat === 'all') {
+                // All button — deselect everything else
+                mapActiveCats = new Set(['all']);
+                document.querySelectorAll('#tab2-map-cat-toggles .cat-toggle').forEach(b =>
+                    b.classList.toggle('active', b.dataset.cat === 'all'));
+            } else {
+                // Remove 'all' if it was active
+                mapActiveCats.delete('all');
+                document.querySelector('#tab2-map-cat-toggles .cat-toggle[data-cat="all"]').classList.remove('active');
+                // Toggle this category
+                if (mapActiveCats.has(cat)) {
+                    mapActiveCats.delete(cat);
+                    btn.classList.remove('active');
+                    // If nothing selected, go back to all
+                    if (mapActiveCats.size === 0) {
+                        mapActiveCats = new Set(['all']);
+                        document.querySelector('#tab2-map-cat-toggles .cat-toggle[data-cat="all"]').classList.add('active');
+                    }
+                } else {
+                    mapActiveCats.add(cat);
+                    btn.classList.add('active');
+                }
+            }
+            renderTab2Map();
+            updateMapLabel();
+        });
+    });
 
     // View toggle
     document.querySelectorAll('#tab2 .toggle-button').forEach(btn => {
@@ -500,10 +531,8 @@ function initializeTab2() {
     });
 
     tab2Map = L.map('tab2-map', { zoomControl: true, scrollWheelZoom: false }).setView([20, 10], 2);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-        subdomains: 'abcd', maxZoom: 19,
-    }).addTo(tab2Map);
+    tab2Map.attributionControl.setPrefix('Natural Earth (naturalearthdata.com) | For illustrative purposes only. Borders do not reflect GIZ\'s official position.');
+
 
     document.getElementById('tab2-download').addEventListener('click', () => downloadPDF('tab2'));
 
@@ -647,9 +676,13 @@ function renderTab2Chart() {
 
 // ── Map ────────────────────────────────────────────────────────────────────
 function updateMapLabel() {
-    const cat      = document.getElementById('tab2-map-category').value;
     const genLabel = GEN_LABELS[mapActiveGen];
-    const catLabel = cat === 'all' ? `All categories (${ALL_CATEGORIES_TEXT})` : cat;
+    let catLabel;
+    if (mapActiveCats.has('all')) {
+        catLabel = `All categories (${ALL_CATEGORIES_TEXT})`;
+    } else {
+        catLabel = [...mapActiveCats].join(', ');
+    }
     document.getElementById('tab2-map-label').textContent =
         `Currently showing: ${genLabel} — ${catLabel}`;
 }
@@ -667,9 +700,10 @@ function renderTab2Map() {
     const allCountries   = dashboardData.tab1.countries;
     const countryGenCats = dashboardData.tab2.country_gen_cats;
     const clc            = dashboardData.tab2.country_latest_cats;
-    const cat            = document.getElementById('tab2-map-category').value;
-    const region         = document.getElementById('tab2-map-region').value;
     const cfg            = GEN_CONFIG[mapActiveGen];
+    const region         = 'all';  // region filter not shown on map
+    const showAll        = mapActiveCats.has('all');
+    const selectedCats   = showAll ? CATEGORIES_ORDER : [...mapActiveCats];
 
     const countryTotals = {};
     Object.keys(allCountries).forEach(code => {
@@ -678,18 +712,12 @@ function renderTab2Map() {
         const cats = mapActiveGen === 'latest'
             ? (clc[code] || {})
             : (countryGenCats[code]?.[mapActiveGen] || {});
-        const val = cat === 'all'
-            ? Object.values(cats).reduce((a, b) => a + b, 0)
-            : (cats[cat] || 0);
+        const val = selectedCats.reduce((sum, c) => sum + (cats[c] || 0), 0);
         countryTotals[code] = val;
     });
 
     const maxVal = Math.max(...Object.values(countryTotals), 1);
-    const regionCodes = new Set(
-        Object.values(allCountries)
-            .filter(c => region === 'all' || c.region === region)
-            .map(c => c.iso3)
-    );
+    const regionCodes = new Set(Object.keys(allCountries));  // no region filter on map
 
     function hexToRgb(hex) {
         return [parseInt(hex.slice(1,3),16), parseInt(hex.slice(3,5),16), parseInt(hex.slice(5,7),16)];
@@ -725,19 +753,16 @@ function renderTab2Map() {
             const total    = countryTotals[iso3] || 0;
             const genLabel = GEN_LABELS[mapActiveGen];
 
-            let popupBody = '';
-            if (cat === 'all') {
-                const cats = mapActiveGen === 'latest'
-                    ? (clc[iso3] || {})
-                    : (countryGenCats[iso3]?.[mapActiveGen] || {});
-                const topCats = Object.entries(cats)
-                    .sort((a,b) => b[1]-a[1]).slice(0,3)
-                    .map(([c,n]) => `<div style="font-size:0.8rem;color:#555">${c}: <b>${n}</b></div>`)
-                    .join('');
-                popupBody = `<div><strong>Total mentions: ${total}</strong></div>${topCats}`;
-            } else {
-                popupBody = `<div><strong>${cat}: ${total} mention${total !== 1 ? 's' : ''}</strong></div>`;
-            }
+            const cats = mapActiveGen === 'latest'
+                ? (clc[iso3] || {})
+                : (countryGenCats[iso3]?.[mapActiveGen] || {});
+
+            let popupBody = `<div><strong>Total mentions: ${total}</strong></div>`;
+            const catLines = selectedCats
+                .filter(c => cats[c] > 0)
+                .map(c => `<div style="font-size:0.8rem;color:#555">${c}: <b>${cats[c]}</b></div>`)
+                .join('');
+            popupBody += catLines || '<div style="font-size:0.8rem;color:#999">No mentions</div>';
 
             const euNote = cd.covered_by_eu
                 ? `<div style="font-size:0.8rem;color:#6B7280;margin-top:4px;font-style:italic">Reports collectively through the EU NDC</div>`
