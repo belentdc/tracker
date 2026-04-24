@@ -246,6 +246,10 @@ body {
     overflow: hidden;
 }
 
+.map-container .leaflet-container {
+    background: #FFFFFF;
+}
+
 /* ── Map legend ───────────────────────────────────────────────────── */
 .map-legend {
     position: absolute;
