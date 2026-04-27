@@ -3,6 +3,7 @@
 // ============================================================================
 
 let dashboardData = null;
+let countryUrls   = {};
 let worldGeoJSON  = null;
 let tab1Chart     = null;
 let tab2Chart     = null;
@@ -43,12 +44,22 @@ const ALL_CATEGORIES_TEXT =
     'Electrification, Mode shift and demand management, Transport system improvements, ' +
     'Energy efficiency, Alternative fuels, Aviation and maritime';
 
+
+
+function countryTitle(iso3, name) {
+    const url = countryUrls[iso3];
+    if (url) {
+        return `<a href="${url}" target="_blank" rel="noopener" class="popup-country-link">${name} <span class="popup-link-icon">↗</span></a>`;
+    }
+    return name;
+}
+
 // ============================================================================
 // Boot
 // ============================================================================
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        await Promise.all([loadData(), loadGeoJSON()]);
+        await Promise.all([loadData(), loadGeoJSON(), loadCountryUrls()]);
         initializeTabs();
         initializeTooltips();
         initializeTab1();
@@ -68,6 +79,15 @@ async function loadData() {
     const res = await fetch('data/processed/data.json');
     if (!res.ok) throw new Error('data.json not found');
     dashboardData = await res.json();
+}
+
+async function loadCountryUrls() {
+    try {
+        const res = await fetch('data/processed/country-urls.json');
+        if (res.ok) countryUrls = await res.json();
+    } catch (e) {
+        console.warn('country-urls.json not found, links disabled');
+    }
 }
 
 async function loadGeoJSON() {
@@ -349,7 +369,7 @@ function renderTab1Map(region) {
             if (!cd) {
                 // No NDC submitted — white with dashed border
                 return {
-                    fillColor: '#FFFFFF',
+                    fillColor: '#F2F2F2',
                     fillOpacity: inRegion ? 0.9 : 0.4,
                     color: '#bbb',
                     weight: 0.8,
@@ -409,7 +429,7 @@ function renderTab1Map(region) {
                 : '';
 
             layer.bindPopup(`
-                <div class="popup-title">${cd.name}</div>
+                <div class="popup-title">${countryTitle(iso3, cd.name)}</div>
                 <div class="popup-info">
                     ${genLines}
                     <div style="margin-top:6px">${statusTag}</div>
@@ -734,42 +754,104 @@ function renderTab2Map() {
         style(feature) {
             const iso3     = feature.properties.iso_a3;
             const cd       = allCountries[iso3];
-            const inRegion = region === 'all' || regionCodes.has(iso3);
             const val      = countryTotals[iso3] || 0;
-            if (!cd) return { fillColor: '#ECECEC', fillOpacity: 0.4, color: '#ccc', weight: 0.5 };
+
+            // No data at all (territory or country with no NDC ever)
+            if (!cd) {
+                return {
+                    fillColor:   '#FFFFFF',
+                    fillOpacity: 1,
+                    color:       '#ddd',
+                    weight:      0.5,
+                    dashArray:   null,
+                };
+            }
+
+            // Check if country has NDC in selected generation
+            const hasNdcInGen = mapActiveGen === 'latest'
+                ? !!cd.latest_active_gen
+                : !!cd.generations?.[mapActiveGen];
+
+            // No NDC in selected generation → white (not applicable)
+            if (!hasNdcInGen) {
+                return {
+                    fillColor:   '#FFFFFF',
+                    fillOpacity: 1,
+                    color:       '#ddd',
+                    weight:      0.5,
+                    dashArray:   null,
+                };
+            }
+
+            // Has NDC but 0 mentions → light grey (submitted but no transport measures)
+            if (val === 0) {
+                return {
+                    fillColor:   '#E8E8E8',
+                    fillOpacity: 0.9,
+                    color:       '#bbb',
+                    weight:      0.5,
+                    dashArray:   null,
+                };
+            }
+
+            // Has NDC and has mentions → heat color
             return {
                 fillColor:   heatColor(val),
-                fillOpacity: inRegion ? 0.85 : 0.15,
-                color:       inRegion ? cfg.border : '#ccc',
-                weight:      inRegion ? 0.7 : 0.4,
+                fillOpacity: 0.85,
+                color:       cfg.border,
+                weight:      0.7,
+                dashArray:   null,
             };
         },
         onEachFeature(feature, layer) {
             const iso3 = feature.properties.iso_a3;
             const cd   = allCountries[iso3];
-            if (!cd) return;
+
+            // Countries not in dataset (Libya, Iran etc — no NDC ever)
+            if (!cd) {
+                const name = feature.properties.name || iso3;
+                layer.bindPopup(`
+                    <div class="popup-title">${name}</div>
+                    <div class="popup-info"><span class="popup-tag no">No NDC submitted</span></div>
+                `);
+                layer.on({
+                    mouseover(e) { e.target.setStyle({ weight: 2, fillOpacity: 1 }); e.target.bringToFront(); },
+                    mouseout()   { tab2GeoLayer.resetStyle(layer); },
+                });
+                return;
+            }
 
             const inRegion = region === 'all' || regionCodes.has(iso3);
             const total    = countryTotals[iso3] || 0;
             const genLabel = GEN_LABELS[mapActiveGen];
 
+            const hasNdcInGen = mapActiveGen === 'latest'
+                ? !!cd.latest_active_gen
+                : !!cd.generations?.[mapActiveGen];
+
             const cats = mapActiveGen === 'latest'
                 ? (clc[iso3] || {})
                 : (countryGenCats[iso3]?.[mapActiveGen] || {});
 
-            let popupBody = `<div><strong>Total mentions: ${total}</strong></div>`;
-            const catLines = selectedCats
-                .filter(c => cats[c] > 0)
-                .map(c => `<div style="font-size:0.8rem;color:#555">${c}: <b>${cats[c]}</b></div>`)
-                .join('');
-            popupBody += catLines || '<div style="font-size:0.8rem;color:#999">No mentions</div>';
+            let popupBody;
+            if (!hasNdcInGen) {
+                const genLabel2 = mapActiveGen === 'latest' ? 'a latest active NDC' : `a ${GEN_LABELS[mapActiveGen]}`;
+                popupBody = `<div style="color:#999;font-style:italic">No ${genLabel2} on record</div>`;
+            } else {
+                popupBody = `<div><strong>Total mentions: ${total}</strong></div>`;
+                const catLines = selectedCats
+                    .filter(c => cats[c] > 0)
+                    .map(c => `<div style="font-size:0.8rem;color:#555">${c}: <b>${cats[c]}</b></div>`)
+                    .join('');
+                popupBody += catLines || '<div style="font-size:0.8rem;color:#999">No transport measure mentions</div>';
+            }
 
             const euNote = cd.covered_by_eu
                 ? `<div style="font-size:0.8rem;color:#6B7280;margin-top:4px;font-style:italic">Reports collectively through the EU NDC</div>`
                 : '';
 
             layer.bindPopup(`
-                <div class="popup-title">${cd.name} — ${genLabel}</div>
+                <div class="popup-title">${countryTitle(iso3, cd.name)} <span style="font-weight:400;font-size:0.85em;color:#6B7280">— ${genLabel}</span></div>
                 <div class="popup-info">${popupBody}${euNote}</div>
             `);
 
