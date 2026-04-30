@@ -1,7 +1,6 @@
 # Setup Guide - NDC Transport Tracker
 
-## Quick Start (5 minutes)
-
+## Quick Start
 ### Step 1: Upload Files
 
 **Option A: Drag & Drop (Easiest)**
@@ -53,7 +52,7 @@ In your WordPress page/post editor:
 
 ---
 
-## 🎨 Customization
+## Customization
 
 ### Add Your Logos
 
@@ -79,7 +78,7 @@ Edit `styles.css`, find `:root` section:
 
 ---
 
-## 📊 Updating Data
+## Updating Data
 
 ### Web Interface (Recommended)
 

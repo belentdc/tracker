@@ -1,8 +1,8 @@
-# 🚀 NDC Transport Tracker Dashboard
+# NDC Transport Tracker Dashboard
 
 Interactive dashboard for visualizing NDC transport targets and mitigation measures.
 
-## 📊 Live Dashboard
+## Live Dashboard
 
 **Dashboard URL:** `https://[your-username].github.io/ndc-tracker`
 
@@ -19,47 +19,16 @@ Embed in WordPress:
 
 ---
 
-## 🔄 How to Update Data
+## How to Update Data
 
-### Method 1: Web Interface (EASIEST - No coding required!)
+### Method 2: GitHub
 
-1. Go to your repository: `https://github.com/[your-username]/ndc-tracker`
-2. Click on the `data/` folder
-3. Click "Add file" → "Upload files"
-4. Drag and drop your updated Excel file: `GIZ-SLOCAT_Transport-Tracker-database.xlsx`
-5. Scroll down and click "Commit changes"
-6. ✅ **Done!** GitHub Actions will automatically:
-   - Process the Excel file
-   - Generate new data.json
-   - Update the dashboard (takes 1-2 minutes)
-
-### Method 2: GitHub Desktop (Visual app)
-
-1. Install [GitHub Desktop](https://desktop.github.com/)
+1. Install [GitHub Desktop](https://github.com/)
 2. Clone this repository
-3. Replace the Excel file in the `data/` folder
+3. Replace the Excel file `GIZ-SLOCAT_Transport-Tracker-database.xlsx` in the `data/` folder
 4. Click "Commit to main" 
 5. Click "Push origin"
-6. ✅ Done!
-
-### Method 3: Command Line
-
-```bash
-# Clone repository (first time only)
-git clone https://github.com/[your-username]/ndc-tracker.git
-cd ndc-tracker
-
-# Update Excel file
-cp /path/to/new/excel/file.xlsx data/GIZ-SLOCAT_Transport-Tracker-database.xlsx
-
-# Commit and push
-git add data/
-git commit -m "Update data"
-git push
-
-# Or run locally:
-python update_data.py
-```
+6. Done!
 
 ---
 
@@ -85,7 +54,7 @@ ndc-tracker/
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 1. **You upload** a new Excel file to the `data/` folder
 2. **GitHub Actions** automatically detects the change
@@ -95,7 +64,7 @@ ndc-tracker/
 
 ---
 
-## 🎨 Dashboard Features
+## Dashboard Features
 
 ### Tab 1: Progress in NDC Transport Targets
 - Bar chart showing % of NDCs with transport targets across 3 generations
@@ -112,7 +81,7 @@ ndc-tracker/
 ## 🔧 Technical Details
 
 **Frontend:**
-- Pure HTML/CSS/JavaScript (no frameworks)
+- Pure HTML/CSS/JavaScript
 - Chart.js for visualizations
 - Leaflet.js for maps
 - Fully responsive
@@ -129,7 +98,7 @@ ndc-tracker/
 
 ---
 
-## 📝 Requirements
+## Requirements
 
 **For updating data (web interface):**
 - ✅ GitHub account (free)
@@ -142,7 +111,7 @@ ndc-tracker/
 
 ---
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### Dashboard not updating after uploading Excel?
 
@@ -167,15 +136,6 @@ You should see the JSON data. Check the modification date.
 
 ---
 
-## 📞 Support
-
-For issues or questions:
-1. Check GitHub Actions logs
-2. Verify Excel file format matches original
-3. Create an issue in this repository
-
----
-
 ## 📄 License
 
 Data: GIZ-SLOCAT Transport Tracker Database  
@@ -185,7 +145,7 @@ Dashboard: Custom implementation for GIZ/SLOCAT
 
 ## 🎉 Credits
 
-**Data Source:** GIZ-SLOCAT Partnership on Sustainable, Low Carbon Transport  
+**Data Source:** GIZ-SLOCAT Partnership
 **Dashboard:** Interactive visualization platform for NDC tracking
 
 Last updated: Auto-generated on each data update
