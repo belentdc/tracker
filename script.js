@@ -74,6 +74,20 @@ function zoomToRegion(map, region) {
 }
 
 // ============================================================================
+// iframe auto-resize — sends height to WordPress parent
+// ============================================================================
+function sendHeight() {
+    const height = document.body.scrollHeight;
+    window.parent.postMessage({ type: 'ndcTrackerHeight', height }, '*');
+}
+
+// Call after any render that might change height
+function sendHeightDebounced() {
+    clearTimeout(window._sendHeightTimer);
+    window._sendHeightTimer = setTimeout(sendHeight, 150);
+}
+
+// ============================================================================
 // Boot
 // ============================================================================
 document.addEventListener('DOMContentLoaded', async () => {
@@ -94,6 +108,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 el.dataset.printDate = dateStr;
             });
         });
+
+        // Auto-resize iframe in WordPress parent
+        sendHeight();
+        window.addEventListener('resize', sendHeight);
     } catch (err) {
         console.error('Init error:', err);
         document.getElementById('loading').innerHTML =
@@ -135,6 +153,7 @@ function initializeTabs() {
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
             btn.classList.add('active');
             document.getElementById(btn.dataset.tab).classList.add('active');
+            sendHeightDebounced();
         });
     });
 }
