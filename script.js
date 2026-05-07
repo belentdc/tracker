@@ -325,7 +325,7 @@ function renderTab1Chart(genStats) {
                     borderColor: '#7A9B2E',
                     borderWidth: 1,
                     borderRadius: { topLeft: 5, topRight: 5, bottomLeft: 0, bottomRight: 0 },
-                    barPercentage: 0.6,
+                    barPercentage: 0.35,
                     stack: 'stack',
                 },
                 {
@@ -335,7 +335,7 @@ function renderTab1Chart(genStats) {
                     borderColor: '#8AAEC8',
                     borderWidth: 1,
                     borderRadius: { topLeft: 0, topRight: 0, bottomLeft: 5, bottomRight: 5 },
-                    barPercentage: 0.6,
+                    barPercentage: 0.35,
                     stack: 'stack',
                 },
             ],
