@@ -205,13 +205,14 @@ body {
     line-height: 1.6;
 }
 
-.currently-showing-label strong {
-    font-size: 0.8125rem;
+.cs-header {
+    font-size: 0.75rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     color: var(--color-secondary);
-    display: block;
-    margin-bottom: 0.2rem;
+    opacity: 0.7;
+    margin-right: 0.5rem;
 }
 
 /* ── Visualization containers ─────────────────────────────────────── */

@@ -278,14 +278,14 @@ function updateTab1MapLabel(region) {
     }
 
     const regionLine = region === 'all' ? 'Region: All regions' : `Region: ${region}`;
-    el.innerHTML = `<strong>Currently showing</strong><br>${regionLine}<br>Transport target in latest active NDC: ${green}<br>Transport target in a previous NDC: ${lightblue}<br>No transport target in any NDC: ${grey}`;
+    el.innerHTML = `<span class="cs-header">Currently showing</span>${regionLine}<br>Transport target in latest active NDC: ${green}<br>Transport target in a previous NDC: ${lightblue}<br>No transport target in any NDC: ${grey}`;
 }
 
 function renderTab1Subtitle(region, genStats) {
     const el = document.getElementById('tab1-chart-subtitle');
     if (!el) return;
     const regionLine = region === 'all' ? 'Region: All regions' : `Region: ${region}`;
-    el.innerHTML = `<strong>Currently showing</strong><br>${regionLine}<br>Each bar represents 100% of NDCs submitted in that generation`;
+    el.innerHTML = `<span class="cs-header">Currently showing</span>${regionLine}<br>Each bar represents 100% of NDCs submitted in that generation`;
 }
 
 function renderTab1Chart(genStats) {
@@ -448,7 +448,7 @@ function renderTab1Map(region) {
 
     const labelEl = document.getElementById('tab1-map-label');
     if (labelEl) {
-        labelEl.innerHTML = `<strong>Currently showing</strong><br>${regionLine}<br>Transport target in latest active NDC: <strong>${greenCount} NDCs</strong><br>Transport target in a previous NDC: <strong>${lightblueCount} NDCs</strong><br>No transport target in any NDC: <strong>${greyCount} NDCs</strong>`;
+        labelEl.innerHTML = `<span class="cs-header">Currently showing</span>${regionLine}<br>Transport target in latest active NDC: <strong>${greenCount} NDCs</strong><br>Transport target in a previous NDC: <strong>${lightblueCount} NDCs</strong><br>No transport target in any NDC: <strong>${greyCount} NDCs</strong>`;
     }
 
     tab1GeoLayer = L.geoJSON(worldGeoJSON, {
@@ -710,7 +710,7 @@ function buildChartSubtitle(selectedGens) {
         ? '<br>Includes active and archived NDCs from each generation round'
         : '';
 
-    return `<strong>Currently showing</strong><br>${regionLine}<br>${genLine}${archiveNote}`;
+    return `<span class="cs-header">Currently showing</span>${regionLine}<br>${genLine}${archiveNote}`;
 }
 
 function renderTab2Chart() {
@@ -842,7 +842,7 @@ function updateMapLabel() {
         catLine = `Categories: ${[...mapActiveCats].join(', ')}`;
     }
     document.getElementById('tab2-map-label').innerHTML =
-        `<strong>Currently showing</strong><br>${regionLine}<br>${genLine}<br><br>${catLine}`;
+        `<span class="cs-header">Currently showing</span>${regionLine}<br>${genLine}<br>${catLine}`;
 }
 
 function updateMapGradientColor() {
