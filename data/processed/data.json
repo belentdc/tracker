@@ -1,7 +1,7 @@
 {
   "metadata": {
     "total_possible_ndcs": 169,
-    "last_updated": "2026-04-20",
+    "last_updated": "2026-05-17",
     "data_source": "GIZ-SLOCAT Transport Tracker Database",
     "gen_counts": {
       "gen1": {
@@ -9,11 +9,11 @@
         "archived": 163
       },
       "gen2": {
-        "active": 45,
-        "archived": 112
+        "active": 44,
+        "archived": 113
       },
       "gen3": {
-        "active": 117,
+        "active": 118,
         "archived": 6
       },
       "latest": {
@@ -22,19 +22,19 @@
       }
     },
     "region_possible_ndcs": {
-      "Asia": 46,
-      "Oceania": 16,
-      "Latin America and the Caribbean": 33,
       "Africa": 53,
+      "Asia": 46,
       "Europe": 19,
-      "Northern America": 2
+      "Latin America and the Caribbean": 33,
+      "Northern America": 2,
+      "Oceania": 16
     }
   },
   "tab1": {
     "generations": {
       "gen1": {
         "name": "First Generation",
-        "period": "2015\u20132019",
+        "period": "2015–2019",
         "total_submitted": 168,
         "with_transport": 38,
         "with_ghg_transport": 18,
@@ -73,7 +73,7 @@
       },
       "gen2": {
         "name": "Second Generation",
-        "period": "2020\u20132024",
+        "period": "2020–2024",
         "total_submitted": 148,
         "with_transport": 69,
         "with_ghg_transport": 28,
@@ -112,13 +112,13 @@
       },
       "gen3": {
         "name": "Third Generation",
-        "period": "2024\u2013ongoing",
-        "total_submitted": 117,
+        "period": "2024–ongoing",
+        "total_submitted": 118,
         "with_transport": 68,
         "with_ghg_transport": 35,
         "regions": {
           "Asia": {
-            "total": 31,
+            "total": 32,
             "with_transport": 15,
             "with_ghg_transport": 7
           },
@@ -157,6 +157,7 @@
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -166,9 +167,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "YEM": {
         "iso3": "YEM",
@@ -176,6 +175,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -185,9 +185,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "BRN": {
         "iso3": "BRN",
@@ -195,6 +193,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -208,9 +207,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "PNG": {
         "iso3": "PNG",
@@ -218,6 +215,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -227,9 +225,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "NRU": {
         "iso3": "NRU",
@@ -237,6 +233,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -250,16 +247,15 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "PAN": {
         "iso3": "PAN",
         "name": "Panama",
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
-        "latest_has_transport": false,
+        "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -273,9 +269,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "BLZ": {
         "iso3": "BLZ",
@@ -283,6 +277,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -296,9 +291,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "BRB": {
         "iso3": "BRB",
@@ -306,6 +299,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -319,9 +313,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "FJI": {
         "iso3": "FJI",
@@ -329,6 +321,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -342,9 +335,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "GRD": {
         "iso3": "GRD",
@@ -352,6 +343,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -361,9 +353,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "MDV": {
         "iso3": "MDV",
@@ -371,6 +361,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -384,9 +375,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MHL": {
         "iso3": "MHL",
@@ -394,6 +383,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -407,9 +397,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "MUS": {
         "iso3": "MUS",
@@ -417,6 +405,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -430,9 +419,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "PLW": {
         "iso3": "PLW",
@@ -440,6 +427,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -449,9 +437,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "KNA": {
         "iso3": "KNA",
@@ -459,6 +445,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -468,9 +455,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "LCA": {
         "iso3": "LCA",
@@ -478,6 +463,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -491,9 +477,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "WSM": {
         "iso3": "WSM",
@@ -501,6 +485,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -514,9 +499,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "SOM": {
         "iso3": "SOM",
@@ -524,6 +507,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -537,9 +521,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "TUV": {
         "iso3": "TUV",
@@ -547,6 +529,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -560,9 +543,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "SYC": {
         "iso3": "SYC",
@@ -570,6 +551,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -583,9 +565,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "GUY": {
         "iso3": "GUY",
@@ -593,14 +573,13 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen1",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "NOR": {
         "iso3": "NOR",
@@ -608,6 +587,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -621,9 +601,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "VCT": {
         "iso3": "VCT",
@@ -631,6 +609,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -640,9 +619,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "PER": {
         "iso3": "PER",
@@ -650,6 +627,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -663,9 +641,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "CMR": {
         "iso3": "CMR",
@@ -673,6 +649,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -682,9 +659,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "COK": {
         "iso3": "COK",
@@ -692,14 +667,13 @@
         "region": "Oceania",
         "latest_active_gen": "gen1",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "CHN": {
         "iso3": "CHN",
@@ -707,6 +681,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -720,9 +695,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "USA": {
         "iso3": "USA",
@@ -730,6 +703,7 @@
         "region": "Northern America",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -743,16 +717,15 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "LAO": {
         "iso3": "LAO",
-        "name": "Lao People\u2019s Democratic Republic",
+        "name": "Lao People’s Democratic Republic",
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -762,9 +735,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "FSM": {
         "iso3": "FSM",
@@ -772,6 +743,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -785,9 +757,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MAR": {
         "iso3": "MAR",
@@ -795,6 +765,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -808,9 +779,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "UKR": {
         "iso3": "UKR",
@@ -818,6 +787,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -831,9 +801,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "ALB": {
         "iso3": "ALB",
@@ -841,6 +809,7 @@
         "region": "Europe",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -850,9 +819,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "ATG": {
         "iso3": "ATG",
@@ -860,6 +827,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -869,9 +837,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "BGD": {
         "iso3": "BGD",
@@ -879,6 +845,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -892,9 +859,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "BLR": {
         "iso3": "BLR",
@@ -902,6 +867,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -915,9 +881,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "BRA": {
         "iso3": "BRA",
@@ -925,6 +889,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -938,9 +903,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "DMA": {
         "iso3": "DMA",
@@ -948,6 +911,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -957,9 +921,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "SWZ": {
         "iso3": "SWZ",
@@ -967,6 +929,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -980,9 +943,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "GHA": {
         "iso3": "GHA",
@@ -990,6 +951,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -999,9 +961,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "GIN": {
         "iso3": "GIN",
@@ -1009,6 +969,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1022,9 +983,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "HND": {
         "iso3": "HND",
@@ -1032,6 +991,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1045,9 +1005,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "ISL": {
         "iso3": "ISL",
@@ -1055,6 +1013,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1068,9 +1027,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "KIR": {
         "iso3": "KIR",
@@ -1078,6 +1035,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1087,9 +1045,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MDG": {
         "iso3": "MDG",
@@ -1097,6 +1053,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1106,9 +1063,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MEX": {
         "iso3": "MEX",
@@ -1116,6 +1071,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1129,9 +1085,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MNG": {
         "iso3": "MNG",
@@ -1139,6 +1093,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1152,9 +1107,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "NAM": {
         "iso3": "NAM",
@@ -1162,6 +1115,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1171,9 +1125,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "NER": {
         "iso3": "NER",
@@ -1181,6 +1133,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1190,9 +1143,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "SGP": {
         "iso3": "SGP",
@@ -1200,6 +1151,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1213,9 +1165,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "SLB": {
         "iso3": "SLB",
@@ -1223,6 +1173,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1236,9 +1187,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "THA": {
         "iso3": "THA",
@@ -1246,6 +1195,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1259,9 +1209,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "TON": {
         "iso3": "TON",
@@ -1269,6 +1217,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1282,9 +1231,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "UGA": {
         "iso3": "UGA",
@@ -1292,6 +1239,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1301,9 +1249,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "ARE": {
         "iso3": "ARE",
@@ -1311,6 +1257,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1324,9 +1271,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "VUT": {
         "iso3": "VUT",
@@ -1334,6 +1279,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1347,9 +1293,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "MLI": {
         "iso3": "MLI",
@@ -1357,6 +1301,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1366,16 +1311,15 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "IND": {
         "iso3": "IND",
         "name": "India",
         "region": "Asia",
-        "latest_active_gen": "gen2",
+        "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1384,10 +1328,12 @@
           "gen2": {
             "has_transport": false,
             "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "PRK": {
         "iso3": "PRK",
@@ -1395,6 +1341,7 @@
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1404,9 +1351,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "BOL": {
         "iso3": "BOL",
@@ -1414,6 +1359,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1427,9 +1373,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "EEU": {
         "iso3": "EEU",
@@ -1437,6 +1381,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1450,9 +1395,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "NPL": {
         "iso3": "NPL",
@@ -1460,6 +1403,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1473,9 +1417,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "NZL": {
         "iso3": "NZL",
@@ -1483,6 +1425,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1496,9 +1439,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "RWA": {
         "iso3": "RWA",
@@ -1506,6 +1447,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1519,9 +1461,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "CAF": {
         "iso3": "CAF",
@@ -1529,6 +1469,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1542,9 +1483,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "CRI": {
         "iso3": "CRI",
@@ -1552,6 +1491,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1565,9 +1505,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "PRY": {
         "iso3": "PRY",
@@ -1575,6 +1513,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1588,9 +1527,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "DZA": {
         "iso3": "DZA",
@@ -1598,14 +1535,13 @@
         "region": "Africa",
         "latest_active_gen": "gen1",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "TKM": {
         "iso3": "TKM",
@@ -1613,6 +1549,7 @@
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1622,16 +1559,15 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "CIV": {
         "iso3": "CIV",
-        "name": "C\u00f4te D'Ivoire",
+        "name": "Côte D'Ivoire",
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1645,9 +1581,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MCO": {
         "iso3": "MCO",
@@ -1655,6 +1589,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1668,9 +1603,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "NIU": {
         "iso3": "NIU",
@@ -1678,6 +1611,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1687,9 +1621,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "BHS": {
         "iso3": "BHS",
@@ -1697,6 +1629,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1710,9 +1643,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "SLE": {
         "iso3": "SLE",
@@ -1720,6 +1651,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1733,9 +1665,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "ZAF": {
         "iso3": "ZAF",
@@ -1743,6 +1673,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1756,9 +1687,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "GAB": {
         "iso3": "GAB",
@@ -1766,6 +1695,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1779,9 +1709,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "STP": {
         "iso3": "STP",
@@ -1789,6 +1717,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1802,9 +1731,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "KOR": {
         "iso3": "KOR",
@@ -1812,6 +1739,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1825,9 +1753,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "SAU": {
         "iso3": "SAU",
@@ -1835,6 +1761,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1848,9 +1775,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "VNM": {
         "iso3": "VNM",
@@ -1858,6 +1783,7 @@
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1867,9 +1793,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "JOR": {
         "iso3": "JOR",
@@ -1877,6 +1801,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1890,9 +1815,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "IDN": {
         "iso3": "IDN",
@@ -1900,6 +1823,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -1913,9 +1837,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "LKA": {
         "iso3": "LKA",
@@ -1923,6 +1845,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1936,9 +1859,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "GMB": {
         "iso3": "GMB",
@@ -1946,6 +1867,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1955,9 +1877,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "JPN": {
         "iso3": "JPN",
@@ -1965,6 +1885,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -1978,9 +1899,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "AUS": {
         "iso3": "AUS",
@@ -1988,6 +1907,7 @@
         "region": "Oceania",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2001,9 +1921,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "PAK": {
         "iso3": "PAK",
@@ -2011,6 +1929,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2024,9 +1943,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "BWA": {
         "iso3": "BWA",
@@ -2034,6 +1951,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2043,9 +1961,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "BFA": {
         "iso3": "BFA",
@@ -2053,6 +1969,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -2066,9 +1983,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "DJI": {
         "iso3": "DJI",
@@ -2076,6 +1991,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2085,9 +2001,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MYS": {
         "iso3": "MYS",
@@ -2095,6 +2009,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2108,9 +2023,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "ARG": {
         "iso3": "ARG",
@@ -2118,6 +2031,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2127,9 +2041,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "ISR": {
         "iso3": "ISR",
@@ -2137,6 +2049,7 @@
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -2146,9 +2059,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "AFG": {
         "iso3": "AFG",
@@ -2156,14 +2067,13 @@
         "region": "Asia",
         "latest_active_gen": "gen1",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "COM": {
         "iso3": "COM",
@@ -2171,6 +2081,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2184,9 +2095,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "KAZ": {
         "iso3": "KAZ",
@@ -2194,6 +2103,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2207,9 +2117,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "ZMB": {
         "iso3": "ZMB",
@@ -2217,6 +2125,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2230,9 +2139,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "KEN": {
         "iso3": "KEN",
@@ -2240,6 +2147,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2253,9 +2161,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "BHR": {
         "iso3": "BHR",
@@ -2263,6 +2169,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2276,9 +2183,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "CUB": {
         "iso3": "CUB",
@@ -2286,6 +2191,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2299,9 +2205,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "AZE": {
         "iso3": "AZE",
@@ -2309,6 +2213,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2322,9 +2227,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "TCD": {
         "iso3": "TCD",
@@ -2332,6 +2235,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2341,9 +2245,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "LSO": {
         "iso3": "LSO",
@@ -2351,6 +2253,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2360,9 +2263,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "GTM": {
         "iso3": "GTM",
@@ -2370,6 +2271,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2379,9 +2281,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "KHM": {
         "iso3": "KHM",
@@ -2389,6 +2289,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -2402,9 +2303,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "CHL": {
         "iso3": "CHL",
@@ -2412,6 +2311,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2425,9 +2325,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "TUN": {
         "iso3": "TUN",
@@ -2435,6 +2333,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2448,9 +2347,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MRT": {
         "iso3": "MRT",
@@ -2458,6 +2355,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2471,9 +2369,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "ETH": {
         "iso3": "ETH",
@@ -2481,6 +2377,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -2494,9 +2391,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "BIH": {
         "iso3": "BIH",
@@ -2504,6 +2399,7 @@
         "region": "Europe",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2513,9 +2409,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "TJK": {
         "iso3": "TJK",
@@ -2523,6 +2417,7 @@
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2532,9 +2427,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "ARM": {
         "iso3": "ARM",
@@ -2542,6 +2435,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2555,9 +2449,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "AND": {
         "iso3": "AND",
@@ -2565,6 +2457,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2578,9 +2471,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "SLV": {
         "iso3": "SLV",
@@ -2588,6 +2479,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2601,9 +2493,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "JAM": {
         "iso3": "JAM",
@@ -2611,6 +2501,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2624,9 +2515,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "COG": {
         "iso3": "COG",
@@ -2634,6 +2523,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -2647,9 +2537,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "GEO": {
         "iso3": "GEO",
@@ -2657,6 +2545,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2670,9 +2559,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "CAN": {
         "iso3": "CAN",
@@ -2680,6 +2567,7 @@
         "region": "Northern America",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2693,9 +2581,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "NGA": {
         "iso3": "NGA",
@@ -2703,6 +2589,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -2716,9 +2603,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MDA": {
         "iso3": "MDA",
@@ -2726,6 +2611,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -2739,9 +2625,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "QAT": {
         "iso3": "QAT",
@@ -2749,6 +2633,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2762,9 +2647,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "TGO": {
         "iso3": "TGO",
@@ -2772,6 +2655,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -2781,9 +2665,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "EGY": {
         "iso3": "EGY",
@@ -2791,6 +2673,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2800,9 +2683,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "MWI": {
         "iso3": "MWI",
@@ -2810,6 +2691,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -2819,9 +2701,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "SRB": {
         "iso3": "SRB",
@@ -2829,6 +2709,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2842,9 +2723,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "HTI": {
         "iso3": "HTI",
@@ -2852,6 +2731,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2861,9 +2741,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "SDN": {
         "iso3": "SDN",
@@ -2871,6 +2749,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2880,9 +2759,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "ZWE": {
         "iso3": "ZWE",
@@ -2890,6 +2767,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2903,9 +2781,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "TLS": {
         "iso3": "TLS",
@@ -2913,6 +2789,7 @@
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2922,9 +2799,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "PSE": {
         "iso3": "PSE",
@@ -2932,6 +2807,7 @@
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -2941,9 +2817,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "BTN": {
         "iso3": "BTN",
@@ -2951,6 +2825,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2964,9 +2839,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MMR": {
         "iso3": "MMR",
@@ -2974,6 +2847,7 @@
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -2983,9 +2857,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "LIE": {
         "iso3": "LIE",
@@ -2993,6 +2865,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3002,9 +2875,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "CPV": {
         "iso3": "CPV",
@@ -3012,6 +2883,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3025,9 +2897,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "DOM": {
         "iso3": "DOM",
@@ -3035,6 +2905,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3044,9 +2915,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "CHE": {
         "iso3": "CHE",
@@ -3054,6 +2923,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3067,9 +2937,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "BEN": {
         "iso3": "BEN",
@@ -3077,6 +2945,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3086,9 +2955,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "URY": {
         "iso3": "URY",
@@ -3096,6 +2963,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3109,9 +2977,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "COD": {
         "iso3": "COD",
@@ -3119,6 +2985,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3128,9 +2995,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MNE": {
         "iso3": "MNE",
@@ -3138,6 +3003,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3151,9 +3017,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MKD": {
         "iso3": "MKD",
@@ -3161,6 +3025,7 @@
         "region": "Europe",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3170,9 +3035,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "BDI": {
         "iso3": "BDI",
@@ -3180,6 +3043,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3193,9 +3057,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "TTO": {
         "iso3": "TTO",
@@ -3203,6 +3065,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -3212,9 +3075,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "VEN": {
         "iso3": "VEN",
@@ -3222,6 +3083,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3235,9 +3097,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "KWT": {
         "iso3": "KWT",
@@ -3245,6 +3105,7 @@
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3254,9 +3115,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "TZA": {
         "iso3": "TZA",
@@ -3264,6 +3123,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3273,9 +3133,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "MOZ": {
         "iso3": "MOZ",
@@ -3283,6 +3141,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3296,9 +3155,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "ERI": {
         "iso3": "ERI",
@@ -3306,6 +3163,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3315,9 +3173,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "COL": {
         "iso3": "COL",
@@ -3325,6 +3181,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3338,9 +3195,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "LBR": {
         "iso3": "LBR",
@@ -3348,6 +3203,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -3361,9 +3217,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "NIC": {
         "iso3": "NIC",
@@ -3371,6 +3225,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3384,9 +3239,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "SMR": {
         "iso3": "SMR",
@@ -3394,14 +3247,13 @@
         "region": "Europe",
         "latest_active_gen": "gen1",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "GNB": {
         "iso3": "GNB",
@@ -3409,6 +3261,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3418,9 +3271,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "GNQ": {
         "iso3": "GNQ",
@@ -3428,6 +3279,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3437,9 +3289,7 @@
             "has_transport": false,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "UZB": {
         "iso3": "UZB",
@@ -3447,6 +3297,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3460,9 +3311,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "SYR": {
         "iso3": "SYR",
@@ -3470,14 +3319,13 @@
         "region": "Asia",
         "latest_active_gen": "gen1",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
             "version": "NDC 1.1"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "SUR": {
         "iso3": "SUR",
@@ -3485,6 +3333,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3498,9 +3347,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "ECU": {
         "iso3": "ECU",
@@ -3508,6 +3355,7 @@
         "region": "Latin America and the Caribbean",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3517,9 +3365,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "OMN": {
         "iso3": "OMN",
@@ -3527,6 +3373,7 @@
         "region": "Asia",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3536,9 +3383,7 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "LBN": {
         "iso3": "LBN",
@@ -3546,6 +3391,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3559,9 +3405,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "KGZ": {
         "iso3": "KGZ",
@@ -3569,6 +3413,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3582,9 +3427,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "AGO": {
         "iso3": "AGO",
@@ -3592,6 +3435,7 @@
         "region": "Africa",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3605,9 +3449,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "RUS": {
         "iso3": "RUS",
@@ -3615,6 +3457,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3624,9 +3467,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "GBR": {
         "iso3": "GBR",
@@ -3634,6 +3475,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen2": {
             "has_transport": false,
@@ -3643,9 +3485,7 @@
             "has_transport": true,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "SEN": {
         "iso3": "SEN",
@@ -3653,14 +3493,13 @@
         "region": "Africa",
         "latest_active_gen": "gen1",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
             "version": "NDC 1.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "SSD": {
         "iso3": "SSD",
@@ -3668,6 +3507,7 @@
         "region": "Africa",
         "latest_active_gen": "gen2",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3677,16 +3517,15 @@
             "has_transport": true,
             "version": "NDC 2.0"
           }
-        },
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        }
       },
       "TUR": {
         "iso3": "TUR",
-        "name": "T\u00fcrkiye",
+        "name": "Türkiye",
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3700,9 +3539,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": true
+        }
       },
       "IRQ": {
         "iso3": "IRQ",
@@ -3710,6 +3547,7 @@
         "region": "Asia",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3719,9 +3557,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "VAT": {
         "iso3": "VAT",
@@ -3729,6 +3565,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": false,
+        "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3738,9 +3575,7 @@
             "has_transport": false,
             "version": "NDC 3.0"
           }
-        },
-        "latest_has_ghg_transport": false,
-        "had_transport_previously": false
+        }
       },
       "AUT": {
         "iso3": "AUT",
@@ -3748,6 +3583,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3762,9 +3598,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "BEL": {
         "iso3": "BEL",
@@ -3772,6 +3606,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3786,9 +3621,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "BGR": {
         "iso3": "BGR",
@@ -3796,6 +3629,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3810,9 +3644,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "HRV": {
         "iso3": "HRV",
@@ -3820,6 +3652,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3834,9 +3667,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "CYP": {
         "iso3": "CYP",
@@ -3844,6 +3675,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3858,9 +3690,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "CZE": {
         "iso3": "CZE",
@@ -3868,6 +3698,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3882,9 +3713,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "DNK": {
         "iso3": "DNK",
@@ -3892,6 +3721,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3906,9 +3736,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "EST": {
         "iso3": "EST",
@@ -3916,6 +3744,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3930,9 +3759,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "FIN": {
         "iso3": "FIN",
@@ -3940,6 +3767,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3954,9 +3782,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "FRA": {
         "iso3": "FRA",
@@ -3964,6 +3790,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -3978,9 +3805,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "DEU": {
         "iso3": "DEU",
@@ -3988,6 +3813,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4002,9 +3828,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "GRC": {
         "iso3": "GRC",
@@ -4012,6 +3836,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4026,9 +3851,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "HUN": {
         "iso3": "HUN",
@@ -4036,6 +3859,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4050,9 +3874,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "IRL": {
         "iso3": "IRL",
@@ -4060,6 +3882,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4074,9 +3897,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "ITA": {
         "iso3": "ITA",
@@ -4084,6 +3905,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4098,9 +3920,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "LVA": {
         "iso3": "LVA",
@@ -4108,6 +3928,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4122,9 +3943,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "LTU": {
         "iso3": "LTU",
@@ -4132,6 +3951,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4146,9 +3966,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "LUX": {
         "iso3": "LUX",
@@ -4156,6 +3974,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4170,16 +3989,15 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "MLT": {
         "iso3": "MLT",
-        "name": "MLT",
+        "name": "Malta",
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4194,9 +4012,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "NLD": {
         "iso3": "NLD",
@@ -4204,6 +4020,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4218,9 +4035,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "POL": {
         "iso3": "POL",
@@ -4228,6 +4043,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4242,9 +4058,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "PRT": {
         "iso3": "PRT",
@@ -4252,6 +4066,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4266,9 +4081,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "ROU": {
         "iso3": "ROU",
@@ -4276,6 +4089,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4290,9 +4104,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "SVK": {
         "iso3": "SVK",
@@ -4300,6 +4112,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4314,9 +4127,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "SVN": {
         "iso3": "SVN",
@@ -4324,6 +4135,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4338,9 +4150,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "ESP": {
         "iso3": "ESP",
@@ -4348,6 +4158,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4362,9 +4173,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       },
       "SWE": {
         "iso3": "SWE",
@@ -4372,6 +4181,7 @@
         "region": "Europe",
         "latest_active_gen": "gen3",
         "latest_has_transport": true,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": false,
@@ -4386,9 +4196,7 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true,
-        "latest_has_ghg_transport": true,
-        "had_transport_previously": false
+        "covered_by_eu": true
       }
     }
   },
@@ -4399,16 +4207,16 @@
         "mentions": 172
       },
       "Energy efficiency": {
-        "countries_count": 97,
-        "mentions": 193
+        "countries_count": 98,
+        "mentions": 195
       },
       "Mode shift and demand management": {
         "countries_count": 114,
         "mentions": 349
       },
       "Transport system improvements": {
-        "countries_count": 87,
-        "mentions": 231
+        "countries_count": 88,
+        "mentions": 232
       },
       "Electrification": {
         "countries_count": 118,
@@ -4419,83 +4227,157 @@
         "mentions": 105
       }
     },
-    "categories_by_generation": {
+    "cat_latest_gen_breakdown": {
+      "Alternative fuels": {
+        "gen1_count": 4,
+        "gen2_count": 22,
+        "gen3_count": 64,
+        "mentions": 172
+      },
+      "Energy efficiency": {
+        "gen1_count": 3,
+        "gen2_count": 24,
+        "gen3_count": 71,
+        "mentions": 195
+      },
+      "Mode shift and demand management": {
+        "gen1_count": 3,
+        "gen2_count": 27,
+        "gen3_count": 84,
+        "mentions": 349
+      },
+      "Transport system improvements": {
+        "gen1_count": 2,
+        "gen2_count": 23,
+        "gen3_count": 63,
+        "mentions": 232
+      },
+      "Electrification": {
+        "gen1_count": 2,
+        "gen2_count": 23,
+        "gen3_count": 93,
+        "mentions": 312
+      },
+      "Aviation and maritime": {
+        "gen1_count": 0,
+        "gen2_count": 6,
+        "gen3_count": 36,
+        "mentions": 105
+      }
+    },
+    "cat_gen_active_archived": {
       "gen1": {
         "Alternative fuels": {
-          "countries_count": 48,
-          "mentions": 56
+          "active_countries": 4,
+          "archived_countries": 44,
+          "active_mentions": 6,
+          "archived_mentions": 50
         },
         "Energy efficiency": {
-          "countries_count": 66,
-          "mentions": 105
+          "active_countries": 3,
+          "archived_countries": 63,
+          "active_mentions": 5,
+          "archived_mentions": 100
         },
         "Electrification": {
-          "countries_count": 30,
-          "mentions": 40
+          "active_countries": 2,
+          "archived_countries": 28,
+          "active_mentions": 2,
+          "archived_mentions": 38
         },
         "Mode shift and demand management": {
-          "countries_count": 75,
-          "mentions": 160
+          "active_countries": 3,
+          "archived_countries": 73,
+          "active_mentions": 3,
+          "archived_mentions": 157
         },
         "Transport system improvements": {
-          "countries_count": 57,
-          "mentions": 110
+          "active_countries": 2,
+          "archived_countries": 55,
+          "active_mentions": 2,
+          "archived_mentions": 108
         },
         "Aviation and maritime": {
-          "countries_count": 7,
-          "mentions": 14
+          "active_countries": 0,
+          "archived_countries": 7,
+          "active_mentions": 0,
+          "archived_mentions": 14
         }
       },
       "gen2": {
         "Mode shift and demand management": {
-          "countries_count": 92,
-          "mentions": 290
+          "active_countries": 27,
+          "archived_countries": 69,
+          "active_mentions": 71,
+          "archived_mentions": 219
         },
         "Transport system improvements": {
-          "countries_count": 66,
-          "mentions": 174
+          "active_countries": 23,
+          "archived_countries": 45,
+          "active_mentions": 55,
+          "archived_mentions": 119
         },
         "Energy efficiency": {
-          "countries_count": 67,
-          "mentions": 147
+          "active_countries": 24,
+          "archived_countries": 45,
+          "active_mentions": 50,
+          "archived_mentions": 97
         },
         "Alternative fuels": {
-          "countries_count": 65,
-          "mentions": 118
+          "active_countries": 22,
+          "archived_countries": 47,
+          "active_mentions": 47,
+          "archived_mentions": 71
         },
         "Electrification": {
-          "countries_count": 85,
-          "mentions": 177
+          "active_countries": 23,
+          "archived_countries": 66,
+          "active_mentions": 42,
+          "archived_mentions": 135
         },
         "Aviation and maritime": {
-          "countries_count": 24,
-          "mentions": 55
+          "active_countries": 6,
+          "archived_countries": 19,
+          "active_mentions": 13,
+          "archived_mentions": 42
         }
       },
       "gen3": {
         "Alternative fuels": {
-          "countries_count": 66,
-          "mentions": 121
+          "active_countries": 64,
+          "archived_countries": 2,
+          "active_mentions": 119,
+          "archived_mentions": 2
         },
         "Electrification": {
-          "countries_count": 94,
-          "mentions": 271
+          "active_countries": 93,
+          "archived_countries": 3,
+          "active_mentions": 268,
+          "archived_mentions": 3
         },
         "Energy efficiency": {
-          "countries_count": 70,
-          "mentions": 140
+          "active_countries": 71,
+          "archived_countries": 2,
+          "active_mentions": 140,
+          "archived_mentions": 2
         },
         "Mode shift and demand management": {
-          "countries_count": 84,
-          "mentions": 278
+          "active_countries": 84,
+          "archived_countries": 2,
+          "active_mentions": 275,
+          "archived_mentions": 3
         },
         "Transport system improvements": {
-          "countries_count": 62,
-          "mentions": 178
+          "active_countries": 63,
+          "archived_countries": 1,
+          "active_mentions": 175,
+          "archived_mentions": 4
         },
         "Aviation and maritime": {
-          "countries_count": 36,
-          "mentions": 92
+          "active_countries": 36,
+          "archived_countries": 0,
+          "active_mentions": 92,
+          "archived_mentions": 0
         }
       }
     },
@@ -5272,6 +5154,10 @@
           "Electrification": 1,
           "Alternative fuels": 2,
           "Mode shift and demand management": 3
+        },
+        "gen3": {
+          "Transport system improvements": 1,
+          "Energy efficiency": 2
         }
       },
       "IDN": {
@@ -7004,160 +6890,6 @@
         }
       }
     },
-    "cat_latest_gen_breakdown": {
-      "Alternative fuels": {
-        "gen1_count": 4,
-        "gen2_count": 22,
-        "gen3_count": 64,
-        "mentions": 172
-      },
-      "Energy efficiency": {
-        "gen1_count": 3,
-        "gen2_count": 24,
-        "gen3_count": 70,
-        "mentions": 193
-      },
-      "Mode shift and demand management": {
-        "gen1_count": 3,
-        "gen2_count": 27,
-        "gen3_count": 84,
-        "mentions": 349
-      },
-      "Transport system improvements": {
-        "gen1_count": 2,
-        "gen2_count": 23,
-        "gen3_count": 62,
-        "mentions": 231
-      },
-      "Electrification": {
-        "gen1_count": 2,
-        "gen2_count": 23,
-        "gen3_count": 93,
-        "mentions": 312
-      },
-      "Aviation and maritime": {
-        "gen1_count": 0,
-        "gen2_count": 6,
-        "gen3_count": 36,
-        "mentions": 105
-      }
-    },
-    "cat_gen_active_archived": {
-      "gen1": {
-        "Alternative fuels": {
-          "active_countries": 4,
-          "archived_countries": 44,
-          "active_mentions": 6,
-          "archived_mentions": 50
-        },
-        "Energy efficiency": {
-          "active_countries": 3,
-          "archived_countries": 63,
-          "active_mentions": 5,
-          "archived_mentions": 100
-        },
-        "Electrification": {
-          "active_countries": 2,
-          "archived_countries": 28,
-          "active_mentions": 2,
-          "archived_mentions": 38
-        },
-        "Mode shift and demand management": {
-          "active_countries": 3,
-          "archived_countries": 73,
-          "active_mentions": 3,
-          "archived_mentions": 157
-        },
-        "Transport system improvements": {
-          "active_countries": 2,
-          "archived_countries": 55,
-          "active_mentions": 2,
-          "archived_mentions": 108
-        },
-        "Aviation and maritime": {
-          "active_countries": 0,
-          "archived_countries": 7,
-          "active_mentions": 0,
-          "archived_mentions": 14
-        }
-      },
-      "gen2": {
-        "Mode shift and demand management": {
-          "active_countries": 27,
-          "archived_countries": 69,
-          "active_mentions": 71,
-          "archived_mentions": 219
-        },
-        "Transport system improvements": {
-          "active_countries": 23,
-          "archived_countries": 45,
-          "active_mentions": 55,
-          "archived_mentions": 119
-        },
-        "Energy efficiency": {
-          "active_countries": 24,
-          "archived_countries": 45,
-          "active_mentions": 50,
-          "archived_mentions": 97
-        },
-        "Alternative fuels": {
-          "active_countries": 22,
-          "archived_countries": 47,
-          "active_mentions": 47,
-          "archived_mentions": 71
-        },
-        "Electrification": {
-          "active_countries": 23,
-          "archived_countries": 66,
-          "active_mentions": 42,
-          "archived_mentions": 135
-        },
-        "Aviation and maritime": {
-          "active_countries": 6,
-          "archived_countries": 19,
-          "active_mentions": 13,
-          "archived_mentions": 42
-        }
-      },
-      "gen3": {
-        "Alternative fuels": {
-          "active_countries": 64,
-          "archived_countries": 2,
-          "active_mentions": 119,
-          "archived_mentions": 2
-        },
-        "Electrification": {
-          "active_countries": 93,
-          "archived_countries": 3,
-          "active_mentions": 268,
-          "archived_mentions": 3
-        },
-        "Energy efficiency": {
-          "active_countries": 70,
-          "archived_countries": 2,
-          "active_mentions": 138,
-          "archived_mentions": 2
-        },
-        "Mode shift and demand management": {
-          "active_countries": 84,
-          "archived_countries": 2,
-          "active_mentions": 275,
-          "archived_mentions": 3
-        },
-        "Transport system improvements": {
-          "active_countries": 62,
-          "archived_countries": 1,
-          "active_mentions": 174,
-          "archived_mentions": 4
-        },
-        "Aviation and maritime": {
-          "active_countries": 36,
-          "archived_countries": 0,
-          "active_mentions": 92,
-          "archived_mentions": 0
-        }
-      }
-    },
     "country_latest_cats": {
       "AFG": {
         "Alternative fuels": 2,
@@ -7995,6 +7727,10 @@
         "Energy efficiency": 2,
         "Mode shift and demand management": 1
       },
+      "IND": {
+        "Transport system improvements": 1,
+        "Energy efficiency": 2
+      },
       "AUT": {
         "Aviation and maritime": 2,
         "Mode shift and demand management": 5,
@@ -8226,7 +7962,6 @@
       "GTM": "gen2",
       "HTI": "gen2",
       "DMA": "gen2",
-      "IND": "gen2",
       "UGA": "gen2",
       "SDN": "gen2",
       "GNQ": "gen2",
@@ -8355,6 +8090,7 @@
       "CAF": "gen3",
       "GEO": "gen3",
       "COM": "gen3",
+      "IND": "gen3",
       "AUT": "gen3",
       "BEL": "gen3",
       "BGR": "gen3",
