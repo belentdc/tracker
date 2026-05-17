@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'data/GIZ-SLOCAT_Transport-Tracker-database.xlsx'
+      - 'update_data.py'
   workflow_dispatch:
 
 jobs:
@@ -32,6 +33,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add data/processed/data.json
+          git add data/processed/comparison-data.json
           git diff --quiet && git diff --staged --quiet || git commit -m "🤖 Auto-update: Dashboard data refreshed"
 
       - name: 📤 Push changes
