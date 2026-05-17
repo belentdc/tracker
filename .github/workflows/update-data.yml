@@ -3,37 +3,37 @@ name: Update Dashboard Data
 on:
   push:
     paths:
-      - 'data/*.xlsx'
+      - 'data/GIZ-SLOCAT_Transport-Tracker-database.xlsx'
   workflow_dispatch:
 
 jobs:
   update-data:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
+
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: 🐍 Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+
       - name: 📦 Install dependencies
-        run: |
-          pip install openpyxl
-      
+        run: pip install openpyxl
+
       - name: 🔄 Process Excel data
-        run: |
-          python update_data.py
-      
+        run: python update_data.py
+
       - name: 💾 Commit updated data
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add data/processed/data.json
           git diff --quiet && git diff --staged --quiet || git commit -m "🤖 Auto-update: Dashboard data refreshed"
-      
+
       - name: 📤 Push changes
         uses: ad-m/github-push-action@master
         with:
