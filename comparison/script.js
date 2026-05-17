@@ -1,16 +1,18 @@
 // ============================================================================
-// NDC Comparison Dashboard — Main JavaScript
+// NDC Comparison Dashboard — Updated with all requested features
 // ============================================================================
 
 let comparisonData = null;
 let selectedCountry = null;
 let selectedVersions = {
-    gen1: 0,  // Index of selected version in gen1 array
+    gen1: 0,
     gen2: 0,
     gen3: 0
 };
-let activeCategoryMitigation = {};  // Per generation active category
-let activeCategoryAdaptation = {};  // Per generation active category
+
+// Global category selection (synchronized across all columns)
+let activeCategoryMitigation = 'Electrification';  // Global for all generations
+let activeCategoryAdaptation = null;  // Global for all generations
 
 const GEN_CONFIG = {
     gen1: { label: '1st Generation', period: '2015–2019', color: '#003D5C' },
@@ -69,10 +71,60 @@ function handleCountryChange(e) {
     
     // Reset version selections
     selectedVersions = { gen1: 0, gen2: 0, gen3: 0 };
-    activeCategoryMitigation = {};
-    activeCategoryAdaptation = {};
+    
+    // Reset to first available category
+    const countryData = comparisonData.countries[selectedCountry];
+    let firstCategory = null;
+    
+    for (const gen of ['gen1', 'gen2', 'gen3']) {
+        const docs = countryData.generations[gen];
+        if (docs.length > 0 && docs[0].mitigation_measures) {
+            const cats = Object.keys(docs[0].mitigation_measures);
+            if (cats.length > 0) {
+                firstCategory = cats[0];
+                break;
+            }
+        }
+    }
+    
+    activeCategoryMitigation = firstCategory || 'Electrification';
+    activeCategoryAdaptation = null;
     
     renderComparison();
+    setupSynchronizedScrolling();
+}
+
+// ============================================================================
+// Synchronized Scrolling
+// ============================================================================
+function setupSynchronizedScrolling() {
+    const columns = document.querySelectorAll('.gen-content');
+    let isSyncing = false;
+    
+    columns.forEach(column => {
+        // Remove existing listeners to avoid duplicates
+        column.replaceWith(column.cloneNode(true));
+    });
+    
+    // Re-query after replacing
+    const freshColumns = document.querySelectorAll('.gen-content');
+    
+    freshColumns.forEach(column => {
+        column.addEventListener('scroll', function() {
+            if (isSyncing) return;
+            
+            isSyncing = true;
+            const scrollTop = this.scrollTop;
+            
+            freshColumns.forEach(otherColumn => {
+                if (otherColumn !== this) {
+                    otherColumn.scrollTop = scrollTop;
+                }
+            });
+            
+            setTimeout(() => { isSyncing = false; }, 10);
+        });
+    });
 }
 
 // ============================================================================
@@ -90,6 +142,34 @@ function renderComparison() {
     ['gen1', 'gen2', 'gen3'].forEach(gen => {
         const column = createGenerationColumn(gen, countryData.generations[gen]);
         grid.appendChild(column);
+    });
+    
+    equalizeColumnHeights();
+}
+
+// ============================================================================
+// Equalize Column Heights
+// ============================================================================
+function equalizeColumnHeights() {
+    requestAnimationFrame(() => {
+        const contents = document.querySelectorAll('.gen-content');
+        let maxHeight = 0;
+        
+        // Reset heights first
+        contents.forEach(content => {
+            content.style.minHeight = '';
+        });
+        
+        // Find max height
+        contents.forEach(content => {
+            const height = content.scrollHeight;
+            if (height > maxHeight) maxHeight = height;
+        });
+        
+        // Apply max height to all
+        contents.forEach(content => {
+            content.style.minHeight = `${maxHeight}px`;
+        });
     });
 }
 
@@ -119,7 +199,7 @@ function createGenerationColumn(gen, documents) {
     if (documents.length > 1) {
         const versionNote = document.createElement('div');
         versionNote.className = 'version-note';
-        versionNote.textContent = `${documents.length} versions submitted in this generation`;
+        versionNote.textContent = `${documents.length} versions submitted`;
         header.appendChild(versionNote);
         
         const versionSelect = document.createElement('select');
@@ -134,6 +214,7 @@ function createGenerationColumn(gen, documents) {
         versionSelect.addEventListener('change', (e) => {
             selectedVersions[gen] = parseInt(e.target.value);
             renderComparison();
+            setupSynchronizedScrolling();
         });
         header.appendChild(versionSelect);
     }
@@ -145,7 +226,7 @@ function createGenerationColumn(gen, documents) {
     content.className = 'gen-content';
     
     if (documents.length === 0) {
-        content.innerHTML = '<div class="no-data">No NDC submitted in this generation</div>';
+        content.innerHTML = '<div class="no-data">No NDC submitted</div>';
     } else {
         const doc = documents[selectedVersions[gen]];
         content.appendChild(createDocumentContent(gen, doc));
@@ -161,11 +242,14 @@ function createGenerationColumn(gen, documents) {
 function createDocumentContent(gen, doc) {
     const container = document.createElement('div');
     
+    // Summary Box
+    container.appendChild(createSummaryBox(doc));
+    
     // Date
     if (doc.date) {
         const dateDiv = document.createElement('div');
         dateDiv.className = 'doc-date';
-        dateDiv.innerHTML = `<strong>Date:</strong> ${doc.date}`;
+        dateDiv.innerHTML = `<strong>Submitted:</strong> ${doc.date}`;
         container.appendChild(dateDiv);
     }
     
@@ -176,6 +260,32 @@ function createDocumentContent(gen, doc) {
     container.appendChild(createMeasuresSection(gen, doc));
     
     return container;
+}
+
+// ============================================================================
+// Summary Box
+// ============================================================================
+function createSummaryBox(doc) {
+    const box = document.createElement('div');
+    box.className = 'summary-box';
+    
+    const mitCount = doc.targets.filter(t => t.target_area === 'Transport sector mitigation target').length;
+    const adaptCount = doc.targets.filter(t => t.target_area === 'Transport sector adaptation target').length;
+    const netzeroCount = doc.targets.filter(t => t.target_area === 'Net zero target').length;
+    
+    const mitMeasuresCount = Object.values(doc.mitigation_measures).reduce((sum, arr) => sum + arr.length, 0);
+    const adaptMeasuresCount = Object.values(doc.adaptation_measures).reduce((sum, arr) => sum + arr.length, 0);
+    
+    box.innerHTML = `
+        <div class="summary-row">
+            <strong>Targets:</strong> ${mitCount} mitigation • ${adaptCount} adaptation • ${netzeroCount} net zero
+        </div>
+        <div class="summary-row">
+            <strong>Measures:</strong> ${mitMeasuresCount} mitigation • ${adaptMeasuresCount} adaptation
+        </div>
+    `;
+    
+    return box;
 }
 
 // ============================================================================
@@ -190,24 +300,18 @@ function createTargetsSection(doc) {
     title.textContent = 'Targets';
     section.appendChild(title);
     
-    // Group targets by type
     const mitigationTargets = doc.targets.filter(t => t.target_area === 'Transport sector mitigation target');
     const adaptationTargets = doc.targets.filter(t => t.target_area === 'Transport sector adaptation target');
     const netZeroTargets = doc.targets.filter(t => t.target_area === 'Net zero target');
     
-    // Mitigation Targets
-    section.appendChild(createTargetSubsection('Transport Mitigation Targets', mitigationTargets));
-    
-    // Adaptation Targets
-    section.appendChild(createTargetSubsection('Transport Adaptation Targets', adaptationTargets));
-    
-    // Net Zero Targets
-    section.appendChild(createTargetSubsection('Net Zero Targets', netZeroTargets));
+    section.appendChild(createTargetSubsection('Transport Mitigation Targets', mitigationTargets, doc.url));
+    section.appendChild(createTargetSubsection('Transport Adaptation Targets', adaptationTargets, doc.url));
+    section.appendChild(createTargetSubsection('Net Zero Targets', netZeroTargets, doc.url));
     
     return section;
 }
 
-function createTargetSubsection(title, targets) {
+function createTargetSubsection(title, targets, docUrl) {
     const subsection = document.createElement('div');
     subsection.className = 'subsection';
     
@@ -226,10 +330,23 @@ function createTargetSubsection(title, targets) {
             const item = document.createElement('div');
             item.className = 'target-item';
             
-            // Content/quote
+            // Content/quote in italic
             const content = document.createElement('div');
             content.className = 'target-content';
-            content.textContent = target.content;
+            const em = document.createElement('em');
+            em.textContent = target.content;
+            content.appendChild(em);
+            
+            // Add page link if available
+            if (target.page && target.page !== '' && docUrl) {
+                const pageLink = document.createElement('a');
+                pageLink.href = docUrl;
+                pageLink.target = '_blank';
+                pageLink.className = 'page-link';
+                pageLink.textContent = ` (p. ${target.page})`;
+                content.appendChild(pageLink);
+            }
+            
             item.appendChild(content);
             
             // Meta information
@@ -270,16 +387,13 @@ function createMeasuresSection(gen, doc) {
     title.textContent = 'Measures';
     section.appendChild(title);
     
-    // Mitigation Measures
-    section.appendChild(createMitigationSubsection(gen, doc.mitigation_measures));
-    
-    // Adaptation Measures
-    section.appendChild(createAdaptationSubsection(gen, doc.adaptation_measures));
+    section.appendChild(createMitigationSubsection(gen, doc));
+    section.appendChild(createAdaptationSubsection(gen, doc));
     
     return section;
 }
 
-function createMitigationSubsection(gen, measures) {
+function createMitigationSubsection(gen, doc) {
     const subsection = document.createElement('div');
     subsection.className = 'subsection';
     
@@ -288,7 +402,7 @@ function createMitigationSubsection(gen, measures) {
     subsectionTitle.textContent = 'Mitigation Measures';
     subsection.appendChild(subsectionTitle);
     
-    const categories = Object.keys(measures);
+    const categories = Object.keys(doc.mitigation_measures);
     
     if (categories.length === 0) {
         const empty = document.createElement('div');
@@ -298,36 +412,50 @@ function createMitigationSubsection(gen, measures) {
         return subsection;
     }
     
-    // Initialize active category if not set
-    if (!activeCategoryMitigation[gen]) {
-        activeCategoryMitigation[gen] = categories[0];
+    // Initialize global category if not set or not available
+    if (!activeCategoryMitigation || !categories.includes(activeCategoryMitigation)) {
+        activeCategoryMitigation = categories[0];
     }
     
-    // Category tabs
+    // Category tabs (global - changes all columns)
     const tabs = document.createElement('div');
     tabs.className = 'category-tabs';
     categories.forEach(cat => {
         const tab = document.createElement('button');
         tab.className = 'category-tab';
-        if (cat === activeCategoryMitigation[gen]) tab.classList.add('active');
+        if (cat === activeCategoryMitigation) tab.classList.add('active');
         tab.textContent = cat;
-        tab.addEventListener('click', () => {
-            activeCategoryMitigation[gen] = cat;
-            renderComparison();
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchCategoryGlobal(cat, 'mitigation');
         });
         tabs.appendChild(tab);
     });
     subsection.appendChild(tabs);
     
     // Measures for active category
-    const activeMeasures = measures[activeCategoryMitigation[gen]] || [];
+    const activeMeasures = doc.mitigation_measures[activeCategoryMitigation] || [];
     activeMeasures.forEach(measure => {
         const item = document.createElement('div');
         item.className = 'measure-item';
         
+        // Quote in italic
         const quote = document.createElement('div');
         quote.className = 'measure-quote';
-        quote.textContent = measure.quote;
+        const em = document.createElement('em');
+        em.textContent = measure.quote;
+        quote.appendChild(em);
+        
+        // Add page link if available
+        if (measure.page && measure.page !== '' && doc.url) {
+            const pageLink = document.createElement('a');
+            pageLink.href = doc.url;
+            pageLink.target = '_blank';
+            pageLink.className = 'page-link';
+            pageLink.textContent = ` (p. ${measure.page})`;
+            quote.appendChild(pageLink);
+        }
+        
         item.appendChild(quote);
         
         const meta = document.createElement('div');
@@ -336,7 +464,7 @@ function createMitigationSubsection(gen, measures) {
         if (measure.asi && measure.asi !== '—') {
             const asiRow = document.createElement('div');
             asiRow.className = 'measure-meta-row';
-            asiRow.innerHTML = `<span class="measure-meta-label">ASI:</span><span>${measure.asi}</span>`;
+            asiRow.innerHTML = `<span class="measure-meta-label">A-S-I:</span><span>${measure.asi}</span>`;
             meta.appendChild(asiRow);
         }
         
@@ -354,7 +482,7 @@ function createMitigationSubsection(gen, measures) {
     return subsection;
 }
 
-function createAdaptationSubsection(gen, measures) {
+function createAdaptationSubsection(gen, doc) {
     const subsection = document.createElement('div');
     subsection.className = 'subsection';
     
@@ -363,7 +491,7 @@ function createAdaptationSubsection(gen, measures) {
     subsectionTitle.textContent = 'Adaptation Measures';
     subsection.appendChild(subsectionTitle);
     
-    const categories = Object.keys(measures);
+    const categories = Object.keys(doc.adaptation_measures);
     
     if (categories.length === 0) {
         const empty = document.createElement('div');
@@ -373,36 +501,50 @@ function createAdaptationSubsection(gen, measures) {
         return subsection;
     }
     
-    // Initialize active category if not set
-    if (!activeCategoryAdaptation[gen]) {
-        activeCategoryAdaptation[gen] = categories[0];
+    // Initialize global category if needed
+    if (!activeCategoryAdaptation || !categories.includes(activeCategoryAdaptation)) {
+        activeCategoryAdaptation = categories[0];
     }
     
-    // Category tabs
+    // Category tabs (global - changes all columns)
     const tabs = document.createElement('div');
     tabs.className = 'category-tabs';
     categories.forEach(cat => {
         const tab = document.createElement('button');
         tab.className = 'category-tab';
-        if (cat === activeCategoryAdaptation[gen]) tab.classList.add('active');
+        if (cat === activeCategoryAdaptation) tab.classList.add('active');
         tab.textContent = cat;
-        tab.addEventListener('click', () => {
-            activeCategoryAdaptation[gen] = cat;
-            renderComparison();
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchCategoryGlobal(cat, 'adaptation');
         });
         tabs.appendChild(tab);
     });
     subsection.appendChild(tabs);
     
     // Measures for active category
-    const activeMeasures = measures[activeCategoryAdaptation[gen]] || [];
+    const activeMeasures = doc.adaptation_measures[activeCategoryAdaptation] || [];
     activeMeasures.forEach(measure => {
         const item = document.createElement('div');
         item.className = 'measure-item';
         
+        // Quote in italic
         const quote = document.createElement('div');
         quote.className = 'measure-quote';
-        quote.textContent = measure.quote;
+        const em = document.createElement('em');
+        em.textContent = measure.quote;
+        quote.appendChild(em);
+        
+        // Add page link if available
+        if (measure.page && measure.page !== '' && doc.url) {
+            const pageLink = document.createElement('a');
+            pageLink.href = doc.url;
+            pageLink.target = '_blank';
+            pageLink.className = 'page-link';
+            pageLink.textContent = ` (p. ${measure.page})`;
+            quote.appendChild(pageLink);
+        }
+        
         item.appendChild(quote);
         
         if (measure.modes && measure.modes !== '—') {
@@ -419,4 +561,34 @@ function createAdaptationSubsection(gen, measures) {
     });
     
     return subsection;
+}
+
+// ============================================================================
+// Global Category Switching (affects all columns simultaneously)
+// ============================================================================
+function switchCategoryGlobal(category, type) {
+    // Store current scroll position
+    const columns = document.querySelectorAll('.gen-content');
+    const scrollPos = columns[0] ? columns[0].scrollTop : 0;
+    
+    // Update global category
+    if (type === 'mitigation') {
+        activeCategoryMitigation = category;
+    } else {
+        activeCategoryAdaptation = category;
+    }
+    
+    // Re-render to update all columns
+    renderComparison();
+    
+    // Restore scroll position after render
+    requestAnimationFrame(() => {
+        const newColumns = document.querySelectorAll('.gen-content');
+        newColumns.forEach(col => {
+            col.scrollTop = scrollPos;
+        });
+        
+        setupSynchronizedScrolling();
+        equalizeColumnHeights();
+    });
 }

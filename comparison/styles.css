@@ -1,5 +1,5 @@
 /* ============================================================================
-   NDC Comparison Dashboard — Styles
+   NDC Comparison Dashboard — Styles (Updated)
    ============================================================================ */
 
 :root {
@@ -179,6 +179,31 @@ body {
     font-style: italic;
 }
 
+/* ── Summary Box (NEW) ─────────────────────────────────────────────── */
+.summary-box {
+    background: linear-gradient(135deg, rgba(157,190,61,0.08) 0%, rgba(0,164,189,0.08) 100%);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    padding: 0.625rem 0.75rem;
+    margin-bottom: var(--sp-md);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+}
+
+.summary-row {
+    margin-bottom: 0.25rem;
+}
+
+.summary-row:last-child {
+    margin-bottom: 0;
+}
+
+.summary-row strong {
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
 /* ── Document Date ─────────────────────────────────────────────────── */
 .doc-date {
     font-size: 0.875rem;
@@ -232,6 +257,13 @@ body {
     color: var(--color-text);
 }
 
+/* Italics for quotes/content from NDCs */
+.target-content em,
+.measure-quote em {
+    font-style: italic;
+    font-weight: normal;
+}
+
 .target-meta {
     font-size: 0.8125rem;
     color: var(--color-muted);
@@ -252,6 +284,25 @@ body {
     color: var(--color-muted);
     font-style: italic;
     font-size: 0.875rem;
+}
+
+/* ── Page Links (NEW) ──────────────────────────────────────────────── */
+.page-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.page-link:hover {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
+
+.page-link:active {
+    color: var(--color-primary);
 }
 
 /* ── Category Tabs ─────────────────────────────────────────────────── */

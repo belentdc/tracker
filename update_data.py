@@ -533,23 +533,27 @@ def process_comparison_data(excel_path):
     D_STATUS = 9
     D_TRANSPORT = 10
     D_NETZERO = 11
+    D_URL = 23  # Column X
     
     T_DOCID = 0
     T_AREA = 8
-    T_GHG = 9
-    T_TYPE = 10
-    T_COND = 11
-    T_YEAR = 12
+    T_GHG = 10      # Column K (was incorrectly 9)
+    T_TYPE = 11     # Column L (was incorrectly 10)
+    T_COND = 12     # Column M (was incorrectly 11)
+    T_YEAR = 13     # Column N (was incorrectly 12)
     T_CONTENT = 14
+    T_PAGE = 15     # Column P
     
     M_DOCID = 0
     M_CAT = 9
     M_QUOTE = 12
     M_ASI = 13
+    M_PAGE = 14     # Column O
     
     A_DOCID = 0
     A_CAT = 8
     A_QUOTE = 10
+    A_PAGE = 11     # Column L
     
     # Process documents
     documents = {}
@@ -567,6 +571,7 @@ def process_comparison_data(excel_path):
         status = row[D_STATUS]
         has_transport = row[D_TRANSPORT]
         has_netzero = row[D_NETZERO]
+        url = row[D_URL]
         
         if dtype != "NDC" or not code or not version:
             continue
@@ -579,11 +584,21 @@ def process_comparison_data(excel_path):
         if not gen:
             continue
         
-        # Format date
+        # Format date - convert Excel serial date to MM.YYYY
         date_str = ""
         if date_val:
             if hasattr(date_val, 'strftime'):
-                date_str = date_val.strftime('%Y-%m-%d')
+                # If it's already a datetime object
+                date_str = date_val.strftime('%m.%Y')
+            elif isinstance(date_val, (int, float)):
+                # If it's an Excel serial date number
+                from datetime import datetime, timedelta
+                try:
+                    excel_epoch = datetime(1899, 12, 30)
+                    converted_date = excel_epoch + timedelta(days=float(date_val))
+                    date_str = converted_date.strftime('%m.%Y')
+                except:
+                    date_str = str(date_val)
             else:
                 date_str = str(date_val)
         
@@ -598,6 +613,7 @@ def process_comparison_data(excel_path):
             "status": str(status).strip() if status else "",
             "has_transport_target": str(has_transport).strip().lower() == "yes",
             "has_netzero_target": str(has_netzero).strip().lower() == "yes",
+            "url": str(url).strip() if url else "",
         }
     
     # Process targets
@@ -614,6 +630,7 @@ def process_comparison_data(excel_path):
         cond = row[T_COND]
         year = row[T_YEAR]
         content = row[T_CONTENT]
+        page = row[T_PAGE]
         
         if doc_id not in documents:
             continue
@@ -641,6 +658,7 @@ def process_comparison_data(excel_path):
             "conditionality": str(cond).strip() if cond else "—",
             "target_year": str(year).strip() if year else "—",
             "content": str(content).strip() if content else "—",
+            "page": str(page).strip() if page else "",
         })
     
     # Process mitigation measures
@@ -654,6 +672,7 @@ def process_comparison_data(excel_path):
         category = row[M_CAT]
         quote = row[M_QUOTE]
         asi = row[M_ASI]
+        page = row[M_PAGE]
         
         if doc_id not in documents:
             continue
@@ -669,6 +688,14 @@ def process_comparison_data(excel_path):
             if col_idx < len(row) and str(row[col_idx]).strip().upper() == "X":
                 modes.append(mode_name)
         
+        # Format ASI as A-S-I
+        asi_str = "—"
+        if asi:
+            asi_val = str(asi).strip()
+            if asi_val and asi_val != "—":
+                # Replace ASI with A-S-I format
+                asi_str = "-".join(list(asi_val.upper()))
+        
         if doc_id not in mitigation_by_doc:
             mitigation_by_doc[doc_id] = {}
         
@@ -677,8 +704,9 @@ def process_comparison_data(excel_path):
         
         mitigation_by_doc[doc_id][category_str].append({
             "quote": str(quote).strip() if quote else "—",
-            "asi": str(asi).strip() if asi else "—",
+            "asi": asi_str,
             "modes": ", ".join(modes) if modes else "—",
+            "page": str(page).strip() if page else "",
         })
     
     # Process adaptation measures
@@ -691,6 +719,7 @@ def process_comparison_data(excel_path):
         doc_id = row[A_DOCID]
         category = row[A_CAT]
         quote = row[A_QUOTE]
+        page = row[A_PAGE]
         
         if doc_id not in documents:
             continue
@@ -715,6 +744,7 @@ def process_comparison_data(excel_path):
         adaptation_by_doc[doc_id][category_str].append({
             "quote": str(quote).strip() if quote else "—",
             "modes": ", ".join(modes) if modes else "—",
+            "page": str(page).strip() if page else "",
         })
     
     # Group by country
