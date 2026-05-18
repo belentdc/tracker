@@ -271,6 +271,38 @@ def process_excel(excel_path):
             cd["latest_has_transport"] = cd["generations"][lat_gen]["has_transport"]
         cd["latest_has_ghg_transport"] = doc_id in doc_has_ghg_transport
 
+    # ── Calculate had_transport_previously flag ───────────────────────────
+    print("🔄  Computing 'had_transport_previously' flags…")
+
+    for code, cd in countries_tab1.items():
+        latest_gen = cd.get("latest_active_gen")
+        latest_has_t = cd.get("latest_has_transport", False)
+        
+        # If latest already has transport, no need to check previous
+        if latest_has_t:
+            cd["had_transport_previously"] = False
+            continue
+        
+        # Check if any earlier generation had transport
+        had_previous = False
+        for gen in ["gen1", "gen2", "gen3"]:
+            # Skip if this is the latest generation or later than latest
+            if not latest_gen:
+                continue
+            gen_priority = {"gen1": 1, "gen2": 2, "gen3": 3}
+            if gen_priority.get(gen, 0) >= gen_priority.get(latest_gen, 0):
+                continue
+            
+            # Check if this earlier generation had transport
+            if cd["generations"].get(gen, {}).get("has_transport", False):
+                had_previous = True
+                break
+        
+        cd["had_transport_previously"] = had_previous
+
+    withdrawn_count = sum(1 for cd in countries_tab1.values() if cd.get("had_transport_previously"))
+    print(f"   ✓ {withdrawn_count} countries withdrew transport targets in latest NDC")
+
     print(f"   ✓ Tab1 built for {len(countries_tab1)} countries")
 
     # ── TAB 2: mitigation measures ─────────────────────────────────────
@@ -436,6 +468,17 @@ def process_excel(excel_path):
                 eu_gens_info[gen]["has_transport"] = True
                 eu_gens_info[gen]["version"] = ver
 
+        # Calculate had_transport_previously for EU
+        eu_had_transport_previously = False
+        if not latest_eu_has_t:
+            for gen in ["gen1", "gen2", "gen3"]:
+                gen_priority = {"gen1": 1, "gen2": 2, "gen3": 3}
+                if gen_priority.get(gen, 0) >= gen_priority.get(latest_eu_gen, 0):
+                    continue
+                if eu_gens_info.get(gen, {}).get("has_transport", False):
+                    eu_had_transport_previously = True
+                    break
+
         for iso3 in EU_MEMBER_ISO3:
             countries_tab1[iso3] = {
                 "iso3":                    iso3,
@@ -444,6 +487,7 @@ def process_excel(excel_path):
                 "latest_active_gen":       latest_eu_gen,
                 "latest_has_transport":    latest_eu_has_t,
                 "latest_has_ghg_transport": latest_eu_has_ghg,
+                "had_transport_previously": eu_had_transport_previously,
                 "generations":             eu_gens_info,
                 "covered_by_eu":           True,
             }
@@ -452,7 +496,8 @@ def process_excel(excel_path):
             latest_gen_map[iso3]      = latest_eu_gen
 
         print(f"   ✓ Added {len(EU_MEMBER_ISO3)} EU member states "
-              f"(latest: {latest_eu_gen}, transport: {latest_eu_has_t}, GHG: {latest_eu_has_ghg})")
+              f"(latest: {latest_eu_gen}, transport: {latest_eu_has_t}, GHG: {latest_eu_has_ghg}, "
+              f"had_previous: {eu_had_transport_previously})")
 
     # ── Assemble output ────────────────────────────────────────────────
     output = {
