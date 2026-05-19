@@ -73,6 +73,24 @@ function zoomToRegion(map, region) {
     }
 }
 
+// Normalize GeoJSON to ensure all features have ISO3 code and name
+function normalizeWorldGeoJSON(geojson) {
+    return {
+        ...geojson,
+        features: geojson.features.map(feature => {
+            const props = feature.properties || {};
+            return {
+                ...feature,
+                properties: {
+                    ...props,
+                    iso_a3: props.iso_a3 ?? props.ISO_A3 ?? props.ADM0_A3 ?? props.BRK_A3,
+                    name: props.name ?? props.NAME ?? props.NAME_EN ?? props.ADMIN,
+                },
+            };
+        }),
+    };
+}
+
 // ============================================================================
 // iframe auto-resize — sends height to WordPress parent
 // ============================================================================
@@ -138,9 +156,9 @@ async function loadCountryUrls() {
 }
 
 async function loadGeoJSON() {
-    const res = await fetch('data/processed/countries.geojson');
-    if (!res.ok) throw new Error('countries.geojson not found');
-    worldGeoJSON = await res.json();
+    const res = await fetch('data/processed/ne_10m_admin_0_countries_ukr.geojson');
+    if (!res.ok) throw new Error('ne_10m_admin_0_countries_ukr.geojson not found');
+    worldGeoJSON = normalizeWorldGeoJSON(await res.json());
 }
 
 // ============================================================================
