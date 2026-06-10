@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDC Comparison Dashboard | GIZ-SLOCAT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_c.css">
+</head>
+<body>
+
+    <nav class="tab-navigation">
+        <a href="../index.html" class="tab-button tab-link">Progress in Transport Targets</a>
+        <a href="../index.html?tab=2" class="tab-button tab-link">Leading Measures for Decarbonisation</a>
+        <a href="./index_c.html" class="tab-button tab-link active">NDC Comparison</a>
+        <button class="info-tooltip" id="info-button" style="margin-left:auto;align-self:center;padding:0 var(--sp-md);" aria-label="Information">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M10 14V10M10 6H10.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Info Modal -->
+    <div class="tooltip-modal" id="info-modal">
+        <div class="tooltip-content">
+            <button class="tooltip-close" id="info-modal-close">×</button>
+            <h3>About NDC Comparison</h3>
+            <p>This dashboard allows you to compare transport commitments across countries and NDC generations.</p>
+            <p><strong>How to use:</strong></p>
+            <ul style="margin-left: 1.25rem; margin-bottom: 1rem; line-height: 1.8;">
+                <li><strong>Select countries and generations:</strong> Use the dropdowns in each column to choose which country and generation to display</li>
+                <li><strong>Choose a tab:</strong> View Mitigation or Adaptation targets and measures</li>
+                <li><strong>Apply filters:</strong> Use the checkboxes below the tabs to filter by GHG/Non-GHG, A-S-I, or transport modes</li>
+                <li><strong>Compare:</strong> Scroll down to see all three columns side by side</li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="comparison-grid" id="comparison-grid">
+        <!-- Flexible columns will be inserted here -->
+    </main>
+
+    <div class="loading-overlay" id="loading">
+        <div class="loading-spinner"></div>
+        <p>Loading comparison data...</p>
+    </div>
+
+    <script src="script_c.js"></script>
+</body>
+</html>

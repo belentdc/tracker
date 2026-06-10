@@ -14,6 +14,35 @@ let columns = [
 // Global tab selection
 let activeTab = 'mitigation-targets';  // 4 options: mitigation-targets, mitigation-measures, adaptation-targets, adaptation-measures
 
+// Filter state per tab
+let filters = {
+    'mitigation-targets': { ghg: [] },
+    'mitigation-measures': { asi: [], modes: [] },
+    'adaptation-targets': { ghg: [] },
+    'adaptation-measures': { asi: [], modes: [] }
+};
+
+// Mode groupings for filtering
+const MODE_GROUPS = {
+    'Active mobility': ['Walking', 'Cycling', 'Active mobility'],
+    'Road': ['Two-/Three-wheelers', 'Cars', 'Private cars', 'Taxis', 'Truck', 'Bus', 'Road'],
+    'Rail': ['Heavy rail', 'High-speed rail', 'Transit rail', 'Rail'],
+    'Water': ['Coastal shipping', 'Inland shipping', 'International maritime', 'Water'],
+    'Aviation': ['Domestic aviation', 'International aviation', 'Aviation']
+};
+
+// EU member states — report collectively through the EU NDC (EEU code)
+const EU_MEMBERS = new Set([
+    'AUT','BEL','BGR','CYP','CZE','DEU','DNK','ESP','EST','FIN',
+    'FRA','GRC','HRV','HUN','IRL','ITA','LTU','LUX','LVA','MLT',
+    'NLD','POL','PRT','ROU','SVK','SVN','SWE'
+]);
+
+// Returns EEU for any EU member state, otherwise returns the code as-is
+function resolveCountryCode(code) {
+    return EU_MEMBERS.has(code) ? 'EEU' : code;
+}
+
 const GEN_CONFIG = {
     gen1: { label: '1st Generation', period: '2015–2019', color: '#003D5C' },
     gen2: { label: '2nd Generation', period: '2020–2024', color: '#00A4BD' },
@@ -28,6 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         await loadComparisonData();
         initializeDefaultSelection();
         renderComparison();
+        setupInfoModal();
         document.getElementById('loading').classList.add('hidden');
     } catch (err) {
         console.error('Init error:', err);
@@ -35,6 +65,33 @@ document.addEventListener('DOMContentLoaded', async () => {
             '<p style="color:#c0392b;font-family:sans-serif;padding:2rem">Error loading data. Please refresh the page.</p>';
     }
 });
+
+// ============================================================================
+// Info Modal
+// ============================================================================
+function setupInfoModal() {
+    const infoButton = document.getElementById('info-button');
+    const modal = document.getElementById('info-modal');
+    const closeButton = document.getElementById('info-modal-close');
+    
+    if (infoButton) {
+        infoButton.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+    }
+    
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+    }
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
+}
 
 // ============================================================================
 // Data Loading
@@ -88,26 +145,33 @@ function renderComparison() {
     });
     grid.appendChild(summaryRow);
     
-    // SECTION 3: Tab navigation (4 tabs)
+    // SECTION 3: Tab navigation (5 tabs)
     const tabSection = document.createElement('div');
     tabSection.className = 'tab-section';
     
     const tabs = [
-        { id: 'mitigation-targets', label: 'Mitigation Targets' },
-        { id: 'mitigation-measures', label: 'Mitigation Measures' },
-        { id: 'adaptation-targets', label: 'Adaptation Targets' },
-        { id: 'adaptation-measures', label: 'Adaptation Measures' }
+        { id: 'mitigation-targets',  label: 'Mitigation targets' },
+        { id: 'mitigation-measures', label: 'Mitigation measures' },
+        { id: 'net-zero',            label: 'Net zero' },
+        { id: 'adaptation-targets',  label: 'Adaptation targets' },
+        { id: 'adaptation-measures', label: 'Adaptation measures' }
     ];
     
     tabs.forEach(tab => {
         const button = document.createElement('button');
-        button.className = 'tab-button' + (activeTab === tab.id ? ' active' : '');
+        button.className = 'content-tab-button' + (activeTab === tab.id ? ' active' : '');
         button.textContent = tab.label;
         button.addEventListener('click', () => switchTab(tab.id));
         tabSection.appendChild(button);
     });
     
     grid.appendChild(tabSection);
+    
+    // SECTION 3.5: Filter Section (appears below active tab)
+    const filterSection = createFilterSection();
+    if (filterSection) {
+        grid.appendChild(filterSection);
+    }
     
     // SECTION 4: Content
     const contentRow = document.createElement('div');
@@ -132,7 +196,9 @@ function createHeaderCell(col, colIndex) {
         return cell;
     }
     
-    const countryData = comparisonData.countries[col.country];
+    const isEuMember = EU_MEMBERS.has(col.country);
+    const dataCode = resolveCountryCode(col.country);
+    const countryData = comparisonData.countries[dataCode];
     const config = GEN_CONFIG[col.generation];
     
     cell.style.setProperty('--gen-color', config.color);
@@ -149,6 +215,7 @@ function createHeaderCell(col, colIndex) {
         const option = document.createElement('option');
         option.value = code;
         option.textContent = name;
+        // Mark selected: match either the exact code or any EU member when EEU is the data source
         if (code === col.country) option.selected = true;
         countrySelect.appendChild(option);
     });
@@ -214,7 +281,15 @@ function createHeaderCell(col, colIndex) {
             cell.appendChild(dateDiv);
         }
     }
-    
+
+    // EU collective reporting note
+    if (isEuMember) {
+        const euNote = document.createElement('div');
+        euNote.style.cssText = 'font-size:0.8rem;color:rgba(255,255,255,0.75);margin-top:4px;font-style:italic;';
+        euNote.textContent = 'Reports collectively through the EU NDC';
+        cell.appendChild(euNote);
+    }
+
     return cell;
 }
 
@@ -230,11 +305,15 @@ function createSummaryCell(col, colIndex) {
         return cell;
     }
     
-    const countryData = comparisonData.countries[col.country];
+    const dataCode = resolveCountryCode(col.country);
+    const countryData = comparisonData.countries[dataCode];
     const documents = countryData.generations[col.generation];
     
     if (documents.length === 0) {
-        cell.innerHTML = '<div class="no-data-summary">No NDC submitted</div>';
+        const isEuMember = EU_MEMBERS.has(col.country);
+        cell.innerHTML = isEuMember
+            ? '<div class="no-data-summary">No EU NDC in this generation</div>'
+            : '<div class="no-data-summary">No NDC submitted</div>';
         return cell;
     }
     
@@ -247,16 +326,34 @@ function createSummaryCell(col, colIndex) {
     const mitMeasuresCount = Object.values(doc.mitigation_measures).reduce((sum, arr) => sum + arr.length, 0);
     const adaptMeasuresCount = Object.values(doc.adaptation_measures).reduce((sum, arr) => sum + arr.length, 0);
     
+    const euNote = EU_MEMBERS.has(col.country)
+        ? `<div class="summary-eu-note">Reports collectively through the EU NDC</div>`
+        : '';
+
+    const kpis = [
+        { count: mitCount,         label: 'Mit. targets',     tab: 'mitigation-targets'  },
+        { count: mitMeasuresCount, label: 'Mit. measures',    tab: 'mitigation-measures' },
+        { count: netzeroCount,     label: 'Net zero',         tab: 'net-zero'            },
+        { count: adaptCount,       label: 'Adapt. targets',   tab: 'adaptation-targets'  },
+        { count: adaptMeasuresCount, label: 'Adapt. measures', tab: 'adaptation-measures' },
+    ];
+
     cell.innerHTML = `
-        <div class="summary-box">
-            <div class="summary-row-text">
-                <strong>Targets:</strong> ${mitCount} mitigation • ${adaptCount} adaptation • ${netzeroCount} net zero
-            </div>
-            <div class="summary-row-text">
-                <strong>Measures:</strong> ${mitMeasuresCount} mitigation • ${adaptMeasuresCount} adaptation
-            </div>
+        <div class="summary-kpi-grid">
+            ${kpis.map(k => `
+                <button class="kpi-card ${k.count > 0 ? 'kpi-active' : 'kpi-empty'}" data-tab="${k.tab}">
+                    <span class="kpi-number">${k.count}</span>
+                    <span class="kpi-label">${k.label}</span>
+                </button>
+            `).join('')}
         </div>
+        ${euNote}
     `;
+
+    // Make KPI cards clickable
+    cell.querySelectorAll('.kpi-card').forEach(btn => {
+        btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
     
     return cell;
 }
@@ -273,11 +370,15 @@ function createContentCell(col, colIndex) {
         return cell;
     }
     
-    const countryData = comparisonData.countries[col.country];
+    const dataCode = resolveCountryCode(col.country);
+    const countryData = comparisonData.countries[dataCode];
     const documents = countryData.generations[col.generation];
     
     if (documents.length === 0) {
-        cell.innerHTML = '<div class="no-data">No NDC submitted</div>';
+        const isEuMember = EU_MEMBERS.has(col.country);
+        cell.innerHTML = isEuMember
+            ? '<div class="no-data">No EU NDC submitted in this generation</div>'
+            : '<div class="no-data">No NDC submitted</div>';
         return cell;
     }
     
@@ -288,6 +389,8 @@ function createContentCell(col, colIndex) {
         cell.appendChild(createMitigationTargetsContent(doc));
     } else if (activeTab === 'mitigation-measures') {
         cell.appendChild(createMitigationMeasuresContent(doc));
+    } else if (activeTab === 'net-zero') {
+        cell.appendChild(createNetZeroContent(doc));
     } else if (activeTab === 'adaptation-targets') {
         cell.appendChild(createAdaptationTargetsContent(doc));
     } else if (activeTab === 'adaptation-measures') {
@@ -306,15 +409,194 @@ function switchTab(tab) {
 }
 
 // ============================================================================
-// CONTENT CREATORS (4 types)
+// SECTION 3.5: Filter Section
+// ============================================================================
+function createFilterSection() {
+    const section = document.createElement('div');
+    section.className = 'filter-section';
+    
+    if (activeTab === 'net-zero') {
+        return null; // No filters for net zero tab
+    }
+    
+    if (activeTab === 'mitigation-targets' || activeTab === 'adaptation-targets') {
+        // GHG / Non-GHG filters
+        const row = document.createElement('div');
+        row.className = 'filter-row';
+        
+        const label = document.createElement('span');
+        label.className = 'filter-label';
+        label.textContent = 'Filter by:';
+        row.appendChild(label);
+        
+        const ghgCheckbox = createFilterCheckbox('GHG targets', 'ghg', activeTab, 'GHG');
+        const nonGhgCheckbox = createFilterCheckbox('Non-GHG targets', 'ghg', activeTab, 'Non GHG');
+        
+        row.appendChild(ghgCheckbox);
+        row.appendChild(nonGhgCheckbox);
+        
+        // Reset button
+        const resetBtn = document.createElement('button');
+        resetBtn.className = 'btn-reset-filters';
+        resetBtn.innerHTML = '&#8635; Reset filters';
+        resetBtn.addEventListener('click', () => {
+            filters[activeTab].ghg = [];
+            renderComparison();
+        });
+        row.appendChild(resetBtn);
+        
+        section.appendChild(row);
+        
+    } else if (activeTab === 'mitigation-measures' || activeTab === 'adaptation-measures') {
+        // A-S-I filters (mitigation measures only — not applicable to adaptation)
+        if (activeTab === 'mitigation-measures') {
+            const asiRow = document.createElement('div');
+            asiRow.className = 'filter-row';
+            
+            const asiLabel = document.createElement('span');
+            asiLabel.className = 'filter-label';
+            asiLabel.textContent = 'A-S-I:';
+            asiRow.appendChild(asiLabel);
+            
+            ['Avoid', 'Shift', 'Improve'].forEach(asi => {
+                asiRow.appendChild(createFilterCheckbox(asi, 'asi', activeTab, asi));
+            });
+            section.appendChild(asiRow);
+        }
+        
+        // Mode filters
+        const modeRow = document.createElement('div');
+        modeRow.className = 'filter-row';
+        
+        const modeLabel = document.createElement('span');
+        modeLabel.className = 'filter-label';
+        modeLabel.textContent = 'Mode:';
+        modeRow.appendChild(modeLabel);
+        
+        ['Not defined', 'Informal transport', 'Active mobility', 'Road', 'Rail', 'Water', 'Aviation'].forEach(mode => {
+            modeRow.appendChild(createFilterCheckbox(mode, 'modes', activeTab, mode));
+        });
+        
+        // Reset button
+        const resetBtn = document.createElement('button');
+        resetBtn.className = 'btn-reset-filters';
+        resetBtn.innerHTML = '&#8635; Reset filters';
+        resetBtn.addEventListener('click', () => {
+            filters[activeTab].asi = [];
+            filters[activeTab].modes = [];
+            renderComparison();
+        });
+        modeRow.appendChild(resetBtn);
+        
+        section.appendChild(modeRow);
+    }
+    
+    return section;
+}
+
+function createFilterCheckbox(label, filterType, tab, value) {
+    const wrapper = document.createElement('label');
+    wrapper.className = 'filter-checkbox';
+    
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.value = value || label;
+    
+    // Check if this filter is active
+    const currentFilters = filters[tab][filterType];
+    if (currentFilters && currentFilters.includes(checkbox.value)) {
+        checkbox.checked = true;
+    }
+    
+    checkbox.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            if (!filters[tab][filterType].includes(e.target.value)) {
+                filters[tab][filterType].push(e.target.value);
+            }
+        } else {
+            filters[tab][filterType] = filters[tab][filterType].filter(v => v !== e.target.value);
+        }
+        renderComparison();
+    });
+    
+    const span = document.createElement('span');
+    span.textContent = label;
+    
+    wrapper.appendChild(checkbox);
+    wrapper.appendChild(span);
+    
+    return wrapper;
+}
+
+// ============================================================================
+// Filter Logic
+// ============================================================================
+function matchesFilters(item, tab) {
+    const tabFilters = filters[tab];
+    
+    if (tab === 'mitigation-targets' || tab === 'adaptation-targets') {
+        // Target filtering
+        if (tabFilters.ghg.length === 0) {
+            return true; // No GHG filter active, show all
+        }
+        // Match directly against the dataset value: "GHG" or "Non GHG"
+        return tabFilters.ghg.includes(item.ghg_target);
+    }
+    
+    if (tab === 'mitigation-measures' || tab === 'adaptation-measures') {
+        // Measure filtering
+        let matchesAsi = true;
+        let matchesModes = true;
+        
+        // A-S-I filter
+        if (tabFilters.asi.length > 0) {
+            matchesAsi = false;
+            if (item.asi && item.asi !== '—') {
+                const itemAsi = item.asi.toUpperCase();
+                matchesAsi = tabFilters.asi.some(filter => 
+                    itemAsi.includes(filter.toUpperCase())
+                );
+            }
+        }
+        
+        // Mode filter with groupings
+        if (tabFilters.modes.length > 0) {
+            matchesModes = false;
+            if (item.modes && item.modes !== '—') {
+                const itemModes = item.modes;
+                matchesModes = tabFilters.modes.some(filter => {
+                    // Check if filter is a group
+                    if (MODE_GROUPS[filter]) {
+                        return MODE_GROUPS[filter].some(mode => 
+                            itemModes.includes(mode)
+                        );
+                    }
+                    // Direct match
+                    return itemModes.includes(filter);
+                });
+            }
+        }
+        
+        return matchesAsi && matchesModes;
+    }
+    
+    return true;
+}
+
+// ============================================================================
+// CONTENT CREATORS (4 types) - Updated with filtering
 // ============================================================================
 
 // 1. MITIGATION TARGETS
 function createMitigationTargetsContent(doc) {
     const container = document.createElement('div');
     
-    const mitigationTargets = doc.targets.filter(t => t.target_area === 'Transport sector mitigation target');
-    const netZeroTargets = doc.targets.filter(t => t.target_area === 'Net zero target');
+    let mitigationTargets = doc.targets.filter(t => t.target_area === 'Transport sector mitigation target');
+    let netZeroTargets = doc.targets.filter(t => t.target_area === 'Net zero target');
+    
+    // Apply filters
+    mitigationTargets = mitigationTargets.filter(t => matchesFilters(t, 'mitigation-targets'));
+    netZeroTargets = netZeroTargets.filter(t => matchesFilters(t, 'mitigation-targets'));
     
     if (mitigationTargets.length > 0) {
         const section = document.createElement('div');
@@ -349,9 +631,35 @@ function createMitigationTargetsContent(doc) {
     }
     
     if (mitigationTargets.length === 0 && netZeroTargets.length === 0) {
-        container.innerHTML = '<div class="no-data">No mitigation targets</div>';
+        container.innerHTML = '<div class="no-data">No mitigation targets match the selected filters</div>';
     }
     
+    return container;
+}
+
+// 1b. NET ZERO TARGETS
+function createNetZeroContent(doc) {
+    const container = document.createElement('div');
+    const targets = doc.targets.filter(t => t.target_area === 'Net zero target');
+
+    if (targets.length === 0) {
+        container.innerHTML = '<div class="no-data">No net zero targets</div>';
+        return container;
+    }
+
+    const section = document.createElement('div');
+    section.className = 'content-section-block';
+
+    const title = document.createElement('div');
+    title.className = 'section-title';
+    title.textContent = 'Net Zero Targets';
+    section.appendChild(title);
+
+    targets.forEach(target => {
+        section.appendChild(createTargetItem(target, doc.url));
+    });
+
+    container.appendChild(section);
     return container;
 }
 
@@ -368,29 +676,47 @@ function createMitigationMeasuresContent(doc) {
     const section = document.createElement('div');
     section.className = 'content-section-block';
     
+    let hasVisibleMeasures = false;
+    
     categories.forEach(category => {
-        const catHeader = document.createElement('div');
-        catHeader.className = 'category-header';
-        catHeader.textContent = category;
-        section.appendChild(catHeader);
+        let measures = doc.mitigation_measures[category] || [];
         
-        const measures = doc.mitigation_measures[category] || [];
-        measures.forEach(measure => {
-            section.appendChild(createMeasureItem(measure, doc.url));
-        });
+        // Apply filters
+        measures = measures.filter(m => matchesFilters(m, 'mitigation-measures'));
+        
+        if (measures.length > 0) {
+            hasVisibleMeasures = true;
+            
+            const catHeader = document.createElement('div');
+            catHeader.className = 'category-header';
+            catHeader.textContent = category;
+            section.appendChild(catHeader);
+            
+            measures.forEach(measure => {
+                section.appendChild(createMeasureItem(measure, doc.url));
+            });
+        }
     });
     
-    container.appendChild(section);
+    if (hasVisibleMeasures) {
+        container.appendChild(section);
+    } else {
+        container.innerHTML = '<div class="no-data">No mitigation measures match the selected filters</div>';
+    }
+    
     return container;
 }
 
 // 3. ADAPTATION TARGETS
 function createAdaptationTargetsContent(doc) {
     const container = document.createElement('div');
-    const adaptationTargets = doc.targets.filter(t => t.target_area === 'Transport sector adaptation target');
+    let adaptationTargets = doc.targets.filter(t => t.target_area === 'Transport sector adaptation target');
+    
+    // Apply filters
+    adaptationTargets = adaptationTargets.filter(t => matchesFilters(t, 'adaptation-targets'));
     
     if (adaptationTargets.length === 0) {
-        container.innerHTML = '<div class="no-data">No adaptation targets</div>';
+        container.innerHTML = '<div class="no-data">No adaptation targets match the selected filters</div>';
         return container;
     }
     
@@ -423,19 +749,34 @@ function createAdaptationMeasuresContent(doc) {
     const section = document.createElement('div');
     section.className = 'content-section-block';
     
+    let hasVisibleMeasures = false;
+    
     categories.forEach(category => {
-        const catHeader = document.createElement('div');
-        catHeader.className = 'category-header';
-        catHeader.textContent = category;
-        section.appendChild(catHeader);
+        let measures = doc.adaptation_measures[category] || [];
         
-        const measures = doc.adaptation_measures[category] || [];
-        measures.forEach(measure => {
-            section.appendChild(createAdaptationMeasureItem(measure, doc.url));
-        });
+        // Apply filters
+        measures = measures.filter(m => matchesFilters(m, 'adaptation-measures'));
+        
+        if (measures.length > 0) {
+            hasVisibleMeasures = true;
+            
+            const catHeader = document.createElement('div');
+            catHeader.className = 'category-header';
+            catHeader.textContent = category;
+            section.appendChild(catHeader);
+            
+            measures.forEach(measure => {
+                section.appendChild(createAdaptationMeasureItem(measure, doc.url));
+            });
+        }
     });
     
-    container.appendChild(section);
+    if (hasVisibleMeasures) {
+        container.appendChild(section);
+    } else {
+        container.innerHTML = '<div class="no-data">No adaptation measures match the selected filters</div>';
+    }
+    
     return container;
 }
 

@@ -70,7 +70,15 @@ body {
 }
 .tab-button:hover { color: white; background: rgba(255,255,255,0.07); }
 .tab-button.active { color: white; border-bottom-color: var(--color-primary); }
+.tab-link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
 
+.tab-link:hover {
+    text-decoration: none;
+}
 /* ── Tab content ──────────────────────────────────────────────────── */
 .tab-content { display:none; max-width:1400px; margin:0 auto; padding:var(--sp-sm) var(--sp-md); }
 .tab-content.active { display:block; animation: fadeIn 0.3s ease; }
