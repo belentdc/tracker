@@ -11,6 +11,9 @@ let tab1Map       = null;
 let tab2Map       = null;
 let tab1GeoLayer  = null;
 let tab2GeoLayer  = null;
+let labData       = null;
+let tab1MapType   = "dots";
+let tab2MapType   = "dots";
 
 let chartActiveGens = ['latest'];
 let mapActiveGen    = 'latest';
@@ -56,14 +59,7 @@ function countryTitle(iso3, name) {
 
 
 // Region bounding boxes [south, west, north, east]
-const REGION_BOUNDS = {
-    'Africa':                          [[-35, -20], [38, 52]],
-    'Asia':                            [[0, 25], [55, 145]],
-    'Europe':                          [[34, -25], [72, 45]],
-    'Latin America and the Caribbean': [[-56, -92], [33, -32]],
-    'Northern America':                [[14, -170], [72, -50]],
-    'Oceania':                         [[-50, 110], [22, 180]],
-};
+// Region zoom handled by zoomToRegionSvg (SVG maps)
 
 function zoomToRegion(map, region) {
     if (region === 'all') {
@@ -117,6 +113,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         initializeTab2();
         document.getElementById('loading').classList.add('hidden');
 
+        // Deep link: ?tab=2 from comparison nav
+        const _params = new URLSearchParams(location.search);
+        const _want = _params.get('tab');
+        if (_want === '2') {
+            document.querySelectorAll('.tab-button').forEach(b =>
+                b.classList.toggle('active', b.dataset.tab === 'tab2'));
+            document.querySelectorAll('.tab-content').forEach(c =>
+                c.classList.toggle('active', c.id === 'tab2'));
+            sendHeightDebounced();
+        }
+
         // Set print date dynamically
         window.addEventListener('beforeprint', () => {
             const dateStr = new Date().toLocaleDateString('en-GB', {
@@ -156,9 +163,86 @@ async function loadCountryUrls() {
 }
 
 async function loadGeoJSON() {
-    const res = await fetch('data/processed/ne_10m_admin_0_countries_ukr.geojson');
-    if (!res.ok) throw new Error('ne_10m_admin_0_countries_ukr.geojson not found');
-    worldGeoJSON = normalizeWorldGeoJSON(await res.json());
+    const res = await fetch('data/processed/countries_simplified.geojson');
+    if (!res.ok) throw new Error('countries_simplified.geojson not found');
+    worldGeoJSON = await res.json();
+    labData = await buildLabData();
+}
+
+async function buildLabData() {
+    // Compute Dorling layout (circles sized by transport CO2e) from loaded data
+    const allCountries = dashboardData ? dashboardData.tab1.countries : {};
+    const W = 960, H = 520;
+
+    function project(lon, lat) {
+        return [(lon + 180) / 360 * W, (90 - lat) / 180 * H * 1.15 - 30];
+    }
+    function ringCentroid(coords) {
+        const xs = coords.map(p => p[0]), ys = coords.map(p => p[1]);
+        return [xs.reduce((a,b) => a+b,0)/xs.length, ys.reduce((a,b) => a+b,0)/ys.length];
+    }
+    function featCentroid(geom) {
+        if (geom.type === 'Polygon') return ringCentroid(geom.coordinates[0]);
+        const best = geom.coordinates.reduce((a,b) => a[0].length>b[0].length?a:b);
+        return ringCentroid(best[0]);
+    }
+
+    const centroids = {};
+    worldGeoJSON.features.forEach(f => {
+        try {
+            const c = featCentroid(f.geometry);
+            ['ISO_A3','ADM0_A3','BRK_A3'].forEach(k => {
+                const v = f.properties[k];
+                if (v && v !== '-99') centroids[v] = centroids[v] || c;
+            });
+        } catch(e) {}
+    });
+    centroids['EEU'] = [10.0, 50.5];
+    centroids['XKX'] = [20.9, 42.6];
+
+    const worldTransport = Object.values(allCountries)
+        .filter(c => c.iso3 !== 'EEU')
+        .reduce((s,c) => s + (c.ghg_transport || 0), 0) || 7123;
+
+    const maxMt = Math.max(...Object.values(allCountries).map(c => c.ghg_transport || 0));
+    const K = 46 / Math.sqrt(maxMt || 1);
+
+    const nodes = [];
+    Object.entries(allCountries).forEach(([code, c]) => {
+        if (code === 'EEU') return;  // skip collective EU — show members individually
+        if (!centroids[code]) return;
+        const mt = c.ghg_transport || 0;
+        // If no CO2 data yet, use equal size (6px) as fallback
+        const r = mt > 0 ? Math.max(2.5, K * Math.sqrt(mt)) : 6;
+        const [x, y] = project(...centroids[code]);
+        nodes.push({ code, x, y, r, mt });
+    });
+
+    // Collision relaxation
+    for (let iter = 0; iter < 180; iter++) {
+        let moved = false;
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i+1; j < nodes.length; j++) {
+                const a = nodes[i], b = nodes[j];
+                const dx = b.x-a.x, dy = b.y-a.y;
+                const d = Math.hypot(dx,dy) || 0.001;
+                const overlap = a.r + b.r + 0.6 - d;
+                if (overlap > 0) {
+                    const ux = dx/d, uy = dy/d;
+                    const wa = b.r/(a.r+b.r);
+                    a.x -= ux*overlap*wa;   a.y -= uy*overlap*wa;
+                    b.x += ux*overlap*(1-wa); b.y += uy*overlap*(1-wa);
+                    moved = true;
+                }
+            }
+        }
+        if (!moved) break;
+    }
+
+    const dorling = {};
+    nodes.forEach(n => { dorling[n.code] = {x:n.x, y:n.y, r:n.r, mt:n.mt}; });
+
+    return { centroids, dorling, worldTransport, W, H };
 }
 
 // ============================================================================
@@ -199,21 +283,28 @@ function initializeTab1() {
     document.querySelectorAll('#tab1 .toggle-button').forEach(btn =>
         btn.addEventListener('click', () => switchTab1View(btn.dataset.view)));
 
-    tab1Map = L.map('tab1-map', { zoomControl: true, scrollWheelZoom: false }).setView([20, 10], 2);
-    tab1Map.attributionControl.setPrefix('Natural Earth (naturalearthdata.com) | For illustrative purposes only. Borders do not reflect GIZ\'s official position.');
+    // SVG maps — no Leaflet needed
 
 
     document.getElementById('tab1-region').addEventListener('change', renderTab1);
     document.getElementById('tab1-map-region').addEventListener('change', () => {
         const region = document.getElementById('tab1-map-region').value;
-        renderTab1Map(region);
+        renderTab1SvgMap(region);
         updateTab1MapLabel(region);
-        zoomToRegion(tab1Map, region);
+    });
+    document.querySelectorAll('#tab1-map-type-toggle .map-type-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            tab1MapType = btn.dataset.maptype;
+            document.querySelectorAll('#tab1-map-type-toggle .map-type-btn')
+                .forEach(b => b.classList.toggle('active', b === btn));
+            renderTab1SvgMap(document.getElementById('tab1-map-region').value);
+        });
     });
     document.getElementById('tab1-download').addEventListener('click', () => downloadPDF('tab1'));
 
     renderTab1();
 }
+
 
 function switchTab1View(view) {
     document.querySelectorAll('#tab1 .toggle-button').forEach(b =>
@@ -223,15 +314,14 @@ function switchTab1View(view) {
     document.getElementById('tab1-chart-filters').classList.toggle('hidden', view !== 'chart');
     document.getElementById('tab1-map-filters').classList.toggle('hidden', view !== 'map');
     if (view === 'map') {
+        // Sync toggle button to current mapType state
+        document.querySelectorAll('#tab1-map-type-toggle .map-type-btn').forEach(b =>
+            b.classList.toggle('active', b.dataset.maptype === tab1MapType));
         setTimeout(() => {
-            if (tab1Map) {
-                tab1Map.invalidateSize();
-                const region = document.getElementById('tab1-map-region').value;
-                renderTab1Map(region);
-                updateTab1MapLabel(region);
-                zoomToRegion(tab1Map, region);
-            }
-        }, 120);
+            const region = document.getElementById('tab1-map-region').value;
+            renderTab1SvgMap(region);
+            updateTab1MapLabel(region);
+        }, 60);
     }
 }
 
@@ -267,7 +357,7 @@ function renderTab1() {
     const genStats    = getTab1GenStats(chartRegion);
     renderTab1Subtitle(chartRegion, genStats);
     renderTab1Chart(genStats);
-    renderTab1Map(mapRegion);
+    renderTab1SvgMap(mapRegion);
     updateTab1MapLabel(mapRegion);
 }
 
@@ -365,7 +455,7 @@ function renderTab1Chart(genStats) {
                 legend: {
                     position: 'top',
                     labels: {
-                        font: { family: 'IBM Plex Sans', size: 13, weight: 600 },
+                        font: { family: 'Source Sans 3', size: 13, weight: 600 },
                         padding: 20,
                         usePointStyle: true,
                         pointStyle: 'rectRounded',
@@ -373,8 +463,8 @@ function renderTab1Chart(genStats) {
                 },
                 tooltip: {
                     backgroundColor: 'rgba(0,61,92,0.95)',
-                    titleFont: { family: 'IBM Plex Sans', size: 13, weight: 700 },
-                    bodyFont:  { family: 'IBM Plex Sans', size: 13 },
+                    titleFont: { family: 'Source Sans 3', size: 13, weight: 700 },
+                    bodyFont:  { family: 'Source Sans 3', size: 13 },
                     padding: 12, cornerRadius: 8,
                     callbacks: {
                         label(ctx) {
@@ -395,7 +485,7 @@ function renderTab1Chart(genStats) {
                 x: {
                     stacked: true,
                     grid: { display: false },
-                    ticks: { font: { family: 'IBM Plex Sans', size: 13 } },
+                    ticks: { font: { family: 'Source Sans 3', size: 13 } },
                 },
                 y: {
                     stacked: true,
@@ -403,12 +493,12 @@ function renderTab1Chart(genStats) {
                     grid: { color: '#E8ECF0' },
                     ticks: {
                         callback: v => v + '%',
-                        font: { family: 'IBM Plex Sans', size: 12 },
+                        font: { family: 'Source Sans 3', size: 12 },
                     },
                     title: {
                         display: true,
                         text: '% of NDCs submitted in that generation',
-                        font: { family: 'IBM Plex Sans', size: 12, weight: 600 },
+                        font: { family: 'Source Sans 3', size: 12, weight: 600 },
                         color: '#6B7280',
                     },
                 },
@@ -441,123 +531,60 @@ function renderTab1Chart(genStats) {
     });
 }
 
-function renderTab1Map(region) {
-    if (!worldGeoJSON) return;
-    if (tab1GeoLayer) tab1GeoLayer.remove();
-
+function renderTab1SvgMap(region) {
+    if (!labData) return;
     const allCountries = dashboardData.tab1.countries;
-    const regionCodes  = new Set(
-        Object.values(allCountries)
-            .filter(c => region === 'all' || c.region === region)
-            .map(c => c.iso3)
-    );
 
-    // Compute counts for currently showing label
+    // update label counts
     const filtered = Object.values(allCountries).filter(c =>
-        (region === 'all' || c.region === region) && !c.covered_by_eu && c.latest_active_gen
-    );
-    // Add EU as one entry if Europe or all
+        (region === 'all' || c.region === region) && !c.covered_by_eu && c.latest_active_gen);
     const euCd = allCountries['EEU'];
     const includeEU = euCd && (region === 'all' || region === 'Europe');
-    const greenCount    = filtered.filter(c => c.latest_has_transport).length + (includeEU && euCd.latest_has_transport ? 1 : 0);
+    const greenCount     = filtered.filter(c => c.latest_has_transport).length + (includeEU && euCd.latest_has_transport ? 1 : 0);
     const lightblueCount = filtered.filter(c => c.had_transport_previously).length;
-    const greyCount     = filtered.filter(c => !c.latest_has_transport && !c.had_transport_previously).length + (includeEU && !euCd.latest_has_transport ? 1 : 0);
-    const regionLine    = region === 'all' ? 'Region: All regions' : `Region: ${region}`;
-
+    const greyCount      = filtered.filter(c => !c.latest_has_transport && !c.had_transport_previously).length + (includeEU && !euCd.latest_has_transport ? 1 : 0);
+    const regionLine = region === 'all' ? 'Region: All regions' : `Region: ${region}`;
     const labelEl = document.getElementById('tab1-map-label');
-    if (labelEl) {
-        labelEl.innerHTML = `<span class="cs-header">Currently showing</span>${regionLine}<br>Transport target in latest active NDC: <strong>${greenCount} NDCs</strong><br>Transport target in a previous NDC: <strong>${lightblueCount} NDCs</strong><br>No transport target in any NDC: <strong>${greyCount} NDCs</strong>`;
+    if (labelEl) labelEl.innerHTML = `<span class="cs-header">Currently showing</span>${regionLine}<br>Transport target in latest active NDC: <strong>${greenCount} NDCs</strong><br>Transport target in a previous NDC: <strong>${lightblueCount} NDCs</strong><br>No transport target in any NDC: <strong>${greyCount} NDCs</strong>`;
+
+    const tipFn = (code, cd) => {
+        if (!cd) return `<strong>${code}</strong><br><span class="tt-tag">No NDC submitted</span>`;
+        const gens = cd.generations || {};
+        const genLines = ['gen1','gen2','gen3'].filter(g => gens[g]).map(g => {
+            const lbl = {gen1:'1st',gen2:'2nd',gen3:'3rd'}[g];
+            const ok = gens[g].has_transport;
+            return `${ok?'✓':'✗'} ${lbl} NDC: ${ok?'transport target':'no transport target'}`;
+        }).join('<br>');
+        let status = '';
+        if (cd.latest_has_transport) status = '<span class="tt-tag">✓ Transport target in latest NDC</span>';
+        else if (cd.had_transport_previously) status = '<span class="tt-tag">⚠ Had target previously, not in latest</span>';
+        else if (cd.latest_active_gen) status = '<span class="tt-tag">✗ No transport target</span>';
+        const euNote = cd.covered_by_eu ? '<br><em>Reports collectively through the EU NDC</em>' : '';
+        // CO2 data — shown in Dorling view where size represents emissions
+        const d = labData.dorling[code];
+        const co2Line = (tab1MapType === 'dorling' && d && d.mt)
+            ? `<br><strong>${d.mt.toLocaleString('en-US', {maximumFractionDigits:1})} Mt</strong> transport CO₂e · ${((d.mt / (labData.worldTransport||7123))*100).toFixed(1)}% of global transport`
+            : '';
+        return `<strong>${cd.name || code}</strong>${euNote}${co2Line}<br>${genLines}<br>${status}`;
+    };
+
+    const colorFn = (cd) => {
+        if (!cd) return '#F2F2F2';
+        if (cd.latest_has_transport) return '#9DBE3D';
+        if (cd.had_transport_previously) return '#7EC8E3';
+        if (cd.latest_active_gen) return '#C8D8E8';
+        return '#ECECEC';
+    };
+
+    if (tab1MapType === 'dots') {
+        renderDotsMap('tab1-svg-map', colorFn, tipFn, region, allCountries);
+    } else {
+        renderDorlingMap('tab1-svg-map', colorFn, null, tipFn, region, allCountries);
     }
-
-    tab1GeoLayer = L.geoJSON(worldGeoJSON, {
-        style(feature) {
-            const iso3     = feature.properties.iso_a3;
-            const cd       = allCountries[iso3];
-            const inRegion = region === 'all' || regionCodes.has(iso3);
-
-            if (!cd) {
-                // No NDC submitted — white with dashed border
-                return {
-                    fillColor: '#F2F2F2',
-                    fillOpacity: inRegion ? 0.9 : 0.4,
-                    color: '#bbb',
-                    weight: 0.8,
-                    dashArray: '3',
-                };
-            }
-
-            let fillColor;
-            if (cd.latest_has_transport) {
-                fillColor = '#9DBE3D'; // green
-            } else if (cd.had_transport_previously) {
-                fillColor = '#7EC8E3'; // light blue
-            } else {
-                fillColor = '#C8D8E8'; // grey
-            }
-
-            return {
-                fillColor,
-                fillOpacity: inRegion ? 0.85 : 0.15,
-                color:       inRegion ? '#888' : '#ccc',
-                weight:      inRegion ? 0.7 : 0.4,
-            };
-        },
-
-        onEachFeature(feature, layer) {
-            const iso3 = feature.properties.iso_a3;
-            const cd   = allCountries[iso3];
-            const inRegion = region === 'all' || regionCodes.has(iso3);
-
-            if (!cd) {
-                layer.bindPopup(`
-                    <div class="popup-title">${feature.properties.name}</div>
-                    <div class="popup-info"><span class="popup-tag no">No NDC submitted</span></div>
-                `);
-                return;
-            }
-
-            const gens     = cd.generations || {};
-            const genLines = ['gen1','gen2','gen3'].filter(g => gens[g]).map(g => {
-                const lbl  = { gen1:'1st', gen2:'2nd', gen3:'3rd' }[g];
-                const icon = gens[g].has_transport ? '&#10003;' : '&#10007;';
-                const txt  = gens[g].has_transport ? 'transport target' : 'no transport target';
-                return `<div>${icon} ${lbl} NDC: ${txt}</div>`;
-            }).join('');
-
-            let statusTag;
-            if (cd.latest_has_transport) {
-                statusTag = '<span class="popup-tag yes">&#10003; Transport target in latest NDC</span>';
-            } else if (cd.had_transport_previously) {
-                statusTag = '<span class="popup-tag prev">&#9888; Had target previously, not in latest</span>';
-            } else {
-                statusTag = '<span class="popup-tag no">&#10007; No transport target</span>';
-            }
-
-            const euNote = cd.covered_by_eu
-                ? `<div style="font-size:0.8rem;color:#6B7280;margin-top:4px;font-style:italic">Reports collectively through the EU NDC</div>`
-                : '';
-
-            layer.bindPopup(`
-                <div class="popup-title">${countryTitle(iso3, cd.name)}</div>
-                <div class="popup-info">
-                    ${genLines}
-                    <div style="margin-top:6px">${statusTag}</div>
-                    ${euNote}
-                </div>
-            `);
-
-            layer.on({
-                mouseover(e) {
-                    if (!inRegion) return;
-                    e.target.setStyle({ weight: 2, fillOpacity: 1 });
-                    e.target.bringToFront();
-                },
-                mouseout() { tab1GeoLayer.resetStyle(layer); },
-            });
-        },
-    }).addTo(tab1Map);
+    // Toggle the Dorling note in the legend
+    const dorlingNote = document.getElementById('tab1-dorling-note');
+    if (dorlingNote) dorlingNote.style.display = tab1MapType === 'dorling' ? '' : 'none';
 }
-
 // ============================================================================
 // ── TAB 2 ── Leading Measures for Decarbonisation
 // ============================================================================
@@ -587,7 +614,7 @@ function initializeTab2() {
             document.querySelectorAll('#tab2-map-gen-toggles .gen-toggle').forEach(b =>
                 b.classList.toggle('active', b.dataset.gen === mapActiveGen));
             updateMapGradientColor();
-            renderTab2Map();
+            renderTab2SvgMap();
             updateMapLabel();
         });
     });
@@ -602,17 +629,16 @@ function initializeTab2() {
             b.classList.toggle('active', b.dataset.cat === 'all'));
         document.getElementById('tab2-map-region').value = 'all';
         updateMapGradientColor();
-        renderTab2Map();
-        zoomToRegion(tab2Map, 'all');
+        renderTab2SvgMap();
         updateMapLabel();
     });
 
     document.getElementById('tab2-chart-region').addEventListener('change', renderTab2Chart);
     document.getElementById('tab2-map-region').addEventListener('change', () => {
-        const region = document.getElementById('tab2-map-region').value;
-        renderTab2Map();
-        zoomToRegion(tab2Map, region);
+        renderTab2SvgMap();
+        updateMapLabel();
     });
+    // Tab 2 always uses dots map — no toggle needed
 
     // Category toggle buttons (multi-select)
     document.querySelectorAll('#tab2-map-cat-toggles .cat-toggle').forEach(btn => {
@@ -641,7 +667,7 @@ function initializeTab2() {
                     btn.classList.add('active');
                 }
             }
-            renderTab2Map();
+            renderTab2SvgMap();
             updateMapLabel();
         });
     });
@@ -663,20 +689,14 @@ function initializeTab2() {
                     b.classList.toggle('active', b.dataset.gen === mapActiveGen));
                 updateMapGradientColor();
                 setTimeout(() => {
-                    if (tab2Map) {
-                        tab2Map.invalidateSize();
-                        const region = document.getElementById('tab2-map-region')?.value || 'all';
-                        renderTab2Map();
-                        zoomToRegion(tab2Map, region);
-                    }
+                    renderTab2SvgMap();
                     updateMapLabel();
-                }, 120);
+                }, 60);
             }
         });
     });
 
-    tab2Map = L.map('tab2-map', { zoomControl: true, scrollWheelZoom: false }).setView([20, 10], 2);
-    tab2Map.attributionControl.setPrefix('Natural Earth (naturalearthdata.com) | For illustrative purposes only. Borders do not reflect GIZ\'s official position.');
+    // SVG maps — no Leaflet needed
 
 
     document.getElementById('tab2-download').addEventListener('click', () => downloadPDF('tab2'));
@@ -773,12 +793,12 @@ function renderTab2Chart() {
                 legend: {
                     display: true,
                     position: 'top',
-                    labels: { font: { family: 'IBM Plex Sans', size: 13, weight: 600 }, padding: 20, usePointStyle: true, pointStyle: 'rectRounded' },
+                    labels: { font: { family: 'Source Sans 3', size: 13, weight: 600 }, padding: 20, usePointStyle: true, pointStyle: 'rectRounded' },
                 },
                 tooltip: {
                     backgroundColor: 'rgba(0,61,92,0.95)',
-                    titleFont: { family: 'IBM Plex Sans', size: 13, weight: 700 },
-                    bodyFont:  { family: 'IBM Plex Sans', size: 13 },
+                    titleFont: { family: 'Source Sans 3', size: 13, weight: 700 },
+                    bodyFont:  { family: 'Source Sans 3', size: 13 },
                     padding: 14, cornerRadius: 8,
                     callbacks: {
                         title(items) { return items[0].label; },
@@ -836,12 +856,12 @@ function renderTab2Chart() {
             scales: {
                 x: {
                     grid: { display: false },
-                    ticks: { font: { family: 'IBM Plex Sans', size: 11 }, maxRotation: 25, minRotation: 0 },
+                    ticks: { font: { family: 'Source Sans 3', size: 11 }, maxRotation: 25, minRotation: 0 },
                 },
                 y: {
                     beginAtZero: true, grid: { color: '#E8ECF0' },
-                    ticks: { font: { family: 'IBM Plex Sans', size: 12 } },
-                    title: { display: true, text: 'Total measures count', font: { family: 'IBM Plex Sans', size: 12, weight: 600 }, color: '#6B7280' },
+                    ticks: { font: { family: 'Source Sans 3', size: 12 } },
+                    title: { display: true, text: 'Total measures count', font: { family: 'Source Sans 3', size: 12, weight: 600 }, color: '#6B7280' },
                 },
             },
         },
@@ -869,10 +889,8 @@ function updateMapGradientColor() {
     if (bar) bar.style.background = `linear-gradient(to right, #f0f0f0, ${cfg.color})`;
 }
 
-function renderTab2Map() {
-    if (!worldGeoJSON) return;
-    if (tab2GeoLayer) tab2GeoLayer.remove();
-
+function renderTab2SvgMap() {
+    if (!labData) return;
     const allCountries   = dashboardData.tab1.countries;
     const countryGenCats = dashboardData.tab2.country_gen_cats;
     const clc            = dashboardData.tab2.country_latest_cats;
@@ -883,150 +901,49 @@ function renderTab2Map() {
 
     const countryTotals = {};
     Object.keys(allCountries).forEach(code => {
-        const country = allCountries[code];
-        if (region !== 'all' && country?.region !== region) return;
+        const cd = allCountries[code];
+        if (region !== 'all' && cd?.region !== region) return;
         const cats = mapActiveGen === 'latest'
             ? (clc[code] || {})
             : (countryGenCats[code]?.[mapActiveGen] || {});
-        const val = selectedCats.reduce((sum, c) => sum + (cats[c] || 0), 0);
-        countryTotals[code] = val;
+        countryTotals[code] = selectedCats.reduce((s,c) => s + (cats[c] || 0), 0);
     });
-
     const maxVal = Math.max(...Object.values(countryTotals), 1);
-    const regionCodes = new Set(
-        Object.values(allCountries)
-            .filter(c => region === 'all' || c.region === region)
-            .map(c => c.iso3)
-    );
 
-    function hexToRgb(hex) {
-        return [parseInt(hex.slice(1,3),16), parseInt(hex.slice(3,5),16), parseInt(hex.slice(5,7),16)];
-    }
-    const [tr,tg,tb] = hexToRgb(cfg.color);
-
-    function heatColor(val) {
+    const hex = cfg.color.replace('#','');
+    const tr=parseInt(hex.slice(0,2),16), tg=parseInt(hex.slice(2,4),16), tb=parseInt(hex.slice(4,6),16);
+    function heat(val) {
         if (!val) return '#f0f0f0';
-        const t = Math.pow(val / maxVal, 0.6);
+        const t = Math.pow(val/maxVal, 0.6);
         return `rgb(${Math.round(255+(tr-255)*t)},${Math.round(255+(tg-255)*t)},${Math.round(255+(tb-255)*t)})`;
     }
 
-    tab2GeoLayer = L.geoJSON(worldGeoJSON, {
-        style(feature) {
-            const iso3     = feature.properties.iso_a3;
-            const cd       = allCountries[iso3];
-            const val      = countryTotals[iso3] || 0;
+    const colorFn = (cd) => {
+        if (!cd) return '#FFFFFF';
+        const hasNdc = mapActiveGen === 'latest' ? !!cd.latest_active_gen : !!cd.generations?.[mapActiveGen];
+        if (!hasNdc) return '#FFFFFF';
+        const val = countryTotals[cd.iso3] || 0;
+        if (!val) return '#E8E8E8';
+        return heat(val);
+    };
 
-            // No data at all (territory or country with no NDC ever)
-            if (!cd) {
-                return {
-                    fillColor:   '#FFFFFF',
-                    fillOpacity: 1,
-                    color:       '#ddd',
-                    weight:      0.5,
-                    dashArray:   null,
-                };
-            }
+    const tipFn = (code, cd) => {
+        if (!cd) return `<strong>${code}</strong><br><span class="tt-tag">No NDC submitted</span>`;
+        const total = countryTotals[code] || 0;
+        const hasNdc = mapActiveGen === 'latest' ? !!cd.latest_active_gen : !!cd.generations?.[mapActiveGen];
+        const genLabel = GEN_LABELS[mapActiveGen];
+        let body = hasNdc ? `<strong>Mentions: ${total}</strong>` : `<em>No ${genLabel} on record</em>`;
+        if (hasNdc && total > 0) {
+            const cats = mapActiveGen === 'latest' ? (clc[code] || {}) : (countryGenCats[code]?.[mapActiveGen] || {});
+            body += '<br>' + selectedCats.filter(c => cats[c] > 0).map(c => `${c}: <b>${cats[c]}</b>`).join('<br>');
+        }
+        const euNote = cd.covered_by_eu ? '<br><em>Reports collectively through EU NDC</em>' : '';
+        return `<strong>${cd.name || code}</strong> — ${genLabel}${euNote}<br>${body}`;
+    };
 
-            // Check if country has NDC in selected generation
-            const hasNdcInGen = mapActiveGen === 'latest'
-                ? !!cd.latest_active_gen
-                : !!cd.generations?.[mapActiveGen];
-
-            // No NDC in selected generation → white (not applicable)
-            if (!hasNdcInGen) {
-                return {
-                    fillColor:   '#FFFFFF',
-                    fillOpacity: 1,
-                    color:       '#ddd',
-                    weight:      0.5,
-                    dashArray:   null,
-                };
-            }
-
-            // Has NDC but 0 mentions → light grey (submitted but no transport measures)
-            if (val === 0) {
-                return {
-                    fillColor:   '#E8E8E8',
-                    fillOpacity: 0.9,
-                    color:       '#bbb',
-                    weight:      0.5,
-                    dashArray:   null,
-                };
-            }
-
-            // Has NDC and has mentions → heat color
-            return {
-                fillColor:   heatColor(val),
-                fillOpacity: 0.85,
-                color:       cfg.border,
-                weight:      0.7,
-                dashArray:   null,
-            };
-        },
-        onEachFeature(feature, layer) {
-            const iso3 = feature.properties.iso_a3;
-            const cd   = allCountries[iso3];
-
-            // Countries not in dataset (Libya, Iran etc — no NDC ever)
-            if (!cd) {
-                const name = feature.properties.name || iso3;
-                layer.bindPopup(`
-                    <div class="popup-title">${name}</div>
-                    <div class="popup-info"><span class="popup-tag no">No NDC submitted</span></div>
-                `);
-                layer.on({
-                    mouseover(e) { e.target.setStyle({ weight: 2, fillOpacity: 1 }); e.target.bringToFront(); },
-                    mouseout()   { tab2GeoLayer.resetStyle(layer); },
-                });
-                return;
-            }
-
-            const inRegion = region === 'all' || regionCodes.has(iso3);
-            const total    = countryTotals[iso3] || 0;
-            const genLabel = GEN_LABELS[mapActiveGen];
-
-            const hasNdcInGen = mapActiveGen === 'latest'
-                ? !!cd.latest_active_gen
-                : !!cd.generations?.[mapActiveGen];
-
-            const cats = mapActiveGen === 'latest'
-                ? (clc[iso3] || {})
-                : (countryGenCats[iso3]?.[mapActiveGen] || {});
-
-            let popupBody;
-            if (!hasNdcInGen) {
-                const genLabel2 = mapActiveGen === 'latest' ? 'a latest active NDC' : `a ${GEN_LABELS[mapActiveGen]}`;
-                popupBody = `<div style="color:#999;font-style:italic">No ${genLabel2} on record</div>`;
-            } else {
-                popupBody = `<div><strong>Total mentions: ${total}</strong></div>`;
-                const catLines = selectedCats
-                    .filter(c => cats[c] > 0)
-                    .map(c => `<div style="font-size:0.8rem;color:#555">${c}: <b>${cats[c]}</b></div>`)
-                    .join('');
-                popupBody += catLines || '<div style="font-size:0.8rem;color:#999">No transport measure mentions</div>';
-            }
-
-            const euNote = cd.covered_by_eu
-                ? `<div style="font-size:0.8rem;color:#6B7280;margin-top:4px;font-style:italic">Reports collectively through the EU NDC</div>`
-                : '';
-
-            layer.bindPopup(`
-                <div class="popup-title">${countryTitle(iso3, cd.name)} <span style="font-weight:400;font-size:0.85em;color:#6B7280">— ${genLabel}</span></div>
-                <div class="popup-info">${popupBody}${euNote}</div>
-            `);
-
-            layer.on({
-                mouseover(e) {
-                    if (!inRegion) return;
-                    e.target.setStyle({ weight: 2, fillOpacity: 1 });
-                    e.target.bringToFront();
-                },
-                mouseout() { tab2GeoLayer.resetStyle(layer); },
-            });
-        },
-    }).addTo(tab2Map);
+    // Tab 2 always uses dots (no toggle)
+    renderDotsMap('tab2-svg-map', colorFn, tipFn, region, allCountries);
 }
-
 // ============================================================================
 // Print / Export
 // ============================================================================
@@ -1042,3 +959,266 @@ function downloadPDF(tabId) {
     // Trigger browser native print dialog
     window.print();
 }
+// ============================================================================
+// SVG MAP RENDERERS — Dorling + Dots (replaces Leaflet for both tabs)
+// ============================================================================
+
+const NS = 'http://www.w3.org/2000/svg';
+function svgEl(tag, attrs) {
+    const el = document.createElementNS(NS, tag);
+    Object.entries(attrs).forEach(([k,v]) => el.setAttribute(k, v));
+    return el;
+}
+
+// Shared tooltip element
+const mapTooltip = (() => {
+    const el = document.createElement('div');
+    el.className = 'svg-map-tooltip';
+    document.body.appendChild(el);
+    return el;
+})();
+
+function showMapTip(e, html) {
+    mapTooltip.innerHTML = html;
+    mapTooltip.style.display = 'block';
+    mapTooltip.style.left = Math.min(e.clientX + 14, innerWidth - 260) + 'px';
+    mapTooltip.style.top = (e.clientY + 14) + 'px';
+}
+function hideMapTip() { mapTooltip.style.display = 'none'; }
+
+// Status colors for Tab 1
+function tab1Color(cd) {
+    if (!cd) return '#F2F2F2';
+    if (cd.latest_has_transport) return '#9DBE3D';
+    if (cd.had_transport_previously) return '#7EC8E3';
+    if (cd.latest_active_gen) return '#C8D8E8';
+    return '#ECECEC';
+}
+
+// Heat color for Tab 2
+function heatColor(val, maxVal, genColor) {
+    if (!val) return '#f0f0f0';
+    const hex = genColor.replace('#','');
+    const tr=parseInt(hex.slice(0,2),16), tg=parseInt(hex.slice(2,4),16), tb=parseInt(hex.slice(4,6),16);
+    const t = Math.pow(val/maxVal, 0.6);
+    return `rgb(${Math.round(255+(tr-255)*t)},${Math.round(255+(tg-255)*t)},${Math.round(255+(tb-255)*t)})`;
+}
+
+// ── Shared: pan+zoom SVG wrapper ─────────────────────────────────────────
+function makePannable(svg) {
+    let dragging = false, startX, startY, ox = 0, oy = 0, scale = 1;
+    const g = svg.querySelector('g.pan-group');
+    if (!g) return;
+
+    const VW = parseFloat(svg.getAttribute('viewBox').split(' ')[2]);
+    const VH = parseFloat(svg.getAttribute('viewBox').split(' ')[3]);
+
+    function applyTransform() {
+        g.setAttribute('transform', `translate(${ox},${oy}) scale(${scale})`);
+    }
+
+    svg.addEventListener('mousedown', e => {
+        dragging = true; startX = e.clientX - ox; startY = e.clientY - oy;
+        svg.style.cursor = 'grabbing';
+    });
+    window.addEventListener('mousemove', e => {
+        if (!dragging) return;
+        ox = e.clientX - startX; oy = e.clientY - startY;
+        applyTransform();
+    });
+    window.addEventListener('mouseup', () => {
+        dragging = false; svg.style.cursor = 'grab';
+    });
+
+    // Touch pan
+    let t0;
+    svg.addEventListener('touchstart', e => {
+        if (e.touches.length !== 1) return;
+        t0 = e.touches[0]; dragging = true;
+        startX = t0.clientX - ox; startY = t0.clientY - oy;
+    }, {passive:true});
+    svg.addEventListener('touchmove', e => {
+        if (!dragging || e.touches.length !== 1) return;
+        ox = e.touches[0].clientX - startX; oy = e.touches[0].clientY - startY;
+        applyTransform();
+    }, {passive:true});
+    svg.addEventListener('touchend', () => { dragging = false; });
+
+    // Scroll to zoom
+    svg.addEventListener('wheel', e => {
+        e.preventDefault();
+        const rect = svg.getBoundingClientRect();
+        const mx = (e.clientX - rect.left) / rect.width  * VW;
+        const my = (e.clientY - rect.top)  / rect.height * VH;
+        const delta = e.deltaY < 0 ? 1.15 : 0.87;
+        const newScale = Math.min(8, Math.max(0.5, scale * delta));
+        ox = mx - (mx - ox) * (newScale / scale);
+        oy = my - (my - oy) * (newScale / scale);
+        scale = newScale;
+        applyTransform();
+    }, {passive:false});
+
+    svg.style.cursor = 'grab';
+    applyTransform();
+}
+
+// Region bounding boxes for zoom-to-region
+const REGION_BOUNDS = {
+    'Africa':                         { x1: -20, y1: -35, x2: 52,  y2: 37  },
+    'Asia':                           { x1: 25,  y1: -10, x2: 145, y2: 55  },
+    'Europe':                         { x1: -10, y1: 35,  x2: 40,  y2: 70  },
+    'Latin America and the Caribbean':{ x1: -85, y1: -55, x2: -34, y2: 25  },
+    'Northern America':               { x1:-170, y1: 15,  x2: -55, y2: 72  },
+    'Oceania':                        { x1: 110, y1: -47, x2: 180, y2: 5   },
+};
+
+function zoomToRegionSvg(svg, region, VW, VH) {
+    const b = REGION_BOUNDS[region];
+    if (!b) return; // 'all' — no zoom
+    const g = svg.querySelector('g.pan-group');
+    if (!g) return;
+
+    const px1 = (b.x1 + 180) / 360 * VW;
+    const px2 = (b.x2 + 180) / 360 * VW;
+    const py1 = (90 - b.y2) / 180 * VH;
+    const py2 = (90 - b.y1) / 180 * VH;
+    const bw = px2 - px1, bh = py2 - py1;
+
+    // Compute scale to fit bounding box with padding
+    const pad = 0.85;
+    const scale = Math.min(VW / bw, VH / bh) * pad;
+    const ox = VW/2 - (px1 + bw/2) * scale;
+    const oy = VH/2 - (py1 + bh/2) * scale;
+
+    g.style.transition = 'transform 0.45s ease';
+    g.setAttribute('transform', `translate(${ox},${oy}) scale(${scale})`);
+    setTimeout(() => { g.style.transition = ''; }, 500);
+}
+
+// ── Dots renderer: borderless land + equal dots + pan/zoom ────────────────
+function renderDotsMap(containerId, colorFn, tipFn, region, allCountries) {
+    if (!worldGeoJSON || !labData) return;
+    const W = 960, H = 480;
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    const svg = svgEl('svg', {viewBox: `0 0 ${W} ${H}`, width: '100%',
+        role: 'img', style: 'display:block'});
+    const g = svgEl('g', {'class': 'pan-group'});
+    svg.appendChild(g);
+
+    const regionCodes = region === 'all' ? null :
+        new Set(Object.values(allCountries).filter(c => c.region === region).map(c => c.iso3));
+
+    const toPath = rings => rings.map(ring =>
+        'M' + ring.map(p => {
+            const x = (p[0] + 180) / 360 * W;
+            const y = (90 - p[1]) / 180 * H;
+            return `${x.toFixed(1)},${y.toFixed(1)}`;
+        }).join('L') + 'Z').join('');
+
+    worldGeoJSON.features.forEach(f => {
+        const iso = f.properties.ISO_A3 || f.properties.ADM0_A3;
+        const inRegion = !regionCodes || regionCodes.has(iso);
+        const polys = f.geometry.type === 'Polygon'
+            ? [f.geometry.coordinates] : f.geometry.coordinates;
+        polys.forEach(rings => {
+            g.appendChild(svgEl('path', { d: toPath(rings),
+                fill: '#E7ECEF', opacity: inRegion ? 1 : 0.35, stroke: 'none' }));
+        });
+    });
+
+    Object.entries(allCountries).forEach(([code, cd]) => {
+        if (code === 'EEU') return;  // skip collective — show members individually
+        const cent = labData.centroids[code];
+        if (!cent) return;
+        const x = (cent[0] + 180) / 360 * W;
+        const y = (90 - cent[1]) / 180 * H;
+        const inRegion = region === 'all' || cd.region === region;
+        const dot = svgEl('circle', {
+            cx: x, cy: y, r: 5,
+            fill: colorFn(cd), opacity: inRegion ? 1 : 0.25,
+            stroke: '#fff', 'stroke-width': 1.2, style: 'cursor:pointer'
+        });
+        const tipHtml = tipFn(code, cd);
+        dot.addEventListener('mousemove', e => showMapTip(e, tipHtml));
+        dot.addEventListener('mouseleave', hideMapTip);
+        g.appendChild(dot);
+    });
+
+    container.appendChild(svg);
+    makePannable(svg);
+    if (region !== 'all') zoomToRegionSvg(svg, region, W, H);
+}
+
+// ── Dorling renderer: land silhouette + CO₂-sized circles + pan/zoom ──────
+function renderDorlingMap(containerId, colorFn, sizeFn, tipFn, region, allCountries) {
+    if (!labData) return;
+    const {dorling, W, H} = labData;
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    const VH = H + 60;
+    const svg = svgEl('svg', {viewBox: `0 0 ${W} ${VH}`, width: '100%',
+        role: 'img', style: 'display:block'});
+    const g = svgEl('g', {'class': 'pan-group'});
+    svg.appendChild(g);
+
+    const regionCodes = region === 'all' ? null :
+        new Set(Object.values(allCountries).filter(c => c.region === region).map(c => c.iso3));
+
+    // Land silhouette — same projection as Dots, offset by 30px vertically
+    // to align with the Dorling circle positions
+    if (worldGeoJSON) {
+        worldGeoJSON.features.forEach(f => {
+            const polys = f.geometry.type === 'Polygon'
+                ? [f.geometry.coordinates] : f.geometry.coordinates;
+            polys.forEach(rings => {
+                const d = rings.map(ring =>
+                    'M' + ring.map(p => {
+                        const x = (p[0] + 180) / 360 * W;
+                        const y = (90 - p[1]) / 180 * H * 1.15 - 30 + 30;
+                        return `${x.toFixed(1)},${y.toFixed(1)}`;
+                    }).join('L') + 'Z').join('');
+                g.appendChild(svgEl('path', {
+                    d, fill: '#EDF0F2', stroke: 'none', opacity: 0.65
+                }));
+            });
+        });
+    }
+
+    // Circles — sorted largest first so small ones render on top
+    const entries = Object.entries(dorling).sort((a,b) => b[1].r - a[1].r);
+    entries.forEach(([code, d]) => {
+        const cd = allCountries[code];
+        const inRegion = !regionCodes || regionCodes.has(code);
+        const r = sizeFn ? sizeFn(d, cd) : d.r;
+        if (!r || r < 0.5) return;
+
+        const circ = svgEl('circle', {
+            cx: d.x, cy: d.y + 30, r,
+            fill: colorFn(cd), 'fill-opacity': inRegion ? 0.9 : 0.2,
+            stroke: '#fff', 'stroke-width': 1, style: 'cursor:pointer'
+        });
+        const tipHtml = tipFn(code, cd);
+        circ.addEventListener('mousemove', e => showMapTip(e, tipHtml));
+        circ.addEventListener('mouseleave', hideMapTip);
+        g.appendChild(circ);
+
+        if (r > 14 && inRegion) {
+            const label = svgEl('text', {
+                x: d.x, y: d.y + 33,
+                'text-anchor': 'middle',
+                'font-size': Math.min(12, r / 2.2).toFixed(1),
+                fill: '#fff', 'font-weight': 700, 'pointer-events': 'none',
+                'font-family': "'Source Sans 3', sans-serif"
+            });
+            label.textContent = code;
+            g.appendChild(label);
+        }
+    });
+
+    container.appendChild(svg);
+    makePannable(svg);
+    if (region !== 'all') zoomToRegionSvg(svg, region, W, H * 1.15);
+}
+
+// ── TAB 1 SVG map ──────────────────────────────────────────────────────────

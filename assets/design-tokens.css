@@ -1,0 +1,71 @@
+/* ============================================================================
+   GIZ-SLOCAT Transport Tracker — Shared Design Tokens
+   Single source of truth for the whole ecosystem:
+     · Main dashboard (styles.css)
+     · NDC Comparison (comparison/styles_c.css)
+     · Country Profiles (profiles/styles.css)
+   Brand: changing-transport.org — change a value here, all products follow.
+   ============================================================================ */
+
+:root {
+    /* Brand palette */
+    --ct-green:        #9DBE3D;
+    --ct-green-dark:   #7A9B2E;
+    --ct-navy:         #003D5C;
+    --ct-navy-light:   #005580;
+    --ct-teal:         #00A4BD;
+    --ct-teal-soft:    #35B5C9;
+    --ct-orange:       #E8821A;
+
+    /* NDC generations (shared across all charts and maps) */
+    --ct-gen1:        #003D5C;
+    --ct-gen2:        #00A4BD;
+    --ct-gen3:        #E8821A;
+    --ct-gen-latest:  #9DBE3D;
+
+    /* Document types */
+    --ct-ndc: #00A4BD;
+    --ct-lts: #9DBE3D;
+    --ct-btr: #E8821A;
+
+    /* Avoid – Shift – Improve */
+    --ct-avoid:   #003D5C;
+    --ct-shift:   #00A4BD;
+    --ct-improve: #9DBE3D;
+
+    /* Surfaces & text */
+    --ct-bg:      #F4F6F8;
+    --ct-surface: #FFFFFF;
+    --ct-border:  #E1E4E8;
+    --ct-text:    #2C3E50;
+    --ct-muted:   #6B7280;
+
+    /* Typography — Source Sans 3, aligned with changing-transport.org */
+    --ct-font: 'Source Sans 3', 'Source Sans Pro', -apple-system,
+               BlinkMacSystemFont, sans-serif;
+
+    /* Spacing */
+    --ct-sp-xs: 0.375rem;
+    --ct-sp-sm: 0.75rem;
+    --ct-sp-md: 1rem;
+    --ct-sp-lg: 1.25rem;
+    --ct-sp-xl: 1.5rem;
+
+    /* Shape & elevation */
+    --ct-radius-sm: 4px;
+    --ct-radius-md: 8px;
+    --ct-radius-lg: 12px;
+    --ct-shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --ct-shadow-md: 0 4px 10px rgba(0,61,92,0.10);
+    --ct-shadow-lg: 0 10px 20px rgba(0,0,0,0.10);
+}
+
+/* Accessibility baseline for every product */
+:focus-visible { outline: 3px solid var(--ct-teal); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}

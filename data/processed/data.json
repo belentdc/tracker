@@ -1,7 +1,7 @@
 {
   "metadata": {
     "total_possible_ndcs": 169,
-    "last_updated": "2026-05-19",
+    "last_updated": "2026-06-15",
     "data_source": "GIZ-SLOCAT Transport Tracker Database",
     "gen_counts": {
       "gen1": {
@@ -168,7 +168,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 37.01
       },
       "YEM": {
         "iso3": "YEM",
@@ -187,7 +188,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.67
       },
       "BRN": {
         "iso3": "BRN",
@@ -210,7 +212,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 1.26
       },
       "PNG": {
         "iso3": "PNG",
@@ -229,7 +232,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.63
       },
       "NRU": {
         "iso3": "NRU",
@@ -275,7 +279,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 5.74
       },
       "BLZ": {
         "iso3": "BLZ",
@@ -298,7 +303,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.1
       },
       "BRB": {
         "iso3": "BRB",
@@ -321,7 +327,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.25
       },
       "FJI": {
         "iso3": "FJI",
@@ -344,7 +351,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.13
       },
       "GRD": {
         "iso3": "GRD",
@@ -386,7 +394,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.5
       },
       "MHL": {
         "iso3": "MHL",
@@ -432,7 +441,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.16
       },
       "PLW": {
         "iso3": "PLW",
@@ -451,7 +461,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.77
       },
       "KNA": {
         "iso3": "KNA",
@@ -493,7 +504,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.11
       },
       "WSM": {
         "iso3": "WSM",
@@ -516,7 +528,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.24
       },
       "SOM": {
         "iso3": "SOM",
@@ -539,7 +552,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.49
       },
       "TUV": {
         "iso3": "TUV",
@@ -585,7 +599,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.72
       },
       "GUY": {
         "iso3": "GUY",
@@ -600,7 +615,8 @@
             "version": "NDC 1.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.06
       },
       "NOR": {
         "iso3": "NOR",
@@ -623,7 +639,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 13.65
       },
       "VCT": {
         "iso3": "VCT",
@@ -665,7 +682,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 24.49
       },
       "CMR": {
         "iso3": "CMR",
@@ -684,7 +702,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 4.34
       },
       "COK": {
         "iso3": "COK",
@@ -699,7 +718,8 @@
             "version": "NDC 1.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.07
       },
       "CHN": {
         "iso3": "CHN",
@@ -722,7 +742,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1110.18
       },
       "USA": {
         "iso3": "USA",
@@ -745,7 +766,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1735.9
       },
       "LAO": {
         "iso3": "LAO",
@@ -764,7 +786,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.73
       },
       "FSM": {
         "iso3": "FSM",
@@ -810,7 +833,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 17.69
       },
       "UKR": {
         "iso3": "UKR",
@@ -833,7 +857,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 22.57
       },
       "ALB": {
         "iso3": "ALB",
@@ -852,7 +877,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.7
       },
       "ATG": {
         "iso3": "ATG",
@@ -871,7 +897,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.12
       },
       "BGD": {
         "iso3": "BGD",
@@ -894,7 +921,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 12.41
       },
       "BLR": {
         "iso3": "BLR",
@@ -917,7 +945,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 9.87
       },
       "BRA": {
         "iso3": "BRA",
@@ -940,7 +969,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 221.13
       },
       "DMA": {
         "iso3": "DMA",
@@ -982,7 +1012,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.87
       },
       "GHA": {
         "iso3": "GHA",
@@ -1001,7 +1032,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 9.22
       },
       "GIN": {
         "iso3": "GIN",
@@ -1024,7 +1056,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.79
       },
       "HND": {
         "iso3": "HND",
@@ -1047,7 +1080,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 5.04
       },
       "ISL": {
         "iso3": "ISL",
@@ -1070,7 +1104,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.91
       },
       "KIR": {
         "iso3": "KIR",
@@ -1108,7 +1143,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.38
       },
       "MEX": {
         "iso3": "MEX",
@@ -1131,7 +1167,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 132.22
       },
       "MNG": {
         "iso3": "MNG",
@@ -1154,7 +1191,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 3.01
       },
       "NAM": {
         "iso3": "NAM",
@@ -1173,7 +1211,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.19
       },
       "NER": {
         "iso3": "NER",
@@ -1192,7 +1231,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.29
       },
       "SGP": {
         "iso3": "SGP",
@@ -1215,7 +1255,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 6.81
       },
       "SLB": {
         "iso3": "SLB",
@@ -1238,7 +1279,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.22
       },
       "THA": {
         "iso3": "THA",
@@ -1261,7 +1303,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 81.22
       },
       "TON": {
         "iso3": "TON",
@@ -1284,7 +1327,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.11
       },
       "UGA": {
         "iso3": "UGA",
@@ -1303,7 +1347,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 3.62
       },
       "ARE": {
         "iso3": "ARE",
@@ -1326,7 +1371,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 43.86
       },
       "VUT": {
         "iso3": "VUT",
@@ -1349,7 +1395,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.15
       },
       "MLI": {
         "iso3": "MLI",
@@ -1368,7 +1415,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 3.39
       },
       "IND": {
         "iso3": "IND",
@@ -1391,7 +1439,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 349.27
       },
       "PRK": {
         "iso3": "PRK",
@@ -1410,7 +1459,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 4.97
       },
       "BOL": {
         "iso3": "BOL",
@@ -1433,7 +1483,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 12.14
       },
       "EEU": {
         "iso3": "EEU",
@@ -1479,7 +1530,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 4.86
       },
       "NZL": {
         "iso3": "NZL",
@@ -1502,7 +1554,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 16.24
       },
       "RWA": {
         "iso3": "RWA",
@@ -1525,7 +1578,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.61
       },
       "CAF": {
         "iso3": "CAF",
@@ -1548,7 +1602,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.21
       },
       "CRI": {
         "iso3": "CRI",
@@ -1571,7 +1626,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 6.17
       },
       "PRY": {
         "iso3": "PRY",
@@ -1594,7 +1650,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 7.3
       },
       "DZA": {
         "iso3": "DZA",
@@ -1609,7 +1666,8 @@
             "version": "NDC 1.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 47.38
       },
       "TKM": {
         "iso3": "TKM",
@@ -1628,7 +1686,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 12.19
       },
       "CIV": {
         "iso3": "CIV",
@@ -1651,7 +1710,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 5.26
       },
       "MCO": {
         "iso3": "MCO",
@@ -1716,7 +1776,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.6
       },
       "SLE": {
         "iso3": "SLE",
@@ -1739,7 +1800,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.54
       },
       "ZAF": {
         "iso3": "ZAF",
@@ -1762,7 +1824,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 50.35
       },
       "GAB": {
         "iso3": "GAB",
@@ -1785,7 +1848,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 0.22
       },
       "STP": {
         "iso3": "STP",
@@ -1808,7 +1872,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.12
       },
       "KOR": {
         "iso3": "KOR",
@@ -1831,7 +1896,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 107.92
       },
       "SAU": {
         "iso3": "SAU",
@@ -1854,7 +1920,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 147.59
       },
       "VNM": {
         "iso3": "VNM",
@@ -1873,7 +1940,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 39.88
       },
       "JOR": {
         "iso3": "JOR",
@@ -1896,7 +1964,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 7.98
       },
       "IDN": {
         "iso3": "IDN",
@@ -1919,7 +1988,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 152.11
       },
       "LKA": {
         "iso3": "LKA",
@@ -1942,7 +2012,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 9.63
       },
       "GMB": {
         "iso3": "GMB",
@@ -1961,7 +2032,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.35
       },
       "JPN": {
         "iso3": "JPN",
@@ -1984,7 +2056,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 181.96
       },
       "AUS": {
         "iso3": "AUS",
@@ -2007,7 +2080,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 97.49
       },
       "PAK": {
         "iso3": "PAK",
@@ -2030,7 +2104,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 44.89
       },
       "BWA": {
         "iso3": "BWA",
@@ -2049,7 +2124,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.44
       },
       "BFA": {
         "iso3": "BFA",
@@ -2072,7 +2148,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.78
       },
       "DJI": {
         "iso3": "DJI",
@@ -2091,7 +2168,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.35
       },
       "MYS": {
         "iso3": "MYS",
@@ -2114,7 +2192,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 67.38
       },
       "ARG": {
         "iso3": "ARG",
@@ -2133,7 +2212,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 48.34
       },
       "ISR": {
         "iso3": "ISR",
@@ -2152,7 +2232,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 18.69
       },
       "AFG": {
         "iso3": "AFG",
@@ -2167,7 +2248,8 @@
             "version": "NDC 1.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.38
       },
       "COM": {
         "iso3": "COM",
@@ -2190,7 +2272,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.18
       },
       "KAZ": {
         "iso3": "KAZ",
@@ -2213,7 +2296,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 24.0
       },
       "ZMB": {
         "iso3": "ZMB",
@@ -2236,7 +2320,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.4
       },
       "KEN": {
         "iso3": "KEN",
@@ -2259,7 +2344,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 10.81
       },
       "BHR": {
         "iso3": "BHR",
@@ -2282,7 +2368,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 3.56
       },
       "CUB": {
         "iso3": "CUB",
@@ -2305,7 +2392,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.24
       },
       "AZE": {
         "iso3": "AZE",
@@ -2328,7 +2416,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 8.45
       },
       "TCD": {
         "iso3": "TCD",
@@ -2347,7 +2436,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.09
       },
       "LSO": {
         "iso3": "LSO",
@@ -2366,7 +2456,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.51
       },
       "GTM": {
         "iso3": "GTM",
@@ -2385,7 +2476,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 11.71
       },
       "KHM": {
         "iso3": "KHM",
@@ -2408,7 +2500,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 7.55
       },
       "CHL": {
         "iso3": "CHL",
@@ -2431,7 +2524,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 32.48
       },
       "TUN": {
         "iso3": "TUN",
@@ -2454,7 +2548,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 8.28
       },
       "MRT": {
         "iso3": "MRT",
@@ -2477,7 +2572,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.48
       },
       "ETH": {
         "iso3": "ETH",
@@ -2500,7 +2596,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 6.75
       },
       "BIH": {
         "iso3": "BIH",
@@ -2519,7 +2616,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 4.44
       },
       "TJK": {
         "iso3": "TJK",
@@ -2538,7 +2636,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.99
       },
       "ARM": {
         "iso3": "ARM",
@@ -2561,7 +2660,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.54
       },
       "AND": {
         "iso3": "AND",
@@ -2607,7 +2707,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 4.48
       },
       "JAM": {
         "iso3": "JAM",
@@ -2630,7 +2731,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.45
       },
       "COG": {
         "iso3": "COG",
@@ -2653,7 +2755,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.49
       },
       "GEO": {
         "iso3": "GEO",
@@ -2676,7 +2779,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 4.51
       },
       "CAN": {
         "iso3": "CAN",
@@ -2699,7 +2803,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 169.02
       },
       "NGA": {
         "iso3": "NGA",
@@ -2722,7 +2827,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 58.97
       },
       "MDA": {
         "iso3": "MDA",
@@ -2745,7 +2851,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.4
       },
       "QAT": {
         "iso3": "QAT",
@@ -2768,7 +2875,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 15.01
       },
       "TGO": {
         "iso3": "TGO",
@@ -2787,7 +2895,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.33
       },
       "EGY": {
         "iso3": "EGY",
@@ -2806,7 +2915,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 53.14
       },
       "MWI": {
         "iso3": "MWI",
@@ -2825,7 +2935,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.78
       },
       "SRB": {
         "iso3": "SRB",
@@ -2848,7 +2959,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 10.45
       },
       "HTI": {
         "iso3": "HTI",
@@ -2867,7 +2979,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.48
       },
       "SDN": {
         "iso3": "SDN",
@@ -2886,7 +2999,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 12.27
       },
       "ZWE": {
         "iso3": "ZWE",
@@ -2909,7 +3023,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 1.52
       },
       "TLS": {
         "iso3": "TLS",
@@ -2928,7 +3043,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.35
       },
       "PSE": {
         "iso3": "PSE",
@@ -2970,7 +3086,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.44
       },
       "MMR": {
         "iso3": "MMR",
@@ -2989,7 +3106,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 5.54
       },
       "LIE": {
         "iso3": "LIE",
@@ -3031,7 +3149,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.59
       },
       "DOM": {
         "iso3": "DOM",
@@ -3050,7 +3169,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 8.52
       },
       "CHE": {
         "iso3": "CHE",
@@ -3073,7 +3193,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 14.82
       },
       "BEN": {
         "iso3": "BEN",
@@ -3092,7 +3213,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 4.36
       },
       "URY": {
         "iso3": "URY",
@@ -3115,7 +3237,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 4.09
       },
       "COD": {
         "iso3": "COD",
@@ -3134,7 +3257,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.82
       },
       "MNE": {
         "iso3": "MNE",
@@ -3176,7 +3300,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.52
       },
       "BDI": {
         "iso3": "BDI",
@@ -3199,7 +3324,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.42
       },
       "TTO": {
         "iso3": "TTO",
@@ -3218,7 +3344,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.55
       },
       "VEN": {
         "iso3": "VEN",
@@ -3241,7 +3368,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 17.91
       },
       "KWT": {
         "iso3": "KWT",
@@ -3260,7 +3388,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 15.28
       },
       "TZA": {
         "iso3": "TZA",
@@ -3279,7 +3408,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 9.07
       },
       "MOZ": {
         "iso3": "MOZ",
@@ -3302,7 +3432,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 3.99
       },
       "ERI": {
         "iso3": "ERI",
@@ -3321,7 +3452,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.21
       },
       "COL": {
         "iso3": "COL",
@@ -3344,7 +3476,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 37.37
       },
       "LBR": {
         "iso3": "LBR",
@@ -3367,7 +3500,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.83
       },
       "NIC": {
         "iso3": "NIC",
@@ -3390,7 +3524,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 2.77
       },
       "SMR": {
         "iso3": "SMR",
@@ -3424,7 +3559,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.2
       },
       "GNQ": {
         "iso3": "GNQ",
@@ -3443,7 +3579,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.54
       },
       "UZB": {
         "iso3": "UZB",
@@ -3466,7 +3603,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 16.79
       },
       "SYR": {
         "iso3": "SYR",
@@ -3481,7 +3619,8 @@
             "version": "NDC 1.1"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 5.04
       },
       "SUR": {
         "iso3": "SUR",
@@ -3504,7 +3643,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 0.85
       },
       "ECU": {
         "iso3": "ECU",
@@ -3523,7 +3663,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 22.25
       },
       "OMN": {
         "iso3": "OMN",
@@ -3542,7 +3683,8 @@
             "version": "NDC 2.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 12.35
       },
       "LBN": {
         "iso3": "LBN",
@@ -3565,7 +3707,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 7.14
       },
       "KGZ": {
         "iso3": "KGZ",
@@ -3588,7 +3731,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 1.74
       },
       "AGO": {
         "iso3": "AGO",
@@ -3611,7 +3755,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 8.65
       },
       "RUS": {
         "iso3": "RUS",
@@ -3630,7 +3775,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 265.7
       },
       "GBR": {
         "iso3": "GBR",
@@ -3649,7 +3795,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 109.75
       },
       "SEN": {
         "iso3": "SEN",
@@ -3664,7 +3811,8 @@
             "version": "NDC 1.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 3.49
       },
       "SSD": {
         "iso3": "SSD",
@@ -3706,7 +3854,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": true
+        "had_transport_previously": true,
+        "ghg_transport": 95.92
       },
       "IRQ": {
         "iso3": "IRQ",
@@ -3725,7 +3874,8 @@
             "version": "NDC 3.0"
           }
         },
-        "had_transport_previously": false
+        "had_transport_previously": false,
+        "ghg_transport": 40.53
       },
       "VAT": {
         "iso3": "VAT",
@@ -3768,7 +3918,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 21.37
       },
       "BEL": {
         "iso3": "BEL",
@@ -3792,7 +3943,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 22.2
       },
       "BGR": {
         "iso3": "BGR",
@@ -3816,7 +3968,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 9.53
       },
       "HRV": {
         "iso3": "HRV",
@@ -3840,7 +3993,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 6.97
       },
       "CYP": {
         "iso3": "CYP",
@@ -3864,7 +4018,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 1.9
       },
       "CZE": {
         "iso3": "CZE",
@@ -3888,7 +4043,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 19.61
       },
       "DNK": {
         "iso3": "DNK",
@@ -3912,7 +4068,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 11.37
       },
       "EST": {
         "iso3": "EST",
@@ -3936,7 +4093,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 2.39
       },
       "FIN": {
         "iso3": "FIN",
@@ -3960,7 +4118,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 9.06
       },
       "FRA": {
         "iso3": "FRA",
@@ -3984,7 +4143,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 123.56
       },
       "DEU": {
         "iso3": "DEU",
@@ -4008,7 +4168,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 141.26
       },
       "GRC": {
         "iso3": "GRC",
@@ -4032,7 +4193,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 17.76
       },
       "HUN": {
         "iso3": "HUN",
@@ -4056,7 +4218,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 14.4
       },
       "IRL": {
         "iso3": "IRL",
@@ -4080,7 +4243,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 11.24
       },
       "ITA": {
         "iso3": "ITA",
@@ -4104,7 +4268,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 103.99
       },
       "LVA": {
         "iso3": "LVA",
@@ -4128,7 +4293,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 3.1
       },
       "LTU": {
         "iso3": "LTU",
@@ -4152,7 +4318,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 6.28
       },
       "LUX": {
         "iso3": "LUX",
@@ -4176,7 +4343,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 4.24
       },
       "MLT": {
         "iso3": "MLT",
@@ -4200,7 +4368,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 0.73
       },
       "NLD": {
         "iso3": "NLD",
@@ -4224,7 +4393,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 25.78
       },
       "POL": {
         "iso3": "POL",
@@ -4248,7 +4418,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 68.7
       },
       "PRT": {
         "iso3": "PRT",
@@ -4272,7 +4443,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 15.95
       },
       "ROU": {
         "iso3": "ROU",
@@ -4296,7 +4468,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 21.0
       },
       "SVK": {
         "iso3": "SVK",
@@ -4320,7 +4493,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 7.66
       },
       "SVN": {
         "iso3": "SVN",
@@ -4344,7 +4518,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 4.83
       },
       "ESP": {
         "iso3": "ESP",
@@ -4368,7 +4543,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 93.11
       },
       "SWE": {
         "iso3": "SWE",
@@ -4392,7 +4568,8 @@
             "version": "NDC 3.0"
           }
         },
-        "covered_by_eu": true
+        "covered_by_eu": true,
+        "ghg_transport": 13.5
       }
     }
   },
@@ -8115,6 +8292,2312 @@
         "Electrification": 2,
         "Alternative fuels": 1,
         "Transport system improvements": 1
+      }
+    },
+    "country_gen_asi": {
+      "AFG": {
+        "gen1": {
+          "Improve": 3
+        }
+      },
+      "ALB": {
+        "gen2": {
+          "Shift": 3,
+          "Improve": 3
+        }
+      },
+      "DZA": {
+        "gen1": {
+          "Improve": 1
+        }
+      },
+      "AND": {
+        "gen2": {
+          "Shift": 8,
+          "Improve": 5,
+          "Avoid": 2
+        },
+        "gen3": {
+          "Improve": 1,
+          "Shift": 2
+        }
+      },
+      "AGO": {
+        "gen2": {
+          "Shift": 2,
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 5
+        }
+      },
+      "ATG": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Avoid": 1,
+          "Improve": 5
+        }
+      },
+      "ARG": {
+        "gen2": {
+          "Improve": 13,
+          "Avoid": 2,
+          "Shift": 3
+        }
+      },
+      "ARM": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 3
+        },
+        "gen3": {
+          "Improve": 12,
+          "Avoid": 4,
+          "Shift": 6
+        }
+      },
+      "AUS": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 5
+        },
+        "gen3": {
+          "Improve": 9
+        }
+      },
+      "AZE": {
+        "gen1": {
+          "Improve": 4,
+          "Shift": 1
+        },
+        "gen2": {
+          "Improve": 17,
+          "Shift": 8
+        },
+        "gen3": {
+          "Improve": 14,
+          "Avoid": 1,
+          "Shift": 4
+        }
+      },
+      "BHS": {
+        "gen1": {
+          "Improve": 8,
+          "Avoid": 2,
+          "Shift": 5
+        },
+        "gen2": {
+          "Shift": 1,
+          "Improve": 5
+        },
+        "gen3": {
+          "Avoid": 1,
+          "Shift": 3,
+          "Improve": 12
+        }
+      },
+      "BGD": {
+        "gen2": {
+          "Shift": 7,
+          "Improve": 15,
+          "Avoid": 3
+        },
+        "gen1": {
+          "Improve": 1,
+          "Shift": 3
+        },
+        "gen3": {
+          "Improve": 17,
+          "Shift": 5,
+          "Avoid": 1
+        }
+      },
+      "BRB": {
+        "gen1": {
+          "Improve": 4
+        },
+        "gen2": {
+          "Improve": 6,
+          "Avoid": 5,
+          "Shift": 7
+        },
+        "gen3": {
+          "Improve": 6,
+          "Shift": 3,
+          "Avoid": 2
+        }
+      },
+      "BLZ": {
+        "gen1": {
+          "Improve": 5,
+          "Shift": 2,
+          "Avoid": 1
+        },
+        "gen2": {
+          "Improve": 7
+        },
+        "gen3": {
+          "Improve": 12,
+          "Shift": 2
+        }
+      },
+      "BEN": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 1,
+          "Shift": 2
+        }
+      },
+      "BTN": {
+        "gen1": {
+          "Improve": 5,
+          "Shift": 3,
+          "Avoid": 1
+        },
+        "gen2": {
+          "Shift": 5,
+          "Improve": 4,
+          "Avoid": 2
+        },
+        "gen3": {
+          "Improve": 8,
+          "Shift": 5
+        }
+      },
+      "BOL": {
+        "gen2": {
+          "Shift": 1,
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 14
+        }
+      },
+      "BRA": {
+        "gen2": {
+          "Improve": 2
+        },
+        "gen1": {
+          "Shift": 2
+        },
+        "gen3": {
+          "Improve": 13,
+          "Avoid": 3,
+          "Shift": 5
+        }
+      },
+      "BRN": {
+        "gen2": {
+          "Improve": 4,
+          "Avoid": 1
+        },
+        "gen1": {
+          "Improve": 3,
+          "Shift": 6,
+          "Avoid": 2
+        }
+      },
+      "BFA": {
+        "gen1": {
+          "Improve": 2,
+          "Shift": 1
+        },
+        "gen2": {
+          "Improve": 3,
+          "Shift": 4
+        },
+        "gen3": {
+          "Shift": 1,
+          "Improve": 5
+        }
+      },
+      "BDI": {
+        "gen1": {
+          "Shift": 1,
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 2,
+          "Shift": 2
+        },
+        "gen3": {
+          "Improve": 4,
+          "Shift": 1
+        }
+      },
+      "CPV": {
+        "gen1": {
+          "Improve": 2
+        },
+        "gen2": {
+          "Avoid": 7,
+          "Shift": 10,
+          "Improve": 10
+        },
+        "gen3": {
+          "Improve": 4
+        }
+      },
+      "KHM": {
+        "gen1": {
+          "Improve": 3,
+          "Shift": 2
+        },
+        "gen2": {
+          "Shift": 2,
+          "Improve": 3
+        },
+        "gen3": {
+          "Improve": 5,
+          "Shift": 4
+        }
+      },
+      "CMR": {
+        "gen1": {
+          "Improve": 5,
+          "Shift": 3,
+          "Avoid": 1
+        },
+        "gen2": {
+          "Improve": 3,
+          "Shift": 2
+        }
+      },
+      "CAN": {
+        "gen1": {
+          "Improve": 2,
+          "Avoid": 1,
+          "Shift": 1
+        },
+        "gen2": {
+          "Improve": 4,
+          "Shift": 3
+        },
+        "gen3": {
+          "Improve": 37,
+          "Shift": 16,
+          "Avoid": 5
+        }
+      },
+      "CAF": {
+        "gen1": {
+          "Improve": 2
+        }
+      },
+      "CHL": {
+        "gen2": {
+          "Improve": 3,
+          "Shift": 2
+        },
+        "gen1": {
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 8,
+          "Avoid": 1,
+          "Shift": 5
+        }
+      },
+      "CHN": {
+        "gen1": {
+          "Improve": 5,
+          "Shift": 5,
+          "Avoid": 2
+        },
+        "gen2": {
+          "Improve": 13,
+          "Shift": 4,
+          "Avoid": 1
+        },
+        "gen3": {
+          "Improve": 24,
+          "Avoid": 4,
+          "Shift": 3
+        }
+      },
+      "COL": {
+        "gen2": {
+          "Improve": 13,
+          "Shift": 4,
+          "Avoid": 3
+        },
+        "gen3": {
+          "Improve": 32,
+          "Shift": 20,
+          "Avoid": 2
+        }
+      },
+      "COG": {
+        "gen1": {
+          "Shift": 1,
+          "Improve": 2
+        },
+        "gen2": {
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 3
+        }
+      },
+      "COK": {
+        "gen1": {
+          "Improve": 3
+        }
+      },
+      "CRI": {
+        "gen1": {
+          "Shift": 5,
+          "Improve": 2
+        },
+        "gen2": {
+          "Shift": 5,
+          "Improve": 5
+        },
+        "gen3": {
+          "Improve": 36,
+          "Shift": 20
+        }
+      },
+      "CIV": {
+        "gen1": {
+          "Improve": 3,
+          "Avoid": 1,
+          "Shift": 2
+        },
+        "gen2": {
+          "Shift": 3,
+          "Improve": 5
+        },
+        "gen3": {
+          "Improve": 17,
+          "Shift": 4
+        }
+      },
+      "PRK": {
+        "gen1": {
+          "Improve": 1,
+          "Shift": 2,
+          "Avoid": 1
+        }
+      },
+      "COD": {
+        "gen1": {
+          "Shift": 1
+        },
+        "gen2": {
+          "Shift": 7,
+          "Avoid": 3,
+          "Improve": 3
+        }
+      },
+      "DJI": {
+        "gen1": {
+          "Improve": 3,
+          "Shift": 1
+        },
+        "gen3": {
+          "Shift": 9,
+          "Improve": 9
+        }
+      },
+      "DMA": {
+        "gen1": {
+          "Improve": 4
+        },
+        "gen2": {
+          "Improve": 22,
+          "Shift": 1
+        }
+      },
+      "DOM": {
+        "gen2": {
+          "Shift": 6,
+          "Improve": 5
+        }
+      },
+      "ECU": {
+        "gen1": {
+          "Shift": 2,
+          "Improve": 4
+        },
+        "gen3": {
+          "Shift": 3,
+          "Improve": 3
+        }
+      },
+      "EGY": {
+        "gen1": {
+          "Shift": 2,
+          "Improve": 1
+        },
+        "gen2": {
+          "Shift": 12,
+          "Improve": 20
+        }
+      },
+      "SLV": {
+        "gen2": {
+          "Improve": 3,
+          "Shift": 4
+        },
+        "gen3": {
+          "Improve": 8,
+          "Avoid": 1,
+          "Shift": 2
+        }
+      },
+      "GNQ": {
+        "gen1": {
+          "Improve": 5,
+          "Shift": 1
+        },
+        "gen2": {
+          "Shift": 2,
+          "Improve": 4
+        }
+      },
+      "ERI": {
+        "gen1": {
+          "Improve": 2,
+          "Shift": 1
+        },
+        "gen3": {
+          "Avoid": 1,
+          "Shift": 3,
+          "Improve": 7
+        }
+      },
+      "SWZ": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 3,
+          "Shift": 1
+        }
+      },
+      "ETH": {
+        "gen1": {
+          "Shift": 2,
+          "Improve": 3,
+          "Avoid": 2
+        },
+        "gen2": {
+          "Improve": 2,
+          "Shift": 1
+        },
+        "gen3": {
+          "Improve": 5,
+          "Avoid": 2
+        }
+      },
+      "EEU": {
+        "gen2": {
+          "Improve": 10,
+          "Avoid": 4,
+          "Shift": 4
+        },
+        "gen3": {
+          "Improve": 7,
+          "Shift": 4
+        }
+      },
+      "FJI": {
+        "gen1": {
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 21,
+          "Shift": 4,
+          "Avoid": 4
+        }
+      },
+      "GAB": {
+        "gen1": {
+          "Improve": 1,
+          "Shift": 2
+        },
+        "gen2": {
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 7,
+          "Shift": 1
+        }
+      },
+      "GMB": {
+        "gen2": {
+          "Improve": 5,
+          "Shift": 3,
+          "Avoid": 1
+        }
+      },
+      "GEO": {
+        "gen1": {
+          "Avoid": 1,
+          "Shift": 1,
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 8,
+          "Avoid": 2,
+          "Shift": 3
+        }
+      },
+      "GHA": {
+        "gen1": {
+          "Shift": 1,
+          "Avoid": 1
+        },
+        "gen2": {
+          "Shift": 1
+        }
+      },
+      "GRD": {
+        "gen1": {
+          "Improve": 3,
+          "Avoid": 1,
+          "Shift": 1
+        }
+      },
+      "GTM": {
+        "gen2": {
+          "Improve": 13
+        }
+      },
+      "GIN": {
+        "gen1": {
+          "Shift": 1,
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 8,
+          "Shift": 7,
+          "Avoid": 2
+        },
+        "gen3": {
+          "Improve": 5,
+          "Shift": 1
+        }
+      },
+      "HTI": {
+        "gen1": {
+          "Improve": 2,
+          "Avoid": 1,
+          "Shift": 1
+        },
+        "gen2": {
+          "Improve": 3
+        }
+      },
+      "HND": {
+        "gen2": {
+          "Improve": 1
+        },
+        "gen3": {
+          "Shift": 2,
+          "Improve": 3
+        }
+      },
+      "IND": {
+        "gen1": {
+          "Improve": 6,
+          "Shift": 8,
+          "Avoid": 1
+        },
+        "gen3": {
+          "Shift": 1,
+          "Improve": 3
+        }
+      },
+      "IDN": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 6
+        },
+        "gen3": {
+          "Improve": 6,
+          "Shift": 1
+        }
+      },
+      "IRQ": {
+        "gen1": {
+          "Shift": 1,
+          "Improve": 4
+        },
+        "gen3": {
+          "Improve": 8,
+          "Shift": 2
+        }
+      },
+      "ISR": {
+        "gen1": {
+          "Shift": 2
+        },
+        "gen2": {
+          "Improve": 3
+        }
+      },
+      "JAM": {
+        "gen1": {
+          "Improve": 1
+        }
+      },
+      "JPN": {
+        "gen1": {
+          "Improve": 13,
+          "Shift": 5,
+          "Avoid": 3
+        },
+        "gen2": {
+          "Improve": 3,
+          "Avoid": 1,
+          "Shift": 1
+        }
+      },
+      "JOR": {
+        "gen1": {
+          "Avoid": 3,
+          "Shift": 5,
+          "Improve": 3
+        },
+        "gen2": {
+          "Shift": 4,
+          "Improve": 5,
+          "Avoid": 1
+        },
+        "gen3": {
+          "Shift": 2,
+          "Improve": 6
+        }
+      },
+      "KAZ": {
+        "gen2": {
+          "Avoid": 2,
+          "Shift": 2,
+          "Improve": 3
+        },
+        "gen3": {
+          "Shift": 6,
+          "Improve": 16
+        }
+      },
+      "KEN": {
+        "gen2": {
+          "Improve": 1
+        },
+        "gen1": {
+          "Shift": 1,
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 5
+        }
+      },
+      "KIR": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 8,
+          "Shift": 2,
+          "Avoid": 1
+        }
+      },
+      "KWT": {
+        "gen1": {
+          "Shift": 1
+        }
+      },
+      "KGZ": {
+        "gen2": {
+          "Improve": 5,
+          "Shift": 1
+        },
+        "gen3": {
+          "Improve": 6,
+          "Shift": 2
+        }
+      },
+      "LAO": {
+        "gen1": {
+          "Improve": 1,
+          "Shift": 3
+        },
+        "gen2": {
+          "Shift": 3,
+          "Improve": 2
+        }
+      },
+      "LBN": {
+        "gen1": {
+          "Shift": 1,
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 14,
+          "Avoid": 5,
+          "Shift": 16
+        }
+      },
+      "LSO": {
+        "gen1": {
+          "Shift": 1,
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 3,
+          "Shift": 2
+        }
+      },
+      "LBR": {
+        "gen1": {
+          "Improve": 5,
+          "Shift": 2,
+          "Avoid": 3
+        },
+        "gen2": {
+          "Improve": 8,
+          "Avoid": 2,
+          "Shift": 4
+        },
+        "gen3": {
+          "Improve": 11,
+          "Shift": 3,
+          "Avoid": 1
+        }
+      },
+      "MDG": {
+        "gen1": {
+          "Improve": 2,
+          "Shift": 1
+        },
+        "gen2": {
+          "Avoid": 2,
+          "Shift": 2,
+          "Improve": 4
+        }
+      },
+      "MWI": {
+        "gen1": {
+          "Shift": 1
+        },
+        "gen2": {
+          "Shift": 2,
+          "Improve": 2
+        }
+      },
+      "MDV": {
+        "gen2": {
+          "Improve": 5
+        },
+        "gen3": {
+          "Improve": 5,
+          "Shift": 2
+        }
+      },
+      "MLI": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 1
+        }
+      },
+      "MHL": {
+        "gen1": {
+          "Improve": 6
+        },
+        "gen2": {
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 3
+        }
+      },
+      "MRT": {
+        "gen2": {
+          "Shift": 2,
+          "Improve": 4
+        },
+        "gen3": {
+          "Avoid": 2,
+          "Shift": 3,
+          "Improve": 1
+        }
+      },
+      "MUS": {
+        "gen1": {
+          "Improve": 2
+        },
+        "gen2": {
+          "Shift": 1,
+          "Avoid": 1,
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 16,
+          "Shift": 4,
+          "Avoid": 4
+        }
+      },
+      "MEX": {
+        "gen1": {
+          "Shift": 3,
+          "Improve": 2
+        },
+        "gen2": {
+          "Shift": 6,
+          "Improve": 7,
+          "Avoid": 3
+        },
+        "gen3": {
+          "Improve": 46,
+          "Shift": 22,
+          "Avoid": 7
+        }
+      },
+      "FSM": {
+        "gen2": {
+          "Improve": 4
+        },
+        "gen3": {
+          "Avoid": 1,
+          "Shift": 2,
+          "Improve": 5
+        }
+      },
+      "MCO": {
+        "gen2": {
+          "Avoid": 2,
+          "Shift": 6,
+          "Improve": 6
+        },
+        "gen3": {
+          "Shift": 4,
+          "Improve": 7,
+          "Avoid": 2
+        }
+      },
+      "MNG": {
+        "gen1": {
+          "Improve": 4,
+          "Avoid": 1,
+          "Shift": 2
+        },
+        "gen2": {
+          "Shift": 1,
+          "Improve": 2
+        }
+      },
+      "MNE": {
+        "gen2": {
+          "Improve": 3
+        },
+        "gen3": {
+          "Improve": 3
+        }
+      },
+      "MAR": {
+        "gen1": {
+          "Improve": 8,
+          "Avoid": 1,
+          "Shift": 5
+        },
+        "gen2": {
+          "Improve": 10,
+          "Shift": 4,
+          "Avoid": 2
+        },
+        "gen3": {
+          "Improve": 22,
+          "Avoid": 3,
+          "Shift": 10
+        }
+      },
+      "MOZ": {
+        "gen1": {
+          "Shift": 1
+        },
+        "gen2": {
+          "Improve": 2,
+          "Shift": 1
+        }
+      },
+      "MMR": {
+        "gen1": {
+          "Avoid": 1,
+          "Shift": 1,
+          "Improve": 1
+        },
+        "gen2": {
+          "Avoid": 6,
+          "Shift": 11,
+          "Improve": 12
+        }
+      },
+      "NAM": {
+        "gen1": {
+          "Avoid": 1,
+          "Improve": 1,
+          "Shift": 2
+        },
+        "gen2": {
+          "Improve": 13,
+          "Avoid": 1
+        }
+      },
+      "NRU": {
+        "gen2": {
+          "Avoid": 1,
+          "Improve": 3
+        },
+        "gen3": {
+          "Shift": 4,
+          "Improve": 19,
+          "Avoid": 1
+        }
+      },
+      "NPL": {
+        "gen1": {
+          "Improve": 12,
+          "Shift": 4,
+          "Avoid": 2
+        },
+        "gen2": {
+          "Improve": 2,
+          "Shift": 4
+        },
+        "gen3": {
+          "Improve": 6,
+          "Shift": 5
+        }
+      },
+      "NZL": {
+        "gen2": {
+          "Improve": 2,
+          "Avoid": 1
+        }
+      },
+      "NIC": {
+        "gen1": {
+          "Shift": 1
+        },
+        "gen2": {
+          "Avoid": 2,
+          "Shift": 1,
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 1
+        }
+      },
+      "NER": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 2
+        }
+      },
+      "NGA": {
+        "gen1": {
+          "Improve": 5,
+          "Shift": 11,
+          "Avoid": 2
+        },
+        "gen2": {
+          "Shift": 3,
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 4,
+          "Shift": 2
+        }
+      },
+      "NOR": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Avoid": 2,
+          "Shift": 2,
+          "Improve": 2
+        }
+      },
+      "OMN": {
+        "gen2": {
+          "Avoid": 1,
+          "Shift": 3,
+          "Improve": 10
+        }
+      },
+      "PAK": {
+        "gen1": {
+          "Shift": 4,
+          "Improve": 4,
+          "Avoid": 1
+        },
+        "gen2": {
+          "Improve": 5,
+          "Shift": 2,
+          "Avoid": 1
+        },
+        "gen3": {
+          "Shift": 9,
+          "Improve": 16,
+          "Avoid": 1
+        }
+      },
+      "PLW": {
+        "gen1": {
+          "Shift": 1,
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 12,
+          "Shift": 4
+        }
+      },
+      "PSE": {
+        "gen1": {
+          "Improve": 7,
+          "Shift": 2
+        },
+        "gen2": {
+          "Improve": 3,
+          "Shift": 1,
+          "Avoid": 1
+        }
+      },
+      "PAN": {
+        "gen1": {
+          "Improve": 1,
+          "Shift": 1
+        },
+        "gen2": {
+          "Improve": 7,
+          "Shift": 2,
+          "Avoid": 1
+        },
+        "gen3": {
+          "Improve": 3
+        }
+      },
+      "PNG": {
+        "gen1": {
+          "Shift": 2,
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 6,
+          "Avoid": 1
+        }
+      },
+      "PRY": {
+        "gen1": {
+          "Shift": 1
+        },
+        "gen2": {
+          "Shift": 1,
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 7
+        }
+      },
+      "QAT": {
+        "gen1": {
+          "Improve": 3,
+          "Shift": 1
+        },
+        "gen2": {
+          "Shift": 1,
+          "Improve": 3
+        },
+        "gen3": {
+          "Shift": 7,
+          "Improve": 6
+        }
+      },
+      "KOR": {
+        "gen2": {
+          "Avoid": 2,
+          "Shift": 2,
+          "Improve": 7
+        },
+        "gen1": {
+          "Improve": 3,
+          "Shift": 1
+        },
+        "gen3": {
+          "Improve": 5,
+          "Shift": 1
+        }
+      },
+      "MDA": {
+        "gen2": {
+          "Shift": 6,
+          "Improve": 1,
+          "Avoid": 2
+        },
+        "gen1": {
+          "Improve": 1
+        },
+        "gen3": {
+          "Avoid": 3,
+          "Shift": 6,
+          "Improve": 13
+        }
+      },
+      "MKD": {
+        "gen1": {
+          "Shift": 4,
+          "Improve": 2
+        }
+      },
+      "RWA": {
+        "gen1": {
+          "Improve": 12,
+          "Shift": 10,
+          "Avoid": 3
+        },
+        "gen2": {
+          "Improve": 5,
+          "Shift": 4
+        },
+        "gen3": {
+          "Shift": 8,
+          "Improve": 12
+        }
+      },
+      "KNA": {
+        "gen1": {
+          "Improve": 4,
+          "Shift": 4
+        },
+        "gen2": {
+          "Improve": 2
+        }
+      },
+      "LCA": {
+        "gen1": {
+          "Improve": 4,
+          "Shift": 1
+        },
+        "gen3": {
+          "Improve": 6
+        }
+      },
+      "VCT": {
+        "gen1": {
+          "Shift": 1,
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 7,
+          "Shift": 5,
+          "Avoid": 1
+        }
+      },
+      "WSM": {
+        "gen1": {
+          "Improve": 2
+        },
+        "gen2": {
+          "Improve": 8,
+          "Shift": 3,
+          "Avoid": 1
+        },
+        "gen3": {
+          "Improve": 6
+        }
+      },
+      "STP": {
+        "gen2": {
+          "Avoid": 1,
+          "Shift": 1,
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 9
+        }
+      },
+      "SAU": {
+        "gen1": {
+          "Improve": 1,
+          "Shift": 1
+        },
+        "gen2": {
+          "Improve": 3,
+          "Shift": 2
+        },
+        "gen3": {
+          "Improve": 2
+        }
+      },
+      "SEN": {
+        "gen1": {
+          "Shift": 3,
+          "Improve": 1
+        }
+      },
+      "SYC": {
+        "gen1": {
+          "Shift": 1,
+          "Improve": 4
+        },
+        "gen2": {
+          "Avoid": 3,
+          "Shift": 6,
+          "Improve": 5
+        }
+      },
+      "SLE": {
+        "gen1": {
+          "Shift": 4,
+          "Avoid": 1,
+          "Improve": 2
+        },
+        "gen2": {
+          "Improve": 6,
+          "Shift": 2
+        },
+        "gen3": {
+          "Improve": 17,
+          "Shift": 7
+        }
+      },
+      "SGP": {
+        "gen2": {
+          "Improve": 5,
+          "Shift": 7,
+          "Avoid": 2
+        },
+        "gen3": {
+          "Improve": 6,
+          "Avoid": 2,
+          "Shift": 2
+        }
+      },
+      "SLB": {
+        "gen2": {
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 12,
+          "Shift": 2
+        }
+      },
+      "SOM": {
+        "gen2": {
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 6
+        }
+      },
+      "ZAF": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 1,
+          "Shift": 1
+        },
+        "gen3": {
+          "Improve": 1
+        }
+      },
+      "SSD": {
+        "gen1": {
+          "Improve": 4
+        },
+        "gen2": {
+          "Improve": 9,
+          "Shift": 3
+        }
+      },
+      "LKA": {
+        "gen1": {
+          "Shift": 6,
+          "Improve": 10,
+          "Avoid": 1
+        },
+        "gen2": {
+          "Avoid": 8,
+          "Improve": 22,
+          "Shift": 16
+        },
+        "gen3": {
+          "Shift": 5,
+          "Improve": 14
+        }
+      },
+      "SDN": {
+        "gen2": {
+          "Shift": 5,
+          "Improve": 4
+        }
+      },
+      "SUR": {
+        "gen2": {
+          "Improve": 11,
+          "Avoid": 3,
+          "Shift": 5
+        },
+        "gen1": {
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 5,
+          "Shift": 1,
+          "Avoid": 1
+        }
+      },
+      "CHE": {
+        "gen2": {
+          "Avoid": 1,
+          "Shift": 1,
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 1
+        }
+      },
+      "SYR": {
+        "gen1": {
+          "Improve": 6,
+          "Shift": 2
+        }
+      },
+      "TJK": {
+        "gen2": {
+          "Improve": 5,
+          "Shift": 5,
+          "Avoid": 1
+        }
+      },
+      "THA": {
+        "gen1": {
+          "Improve": 1,
+          "Shift": 3
+        },
+        "gen2": {
+          "Shift": 3,
+          "Improve": 3
+        },
+        "gen3": {
+          "Improve": 8
+        }
+      },
+      "TLS": {
+        "gen1": {
+          "Improve": 1,
+          "Shift": 1
+        },
+        "gen2": {
+          "Improve": 1,
+          "Avoid": 1,
+          "Shift": 1
+        }
+      },
+      "TGO": {
+        "gen1": {
+          "Shift": 4,
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 5,
+          "Avoid": 1
+        }
+      },
+      "TON": {
+        "gen1": {
+          "Improve": 5,
+          "Shift": 5
+        },
+        "gen2": {
+          "Improve": 7
+        },
+        "gen3": {
+          "Improve": 16,
+          "Avoid": 2,
+          "Shift": 2
+        }
+      },
+      "TUN": {
+        "gen2": {
+          "Avoid": 1,
+          "Shift": 1,
+          "Improve": 2
+        }
+      },
+      "TUR": {
+        "gen1": {
+          "Shift": 5,
+          "Avoid": 2,
+          "Improve": 8
+        },
+        "gen2": {
+          "Improve": 15,
+          "Avoid": 2,
+          "Shift": 1
+        },
+        "gen3": {
+          "Improve": 2
+        }
+      },
+      "TKM": {
+        "gen2": {
+          "Shift": 1,
+          "Avoid": 1,
+          "Improve": 6
+        }
+      },
+      "TUV": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Shift": 2,
+          "Avoid": 1,
+          "Improve": 1
+        },
+        "gen3": {
+          "Shift": 1,
+          "Improve": 10,
+          "Avoid": 2
+        }
+      },
+      "UGA": {
+        "gen1": {
+          "Improve": 4,
+          "Avoid": 1,
+          "Shift": 1
+        },
+        "gen2": {
+          "Improve": 8,
+          "Shift": 8,
+          "Avoid": 1
+        }
+      },
+      "ARE": {
+        "gen2": {
+          "Avoid": 3,
+          "Shift": 22,
+          "Improve": 27
+        },
+        "gen1": {
+          "Improve": 4,
+          "Shift": 3,
+          "Avoid": 1
+        },
+        "gen3": {
+          "Improve": 16,
+          "Shift": 5
+        }
+      },
+      "TZA": {
+        "gen1": {
+          "Shift": 1
+        },
+        "gen2": {
+          "Shift": 4,
+          "Improve": 2
+        }
+      },
+      "USA": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 4,
+          "Shift": 3,
+          "Avoid": 1
+        },
+        "gen3": {
+          "Improve": 14,
+          "Avoid": 1,
+          "Shift": 5
+        }
+      },
+      "URY": {
+        "gen1": {
+          "Shift": 3,
+          "Improve": 3
+        },
+        "gen2": {
+          "Improve": 7,
+          "Avoid": 3,
+          "Shift": 5
+        },
+        "gen3": {
+          "Improve": 8,
+          "Shift": 6,
+          "Avoid": 2
+        }
+      },
+      "UZB": {
+        "gen1": {
+          "Improve": 4,
+          "Shift": 4
+        },
+        "gen2": {
+          "Improve": 5
+        },
+        "gen3": {
+          "Improve": 9,
+          "Shift": 3
+        }
+      },
+      "VUT": {
+        "gen2": {
+          "Improve": 4
+        },
+        "gen3": {
+          "Shift": 2,
+          "Improve": 7
+        }
+      },
+      "VEN": {
+        "gen2": {
+          "Improve": 10,
+          "Shift": 4
+        },
+        "gen3": {
+          "Improve": 13,
+          "Shift": 7
+        }
+      },
+      "VNM": {
+        "gen2": {
+          "Improve": 14,
+          "Avoid": 3,
+          "Shift": 5
+        },
+        "gen1": {
+          "Improve": 4,
+          "Shift": 2
+        }
+      },
+      "YEM": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 3,
+          "Shift": 2
+        }
+      },
+      "ZMB": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 3,
+          "Shift": 3
+        }
+      },
+      "ZWE": {
+        "gen1": {
+          "Improve": 1
+        },
+        "gen2": {
+          "Improve": 2,
+          "Shift": 1
+        }
+      },
+      "BWA": {
+        "gen3": {
+          "Improve": 4,
+          "Avoid": 1,
+          "Shift": 1
+        }
+      },
+      "NIU": {
+        "gen1": {
+          "Improve": 2
+        },
+        "gen3": {
+          "Improve": 2
+        }
+      },
+      "GBR": {
+        "gen2": {
+          "Improve": 1
+        },
+        "gen3": {
+          "Improve": 10,
+          "Avoid": 5,
+          "Shift": 1
+        }
+      },
+      "CUB": {
+        "gen3": {
+          "Improve": 3,
+          "Shift": 1
+        }
+      },
+      "LIE": {
+        "gen3": {
+          "Improve": 3
+        }
+      },
+      "VAT": {
+        "gen3": {
+          "Improve": 2
+        }
+      },
+      "ISL": {
+        "gen3": {
+          "Improve": 1
+        }
+      },
+      "RUS": {
+        "gen3": {
+          "Improve": 11,
+          "Shift": 1
+        }
+      },
+      "MYS": {
+        "gen3": {
+          "Shift": 2,
+          "Improve": 2,
+          "Avoid": 1
+        }
+      },
+      "PER": {
+        "gen3": {
+          "Shift": 4,
+          "Improve": 8
+        }
+      },
+      "BLR": {
+        "gen3": {
+          "Improve": 3,
+          "Shift": 1
+        }
+      },
+      "TTO": {
+        "gen3": {
+          "Improve": 3,
+          "Shift": 1
+        }
+      },
+      "COM": {
+        "gen3": {
+          "Improve": 5
+        }
+      }
+    },
+    "country_latest_asi": {
+      "AFG": {
+        "Improve": 3
+      },
+      "ALB": {
+        "Shift": 3,
+        "Improve": 3
+      },
+      "DZA": {
+        "Improve": 1
+      },
+      "ATG": {
+        "Avoid": 1,
+        "Improve": 5
+      },
+      "ARG": {
+        "Improve": 13,
+        "Avoid": 2,
+        "Shift": 3
+      },
+      "CMR": {
+        "Improve": 3,
+        "Shift": 2
+      },
+      "COK": {
+        "Improve": 3
+      },
+      "COD": {
+        "Shift": 7,
+        "Avoid": 3,
+        "Improve": 3
+      },
+      "DMA": {
+        "Improve": 22,
+        "Shift": 1
+      },
+      "DOM": {
+        "Shift": 6,
+        "Improve": 5
+      },
+      "EGY": {
+        "Shift": 6,
+        "Improve": 10
+      },
+      "GNQ": {
+        "Shift": 2,
+        "Improve": 4
+      },
+      "GMB": {
+        "Improve": 5,
+        "Shift": 3,
+        "Avoid": 1
+      },
+      "GHA": {
+        "Shift": 1
+      },
+      "GTM": {
+        "Improve": 7
+      },
+      "HTI": {
+        "Improve": 3
+      },
+      "ISR": {
+        "Improve": 3
+      },
+      "KIR": {
+        "Improve": 8,
+        "Shift": 2,
+        "Avoid": 1
+      },
+      "LAO": {
+        "Shift": 3,
+        "Improve": 2
+      },
+      "MWI": {
+        "Shift": 2,
+        "Improve": 2
+      },
+      "MLI": {
+        "Improve": 1
+      },
+      "MMR": {
+        "Avoid": 6,
+        "Shift": 11,
+        "Improve": 12
+      },
+      "NER": {
+        "Improve": 2
+      },
+      "PSE": {
+        "Improve": 3,
+        "Shift": 1,
+        "Avoid": 1
+      },
+      "PNG": {
+        "Improve": 6,
+        "Avoid": 1
+      },
+      "KNA": {
+        "Improve": 2
+      },
+      "SEN": {
+        "Shift": 2,
+        "Improve": 1
+      },
+      "SSD": {
+        "Improve": 9,
+        "Shift": 3
+      },
+      "SDN": {
+        "Shift": 5,
+        "Improve": 4
+      },
+      "SYR": {
+        "Improve": 6,
+        "Shift": 2
+      },
+      "TJK": {
+        "Improve": 5,
+        "Shift": 5,
+        "Avoid": 1
+      },
+      "TLS": {
+        "Improve": 1,
+        "Avoid": 1,
+        "Shift": 1
+      },
+      "TGO": {
+        "Improve": 5,
+        "Avoid": 1
+      },
+      "TKM": {
+        "Shift": 1,
+        "Avoid": 1,
+        "Improve": 6
+      },
+      "UGA": {
+        "Improve": 8,
+        "Shift": 8,
+        "Avoid": 1
+      },
+      "TZA": {
+        "Shift": 4,
+        "Improve": 2
+      },
+      "VNM": {
+        "Avoid": 2,
+        "Shift": 3,
+        "Improve": 8
+      },
+      "MDG": {
+        "Avoid": 2,
+        "Shift": 2,
+        "Improve": 4
+      },
+      "OMN": {
+        "Shift": 2,
+        "Improve": 9
+      },
+      "NAM": {
+        "Improve": 7,
+        "Avoid": 1
+      },
+      "ARE": {
+        "Improve": 16,
+        "Shift": 5
+      },
+      "BRA": {
+        "Improve": 13,
+        "Avoid": 3,
+        "Shift": 5
+      },
+      "USA": {
+        "Improve": 14,
+        "Avoid": 1,
+        "Shift": 5
+      },
+      "AUS": {
+        "Improve": 9
+      },
+      "BWA": {
+        "Improve": 4,
+        "Avoid": 1,
+        "Shift": 1
+      },
+      "BEN": {
+        "Improve": 1,
+        "Shift": 2
+      },
+      "URY": {
+        "Improve": 8,
+        "Shift": 6,
+        "Avoid": 2
+      },
+      "CHE": {
+        "Improve": 1
+      },
+      "GBR": {
+        "Improve": 10,
+        "Avoid": 5,
+        "Shift": 1
+      },
+      "AZE": {
+        "Improve": 14,
+        "Avoid": 1,
+        "Shift": 4
+      },
+      "AND": {
+        "Improve": 1,
+        "Shift": 2
+      },
+      "LSO": {
+        "Improve": 3,
+        "Shift": 2
+      },
+      "ECU": {
+        "Shift": 3,
+        "Improve": 3
+      },
+      "LCA": {
+        "Improve": 6
+      },
+      "SGP": {
+        "Improve": 6,
+        "Avoid": 2,
+        "Shift": 2
+      },
+      "BLZ": {
+        "Improve": 12,
+        "Shift": 2
+      },
+      "MHL": {
+        "Improve": 3
+      },
+      "CAN": {
+        "Improve": 37,
+        "Shift": 16,
+        "Avoid": 5
+      },
+      "CPV": {
+        "Improve": 4
+      },
+      "MNE": {
+        "Improve": 3
+      },
+      "CUB": {
+        "Improve": 3,
+        "Shift": 1
+      },
+      "MDV": {
+        "Improve": 5,
+        "Shift": 2
+      },
+      "KEN": {
+        "Improve": 5
+      },
+      "MDA": {
+        "Avoid": 3,
+        "Shift": 6,
+        "Improve": 13
+      },
+      "NPL": {
+        "Improve": 6,
+        "Shift": 5
+      },
+      "KHM": {
+        "Improve": 5,
+        "Shift": 4
+      },
+      "MCO": {
+        "Shift": 4,
+        "Improve": 7,
+        "Avoid": 2
+      },
+      "CHL": {
+        "Improve": 8,
+        "Avoid": 1,
+        "Shift": 5
+      },
+      "CHN": {
+        "Improve": 24,
+        "Avoid": 4,
+        "Shift": 3
+      },
+      "NIU": {
+        "Improve": 2
+      },
+      "SLB": {
+        "Improve": 12,
+        "Shift": 2
+      },
+      "CRI": {
+        "Improve": 36,
+        "Shift": 20
+      },
+      "BRB": {
+        "Improve": 6,
+        "Shift": 3,
+        "Avoid": 2
+      },
+      "LIE": {
+        "Improve": 3
+      },
+      "VAT": {
+        "Improve": 2
+      },
+      "AGO": {
+        "Improve": 5
+      },
+      "ISL": {
+        "Improve": 1
+      },
+      "SOM": {
+        "Improve": 3
+      },
+      "CIV": {
+        "Improve": 17,
+        "Shift": 4
+      },
+      "EEU": {
+        "Improve": 7,
+        "Shift": 4
+      },
+      "JOR": {
+        "Shift": 2,
+        "Improve": 6
+      },
+      "SWZ": {
+        "Improve": 3,
+        "Shift": 1
+      },
+      "NGA": {
+        "Improve": 4,
+        "Shift": 2
+      },
+      "TON": {
+        "Improve": 16,
+        "Avoid": 2,
+        "Shift": 2
+      },
+      "FJI": {
+        "Improve": 21,
+        "Shift": 4,
+        "Avoid": 4
+      },
+      "VUT": {
+        "Shift": 2,
+        "Improve": 7
+      },
+      "FSM": {
+        "Avoid": 1,
+        "Shift": 2,
+        "Improve": 5
+      },
+      "PAK": {
+        "Shift": 9,
+        "Improve": 16,
+        "Avoid": 1
+      },
+      "LBR": {
+        "Improve": 11,
+        "Shift": 3,
+        "Avoid": 1
+      },
+      "LKA": {
+        "Shift": 5,
+        "Improve": 14
+      },
+      "BOL": {
+        "Improve": 14
+      },
+      "ETH": {
+        "Improve": 5,
+        "Avoid": 2
+      },
+      "NIC": {
+        "Improve": 1
+      },
+      "STP": {
+        "Improve": 9
+      },
+      "BGD": {
+        "Improve": 17,
+        "Shift": 5,
+        "Avoid": 1
+      },
+      "RUS": {
+        "Improve": 11,
+        "Shift": 1
+      },
+      "MUS": {
+        "Improve": 16,
+        "Shift": 4,
+        "Avoid": 4
+      },
+      "TUV": {
+        "Shift": 1,
+        "Improve": 10,
+        "Avoid": 2
+      },
+      "MEX": {
+        "Improve": 46,
+        "Shift": 22,
+        "Avoid": 7
+      },
+      "KGZ": {
+        "Improve": 6,
+        "Shift": 2
+      },
+      "VCT": {
+        "Improve": 7,
+        "Shift": 5,
+        "Avoid": 1
+      },
+      "LBN": {
+        "Improve": 14,
+        "Avoid": 5,
+        "Shift": 16
+      },
+      "MAR": {
+        "Improve": 22,
+        "Avoid": 3,
+        "Shift": 10
+      },
+      "MYS": {
+        "Shift": 2,
+        "Improve": 2,
+        "Avoid": 1
+      },
+      "ZAF": {
+        "Improve": 1
+      },
+      "IDN": {
+        "Improve": 6,
+        "Shift": 1
+      },
+      "ZMB": {
+        "Improve": 3,
+        "Shift": 3
+      },
+      "MRT": {
+        "Avoid": 2,
+        "Shift": 3,
+        "Improve": 1
+      },
+      "VEN": {
+        "Improve": 13,
+        "Shift": 7
+      },
+      "QAT": {
+        "Shift": 7,
+        "Improve": 6
+      },
+      "THA": {
+        "Improve": 8
+      },
+      "GIN": {
+        "Improve": 5,
+        "Shift": 1
+      },
+      "PER": {
+        "Shift": 4,
+        "Improve": 8
+      },
+      "UZB": {
+        "Improve": 9,
+        "Shift": 3
+      },
+      "TUR": {
+        "Improve": 2
+      },
+      "PRY": {
+        "Improve": 7
+      },
+      "BHS": {
+        "Avoid": 1,
+        "Shift": 3,
+        "Improve": 12
+      },
+      "RWA": {
+        "Shift": 8,
+        "Improve": 12
+      },
+      "BLR": {
+        "Improve": 3,
+        "Shift": 1
+      },
+      "BTN": {
+        "Improve": 8,
+        "Shift": 5
+      },
+      "BDI": {
+        "Improve": 4,
+        "Shift": 1
+      },
+      "DJI": {
+        "Shift": 9,
+        "Improve": 9
+      },
+      "IRQ": {
+        "Improve": 8,
+        "Shift": 2
+      },
+      "SUR": {
+        "Improve": 5,
+        "Shift": 1,
+        "Avoid": 1
+      },
+      "YEM": {
+        "Improve": 3,
+        "Shift": 2
+      },
+      "KAZ": {
+        "Shift": 6,
+        "Improve": 16
+      },
+      "PAN": {
+        "Improve": 1
+      },
+      "SLE": {
+        "Improve": 17,
+        "Shift": 7
+      },
+      "COL": {
+        "Improve": 23,
+        "Shift": 16
+      },
+      "KOR": {
+        "Improve": 5,
+        "Shift": 1
+      },
+      "SAU": {
+        "Improve": 2
+      },
+      "GAB": {
+        "Improve": 7,
+        "Shift": 1
+      },
+      "SLV": {
+        "Improve": 8,
+        "Avoid": 1,
+        "Shift": 2
+      },
+      "BFA": {
+        "Shift": 1,
+        "Improve": 5
+      },
+      "NRU": {
+        "Shift": 4,
+        "Improve": 19,
+        "Avoid": 1
+      },
+      "ARM": {
+        "Improve": 12,
+        "Avoid": 4,
+        "Shift": 6
+      },
+      "WSM": {
+        "Improve": 6
+      },
+      "HND": {
+        "Shift": 2,
+        "Improve": 3
+      },
+      "TTO": {
+        "Improve": 3,
+        "Shift": 1
+      },
+      "PLW": {
+        "Improve": 12,
+        "Shift": 4
+      },
+      "COG": {
+        "Improve": 3
+      },
+      "ERI": {
+        "Avoid": 1,
+        "Shift": 3,
+        "Improve": 7
+      },
+      "GEO": {
+        "Improve": 8,
+        "Avoid": 2,
+        "Shift": 3
+      },
+      "COM": {
+        "Improve": 5
+      },
+      "IND": {
+        "Shift": 1,
+        "Improve": 3
       }
     },
     "latest_gen_map": {

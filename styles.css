@@ -3,39 +3,41 @@
    ============================================================================ */
 
 :root {
-    --color-primary:        #9DBE3D;
-    --color-primary-dark:   #7A9B2E;
-    --color-secondary:      #003D5C;
-    --color-secondary-light:#005580;
-    --color-accent:         #00A4BD;
-    --color-orange:         #E8821A;
+    /* Aliases to shared design tokens (assets/design-tokens.css) */
+    --color-primary:         var(--ct-green,        #9DBE3D);
+    --color-primary-dark:    var(--ct-green-dark,   #7A9B2E);
+    --color-secondary:       var(--ct-navy,         #003D5C);
+    --color-secondary-light: var(--ct-navy-light,   #005580);
+    --color-accent:          var(--ct-teal,         #00A4BD);
+    --color-orange:          var(--ct-orange,       #E8821A);
 
-    --color-gen-latest: #9DBE3D;
-    --color-gen1:       #003D5C;
-    --color-gen2:       #00A4BD;
-    --color-gen3:       #E8821A;
+    --color-gen-latest: var(--ct-gen-latest, #9DBE3D);
+    --color-gen1:       var(--ct-gen1,       #003D5C);
+    --color-gen2:       var(--ct-gen2,       #00A4BD);
+    --color-gen3:       var(--ct-gen3,       #E8821A);
 
-    --color-bg:      #F4F6F8;
-    --color-surface: #FFFFFF;
-    --color-border:  #E1E4E8;
-    --color-text:    #2C3E50;
-    --color-muted:   #6B7280;
+    --color-bg:      var(--ct-bg,      #F4F6F8);
+    --color-surface: var(--ct-surface, #FFFFFF);
+    --color-border:  var(--ct-border,  #E1E4E8);
+    --color-text:    var(--ct-text,    #2C3E50);
+    --color-muted:   var(--ct-muted,   #6B7280);
 
-    --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+    --font-sans: var(--ct-font, 'Source Sans 3', -apple-system, sans-serif);
+    --font-mono: 'Courier New', monospace;
 
-    --sp-xs: 0.375rem;
-    --sp-sm: 0.75rem;
-    --sp-md: 1rem;
-    --sp-lg: 1.25rem;
+    --sp-xs: var(--ct-sp-xs, 0.375rem);
+    --sp-sm: var(--ct-sp-sm, 0.75rem);
+    --sp-md: var(--ct-sp-md, 1rem);
+    --sp-lg: var(--ct-sp-lg, 1.25rem);
+    --sp-xl: var(--ct-sp-xl, 1.5rem);
 
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
+    --radius-sm: var(--ct-radius-sm, 4px);
+    --radius-md: var(--ct-radius-md, 8px);
+    --radius-lg: var(--ct-radius-lg, 12px);
 
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
-    --shadow-lg: 0 10px 20px rgba(0,0,0,0.10);
+    --shadow-sm: var(--ct-shadow-sm, 0 1px 3px rgba(0,0,0,0.08));
+    --shadow-md: var(--ct-shadow-md, 0 4px 10px rgba(0,61,92,0.10));
+    --shadow-lg: var(--ct-shadow-lg, 0 10px 20px rgba(0,0,0,0.10));
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -237,7 +239,7 @@ body {
 
 .chart-wrapper { position:relative; height:460px; max-height:70vh; }
 
-.map-container {
+.svg-map-container {
     height: 450px;
     border-radius: var(--radius-md);
     overflow: hidden;
@@ -252,16 +254,24 @@ body {
 
 /* ── Map legend ───────────────────────────────────────────────────── */
 .map-legend {
-    position: absolute;
-    bottom: calc(var(--sp-lg) + 8px);
-    right: calc(var(--sp-lg) + 8px);
+    position: static;
     background: white;
-    padding: var(--sp-sm) var(--sp-md);
+    padding: 0.6rem 1rem;
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    min-width: 200px;
+    box-shadow: var(--shadow-sm);
     border: 1px solid var(--color-border);
-    z-index: 500;
+    margin-top: var(--sp-sm);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+    row-gap: 0.4rem;
+}
+
+.map-legend .legend-title {
+    width: 100%;
+    margin-bottom: 0.1rem;
 }
 
 .legend-title {
@@ -274,17 +284,28 @@ body {
 }
 
 .legend-item {
-    display:flex; align-items:center; gap:0.625rem;
-    margin-bottom:0.4rem; font-size:0.875rem; color:var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    margin-bottom: 0;
 }
-.legend-item:last-child { margin-bottom:0; }
 
-.legend-color { width:18px; height:18px; border-radius:3px; flex-shrink:0; }
+.legend-color { width:14px; height:14px; border-radius:3px; flex-shrink:0; }
 
-.legend-gradient { display:flex; align-items:center; gap:var(--sp-sm); }
+.legend-gradient {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-sm);
+    min-width: 200px;
+    flex: 1 1 200px;
+}
 
 .gradient-bar {
-    flex:1; height:16px;
+    flex: 1;
+    min-width: 80px;
+    height: 14px;
     background: linear-gradient(to right, #f0f0f0, var(--color-accent));
     border-radius: var(--radius-sm);
     border: 1px solid rgba(0,0,0,0.1);
@@ -395,8 +416,7 @@ body {
     .view-toggle { margin-left:0; }
     .toggle-button { flex:1; justify-content:center; }
     .chart-wrapper { height:380px; }
-    .map-container { height:360px; }
-    .map-legend { position:static; margin-top:var(--sp-sm); }
+    .svg-map-container { height:360px; }
     .gen-toggle { font-size:0.8rem; padding:0.375rem 0.625rem; }
 }
 
@@ -569,15 +589,13 @@ body {
     }
 
     .chart-wrapper { height: 80vh !important; }
-    .map-container { height: 80vh !important; }
+    .svg-map-container { height: 80vh !important; }
 
     /* Map legend stays visible */
     .map-legend {
-        position: static !important;
         margin-top: 12pt;
         box-shadow: none !important;
         border: 1px solid #ddd !important;
-        display: inline-block;
     }
 
     /* Subtitles */
@@ -591,4 +609,80 @@ body {
         size: A4 landscape;
         margin: 15mm;
     }
+}
+
+/* ── Map type toggle (Dorling / Dots) ───────────────────────────── */
+.map-type-toggle {
+    display: flex;
+    gap: 2px;
+    background: var(--color-border);
+    border-radius: 999px;
+    padding: 2px;
+}
+.map-type-btn {
+    border: none;
+    background: transparent;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    cursor: pointer;
+    transition: all 0.18s;
+}
+.map-type-btn.active {
+    background: var(--color-surface);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    color: var(--color-secondary);
+}
+.map-type-btn:hover:not(.active) { background: rgba(255,255,255,0.6); }
+
+/* ── SVG map container ───────────────────────────────────────────── */
+.svg-map-container {
+    width: 100%;
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background: #F8FAFB;
+}
+.svg-map-container svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: grab;
+    user-select: none;
+}
+.svg-map-container svg:active {
+    cursor: grabbing;
+}
+
+/* ── SVG map tooltip ─────────────────────────────────────────────── */
+.svg-map-tooltip {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100;
+    display: none;
+    background: rgba(0,61,92,0.95);
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.55rem 0.9rem;
+    font-family: var(--font-sans);
+    font-size: 0.83rem;
+    max-width: 240px;
+    line-height: 1.45;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.svg-map-tooltip strong { color: var(--color-gen-latest); }
+.svg-map-tooltip .tt-tag { font-size: 0.75rem; opacity: 0.8; }
+
+/* ── Map disclaimer ──────────────────────────────────────────────── */
+.map-disclaimer {
+    font-size: 0.76rem;
+    color: var(--color-muted);
+    font-style: italic;
+    margin-top: 0.75rem;
+    max-width: 100%;
+    line-height: 1.4;
 }

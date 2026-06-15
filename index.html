@@ -6,11 +6,10 @@
     <title>NDC Transport Tracker | GIZ-SLOCAT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/design-tokens.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
 </head>
 <body>
 
@@ -68,6 +67,11 @@
                         <option value="Oceania">Oceania</option>
                     </select>
                 </div>
+                <!-- Map type toggle -->
+                <div class="map-type-toggle" id="tab1-map-type-toggle">
+                    <button class="map-type-btn active" data-maptype="dots">Equal view</button>
+                    <button class="map-type-btn" data-maptype="dorling">By CO₂</button>
+                </div>
                 <div class="view-toggle">
                     <button class="toggle-button" data-view="chart">
                         <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><rect x="2" y="10" width="4" height="8"/><rect x="8" y="5" width="4" height="13"/><rect x="14" y="7" width="4" height="11"/></svg>
@@ -93,12 +97,16 @@
         </div>
         <div class="visualization-container hidden" id="tab1-map-view">
             <p class="currently-showing-label" id="tab1-map-label"></p>
-            <div id="tab1-map" class="map-container"></div>
+            <div id="tab1-svg-map" class="svg-map-container"></div>
             <div class="map-legend" id="tab1-map-legend">
                 <div class="legend-item"><span class="legend-color" style="background:#9DBE3D"></span><span>Transport target in latest active NDC</span></div>
                 <div class="legend-item"><span class="legend-color" style="background:#7EC8E3"></span><span>Transport target in a previous NDC, not in latest</span></div>
                 <div class="legend-item"><span class="legend-color" style="background:#C8D8E8"></span><span>No transport target in any NDC</span></div>
                 <div class="legend-item"><span class="legend-color" style="background:#ECECEC;border:1px dashed #aaa"></span><span>No NDC submitted</span></div>
+                <div class="legend-item" id="tab1-dorling-note" style="display:none; font-style:italic; color:var(--color-muted); width:100%;">
+                    Circle area = transport CO₂e (EDGAR 2023). EU members shown individually.
+                </div>
+                <p class="map-disclaimer">Positions are schematic. No borders are drawn. This map does not imply any opinion on the part of GIZ concerning the legal status of any country or territory.</p>
             </div>
         </div>
         <div class="action-buttons">
@@ -155,7 +163,6 @@
 
             <!-- MAP FILTERS -->
             <div class="filters-section hidden" id="tab2-map-filters">
-                <!-- Row 1: generation toggles + region + view toggle -->
                 <div class="filter-row-1">
                     <div class="filter-group">
                         <label>Show data from:</label>
@@ -167,6 +174,7 @@
                             <button class="btn-reset" id="tab2-map-reset">&#8635; Reset</button>
                         </div>
                     </div>
+
                     <div class="filter-group" style="margin-left:auto">
                         <label for="tab2-map-region">Region:</label>
                         <select id="tab2-map-region" class="filter-select">
@@ -190,7 +198,6 @@
                         </button>
                     </div>
                 </div>
-                <!-- Row 2: category pills -->
                 <div class="filter-row-2">
                     <label>Category:</label>
                     <div class="cat-toggle-group" id="tab2-map-cat-toggles">
@@ -218,7 +225,7 @@
         </div>
         <div class="visualization-container hidden" id="tab2-map-view">
             <p class="currently-showing-label" id="tab2-map-label"></p>
-            <div id="tab2-map" class="map-container"></div>
+            <div id="tab2-svg-map" class="svg-map-container"></div>
             <div class="map-legend" id="tab2-map-legend">
                 <div class="legend-title">Measure mentions</div>
                 <div class="legend-gradient">
@@ -234,6 +241,7 @@
                     <span class="legend-color" style="background:#FFFFFF;border:1px solid #ddd"></span>
                     <span>No NDC in this generation</span>
                 </div>
+                <p class="map-disclaimer">Positions are schematic. No borders are drawn. This map does not imply any opinion on the part of GIZ concerning the legal status of any country or territory.</p>
             </div>
         </div>
         <div class="action-buttons">
@@ -252,14 +260,14 @@
             <p>This chart shows the percentage of NDCs that include transport-related targets across three generations of submissions. Each bar represents 100% of NDCs submitted in that generation. Use the Region filter to explore results by geographic area. The subtitle updates to show the exact number of NDCs for the selected region.</p>
             <hr class="tooltip-divider"/>
             <h3>About the map</h3>
-            <p><strong>Transport target in latest active NDC</strong> The country's current operative NDC includes at least one transport-related target.</p>
-            <p><strong>Transport target in a previous NDC</strong> The country included transport targets in an earlier NDC submission. That NDC is now archived, meaning it has been superseded by a newer generation that does not carry the transport commitment forward.</p>
-            <p><strong>No transport target in any NDC</strong> The country has not included transport targets in any generation of NDC submissions.</p>
-            <p><strong>No NDC submitted</strong> The country has not submitted an NDC to the UNFCCC.</p>
+            <p><strong>Dorling view</strong> — Circle area represents the country's share of global transport CO₂e (EDGAR 2023). Color indicates the transport target status in the latest active NDC. Large grey circles highlight major emitters whose NDCs do not yet address transport.</p>
+            <p><strong>Dots view</strong> — One equal dot per Party on a borderless land silhouette. All internal and external borders are dissolved — this representation does not imply any official position on boundaries.</p>
+            <p><strong>Transport target in latest active NDC</strong> — The country's current operative NDC includes at least one transport-related target.</p>
+            <p><strong>Transport target in a previous NDC</strong> — The country included transport targets in an earlier submission. That NDC is now archived, meaning it has been superseded by a newer generation that does not carry the commitment forward.</p>
+            <p><strong>No transport target in any NDC</strong> — The country has not included transport targets in any generation of NDC submissions.</p>
             <hr class="tooltip-divider"/>
             <h3>What do Active and Archived mean?</h3>
-            <p>An <strong>active</strong> NDC is the climate commitment a country currently operates under. An <strong>archived</strong> NDC has been superseded by a newer submission. It remains on record as evidence of past commitments but is no longer the operative document.</p>
-            <p>EU member states are displayed collectively based on the EU NDC, submitted on behalf of all 27 members.</p>
+            <p>An <strong>active</strong> NDC is the climate commitment a country currently operates under. An <strong>archived</strong> NDC has been superseded by a newer submission. EU member states are displayed collectively based on the EU NDC.</p>
         </div>
     </div>
 
@@ -267,19 +275,14 @@
         <div class="tooltip-content">
             <button class="tooltip-close">×</button>
             <h3>About this chart</h3>
-            <p>This chart shows the number of NDCs mentioning each transport mitigation measure category. Use the generation toggles to compare how priorities have shifted over rounds. Multiple generations can be selected simultaneously. The Region filter limits the analysis to countries in the selected geographic area.</p>
+            <p>This chart shows the number of NDCs mentioning each transport mitigation measure category. Use the generation toggles to compare how priorities have shifted over rounds. Multiple generations can be selected simultaneously.</p>
             <hr class="tooltip-divider"/>
             <h3>About the map</h3>
-            <p><strong>Measure mentions by country</strong> The heat map shows how many times transport mitigation measures are mentioned in NDCs for the selected generation and categories. Darker colours indicate more mentions.</p>
-            <p><strong>Generation selection</strong> Only one generation can be selected at a time on the map. Use the Reset button to return to the Latest Active view.</p>
-            <p><strong>Category filter</strong> Select one or more measure categories to see how mentions are distributed geographically. When multiple categories are selected, the map shows the combined total of mentions. The country popup shows the breakdown per selected category.</p>
-            <p><strong>Data note</strong> The map reflects mentions in submitted NDCs only. EU member states are displayed collectively based on the EU NDC, submitted on behalf of all 27 members.</p>
-            <hr class="tooltip-divider"/>
-            <h3>What do Active and Archived mean?</h3>
-            <p>An <strong>active</strong> NDC is the climate commitment a country currently operates under. An <strong>archived</strong> NDC has been superseded by a newer submission. It remains on record as evidence of past commitments but is no longer the operative document. When viewing a specific generation, both active and archived NDCs from that round are included.</p>
+            <p><strong>Dorling view</strong> — Circle area represents the country's share of global transport CO₂e. Color intensity shows measure mentions. <strong>Dots view</strong> — Equal dots on a borderless land silhouette, colored by measure mentions.</p>
+            <p><strong>Generation selection</strong> — Only one generation can be selected at a time on the map. Use Reset to return to Latest Active.</p>
             <hr class="tooltip-divider"/>
             <h3>Legal note</h3>
-            <p>The boundaries and names shown on this map do not imply official endorsement or acceptance by GIZ. This map is for illustrative purposes only and does not imply any opinion on the part of GIZ concerning the legal status of any country or territory, or concerning the delimitation of frontiers or boundaries. Country polygons sourced from Natural Earth (naturalearthdata.com), a public domain dataset.</p>
+            <p>These maps use schematic positions. No borders are drawn. This does not imply any opinion on the part of GIZ concerning the legal status of any country or territory or the delimitation of frontiers or boundaries.</p>
         </div>
     </div>
 
@@ -289,8 +292,6 @@
     </div>
 
     <script src="script.js"></script>
-    
-    <!-- postMessage height to parent iframe -->
     <script>
       function sendHeight() {
         var h = document.documentElement.scrollHeight;
@@ -299,6 +300,5 @@
       window.addEventListener('load', sendHeight);
       new ResizeObserver(sendHeight).observe(document.body);
     </script>
-
 </body>
 </html>

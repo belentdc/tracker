@@ -20,8 +20,8 @@
     --color-text:    #2C3E50;
     --color-muted:   #6B7280;
 
-    --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+    --font-sans: var(--ct-font, 'Source Sans 3', -apple-system, sans-serif);
+    --font-mono: 'Courier New', monospace;
 
     --sp-xs: 0.375rem;
     --sp-sm: 0.75rem;
