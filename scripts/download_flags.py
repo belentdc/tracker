@@ -29,6 +29,11 @@ def main():
     countries = json.loads(INDEX.read_text(encoding="utf-8"))["countries"]
     codes = sorted({c["iso2"] for c in countries if c.get("iso2")})
     ok = skip = fail = 0
+
+    # GIZ corporate proxy
+    proxy = urllib.request.ProxyHandler({'https': 'http://proxy.giz.de:83'})
+    opener = urllib.request.build_opener(proxy)
+
     for iso2 in codes:
         dest = OUT / f"{iso2}.png"
         if dest.exists():
@@ -36,9 +41,10 @@ def main():
             continue
         url = f"https://flagcdn.com/w160/{iso2}.png"
         try:
-            with urllib.request.urlopen(url, timeout=20) as r:
+            with opener.open(url, timeout=20) as r:
                 dest.write_bytes(r.read())
             ok += 1
+            print(f"  ✓ {iso2}")
         except Exception as e:
             print(f"  ✗ {iso2}: {e}")
             fail += 1
