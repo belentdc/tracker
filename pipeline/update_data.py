@@ -1051,12 +1051,224 @@ def rows_as_dicts(sheet):
 
 
 # ============================================================================
+# GHG data loader — single source of truth: data/ghg.csv
+# ============================================================================
+
+def load_ghg_csv(path=None):
+    """
+    Single source of truth for GHG/transport emissions data.
+
+    Reads data/ghg.csv (wide format: one row per country, columns repeating
+    per year as "{Field}_{Year} [{unit}]") and returns everything
+    build_profiles() and the trends chart need, from one parse:
+
+        {
+          "COL": {
+            "snapshot": {
+                "total_mt": 217.59,
+                "transport_mt": 37.78,
+                "transport_share_pct": 17.37,
+                "transport_global_share_pct": 0.2138,
+                "transport_per_capita": 0.733,
+                "transport_sector_rank": 2,        # 1/2/3 if "Transport" is
+                                                     # in Rank1/2/3_Sector for
+                                                     # the latest year, else
+                                                     # None (omitted on the
+                                                     # profile page)
+                "year": 2024,
+                "source": "EDGAR",
+            },
+            "trends": {
+                "years": [1970, 1971, ..., 2024],
+                "total": [...],
+                "transport": [...],
+                "source": "EDGAR",
+            },
+          },
+          ...
+        }
+
+    Replaces the prior two-file setup (data/ghg.json for the snapshot and
+    data/sources/edgar_timeseries.csv for trends). Updating GHG data going
+    forward only requires replacing data/ghg.csv and re-running the
+    pipeline — no other file needs to change or stay in sync.
+
+    The EU (EEU) snapshot/trends are summed from member states, matching
+    the prior load_edgar_trends() behaviour (only years where at least 20
+    of 27 member states reported are included).
+    """
+    import csv
+
+    path = Path(path) if path else Path("data/ghg.csv")
+    if not path.exists():
+        print(f"   ⚠  {path} not found — emissions fall back to GIZ-SLOCAT Excel columns")
+        return {}
+
+    year_col_re = re.compile(r"^(.*?)_(\d{4})(?:\s*\[.*\])?$")
+
+    def parse_float(raw):
+        if raw is None:
+            return None
+        raw = raw.strip()
+        if raw == "":
+            return None
+        try:
+            return float(raw.replace(",", "."))
+        except ValueError:
+            return None
+
+    per_country = {}  # iso3 -> {year: {field: value}}
+
+    with path.open(encoding="utf-8-sig", newline="") as fh:
+        reader = csv.DictReader(fh)
+        for row in reader:
+            code = (row.get("EDGAR Country Code") or "").strip().upper()
+            if not code:
+                continue
+            years = per_country.setdefault(code, {})
+            for col_name, raw_value in row.items():
+                if col_name in ("EDGAR Country Code", "Country", "Region"):
+                    continue
+                m = year_col_re.match(col_name)
+                if not m:
+                    continue
+                field, year_str = m.group(1), int(m.group(2))
+                bucket = years.setdefault(year_str, {})
+                if field.startswith("Rank"):
+                    bucket[field] = (raw_value or "").strip()
+                else:
+                    bucket[field] = parse_float(raw_value)
+
+    def build_entry(years_dict):
+        """Given {year: {field: value}} for one country, build snapshot + trends."""
+        if not years_dict:
+            return None
+        all_years = sorted(years_dict)
+        years_with_data = [
+            y for y in all_years
+            if years_dict[y].get("Global_Emissions") is not None
+               or years_dict[y].get("Transport_Emissions") is not None
+        ]
+        latest_year = years_with_data[-1] if years_with_data else all_years[-1]
+
+        latest = years_dict[latest_year]
+        total = latest.get("Global_Emissions")
+        transport = latest.get("Transport_Emissions")
+        share = latest.get("Share_Transport_National")
+        if share is not None:
+            share = round(share * 100, 2)  # ghg.csv stores fraction, profiles use %
+        global_share = latest.get("Share_Transport_Global")
+        if global_share is not None:
+            global_share = round(global_share * 100, 4)
+        per_capita = latest.get("PerCapita_Transport")
+
+        # Sector rank: only set if "Transport" appears in Rank1/2/3_Sector
+        rank = None
+        for i in (1, 2, 3):
+            if latest.get(f"Rank{i}_Sector") == "Transport":
+                rank = i
+                break
+
+        snapshot = {
+            "total_mt": round(total, 2) if total is not None else None,
+            "transport_mt": round(transport, 2) if transport is not None else None,
+            "transport_share_pct": share,
+            "transport_global_share_pct": global_share,
+            "transport_per_capita": round(per_capita, 3) if per_capita is not None else None,
+            "transport_sector_rank": rank,
+            "year": latest_year,
+            "source": "EDGAR",
+        }
+
+        trend_years, trend_total, trend_transport = [], [], []
+        for y in all_years:
+            t = years_dict[y].get("Global_Emissions")
+            tr = years_dict[y].get("Transport_Emissions")
+            if t is None and tr is None:
+                continue
+            trend_years.append(y)
+            trend_total.append(round(t, 2) if t is not None else None)
+            trend_transport.append(round(tr, 2) if tr is not None else None)
+
+        trends = {
+            "years": trend_years,
+            "total": trend_total,
+            "transport": trend_transport,
+            "source": "EDGAR",
+        } if trend_years else None
+
+        return {"snapshot": snapshot, "trends": trends}
+
+    result = {}
+    for code, years_dict in per_country.items():
+        entry = build_entry(years_dict)
+        if entry:
+            result[code] = entry
+
+    # ── EU (EEU) aggregate, summed from member states ──────────────────
+    if EU_CODE not in result:
+        eu_years = defaultdict(lambda: [0.0, 0.0, 0])  # year -> [total, transport, n_reporting]
+        for c in EU_MEMBER_ISO3:
+            member_years = per_country.get(c, {})
+            for y, fields in member_years.items():
+                t = fields.get("Global_Emissions")
+                if t is None:
+                    continue
+                tr = fields.get("Transport_Emissions") or 0
+                eu_years[y][0] += t
+                eu_years[y][1] += tr
+                eu_years[y][2] += 1
+
+        eu_trend_years, eu_total, eu_transport = [], [], []
+        for y in sorted(eu_years):
+            tot, tra, n = eu_years[y]
+            if n < 20:  # only years where most member states reported
+                continue
+            eu_trend_years.append(y)
+            eu_total.append(round(tot, 2))
+            eu_transport.append(round(tra, 2))
+
+        if eu_trend_years:
+            latest_y = eu_trend_years[-1]
+            latest_tot = eu_total[-1]
+            latest_tra = eu_transport[-1]
+            eu_share = round(latest_tra / latest_tot * 100, 2) if latest_tot else None
+            result[EU_CODE] = {
+                "snapshot": {
+                    "total_mt": latest_tot,
+                    "transport_mt": latest_tra,
+                    "transport_share_pct": eu_share,
+                    "transport_global_share_pct": None,
+                    "transport_per_capita": None,
+                    "transport_sector_rank": None,
+                    "year": latest_y,
+                    "source": "EDGAR (sum of 27 member states)",
+                },
+                "trends": {
+                    "years": eu_trend_years,
+                    "total": eu_total,
+                    "transport": eu_transport,
+                    "source": "EDGAR (sum of 27 member states)",
+                },
+            }
+
+    populated = sum(
+        1 for v in result.values()
+        if any(v["snapshot"].get(k) is not None
+               for k in ("total_mt", "transport_mt", "transport_share_pct"))
+    )
+    print(f"   ✅  GHG data loaded from {path.name}: {len(result)} countries ({populated} with data)")
+    return result
+
+
+# ============================================================================
 # Processing
 # ============================================================================
 
-def process(excel_path):
+def process(excel_path, ghg_by_country=None):
     print(f"📊  Opening {excel_path} …")
     wb = openpyxl.load_workbook(excel_path, data_only=True, read_only=True)
+    ghg_by_country = ghg_by_country or {}
 
     # ------------------------------------------------------------------ Country
     print("🌍  Reading Country sheet …")
@@ -1072,8 +1284,8 @@ def process(excel_path):
             val = r.get(col) or r.get(col + " ")
             if clean(val):
                 coalitions.append(label)
-        # Emissions: use ghg.json as primary source; fall back to Excel columns
-        # ghg_by_country is loaded in run_profiles() and injected via kwarg
+        # Emissions: use ghg.csv (via load_ghg_csv) as primary source;
+        # fall back to Excel columns if a country is missing from EDGAR.
         _ghg = ghg_by_country.get(code, {}) if ghg_by_country else {}
         total     = _ghg.get("total_mt")     or r.get("GHG total 2023 (Mt)")
         transport = _ghg.get("transport_mt") or r.get("GHG transport 2023 (Mt)")
@@ -1316,7 +1528,7 @@ def process(excel_path):
 
 
 # ============================================================================
-# Derived data: target years, EDGAR trends, similarity
+# Derived data: target years, similarity
 # ============================================================================
 
 def extract_target_years(targets):
@@ -1346,52 +1558,6 @@ def extract_target_years(targets):
         seen.add((y, scope))
         out.append({"year": y, "scope": scope})
     return sorted(out, key=lambda x: x["year"])
-
-
-def load_edgar_trends():
-    """Optional EDGAR time series: data/sources/edgar_timeseries.csv with the
-    columns iso3,year,total_mt,transport_mt. Returns {iso3: trend dict}.
-    The EU (EEU) series is summed from member states if not provided."""
-    import csv
-    path = Path("data/sources/edgar_timeseries.csv")
-    if not path.exists():
-        return {}
-    raw = defaultdict(dict)
-    with path.open(encoding="utf-8-sig") as fh:
-        for row in csv.DictReader(fh):
-            try:
-                iso3 = row["iso3"].strip().upper()
-                y = int(row["year"])
-                raw[iso3][y] = (
-                    float(row["total_mt"]) if row.get("total_mt") else None,
-                    float(row["transport_mt"]) if row.get("transport_mt") else None,
-                )
-            except (KeyError, TypeError, ValueError):
-                continue
-    if EU_CODE not in raw:
-        eu_years = defaultdict(lambda: [0.0, 0.0, 0])
-        for c in EU_MEMBER_ISO3:
-            for y, (tot, tra) in raw.get(c, {}).items():
-                if tot is not None:
-                    eu_years[y][0] += tot
-                    eu_years[y][1] += tra or 0
-                    eu_years[y][2] += 1
-        # only years where all available members reported
-        raw[EU_CODE] = {y: (round(v[0], 2), round(v[1], 2))
-                        for y, v in eu_years.items() if v[2] >= 20}
-    trends = {}
-    for iso3, series in raw.items():
-        if not series:
-            continue
-        years = sorted(series)
-        trends[iso3] = {
-            "years": years,
-            "total": [series[y][0] for y in years],
-            "transport": [series[y][1] for y in years],
-            "source": "EDGAR",
-        }
-    print(f"📈  EDGAR trends loaded for {len(trends)} countries")
-    return trends
 
 
 def cosine(a, b, keys):
@@ -1678,24 +1844,15 @@ def run_profiles(excel_path):
         if code != "GLOBAL":
             publications[code] = publications[code] + global_pubs
 
-    # ── GHG data (single source of truth for emissions) ───────────────
-    ghg_path = Path("data/ghg.json")
-    ghg_by_country = {}
-    if ghg_path.exists():
-        ghg_raw = json.loads(ghg_path.read_text(encoding="utf-8"))
-        ghg_by_country = ghg_raw.get("countries", {})
-        populated = sum(1 for v in ghg_by_country.values()
-                        if any(v.get(k) is not None
-                               for k in ("total_mt", "transport_mt", "transport_share_pct")))
-        print(f"   ✅  GHG data loaded: {len(ghg_by_country)} countries ({populated} with data)")
-    else:
-        print("   ⚠  data/ghg.json not found — emissions fall back to GIZ-SLOCAT Excel columns")
+    # ── GHG data (single source of truth: data/ghg.csv) ────────────────
+    ghg_data = load_ghg_csv()
+    ghg_by_country = {code: v["snapshot"] for code, v in ghg_data.items()}
 
-    data = process(excel_path)
+    data = process(excel_path, ghg_by_country=ghg_by_country)
     profiles = build_profiles(data, publications, ghg_by_country=ghg_by_country)
     compute_similar(profiles)
 
-    trends = load_edgar_trends()
+    trends = {code: v["trends"] for code, v in ghg_data.items() if v["trends"]}
     today = str(date.today())
     for code, profile in profiles.items():
         profile["trends"] = trends.get(code)

@@ -3,262 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marshall Islands — Transport in Climate Policy | GIZ-SLOCAT Transport Tracker</title>
-<meta name="description" content="How Marshall Islands's climate documents address transport: 3 NDC submissions, a long-term strategy. GIZ-SLOCAT NDC Transport Tracker.">
+<title>Country Profile | GIZ-SLOCAT Transport Tracker</title>
+<meta name="description" content="GIZ-SLOCAT NDC Transport Tracker country profile.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../assets/design-tokens.css">
 <link rel="stylesheet" href="../../styles.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+  window.CP_CODE = undefined;
+  window.CP_BASE = "";
+</script>
 <script>window.CP_CODE="MHL";window.CP_BASE="../../";</script>
 </head>
 <body>
 
-<!-- ── Hero ─────────────────────────────────────────────────────────── -->
+<!-- Hero -->
 <header class="cp-hero">
-  <div class="cp-container cp-hero-grid">
-
-    <div>
-      <div class="cp-id-card">
-        <div class="cp-id-top">
-          <img id="cp-flag" class="cp-flag" src="" alt="">
-          <h1 class="cp-country-name" id="cp-name">…</h1>
+  <div class="cp-container">
+    <div class="cp-hero-top">
+      <img id="cp-flag" class="cp-flag" src="" alt="">
+      <div class="cp-hero-titles">
+        <button class="cp-country-name cp-country-switch" id="cp-name" type="button" aria-haspopup="listbox" aria-expanded="false">…</button>
+        <div class="cp-country-picker" id="cp-country-picker" hidden>
+          <input type="text" class="cp-country-picker-search" id="cp-country-picker-search" placeholder="Search countries…">
+          <ul class="cp-country-picker-list" id="cp-country-picker-list" role="listbox"></ul>
         </div>
-        <p class="cp-id-meta">Region: <strong id="cp-region"></strong></p>
-        <p class="cp-id-meta">Income group: <strong id="cp-income"></strong></p>
-        <p class="cp-id-edited" id="cp-updated"></p>
-        <div class="cp-eu-note" id="cp-eu-note" hidden>
-          Reports collectively through the EU NDC. NDC information below
-          refers to the joint submission of the European Union and its 27
-          member states.
-        </div>
-      </div>
-
-      <div class="cp-hero-block" style="margin-top:1.6rem;">
-        <div class="cp-hero-head">
-          <span class="cp-hero-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/></svg>
-          </span>
-          <h2 class="cp-hero-title">Assessed policy documents</h2>
-        </div>
-        <p class="cp-hero-body" id="cp-docs-list"></p>
+        <p class="cp-hero-sub" id="cp-sub"></p>
+        <!-- Pills removed per feedback -->
       </div>
     </div>
-
-    <div>
-      <div class="cp-hero-block">
-        <div class="cp-hero-head">
-          <span class="cp-hero-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M13 9h5M13 12h5M5.5 16.5c.8-1.3 2-2 3-2s2.2.7 3 2"/></svg>
-          </span>
-          <h2 class="cp-hero-title">Member of</h2>
-        </div>
-        <div class="cp-hero-body"><div class="cp-chips" id="cp-memberships"></div></div>
-      </div>
-
-      <div class="cp-hero-block">
-        <div class="cp-hero-head">
-          <span class="cp-hero-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c1.2-3.4 3.9-5 7-5s5.8 1.6 7 5M12 2v1.5"/></svg>
-          </span>
-          <h2 class="cp-hero-title">Type of party to the UNFCCC</h2>
-        </div>
-        <p class="cp-hero-body" id="cp-annex"></p>
-      </div>
-
-      <div class="cp-hero-block">
-        <div class="cp-hero-head">
-          <span class="cp-hero-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 13l4-4 4 3 6-7M4 20h16"/></svg>
-          </span>
-          <h2 class="cp-hero-title">Long-term direction</h2>
-        </div>
-        <div class="cp-hero-body" id="cp-longterm"></div>
-      </div>
-    </div>
-
-    <div>
-      <div class="cp-hero-block">
-        <div class="cp-hero-head">
-          <span class="cp-hero-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M6 15a4 4 0 1 1 .5-7.97A5 5 0 0 1 16.2 7.5 3.5 3.5 0 0 1 18 14.3"/><text x="8" y="13" font-size="6" stroke-width="0.5">CO2</text></svg>
-          </span>
-          <h2 class="cp-hero-title">Emissions</h2>
-        </div>
-        <div class="cp-hero-body" id="cp-emissions"></div>
-      </div>
-    </div>
-
+    <div class="cp-kpi-strip" id="cp-kpi"></div>
+    <div class="cp-eu-note" id="cp-eu-note" hidden></div>
   </div>
 </header>
 
-<main class="cp-container">
-
-  <!-- ── Story at a glance ──────────────────────────────────────────── -->
-  <section class="cp-section">
-    <p class="cp-kicker">The story at a glance</p>
-    <div class="cp-story" id="cp-story"></div>
-  </section>
-
-  <!-- ── Emissions trend & target horizon ───────────────────────────── -->
-  <section class="cp-section" id="cp-trend-section" hidden>
-    <div class="cp-section-head"><h2 class="cp-section-title">Where the targets point</h2></div>
-    <p class="cp-section-sub" id="cp-trend-sub"></p>
-    <div class="cp-card cp-chart-card" id="cp-trend-card">
-      <canvas id="cp-trend-chart" height="300" aria-label="Emissions trend and target years" role="img"></canvas>
+<!-- Sticky action bar -->
+<div class="cp-actionbar">
+  <div class="cp-container cp-actionbar-inner">
+    <nav class="cp-jump">
+      <a href="#story">Story</a>
+      <a href="#journey">Journey</a>
+      <a href="#targets-point">Timeline</a>
+      <a href="#targets">Targets</a>
+      <a href="#measures">Measures</a>
+      <a href="#benefits">Co-benefits</a>
+      <a href="#adaptation">Adaptation</a>
+      <a href="#engage">Engagement</a>
+      <a href="#deeper">Go deeper</a>
+    </nav>
+    <div class="cp-actions">
+      <button class="cp-btn" onclick="window.print()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+        Print
+      </button>
+      <button class="cp-btn cp-btn-primary" id="cp-export-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Export data
+      </button>
     </div>
-    <div id="cp-target-axis"></div>
-    <div class="cp-jlegend" id="cp-trend-legend"></div>
-  </section>
+  </div>
+</div>
 
-  <!-- ── Policy journey ─────────────────────────────────────────────── -->
-  <section class="cp-section">
-    <div class="cp-section-head"><h2 class="cp-section-title">The policy journey</h2></div>
-    <p class="cp-section-sub">
-      Every climate document this country has submitted under the Paris
-      Agreement, in order — and whether each one carried transport content.
-      <strong>Click a document to see its details.</strong>
-    </p>
-    <div class="cp-journey"><div class="cp-journey-track" id="cp-journey"></div></div>
-    <div class="cp-journey-detail" id="cp-journey-detail" hidden></div>
-    <div class="cp-jlegend">
-      <span class="lg-ndc">NDC — Nationally Determined Contribution</span>
-      <span class="lg-lts">LTS — Long-Term Strategy</span>
-      <span class="lg-btr">BTR — Biennial Transparency Report</span>
-      <span class="lg-active">Green outline = currently active</span>
+<main>
+
+  <!-- Story -->
+  <section class="cp-section" id="story">
+    <div class="cp-container">
+      <p class="cp-kicker">The story at a glance</p>
+      <div class="cp-story" id="cp-story"></div>
     </div>
   </section>
 
-  <!-- ── What the documents say ─────────────────────────────────────── -->
-  <section class="cp-section">
-    <div class="cp-section-head"><h2 class="cp-section-title">What the active documents say on transport</h2></div>
-    <p class="cp-section-sub">
-      Transport content of the documents currently in force, as assessed in
-      the GIZ-SLOCAT Transport Tracker database.
-    </p>
-    <div class="cp-doc-grid" id="cp-doc-cards"></div>
+  <!-- Policy journey -->
+  <section class="cp-section" id="journey">
+    <div class="cp-container">
+      <p class="cp-kicker">The policy journey</p>
+      <h2 class="cp-section-title">Every climate document, in order</h2>
+      <p class="cp-section-sub">Each submission under the Paris Agreement. <strong>Click any document for a summary.</strong></p>
+      <div class="cp-journey" id="cp-journey"></div>
+      <div class="cp-jlegend">
+        <span><span class="cp-jcard-dot has"></span> Carries transport content</span>
+        <span><span class="cp-jcard-dot no"></span> No transport content</span>
+        <span style="color:var(--ct-green);font-weight:700;">● Green outline = currently active</span>
+      </div>
+      <!-- Generation note: filled by JS -->
+      <div id="cp-journey-note"></div>
+    </div>
   </section>
 
-  <!-- ── Transport targets ──────────────────────────────────────────── -->
-  <section class="cp-section">
-    <div class="cp-section-head"><h2 class="cp-section-title">Transport targets</h2></div>
-    <p class="cp-section-sub" id="cp-targets-sub"></p>
-    <div class="cp-filterbar" id="cp-target-filters"></div>
-    <div class="cp-target-list" id="cp-targets"></div>
+  <!-- Where targets point -->
+  <section class="cp-section band" id="targets-point">
+    <div class="cp-container">
+      <p class="cp-kicker">Where the targets point</p>
+      <h2 class="cp-section-title">A timeline of climate ambition</h2>
+      <p class="cp-section-sub">The years by which this country has committed to reach key milestones. <strong>Click a year to see the target detail.</strong></p>
+      <div class="cp-target-axis" id="cp-target-axis"></div>
+    </div>
   </section>
 
-  <!-- ── Mitigation measures ────────────────────────────────────────── -->
-  <section class="cp-section">
-    <div class="cp-section-head"><h2 class="cp-section-title">Transport mitigation measures</h2></div>
-    <p class="cp-section-sub" id="cp-measures-sub"></p>
-    <div class="cp-measures-grid">
-      <div>
-        <div class="cp-card cp-chart-card">
-          <canvas id="cp-asi-chart" height="220" aria-label="Avoid Shift Improve breakdown" role="img"></canvas>
-          <p class="cp-chart-caption">Measures in active documents by Avoid–Shift–Improve approach</p>
+  <!-- Transport targets -->
+  <section class="cp-section band" id="targets">
+    <div class="cp-container">
+      <p class="cp-kicker">Transport targets</p>
+      <h2 class="cp-section-title">What this country has committed to</h2>
+      <p class="cp-section-sub" id="cp-targets-sub"></p>
+      <div class="cp-filterbar" id="cp-target-filters"></div>
+      <div class="cp-measure-list" id="cp-targets"></div>
+      <a class="cp-section-compare" id="cp-targets-compare" href="#" target="_blank" rel="noopener" hidden>
+        Compare how targets evolved across generations →
+      </a>
+    </div>
+  </section>
+
+  <!-- Mitigation measures -->
+  <section class="cp-section" id="measures">
+    <div class="cp-container">
+      <p class="cp-kicker">Transport mitigation measures</p>
+      <h2 class="cp-section-title">How this country plans to cut transport emissions</h2>
+      <p class="cp-section-sub" id="cp-measures-sub"></p>
+      <div class="cp-measures-grid">
+        <div class="cp-charts-col">
+          <div class="cp-chart-card">
+            <canvas id="cp-asi-chart" height="200" aria-label="Avoid Shift Improve breakdown" role="img"></canvas>
+            <p class="cp-chart-caption">By Avoid–Shift–Improve approach</p>
+          </div>
+          <div class="cp-chart-card">
+            <canvas id="cp-cat-chart" height="240" aria-label="Measure categories" role="img"></canvas>
+            <p class="cp-chart-caption">By measure category</p>
+          </div>
         </div>
-        <div class="cp-card cp-chart-card" style="margin-top:1rem;">
-          <canvas id="cp-cat-chart" height="240" aria-label="Measure categories" role="img"></canvas>
-          <p class="cp-chart-caption">Measures in active documents by category</p>
-        </div>
-        <div class="cp-card cp-chart-card" style="margin-top:1rem;" id="cp-mode-card">
-          <canvas id="cp-mode-chart" height="260" aria-label="Transport modes covered" role="img"></canvas>
-          <p class="cp-chart-caption">Transport modes the active measures touch</p>
+        <div>
+          <div class="cp-filterbar" id="cp-measure-filters"></div>
+          <div class="cp-measure-list" id="cp-measures"></div>
+          <button class="cp-showmore" id="cp-measures-more" hidden></button>
         </div>
       </div>
-      <div>
-        <div class="cp-filterbar" id="cp-measure-filters"></div>
-        <div class="cp-measure-list" id="cp-measures"></div>
-        <button class="cp-showmore" id="cp-measures-more" hidden>Show all measures</button>
-      </div>
+      <a class="cp-section-compare" id="cp-measures-compare" href="#" target="_blank" rel="noopener" hidden>
+        Compare how measures evolved across generations →
+      </a>
     </div>
   </section>
 
-  <!-- ── Adaptation ─────────────────────────────────────────────────── -->
-  <section class="cp-section">
-    <div class="cp-section-head"><h2 class="cp-section-title">Transport adaptation</h2></div>
-    <p class="cp-section-sub">
-      How the documents address the resilience of transport systems to
-      climate impacts.
-    </p>
-    <div class="cp-measure-list" id="cp-adaptation"></div>
-  </section>
-
-  <!-- ── Co-benefits ────────────────────────────────────────────────── -->
-  <section class="cp-section" id="cp-benefits-section">
-    <div class="cp-section-head"><h2 class="cp-section-title">Co-benefits</h2></div>
-    <p class="cp-section-sub">
-      Wider benefits of transport climate action named in the documents —
-      such as health, air quality, access or jobs.
-    </p>
-    <div class="cp-measure-list" id="cp-benefits"></div>
-  </section>
-
-  <!-- ── Implementation: BTR outlook ────────────────────────────────── -->
-  <section class="cp-section">
-    <div class="cp-section-head"><h2 class="cp-section-title">From commitment to implementation</h2></div>
-    <div class="cp-card" id="cp-btr" style="border-top:5px solid var(--cp-btr);"></div>
-  </section>
-
-  <!-- ── International engagement ───────────────────────────────────── -->
-  <section class="cp-section">
-    <div class="cp-section-head"><h2 class="cp-section-title">International transport climate engagement</h2></div>
-    <p class="cp-section-sub">
-      Transport-related coalitions, declarations and initiatives this country
-      has joined.
-    </p>
-    <div class="cp-card" id="cp-coalitions"></div>
-  </section>
-
-  <!-- ── Similar countries ──────────────────────────────────────────── -->
-  <section class="cp-section">
-    <div class="cp-section-head"><h2 class="cp-section-title">Explore similar countries</h2></div>
-    <p class="cp-section-sub">
-      Peer discovery, not a ranking — three neutral lenses for finding
-      countries whose transport story may resonate with this one.
-    </p>
-    <div id="cp-similar"></div>
-    <a class="cp-resource-cta" id="cp-compare-link" style="margin-top:1rem;"
-       href="https://belentdc.github.io/tracker/comparison/" target="_blank" rel="noopener">
-       Compare side-by-side in the NDC Comparison Dashboard ↗</a>
-  </section>
-
-  <!-- ── Further reading ────────────────────────────────────────────── -->
-  <section class="cp-section">
-    <div class="cp-section-head"><h2 class="cp-section-title">Go deeper</h2></div>
-    <div class="cp-go-grid">
-      <div class="cp-card">
-        <h3 style="color:var(--cp-navy); margin-bottom:0.5rem;">Publications on Changing Transport</h3>
-        <div id="cp-publications"></div>
-      </div>
-      <div class="cp-card">
-        <h3 style="color:var(--cp-navy); margin-bottom:0.5rem;">Data on the Transport Data Commons</h3>
-        <p style="font-size:0.95rem;" id="cp-tdc-text"></p>
-        <a class="cp-resource-cta" id="cp-tdc-link" href="https://portal.transport-data.org/search" target="_blank" rel="noopener">Explore datasets ↗</a>
-      </div>
-      <div class="cp-card">
-        <h3 style="color:var(--cp-navy); margin-bottom:0.5rem;">Download this country's data</h3>
-        <div id="cp-downloads"></div>
-      </div>
-      <div class="cp-card">
-        <h3 style="color:var(--cp-navy); margin-bottom:0.5rem;">Referenced national documents</h3>
-        <div id="cp-references"></div>
-      </div>
+  <!-- Co-benefits -->
+  <section class="cp-section band" id="benefits">
+    <div class="cp-container">
+      <p class="cp-kicker">Co-benefits</p>
+      <h2 class="cp-section-title">Wider gains from transport action</h2>
+      <p class="cp-section-sub">Beyond cutting emissions — the wider benefits associated with transport climate action. <strong>Click a benefit to see what the documents say.</strong></p>
+      <div class="cp-benefits-grid" id="cp-benefits"></div>
+      <div class="cp-sdg-row" id="cp-sdgs"></div>
     </div>
   </section>
 
-  <a class="cp-back" href="../../index.html">← All country profiles</a>
+  <!-- Adaptation -->
+  <section class="cp-section" id="adaptation">
+    <div class="cp-container">
+      <p class="cp-kicker">Transport adaptation</p>
+      <h2 class="cp-section-title">Making transport resilient to climate impacts</h2>
+      <p class="cp-section-sub">Grouped by type of action. <strong>Click a group to expand.</strong></p>
+      <div class="cp-adapt-groups" id="cp-adaptation"></div>
+      <a class="cp-section-compare" id="cp-adaptation-compare" href="#" target="_blank" rel="noopener" hidden>
+        Compare how adaptation evolved across generations →
+      </a>
+    </div>
+  </section>
+
+  <!-- International engagement -->
+  <section class="cp-section band" id="engage">
+    <div class="cp-container">
+      <p class="cp-kicker">International engagement</p>
+      <h2 class="cp-section-title">Coalitions &amp; declarations joined</h2>
+      <p class="cp-section-sub">Transport-related international initiatives this country has signed onto.</p>
+      <div class="cp-coalitions" id="cp-coalitions"></div>
+    </div>
+  </section>
+
+  <!-- Similar countries -->
+  <section class="cp-section" id="similar">
+    <div class="cp-container">
+      <p class="cp-kicker">Explore similar countries</p>
+      <h2 class="cp-section-title">Peer discovery</h2>
+      <p class="cp-section-sub">Not a ranking — three neutral lenses for finding countries whose transport story may resonate. Click ⇄ to compare directly.</p>
+      <div class="cp-similar-lenses" id="cp-similar"></div>
+      <a class="cp-resource-cta" id="cp-compare-link" href="#" style="margin-top:1.25rem;">
+        Compare this country's NDC evolution →
+      </a>
+    </div>
+  </section>
+
+  <!-- Go deeper -->
+  <section class="cp-section band" id="deeper">
+    <div class="cp-container">
+      <p class="cp-kicker">Go deeper</p>
+      <h2 class="cp-section-title">Publications, data &amp; downloads</h2>
+      <div class="cp-go-grid">
+        <div class="cp-go-card">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5z"/></svg> Publications</h3>
+          <div id="cp-publications"></div>
+        </div>
+        <div class="cp-go-card">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg> Transport Data Commons</h3>
+          <p style="font-size:0.9rem;color:var(--ct-muted);">Explore transport datasets on the TDC portal.</p>
+          <a class="cp-resource-cta" id="cp-tdc-link" href="https://portal.transport-data.org/search" target="_blank" rel="noopener">Explore datasets →</a>
+        </div>
+        <div class="cp-go-card">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Download</h3>
+          <div id="cp-downloads"></div>
+        </div>
+      </div>
+      <a class="cp-back" href="../../index.html">← All country profiles</a>
+    </div>
+  </section>
 
 </main>
 
 <footer class="cp-footer">
   <div class="cp-container">
-    <p>
-      Source: GIZ-SLOCAT <a href="https://changing-transport.org/tracker/" target="_blank" rel="noopener">NDC Transport Tracker</a>
-      database · Emissions: EDGAR, 2023 · Part of the
-      <a href="https://changing-transport.org/" target="_blank" rel="noopener">Changing Transport</a> initiative.
-    </p>
-    <p id="cp-footer-meta"></p>
+    <p>Source: GIZ-SLOCAT <a href="https://changing-transport.org/tracker/" target="_blank" rel="noopener">NDC Transport Tracker</a> database · Emissions: EDGAR, 2024 · Part of the <a href="https://changing-transport.org/project/mobilize-net-zero/" target="_blank" rel="noopener">Mobilize Net-Zero</a> project.</p>
+    <p id="cp-footer-meta" style="margin-top:0.5rem;opacity:0.7;"></p>
   </div>
 </footer>
 

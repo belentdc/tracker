@@ -50,10 +50,57 @@ a { color: var(--ct-teal); }
   flex-shrink: 0;
 }
 
-.cp-hero-titles { flex: 1; min-width: 220px; }
+.cp-hero-titles { flex: 1; min-width: 220px; position: relative; }
 .cp-country-name {
   font-size: 2.4rem; font-weight: 900; letter-spacing: -0.02em;
 }
+button.cp-country-name {
+  background: none; border: none; padding: 0; margin: 0;
+  font-family: inherit; color: #fff; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  text-align: left;
+}
+button.cp-country-name::after {
+  content: ""; width: 0.6em; height: 0.6em; flex-shrink: 0;
+  border-right: 3px solid rgba(255,255,255,0.7);
+  border-bottom: 3px solid rgba(255,255,255,0.7);
+  transform: rotate(45deg); margin-bottom: 0.2em;
+  transition: transform 0.15s ease;
+}
+button.cp-country-name[aria-expanded="true"]::after { transform: rotate(-135deg); }
+button.cp-country-name:hover::after { border-color: #fff; }
+
+.cp-country-picker {
+  position: absolute; top: calc(100% + 0.4rem); left: 0; z-index: 30;
+  width: 260px; max-height: 280px;
+  background: var(--ct-surface); color: var(--ct-text);
+  border: 1px solid var(--ct-border); border-radius: var(--ct-radius-md);
+  box-shadow: var(--ct-shadow-md, 0 8px 24px rgba(0,0,0,0.18));
+  flex-direction: column; overflow: hidden;
+  display: none;
+}
+.cp-country-picker:not([hidden]) { display: flex; }
+.cp-country-picker-search {
+  margin: 0.5rem; padding: 0.3rem 0.7rem;
+  font-family: var(--ct-font); font-size: 0.82rem;
+  border: 1px solid var(--ct-border); border-radius: 999px;
+  background: var(--ct-bg); color: var(--ct-text);
+}
+.cp-country-picker-search:focus { outline: none; border-color: var(--ct-teal); }
+.cp-country-picker-list {
+  list-style: none; margin: 0; padding: 0 0.3rem 0.4rem;
+  overflow-y: auto; max-height: 200px;
+}
+.cp-country-picker-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.3rem 0.5rem; border-radius: var(--ct-radius-sm);
+  cursor: pointer; font-size: 0.82rem;
+}
+.cp-country-picker-item:hover, .cp-country-picker-item.active {
+  background: var(--ct-bg);
+}
+.cp-country-picker-item img { width: 20px; height: 14px; object-fit: cover; flex-shrink: 0; border-radius: 2px; }
+.cp-country-picker-empty { padding: 0.75rem 0.9rem; color: var(--ct-muted); font-size: 0.85rem; }
 .cp-hero-sub {
   font-size: 1rem; color: rgba(255,255,255,0.8);
   margin-top: 0.25rem; font-weight: 600;

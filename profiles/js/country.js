@@ -87,6 +87,7 @@ function render(p, ghg) {
   const flagEl=document.getElementById("cp-flag");
   if(flagEl){ flagEl.src=`${BASE}../assets/flags/${p.iso2}.png`; flagEl.onerror=()=>{flagEl.src=`https://flagcdn.com/w160/${p.iso2}.png`;}; flagEl.alt=`${p.name} flag`; }
   const nameEl=document.getElementById("cp-name"); if(nameEl) nameEl.textContent=p.name;
+  setupCountrySwitcher(p.code);
   const subEl=document.getElementById("cp-sub"); if(subEl) subEl.textContent=[p.region,p.income,p.annex].filter(Boolean).join(" \xb7 ");
   if(ghg&&ghg[p.code]) p.emissions={...(p.emissions||{}),...ghg[p.code]};
   const docUrlMap=buildDocUrlMap(p.documents);
@@ -105,18 +106,85 @@ function renderKPIs(p) {
   const am=p.measures.filter(m=>m.status==="Active").length;
   const at=p.targets.filter(t=>t.status==="Active").length;
   const e=p.emissions||{};
+  const src=e.source&&e.year?`EDGAR ${e.year}`:(e.source||(e.year?`EDGAR ${e.year}`:""));
   const kpis=[
     {num:am,label:"Transport measures",sub:"in active documents"},
     {num:at,label:"Transport targets",sub:"in active documents"},
-    {num:e.transport_share_pct!=null?e.transport_share_pct:"\u2014",unit:e.transport_share_pct!=null?"%":"",label:"Transport emissions",sub:"share of national total"},
-    {num:e.transport_mt!=null?e.transport_mt:"\u2014",unit:e.transport_mt!=null?" Mt":"",label:"Transport CO\u2082e",sub:[e.year,e.source].filter(Boolean).join(" \xb7 ")}
+    {num:e.transport_share_pct!=null?e.transport_share_pct:"\u2014",unit:e.transport_share_pct!=null?"%":"",label:"Transport share of emissions",sub:e.transport_share_pct!=null?`of national total \xb7 ${src}`:""},
+    {num:e.transport_mt!=null?e.transport_mt:"\u2014",unit:e.transport_mt!=null?" Mt":"",label:"Transport sector emissions",sub:e.transport_mt!=null?`Mt CO\u2082e \xb7 ${src}`:""}
   ];
-  if(e.transport_per_capita!=null) kpis.push({num:e.transport_per_capita,unit:" t/cap",label:"Per capita transport",sub:"CO\u2082e per person"});
-  if(e.transport_sector_rank!=null) kpis.push({num:e.transport_sector_rank,label:"Sector rank",sub:"by emissions"});
-  el.innerHTML=kpis.map(k=>`<div class="cp-kpi"><div class="cp-kpi-num">${esc(k.num)}${k.unit?`<span class="unit">${esc(k.unit)}</span>`:""}</div><div class="cp-kpi-label">${esc(k.label)}</div><div class="cp-kpi-sub">${esc(k.sub||"")}</div></div>`).join("");
+  if(e.transport_per_capita!=null) kpis.push({num:e.transport_per_capita,unit:" t/cap",label:"Transport emissions per person",sub:`t CO\u2082e per capita \xb7 ${src}`});
+  if(e.transport_sector_rank!=null){
+    const ord=["","1st","2nd","3rd"][e.transport_sector_rank]||`${e.transport_sector_rank}th`;
+    kpis.push({sentence:`Transport is the ${ord}`,sub:"Biggest source of emissions among national sectors"});
+  }
+  el.innerHTML=kpis.map(k=>k.sentence
+    ? `<div class="cp-kpi"><div class="cp-kpi-num">${esc(k.sentence)}</div><div class="cp-kpi-sub">${esc(k.sub||"")}</div></div>`
+    : `<div class="cp-kpi"><div class="cp-kpi-num">${esc(k.num)}${k.unit?`<span class="unit">${esc(k.unit)}</span>`:""}</div><div class="cp-kpi-label">${esc(k.label)}</div><div class="cp-kpi-sub">${esc(k.sub||"")}</div></div>`
+  ).join("");
 }
 
-/* ── EU note ──────────────────────────────────────────────────────── */
+/* ── Country switcher ─────────────────────────────────────────────── */
+function clientSlugify(name){
+  return String(name).normalize("NFKD").replace(/[\u0300-\u036f]/g,"")
+    .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
+}
+function setupCountrySwitcher(currentCode) {
+  const btn=document.getElementById("cp-name");
+  const picker=document.getElementById("cp-country-picker");
+  const search=document.getElementById("cp-country-picker-search");
+  const listEl=document.getElementById("cp-country-picker-list");
+  if(!btn||!picker||!listEl)return;
+
+  let countries=null, loaded=false;
+
+  function open(){
+    picker.hidden=false; btn.setAttribute("aria-expanded","true");
+    if(!loaded){
+      loaded=true;
+      fetch(`${BASE}data/countries/index.json`)
+        .then(r=>r.ok?r.json():null)
+        .then(idx=>{
+          countries=(idx&&idx.countries||[]).slice().sort((a,b)=>a.name.localeCompare(b.name));
+          draw("");
+        })
+        .catch(()=>{ listEl.innerHTML=`<li class="cp-country-picker-empty">Could not load country list.</li>`; });
+    }
+    search.value=""; search.focus();
+  }
+  function close(){
+    picker.hidden=true; btn.setAttribute("aria-expanded","false");
+  }
+  function draw(q){
+    if(!countries)return;
+    const query=q.toLowerCase().trim();
+    const list=query?countries.filter(c=>c.name.toLowerCase().includes(query)):countries;
+    listEl.innerHTML=list.length?list.map(c=>`
+      <li class="cp-country-picker-item${c.code===currentCode?" active":""}" data-code="${esc(c.code)}" role="option">
+        <img src="${BASE}../assets/flags/${esc(c.iso2)}.png" onerror="this.onerror=null;this.src='https://flagcdn.com/w40/${esc(c.iso2)}.png'" alt="">
+        <span>${esc(c.name)}</span>
+      </li>`).join(""):`<li class="cp-country-picker-empty">No countries match "${esc(q)}".</li>`;
+    listEl.querySelectorAll("[data-code]").forEach(li=>{
+      li.addEventListener("click",()=>{
+        const code=li.dataset.code;
+        const target=countries.find(c=>c.code===code);
+        if(target) location.href=`${BASE}countries/${clientSlugify(target.name)}/`;
+      });
+    });
+  }
+
+  btn.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    if(picker.hidden) open(); else close();
+  });
+  search.addEventListener("input",()=>draw(search.value));
+  document.addEventListener("click",(e)=>{
+    if(!picker.hidden && !picker.contains(e.target) && e.target!==btn) close();
+  });
+  document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") close(); });
+}
+
+
 function renderEUNote(p) {
   const el=document.getElementById("cp-eu-note"); if(!el)return;
   if(p.reports_via_eu){ el.hidden=false; el.innerHTML=`<strong>Reports collectively through the EU NDC.</strong> NDC information below refers to the joint submission of the European Union and its 27 member states.`; }
@@ -330,13 +398,13 @@ function renderTargets(p, docUrlMap) {
   const docTypes=[...new Set(active.map(t=>t.doc_type).filter(Boolean))];
   if(fbar){
     fbar.innerHTML=`
-      <div class="cp-filter-row"><span class="cp-filter-label">By type:</span>
+      <div class="cp-filter-row"><span class="cp-filter-label">By document:</span>
+        <button class="cp-filter active" data-doc="all">All (${active.length})</button>
+        ${docTypes.map(dt=>`<button class="cp-filter" data-doc="${esc(dt)}">${esc(dt)} (${active.filter(t=>t.doc_type===dt).length})</button>`).join("")}
+      </div>
+      <div class="cp-filter-row" style="margin-top:0.4rem;"><span class="cp-filter-label">By type:</span>
         <button class="cp-filter active" data-type="all">All (${active.length})</button>
         ${areas.map(a=>`<button class="cp-filter" data-type="${esc(a)}">${esc(a)} (${active.filter(t=>t.area===a).length})</button>`).join("")}
-      </div>
-      <div class="cp-filter-row" style="margin-top:0.4rem;"><span class="cp-filter-label">By document:</span>
-        <button class="cp-filter active" data-doc="all">All</button>
-        ${docTypes.map(dt=>`<button class="cp-filter" data-doc="${esc(dt)}">${esc(dt)}</button>`).join("")}
       </div>`;
   }
   let curType="all",curDoc="all";
@@ -388,25 +456,31 @@ function renderMeasures(p, docUrlMap) {
 
   const categories=[...new Set(active.map(m=>m.category).filter(Boolean))];
   const modes=[...new Set(active.flatMap(m=>m.modes||[]).filter(Boolean))].sort();
-  let curAsi="all",curCat="all",curMode="all",curSearch="",showAll=false;
+  const docTypes=[...new Set(active.map(m=>m.doc_type).filter(Boolean))];
+  let curAsi="all",curCat="all",curMode="all",curDoc="all",curSearch="",showAll=false;
 
   if(fbar){
     fbar.innerHTML=`
-      <div class="cp-filter-row"><span class="cp-filter-label">By A-S-I:</span>
+      <div class="cp-filter-row"><span class="cp-filter-label">By document:</span>
+        <button class="cp-filter active" data-doc="all">All (${active.length})</button>
+        ${docTypes.map(dt=>`<button class="cp-filter" data-doc="${esc(dt)}">${esc(dt)} (${active.filter(m=>m.doc_type===dt).length})</button>`).join("")}
+      </div>
+      <div class="cp-filter-row" style="margin-top:0.4rem;"><span class="cp-filter-label">By A-S-I:</span>
         <button class="cp-filter active" data-asi="all">All (${active.length})</button>
         ${["Avoid","Shift","Improve"].map(a=>{const n=active.filter(m=>(m.asi||[]).includes(a)).length;return n?`<button class="cp-filter" data-asi="${a}">${a} (${n})</button>`:""}).join("")}
       </div>
       <div class="cp-filter-row" style="margin-top:0.4rem;"><span class="cp-filter-label">By category:</span>
-        <button class="cp-filter active" data-cat="all">All</button>
-        ${categories.map(c=>`<button class="cp-filter" data-cat="${esc(c)}">${esc(c)}</button>`).join("")}
+        <button class="cp-filter active" data-cat="all">All (${active.length})</button>
+        ${categories.map(c=>`<button class="cp-filter" data-cat="${esc(c)}">${esc(c)} (${active.filter(m=>m.category===c).length})</button>`).join("")}
       </div>
       ${modes.length?`<div class="cp-filter-row" style="margin-top:0.4rem;"><span class="cp-filter-label">By mode:</span>
-        <button class="cp-filter active" data-mode="all">All</button>
+        <button class="cp-filter active" data-mode="all">All (${active.length})</button>
         ${modes.map(m=>`<button class="cp-filter" data-mode="${esc(m)}">${esc(m)} (${active.filter(x=>(x.modes||[]).includes(m)).length})</button>`).join("")}
       </div>`:""}
       <div class="cp-filter-row" style="margin-top:0.5rem;">
         <input class="cp-search-input" id="cp-measures-search" placeholder="Search measures\u2026" type="text">
       </div>`;
+    fbar.querySelectorAll("[data-doc]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-doc]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curDoc=b.dataset.doc;showAll=false;draw();}));
     fbar.querySelectorAll("[data-asi]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-asi]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curAsi=b.dataset.asi;showAll=false;draw();}));
     fbar.querySelectorAll("[data-cat]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-cat]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curCat=b.dataset.cat;showAll=false;draw();}));
     fbar.querySelectorAll("[data-mode]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-mode]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curMode=b.dataset.mode;showAll=false;draw();}));
@@ -414,7 +488,7 @@ function renderMeasures(p, docUrlMap) {
     if(srch) srch.addEventListener("input",()=>{curSearch=srch.value.toLowerCase().trim();showAll=false;draw();});
   }
   function draw(){
-    const list=active.filter(m=>(curAsi==="all"||(m.asi||[]).includes(curAsi))&&(curCat==="all"||m.category===curCat)&&(curMode==="all"||(m.modes||[]).includes(curMode))&&(!curSearch||[m.instrument,m.purpose,m.category,m.quote].some(f=>f&&f.toLowerCase().includes(curSearch))));
+    const list=active.filter(m=>(curAsi==="all"||(m.asi||[]).includes(curAsi))&&(curCat==="all"||m.category===curCat)&&(curMode==="all"||(m.modes||[]).includes(curMode))&&(curDoc==="all"||m.doc_type===curDoc)&&(!curSearch||[m.instrument,m.purpose,m.category,m.quote].some(f=>f&&f.toLowerCase().includes(curSearch))));
     const shown=showAll?list:list.slice(0,6);
     listEl.innerHTML=shown.map(m=>{
       const ac=((m.asi&&m.asi[0])||"improve").toLowerCase();

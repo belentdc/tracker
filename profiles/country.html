@@ -23,7 +23,11 @@
     <div class="cp-hero-top">
       <img id="cp-flag" class="cp-flag" src="" alt="">
       <div class="cp-hero-titles">
-        <h1 class="cp-country-name" id="cp-name">…</h1>
+        <button class="cp-country-name cp-country-switch" id="cp-name" type="button" aria-haspopup="listbox" aria-expanded="false">…</button>
+        <div class="cp-country-picker" id="cp-country-picker" hidden>
+          <input type="text" class="cp-country-picker-search" id="cp-country-picker-search" placeholder="Search countries…">
+          <ul class="cp-country-picker-list" id="cp-country-picker-list" role="listbox"></ul>
+        </div>
         <p class="cp-hero-sub" id="cp-sub"></p>
         <!-- Pills removed per feedback -->
       </div>
@@ -39,6 +43,7 @@
     <nav class="cp-jump">
       <a href="#story">Story</a>
       <a href="#journey">Journey</a>
+      <a href="#targets-point">Timeline</a>
       <a href="#targets">Targets</a>
       <a href="#measures">Measures</a>
       <a href="#benefits">Co-benefits</a>
@@ -69,16 +74,6 @@
     </div>
   </section>
 
-  <!-- Where targets point -->
-  <section class="cp-section band" id="targets-point">
-    <div class="cp-container">
-      <p class="cp-kicker">Where the targets point</p>
-      <h2 class="cp-section-title">A timeline of climate ambition</h2>
-      <p class="cp-section-sub">The years by which this country has committed to reach key milestones. <strong>Click a year to see the target detail.</strong></p>
-      <div class="cp-target-axis" id="cp-target-axis"></div>
-    </div>
-  </section>
-
   <!-- Policy journey -->
   <section class="cp-section" id="journey">
     <div class="cp-container">
@@ -93,6 +88,16 @@
       </div>
       <!-- Generation note: filled by JS -->
       <div id="cp-journey-note"></div>
+    </div>
+  </section>
+
+  <!-- Where targets point -->
+  <section class="cp-section band" id="targets-point">
+    <div class="cp-container">
+      <p class="cp-kicker">Where the targets point</p>
+      <h2 class="cp-section-title">A timeline of climate ambition</h2>
+      <p class="cp-section-sub">The years by which this country has committed to reach key milestones. <strong>Click a year to see the target detail.</strong></p>
+      <div class="cp-target-axis" id="cp-target-axis"></div>
     </div>
   </section>
 
@@ -214,7 +219,7 @@
 
 <footer class="cp-footer">
   <div class="cp-container">
-    <p>Source: GIZ-SLOCAT <a href="https://changing-transport.org/tracker/" target="_blank" rel="noopener">NDC Transport Tracker</a> database · Emissions: EDGAR, 2023 · Part of the <a href="https://changing-transport.org/" target="_blank" rel="noopener">Changing Transport</a> initiative.</p>
+    <p>Source: GIZ-SLOCAT <a href="https://changing-transport.org/tracker/" target="_blank" rel="noopener">NDC Transport Tracker</a> database · Emissions: EDGAR, 2024 · Part of the <a href="https://changing-transport.org/project/mobilize-net-zero/" target="_blank" rel="noopener">Mobilize Net-Zero</a> project.</p>
     <p id="cp-footer-meta" style="margin-top:0.5rem;opacity:0.7;"></p>
   </div>
 </footer>
