@@ -11,6 +11,7 @@ policy documents (NDCs). Part of the
 |---|---|
 | Main dashboard | `https://belentdc.github.io/tracker/` |
 | NDC Comparison | `https://belentdc.github.io/tracker/comparison/` |
+| Country Explorer | `https://belentdc.github.io/tracker/profiles/` |
 
 Embed in WordPress via iframe:
 ```html
@@ -25,7 +26,8 @@ Embed in WordPress via iframe:
 ```
 tracker/
 ├── assets/
-│   └── design-tokens.css          ← single source of brand (colours, font, tokens)
+│   ├── design-tokens.css          ← single source of brand (colours, font, tokens)
+│   └── flags/                     ← self-hosted country flag images (ISO 2-letter codes)
 │
 ├── comparison/
 │   ├── index_c.html               ← comparison dashboard HTML
@@ -35,29 +37,72 @@ tracker/
 ├── data/
 │   ├── GIZ-SLOCAT_Transport-Tracker-database.xlsx  ← UPLOAD THIS to update
 │   ├── publications.xlsx          ← curated publications per country (edit manually)
+│   ├── publications.json          ← GENERATED from publications.xlsx (run scripts/build_data_files.py)
+│   ├── ghg.csv                    ← EDGAR transport emissions (edit or rebuild via scripts/build_ghg_csv.py)
+│   ├── ghg_metadata.json          ← EDGAR data metadata
 │   └── processed/
 │       ├── data.json              ← GENERATED — main dashboard data
 │       ├── comparison-data.json   ← GENERATED — comparison data
 │       └── countries_simplified.geojson  ← simplified world map (~850 KB)
 │
 ├── pipeline/
-│   ├── update_data.py             ← main pipeline: Excel → all JSON outputs
+│   ├── update_data.py             ← main pipeline: Excel + JSONs → all dashboard outputs
 │   └── fetch_database.py          ← Option B: download database from TDC API
+│
+├── profiles/
+│   ├── index.html                 ← Country Explorer: searchable list of all country profiles
+│   ├── country.html               ← individual country profile page template
+│   ├── styles.css                 ← profile styles (imports design-tokens)
+│   ├── js/
+│   │   └── country.js             ← country profile JavaScript
+│   └── data/
+│       └── countries/
+│           └── *.json             ← GENERATED — one JSON per country (199 files)
+│
+├── scripts/
+│   ├── build_data_files.py        ← publications.xlsx + ghg.xlsx → publications.json + ghg.json
+│   ├── build_ghg_csv.py           ← processes EDGAR transport CSV → data/ghg.csv
+│   └── download_flags.py          ← downloads country flag images to assets/flags/
+│
+├── taxonomy/
+│   ├── TAXONOMY.md                ← full NDC taxonomy v4.0 with Mermaid diagrams
+│   ├── ndc_taxonomy.json          ← machine-readable taxonomy
+│   └── ndc_taxonomy.csv           ← spreadsheet version
 │
 ├── .github/workflows/
 │   └── update-data.yml            ← GitHub Actions: auto-runs on push
 │
+├── requirements.txt               ← Python dependencies (openpyxl)
 ├── index.html                     ← main dashboard HTML
 ├── script.js                      ← main dashboard JavaScript
 └── styles.css                     ← main dashboard styles (imports design-tokens)
 ```
 
-> **Never edit files in `data/processed/` manually** — they are auto-generated
-> and will be overwritten on the next pipeline run.
+> **Never edit files in `data/processed/` or `profiles/data/countries/` manually** —
+> they are auto-generated and will be overwritten on the next pipeline run.
 
 ---
 
 ## How to update the data
+
+### Data flow overview
+
+```
+publications.xlsx  ──┐
+                     ├── scripts/build_data_files.py ──► publications.json ──┐
+ghg source CSV  ─────┤                                                        │
+                     └── scripts/build_ghg_csv.py ────► ghg.csv             │
+                                                                              │
+GIZ-SLOCAT_Transport-Tracker-database.xlsx ───────────────────────────────┐  │
+                                                                           ▼  ▼
+                                                          pipeline/update_data.py
+                                                                           │
+                     ┌─────────────────────────────────────────────────────┘
+                     ▼
+        data/processed/data.json
+        data/processed/comparison-data.json
+        profiles/data/countries/*.json  (199 files)
+```
 
 ### Option A — Upload the Excel (recommended)
 
@@ -65,8 +110,8 @@ tracker/
    (GitHub Desktop → drag and drop, or GitHub web UI → Upload files)
 2. Commit and push
 3. GitHub Actions runs `pipeline/update_data.py` automatically
-4. `data/processed/data.json` and `comparison-data.json` are regenerated and
-   committed back
+4. `data/processed/data.json`, `comparison-data.json` and all country profile
+   JSONs under `profiles/data/countries/` are regenerated and committed back
 5. Changes go live on GitHub Pages in ~3–5 minutes
 
 > The Excel file name must be exact: `GIZ-SLOCAT_Transport-Tracker-database.xlsx`
@@ -80,22 +125,34 @@ python pipeline/fetch_database.py           # download + validate + save to data
 python pipeline/update_data.py              # then process as usual
 ```
 
-Or trigger it from GitHub → Actions → "Update ecosystem data" → Run workflow →
-source: api.
-
-The scheduled workflow runs every **Monday 05:00 UTC** in API mode. If the API
-is unreachable or the download fails, the run continues with the last committed
-Excel — the site never breaks.
+Or trigger it from GitHub → Actions → "Update Dashboard Data" → Run workflow.
 
 **Configuration** (no code change needed):
 - Set repository variables `CKAN_BASE` and `CKAN_RESOURCE_ID` under
   Settings → Variables, or edit the two constants at the top of
   `pipeline/fetch_database.py`.
 
+### Updating publications or GHG data
+
+These two sources require a separate pre-processing step before running the main
+pipeline:
+
+```bash
+# After editing data/publications.xlsx:
+python scripts/build_data_files.py
+
+# After updating the EDGAR source CSV:
+python scripts/build_ghg_csv.py <input_csv> data/ghg.csv
+```
+
+Commit the resulting JSON/CSV files, then push. GitHub Actions will pick them up
+(it triggers on changes to `data/publications.json` and `data/ghg.json`) and
+regenerate all dashboard outputs.
+
 ### Running locally
 
 ```bash
-pip install openpyxl pycountry
+pip install -r requirements.txt
 python pipeline/update_data.py
 ```
 
@@ -106,7 +163,8 @@ Open with VS Code Live Server or `python -m http.server 8000`.
 ## Publications registry
 
 `data/publications.xlsx` links Changing Transport publications to specific
-country profiles. Edit it directly in Excel:
+country profiles. Edit it directly in Excel, then run
+`python scripts/build_data_files.py` to regenerate `data/publications.json`.
 
 | Column | Description |
 |---|---|
@@ -124,18 +182,48 @@ NDC, `XKX` = Kosovo.
 
 ---
 
+## Taxonomy
+
+`taxonomy/` contains the full NDC Transport Tracker classification taxonomy
+(version 4.0, licensed CC BY 4.0). It is the reference used by both the
+dashboard and the Transport Policy Miner pipeline.
+
+Available in three forms:
+- [`taxonomy/TAXONOMY.md`](taxonomy/TAXONOMY.md) — human-readable with Mermaid diagrams
+- [`taxonomy/ndc_taxonomy.json`](taxonomy/ndc_taxonomy.json) — machine-readable
+- [`taxonomy/ndc_taxonomy.csv`](taxonomy/ndc_taxonomy.csv) — spreadsheet
+
+**Four domains:** Targets · Mitigation (Category → Purpose → Instrument) ·
+Adaptation (Category → Measure) · Benefits
+
+**Cross-cutting dimensions** (tagged per row): transport mode, geography,
+passenger/freight activity, implementation status, Avoid-Shift-Improve (A-S-I).
+
+Citation: GIZ and SLOCAT (2025). *NDC Transport Tracker* (vers. 4.0).
+Available from: www.changing-transport.org/tracker.
+
+---
+
 ## Design system
 
 `assets/design-tokens.css` is the **only** place brand decisions live:
 palette, generation colours, A-S-I colours, Source Sans 3 typography, radii,
-shadows. Both `styles.css` and `comparison/styles_c.css` alias their local
-variables to these tokens. Change a token once — all products follow.
+shadows. All stylesheets (`styles.css`, `comparison/styles_c.css`,
+`profiles/styles.css`) alias their local variables to these tokens. Change a
+token once — all products follow.
 
 **Brand colours:** `#9DBE3D` green · `#003D5C` navy · `#00A4BD` teal ·
 `#E8821A` orange
 
 **Generation colours:** Gen 1 = navy · Gen 2 = teal · Gen 3 = orange ·
 Latest Active = green
+
+Country flags are served from `assets/flags/` (ISO 2-letter `.png` files,
+self-hosted to avoid external CDN dependency). To refresh them:
+
+```bash
+python scripts/download_flags.py
+```
 
 ---
 
@@ -150,7 +238,7 @@ Latest Active = green
     Party, coloured by transport target status. No administrative borders
     are drawn.
   - **By CO₂ (Dorling)** — circle area proportional to national transport
-    CO₂e (EDGAR 2023). EU members shown individually. Borderless land
+    CO₂e (EDGAR). EU members shown individually. Borderless land
     silhouette as reference. Circle area note appears automatically in the
     legend.
   - Both views support **pan** (drag) and **zoom** (scroll/pinch) and
@@ -184,6 +272,13 @@ Side-by-side view of up to three country × generation combinations.
 - Navigation links to Tab 1 (`../index.html`) and Tab 2 (`../index.html?tab=2`)
   both work correctly
 
+### Country Explorer (`/profiles/`)
+
+- Searchable, filterable index of all 199 country/Party profiles
+- Each country links to a dedicated profile page (`/profiles/country.html?iso=XXX`)
+  showing that country's full NDC history: targets, mitigation and adaptation
+  measures, publications, and GHG emissions data
+
 ---
 
 ## Map notes
@@ -204,11 +299,32 @@ npx mapshaper source.geojson -simplify 8% keep-shapes \
 
 ---
 
+## GitHub Actions
+
+The workflow `.github/workflows/update-data.yml` triggers automatically on push when any of these files change:
+
+| Trigger file | What changed |
+|---|---|
+| `data/GIZ-SLOCAT_Transport-Tracker-database.xlsx` | New NDC database version |
+| `data/publications.json` | Publications registry updated |
+| `data/ghg.json` | GHG emissions data updated |
+| `pipeline/update_data.py` | Pipeline logic changed |
+
+The workflow runs on `ubuntu-latest`, installs `openpyxl` and `pycountry`,
+executes `pipeline/update_data.py`, and commits the regenerated files
+(`data/processed/data.json`, `data/processed/comparison-data.json`,
+`profiles/data/countries/`) back to the branch.
+
+It can also be triggered manually via GitHub → Actions → "Update Dashboard Data"
+→ Run workflow.
+
+---
+
 ## Troubleshooting
 
 **Dashboard not updating after uploading Excel?**
-- Check the Actions tab → "Update ecosystem data" workflow
-- The Excel file name must be exact
+- Check the Actions tab → "Update Dashboard Data" workflow
+- The Excel file name must be exact: `GIZ-SLOCAT_Transport-Tracker-database.xlsx`
 - Common fix: commit `pipeline/update_data.py` *before* uploading a new Excel
 
 **Dashboard shows old data?**
@@ -217,9 +333,18 @@ npx mapshaper source.geojson -simplify 8% keep-shapes \
 - Check `data/processed/data.json` directly to see if it was regenerated
 
 **By CO₂ map shows equal circles?**
-- The `ghg_transport` field is populated by pipeline in
-  `pipeline/update_data.py`. Run it once locally or push an Excel update to
-  regenerate `data/processed/data.json` with transport emissions per country.
+- The `ghg_transport` field is populated by the pipeline from `data/ghg.csv`.
+  Run `pipeline/update_data.py` locally or push an Excel update to regenerate
+  `data/processed/data.json` with transport emissions per country.
+
+**Country profiles show stale data?**
+- `profiles/data/countries/*.json` are regenerated by the same pipeline run as
+  the main dashboard. Check that the Actions workflow committed them (the commit
+  message is `🤖 Auto-update: Dashboard data refreshed`).
+
+**Publications not appearing on a country profile?**
+- Make sure you ran `python scripts/build_data_files.py` after editing
+  `data/publications.xlsx` and committed the resulting `data/publications.json`.
 
 **Comparison font looks different from the main dashboard?**
 - `comparison/styles_c.css` must import `../assets/design-tokens.css` and
@@ -229,7 +354,7 @@ npx mapshaper source.geojson -simplify 8% keep-shapes \
 
 ## Credits
 
-**Data:** GIZ-SLOCAT Transport Tracker Database · Emissions: EDGAR 2023 ·
+**Data:** GIZ-SLOCAT Transport Tracker Database · Emissions: EDGAR ·
 Map silhouette: Natural Earth (public domain)
 
 **Built for:** GIZ · SLOCAT · Mobilize Net-Zero · Changing Transport
