@@ -274,7 +274,10 @@ function renderComparison() {
     if (filterSection) {
         grid.appendChild(filterSection);
     }
-    
+
+    // SECTION 3.6: Export (download what's currently shown, below filters)
+    grid.appendChild(createExportSection());
+
     // SECTION 4: Content
     const contentRow = document.createElement('div');
     contentRow.className = 'section-row content-row';
@@ -727,6 +730,174 @@ function createFilterCheckbox(label, filterType, tab, value) {
     wrapper.appendChild(span);
     
     return wrapper;
+}
+
+// ============================================================================
+// SECTION 3.6: Export — download currently displayed comparison as Excel
+// ============================================================================
+function createExportSection() {
+    const section = document.createElement('div');
+    section.className = 'export-section';
+    section.innerHTML = `
+        <button class="btn-export" id="export-excel-btn">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12l-5-5h3V3h4v4h3l-5 5zm-6 5h12v2H4v-2z"/></svg>
+            Download all data (Excel)
+        </button>
+    `;
+    section.querySelector('#export-excel-btn').addEventListener('click', exportComparisonData);
+    return section;
+}
+
+// Resolves a column to its currently-displayed document, or null if the
+// column has no country selected / no NDC in the chosen generation.
+function getColumnDocContext(col) {
+    if (!col.country) return null;
+    const dataCode = resolveCountryCode(col.country);
+    const countryData = comparisonData.countries[dataCode];
+    if (!countryData) return null;
+    const documents = countryData.generations[col.generation] || [];
+    if (documents.length === 0) return null;
+    const doc = documents[col.versionIndex] || documents[0];
+    return { doc, countryName: countryData.country_name || col.country };
+}
+
+// Builds export rows for a given tab, applying that tab's own stored filters
+// (each tab keeps independent filter state) — so every sheet reflects the
+// filters set for that category, whether or not it's the one on screen.
+// Column headers mirror the original GIZ-SLOCAT database sheets verbatim
+// (Targets / Mitigation / Adaptation) rather than inventing new labels.
+function buildExportRowsForTab(tab) {
+    const rows = [];
+
+    columns.forEach(col => {
+        const ctx = getColumnDocContext(col);
+        if (!ctx) return;
+        const { doc, countryName } = ctx;
+        const config = GEN_CONFIG[col.generation];
+        const status = getDocStatus(doc);
+
+        const base = {
+            Country: countryName,
+            Generation: config ? config.label : col.generation,
+            'Version number': doc.version || '',
+            Date: doc.date || '',
+            Status: status === 'active' ? 'Active' : (status === 'archived' ? 'Archived' : (doc.status || '')),
+        };
+
+        const pushTarget = t => rows.push({
+            ...base,
+            'Target area': t.target_area || '',
+            'Target scope': t.target_scope || '',
+            'GHG target?': t.ghg_target || '',
+            'Target type': t.target_type || '',
+            Conditionality: t.conditionality || '',
+            'Target Year': t.target_year || '',
+            Content: t.content || '',
+            'Page Number': t.page || '',
+        });
+
+        const pushMitigationMeasure = (category, m) => rows.push({
+            ...base,
+            Category: category,
+            Purpose: m.purpose || '',
+            Instrument: m.instrument || '',
+            Quote: m.quote || '',
+            'A-S-I': m.asi || '',
+            Modes: m.modes || '',
+            'Page Number': m.page || '',
+        });
+
+        const pushAdaptationMeasure = (category, m) => rows.push({
+            ...base,
+            Category: category,
+            Measure: m.measure || '',
+            Quote: m.quote || '',
+            Modes: m.modes || '',
+            'Page Number': m.page || '',
+        });
+
+        if (tab === 'mitigation-targets') {
+            doc.targets
+                .filter(t => t.target_area === 'Transport sector mitigation target')
+                .filter(t => matchesFilters(t, 'mitigation-targets'))
+                .forEach(pushTarget);
+            doc.targets
+                .filter(t => t.target_area === 'Net zero target')
+                .filter(t => matchesFilters(t, 'mitigation-targets'))
+                .forEach(pushTarget);
+
+        } else if (tab === 'net-zero') {
+            doc.targets
+                .filter(t => t.target_area === 'Net zero target')
+                .forEach(pushTarget);
+
+        } else if (tab === 'adaptation-targets') {
+            doc.targets
+                .filter(t => t.target_area === 'Transport sector adaptation target')
+                .filter(t => matchesFilters(t, 'adaptation-targets'))
+                .forEach(pushTarget);
+
+        } else if (tab === 'mitigation-measures') {
+            Object.keys(doc.mitigation_measures).sort().forEach(category => {
+                (doc.mitigation_measures[category] || [])
+                    .filter(m => matchesFilters(m, 'mitigation-measures'))
+                    .forEach(m => pushMitigationMeasure(category, m));
+            });
+
+        } else if (tab === 'adaptation-measures') {
+            Object.keys(doc.adaptation_measures).sort().forEach(category => {
+                (doc.adaptation_measures[category] || [])
+                    .filter(m => matchesFilters(m, 'adaptation-measures'))
+                    .forEach(m => pushAdaptationMeasure(category, m));
+            });
+        }
+    });
+
+    return rows;
+}
+
+// The 5 content categories, each becoming its own sheet in the workbook.
+const EXPORT_TABS = [
+    { id: 'mitigation-targets',  sheet: 'Mitigation targets'  },
+    { id: 'net-zero',            sheet: 'Net zero targets'    },
+    { id: 'adaptation-targets',  sheet: 'Adaptation targets'  },
+    { id: 'mitigation-measures', sheet: 'Mitigation measures' },
+    { id: 'adaptation-measures', sheet: 'Adaptation measures' },
+];
+
+// Builds a filename from the countries currently selected + today's date,
+// e.g. ndc-comparison_Kenya-Colombia-Morocco_2026-07-06.xlsx
+function buildExportFilename() {
+    const countryNames = columns
+        .map(getColumnDocContext)
+        .filter(Boolean)
+        .map(ctx => ctx.countryName);
+    const uniqueNames = [...new Set(countryNames)];
+    const countryPart = uniqueNames.length > 0
+        ? uniqueNames.map(n => n.replace(/[^a-zA-Z0-9]+/g, '-')).join('_')
+        : 'comparison';
+    const dateStr = new Date().toISOString().slice(0, 10);
+    return `ndc-comparison_${countryPart}_${dateStr}.xlsx`;
+}
+
+function exportComparisonData() {
+    const wb = XLSX.utils.book_new();
+    let totalRows = 0;
+
+    EXPORT_TABS.forEach(({ id, sheet }) => {
+        const rows = buildExportRowsForTab(id);
+        if (rows.length === 0) return; // skip empty categories
+        totalRows += rows.length;
+        const ws = XLSX.utils.json_to_sheet(rows);
+        XLSX.utils.book_append_sheet(wb, ws, sheet);
+    });
+
+    if (totalRows === 0) {
+        alert('No data to export for the current selection and filters.');
+        return;
+    }
+
+    XLSX.writeFile(wb, buildExportFilename());
 }
 
 // ============================================================================

@@ -661,6 +661,7 @@ def process_comparison_data(excel_path):
     
     T_DOCID = 0
     T_AREA = 8
+    T_SCOPE = 9     # Column J — "Target scope" (not previously captured)
     T_GHG = 10      # Column K (was incorrectly 9)
     T_TYPE = 11     # Column L (was incorrectly 10)
     T_COND = 12     # Column M (was incorrectly 11)
@@ -670,12 +671,15 @@ def process_comparison_data(excel_path):
     
     M_DOCID = 0
     M_CAT = 9
+    M_PURPOSE = 10    # Column K — "Purpose" (not previously captured)
+    M_INSTRUMENT = 11 # Column L — "Instrument" (not previously captured)
     M_QUOTE = 12
     M_ASI = 13
     M_PAGE = 14     # Column O
     
     A_DOCID = 0
     A_CAT = 8
+    A_MEASURE = 9    # Column J — "Measure" (not previously captured)
     A_QUOTE = 10
     A_PAGE = 11     # Column L
     
@@ -749,6 +753,7 @@ def process_comparison_data(excel_path):
         
         doc_id = row[T_DOCID]
         target_area = row[T_AREA]
+        target_scope = row[T_SCOPE]
         ghg = row[T_GHG]
         target_type = row[T_TYPE]
         cond = row[T_COND]
@@ -777,6 +782,7 @@ def process_comparison_data(excel_path):
         
         targets_by_doc[doc_id].append({
             "target_area": target_area_str,
+            "target_scope": str(target_scope).strip() if target_scope else "—",
             "ghg_target": str(ghg).strip() if ghg else "—",
             "target_type": str(target_type).strip() if target_type else "—",
             "conditionality": str(cond).strip() if cond else "—",
@@ -794,6 +800,8 @@ def process_comparison_data(excel_path):
         
         doc_id = row[M_DOCID]
         category = row[M_CAT]
+        purpose = row[M_PURPOSE]
+        instrument = row[M_INSTRUMENT]
         quote = row[M_QUOTE]
         asi = row[M_ASI]
         page = row[M_PAGE]
@@ -827,6 +835,8 @@ def process_comparison_data(excel_path):
         
         mitigation_by_doc[doc_id][category_str].append({
             "quote": str(quote).strip() if quote else "—",
+            "purpose": str(purpose).strip() if purpose else "—",
+            "instrument": str(instrument).strip() if instrument else "—",
             "asi": asi_str,
             "modes": ", ".join(modes) if modes else "—",
             "page": str(page).strip() if page else "",
@@ -841,6 +851,7 @@ def process_comparison_data(excel_path):
         
         doc_id = row[A_DOCID]
         category = row[A_CAT]
+        measure = row[A_MEASURE]
         quote = row[A_QUOTE]
         page = row[A_PAGE]
         
@@ -866,6 +877,7 @@ def process_comparison_data(excel_path):
         
         adaptation_by_doc[doc_id][category_str].append({
             "quote": str(quote).strip() if quote else "—",
+            "measure": str(measure).strip() if measure else "—",
             "modes": ", ".join(modes) if modes else "—",
             "page": str(page).strip() if page else "",
         })
