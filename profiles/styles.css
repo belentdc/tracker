@@ -277,7 +277,7 @@ button.cp-country-name:hover::after { border-color: #fff; }
   width: 9px; height: 9px; border-radius: 50%;
   display: inline-block; margin-right: 0.3rem;
 }
-.cp-jcard-dot.has { background: var(--ct-green); }
+.cp-jcard-dot.has { background: var(--ct-teal); }
 .cp-jcard-dot.no  { background: var(--ct-border); }
 .cp-jcard-arrow {
   position: absolute; right: -6px; top: 50%;
@@ -593,17 +593,6 @@ button.cp-country-name:hover::after { border-color: #fff; }
 
 a.cp-dl-btn { text-decoration: none; }
 
-/* Hero topic search (queries the global full-text search) */
-.cp-topic-search { display:flex; align-items:center; gap:.5rem; margin:1rem 0 .35rem; max-width:620px;
-  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:10px; padding:.3rem .3rem .3rem .8rem; }
-.cp-topic-search svg { width:16px; height:16px; color:rgba(255,255,255,.75); flex:none; }
-.cp-topic-search input { flex:1; min-width:0; background:transparent; border:none; outline:none;
-  color:#fff; font-family:var(--ct-font); font-size:.88rem; }
-.cp-topic-search input::placeholder { color:rgba(255,255,255,.55); }
-.cp-topic-search button { flex:none; padding:.4rem .85rem; border:none; border-radius:8px;
-  background:var(--ct-green,#9DBE3D); color:var(--ct-navy,#003D5C); font-family:var(--ct-font);
-  font-size:.78rem; font-weight:700; cursor:pointer; }
-.cp-topic-search button:hover { filter:brightness(1.06); }
 
 /* Generation evolution block */
 .cp-gen-block { margin-top:1.4rem; background:var(--ct-surface); border:1px solid var(--ct-border);
@@ -611,6 +600,45 @@ a.cp-dl-btn { text-decoration: none; }
 .cp-gen-wrap { position:relative; height:150px; }
 .cp-gen-wrap canvas { max-height:150px; }
 .cp-asi-sentence { font-size:.85rem; color:var(--ct-text); margin-bottom:.5rem; line-height:1.4; }
+
+/* Hero checks: plain inline text, no pills */
+.cp-hero-checks { display:flex; flex-wrap:wrap; gap:1.4rem; margin-top:.9rem; }
+.cp-hero-check { font-size:.9rem; font-weight:700; letter-spacing:.01em; }
+.cp-hero-check.yes { color:#CDE39B; }
+.cp-hero-check.no  { color:rgba(255,255,255,.55); font-weight:600; }
+
+/* Trend view chips */
+.cp-trend-views { display:flex; gap:.4rem; margin-bottom:.6rem; }
+.cp-view-chip { padding:.3rem .8rem; border:1px solid var(--ct-border); border-radius:999px;
+  background:var(--ct-surface); color:var(--ct-muted); font-family:var(--ct-font);
+  font-size:.78rem; font-weight:700; cursor:pointer; }
+.cp-view-chip.on { background:var(--ct-navy); border-color:var(--ct-navy); color:#fff; }
+
+/* Pin type legend under the trend chart */
+.cp-pin-legend { display:flex; flex-wrap:wrap; align-items:center; gap:.9rem; margin-top:.5rem; font-size:.76rem; color:var(--ct-muted); }
+.cp-pin-key-title { font-weight:700; color:var(--ct-navy); }
+.cp-pin-key { display:inline-flex; align-items:center; gap:.35rem; }
+.cp-pin-swatch { width:14px; height:3px; border-radius:2px; display:inline-block; }
+
+/* Fixed-height chart wrappers: REQUIRED with maintainAspectRatio:false.
+   Without them Chart.js resizes the canvas, grows the parent, and loops —
+   the "page grows forever" bug. */
+.cp-asi-wrap { position:relative; height:96px; }
+.cp-asi-wrap canvas { max-height:96px; }
+.cp-cat-wrap { position:relative; height:250px; }
+.cp-cat-wrap canvas { max-height:250px; }
+
+
+/* Emissions stat row (inside the trend block) — stats, not boxes */
+.cp-em-kpis { display:flex; flex-wrap:wrap; gap:0; margin:.35rem 0 .8rem; }
+.cp-em-stat { display:flex; flex-direction:column; padding:.15rem 1.35rem .15rem 0; margin-right:1.35rem;
+  border-right:1px solid var(--ct-border); }
+.cp-em-stat:last-child { border-right:none; margin-right:0; }
+.cp-em-val { font-size:1.45rem; font-weight:800; color:var(--ct-navy); line-height:1.1; }
+.cp-em-val small { font-size:.8rem; font-weight:700; color:var(--ct-teal); margin-left:.15rem; }
+.cp-em-lbl { font-size:.72rem; color:var(--ct-muted); margin-top:.1rem; }
+
+
 .cp-dl-btn {
   display: flex; align-items: center; gap: 0.5rem;
   width: 100%; padding: 0.6rem 0.85rem; margin-bottom: 0.5rem;

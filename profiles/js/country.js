@@ -49,6 +49,11 @@ const GEN_NOTE = `Our definition of NDC generations:
 \u2022 Second-generation NDCs: Any NDC submissions between January 2020 and October 2024.
 \u2022 First-generation NDCs: Any NDC submissions mostly up to December 2019; once a country ratified the Paris Agreement, their INDCs formally became their NDC.`;
 
+/* Transport targets = transport mitigation + transport adaptation areas only.
+   Net zero, overall mitigation, and energy targets are NOT transport targets. */
+const T_AREAS=new Set(["Transport sector mitigation target","Transport sector adaptation target"]);
+function transportTargets(p,status){return (p.targets||[]).filter(t=>T_AREAS.has(t.area)&&(!status||t.status===status));}
+
 /* ── Bootstrap ───────────────────────────────────────────────────── */
 const params = new URLSearchParams(location.search);
 const CODE   = (window.CP_CODE || params.get("country") || "COL").toUpperCase();
@@ -112,40 +117,42 @@ function render(p, ghg, bench) {
   if(flagEl){ flagEl.src=`${BASE}../assets/flags/${p.iso2}.png`; flagEl.onerror=()=>{flagEl.src=`https://flagcdn.com/w160/${p.iso2}.png`;}; flagEl.alt=`${p.name} flag`; }
   const nameEl=document.getElementById("cp-name"); if(nameEl) nameEl.textContent=p.name;
   setupCountrySwitcher(p.code);
-  const subEl=document.getElementById("cp-sub"); if(subEl) subEl.textContent=[p.region,p.income,p.annex].filter(Boolean).join(" \xb7 ");
+  const subEl=document.getElementById("cp-sub"); if(subEl) subEl.textContent=[p.region,p.income,p.annex].filter(Boolean).join(", ");
   if(ghg&&ghg[p.code]) p.emissions={...(p.emissions||{}),...ghg[p.code]};
   const docUrlMap=buildDocUrlMap(p.documents);
-  renderKPIs(p); renderEUNote(p); renderStory(p); renderTrend(p); renderGenerations(p); setupTopicSearch(); renderTargetAxis(p);
+  renderKPIs(p); renderEUNote(p); renderStory(p); renderEmKPIs(p); renderTrend(p,bench); renderGenerations(p);
   renderJourney(p,docUrlMap); renderTargets(p,docUrlMap); renderMeasures(p,docUrlMap,bench);
   renderBenefits(p); renderAdaptation(p,docUrlMap); renderCoalitions(p);
   renderSimilar(p); renderResources(p); setupExport(p);
   const gen=p.meta&&p.meta.generated;
   const fm=document.getElementById("cp-footer-meta");
-  if(fm) fm.textContent=`Profile: ${p.name} (${p.code})${gen?" \xb7 Data generated "+gen:""}`;
+  if(fm) fm.textContent=`Profile: ${p.name} (${p.code})${gen?", data generated "+gen:""}`;
 }
 
 /* ── KPIs ─────────────────────────────────────────────────────────── */
-function renderKPIs(p) {
+function renderKPIs(p){
   const el=document.getElementById("cp-kpi"); if(!el)return;
-  const am=p.measures.filter(m=>m.status==="Active").length;
-  const at=p.targets.filter(t=>t.status==="Active").length;
+  const tt=transportTargets(p,"Active").length;
+  const mm=(p.measures||[]).filter(x=>x.status==="Active").length
+          +(p.adaptation||[]).filter(x=>x.status==="Active").length;
+  const check=(ok,yes,no)=>`<span class="cp-hero-check ${ok?"yes":"no"}">${ok?"\u2713 "+yes:no}</span>`;
+  el.innerHTML=`<div class="cp-hero-checks">
+      ${check(tt>0,"Transport targets","No transport targets")}
+      ${check(mm>0,"Transport measures","No transport measures")}
+    </div>`;
+}
+
+/* Emissions KPIs, now living with the trend chart where they have context */
+function renderEmKPIs(p){
+  const el=document.getElementById("cp-em-kpis"); if(!el)return;
   const e=p.emissions||{};
-  const src=e.source&&e.year?`EDGAR ${e.year}`:(e.source||(e.year?`EDGAR ${e.year}`:""));
-  const kpis=[
-    {num:am,label:"Transport measures",sub:"in active documents"},
-    {num:at,label:"Transport targets",sub:"in active documents"},
-    {num:e.transport_share_pct!=null?e.transport_share_pct:"\u2014",unit:e.transport_share_pct!=null?"%":"",label:"Transport share of emissions",sub:e.transport_share_pct!=null?`of national total \xb7 ${src}`:""},
-    {num:e.transport_mt!=null?e.transport_mt:"\u2014",unit:e.transport_mt!=null?" Mt":"",label:"Transport sector emissions",sub:e.transport_mt!=null?`Mt CO\u2082e \xb7 ${src}`:""}
-  ];
-  if(e.transport_per_capita!=null) kpis.push({num:e.transport_per_capita,unit:" t/cap",label:"Transport emissions per person",sub:`t CO\u2082e per capita \xb7 ${src}`});
-  if(e.transport_sector_rank!=null){
-    const ord=["","1st","2nd","3rd"][e.transport_sector_rank]||`${e.transport_sector_rank}th`;
-    kpis.push({sentence:`Transport is the ${ord}`,sub:"Biggest source of emissions among national sectors"});
-  }
-  el.innerHTML=kpis.map(k=>k.sentence
-    ? `<div class="cp-kpi"><div class="cp-kpi-num">${esc(k.sentence)}</div><div class="cp-kpi-sub">${esc(k.sub||"")}</div></div>`
-    : `<div class="cp-kpi"><div class="cp-kpi-num">${esc(k.num)}${k.unit?`<span class="unit">${esc(k.unit)}</span>`:""}</div><div class="cp-kpi-label">${esc(k.label)}</div><div class="cp-kpi-sub">${esc(k.sub||"")}</div></div>`
-  ).join("");
+  const stat=(v,u,l)=>v==null?"":`<div class="cp-em-stat"><span class="cp-em-val">${esc(v)}<small>${u}</small></span><span class="cp-em-lbl">${l}</span></div>`;
+  const ord=e.transport_sector_rank!=null?(["1st","2nd","3rd"][e.transport_sector_rank-1]||e.transport_sector_rank+"th"):null;
+  el.innerHTML=
+    stat(e.transport_share_pct,"%","of national emissions")+
+    stat(e.transport_mt," Mt","transport CO\u2082e, "+(e.year||""))+
+    stat(e.transport_per_capita," t","per person")+
+    (ord?`<div class="cp-em-stat"><span class="cp-em-val">${ord}</span><span class="cp-em-lbl">largest emitting sector</span></div>`:"");
 }
 
 /* ── Country switcher ─────────────────────────────────────────────── */
@@ -219,7 +226,10 @@ function renderStory(p) {
   const el=document.getElementById("cp-story"); if(!el)return;
   const e=p.emissions||{};
   const am=p.measures.filter(m=>m.status==="Active").length;
-  const at=p.targets.filter(t=>t.status==="Active").length;
+  const tmit=p.targets.filter(t=>t.area==="Transport sector mitigation target"&&t.status==="Active").length;
+  const tada=p.targets.filter(t=>t.area==="Transport sector adaptation target"&&t.status==="Active").length;
+  const at=tmit+tada;
+  const hasOverall=p.targets.some(t=>t.area==="Overall mitigation target"&&t.status==="Active");
   const aa=p.adaptation.filter(a=>a.status==="Active").length;
   const asi=p.asi_summary||{};
   const topAsi=Object.entries(asi).sort((a,b)=>b[1]-a[1]).slice(0,1).map(x=>x[0]);
@@ -235,7 +245,7 @@ function renderStory(p) {
   if(e.transport_per_capita!=null) h+=`Per capita transport emissions stand at <strong>${e.transport_per_capita} t CO\u2082e</strong>. `;
   if(e.transport_sector_rank!=null){ const ord=["1st","2nd","3rd"][e.transport_sector_rank-1]||e.transport_sector_rank+"th"; h+=`Transport is the <span class="hl">${ord} largest emitting sector</span>. `; }
   h+=`</p><p>Its active documents `;
-  h+=at>0?`set <strong>${at} transport target${at>1?"s":""}</strong>`:`<strong>do not set a transport target</strong>`;
+  h+=at>0?`set <strong>${at} transport target${at>1?"s":""}</strong>${tada>0?` (${tmit} mitigation, ${tada} adaptation)`:""}`:`<strong>do not set a transport target</strong>`;
   h+=` and `;
   h+=am>0?`include <strong>${am} transport mitigation measure${am>1?"s":""}</strong>`:`<strong>do not include transport mitigation measures</strong>`;
   if(am>0&&topAsi.length){
@@ -246,74 +256,133 @@ function renderStory(p) {
   h+=`. `;
   h+=aa>0?`It also addresses <strong>transport adaptation</strong> (${aa} measure${aa>1?"s":""}).`:`It does not address transport adaptation.`;
   h+=`</p>`;
-  if(p.net_zero_target||(p.coalitions&&p.coalitions.length)){
+  if(p.net_zero_target||hasOverall||(p.coalitions&&p.coalitions.length)){
     h+=`<p>`;
-    if(p.net_zero_target) h+=`${esc(p.name)} has committed to a <span class="hl">net-zero target</span>. `;
+    if(p.net_zero_target&&hasOverall) h+=`${esc(p.name)} has committed to a <span class="hl">net-zero target</span> and sets an <strong>overall mitigation target</strong>. `;
+    else if(p.net_zero_target) h+=`${esc(p.name)} has committed to a <span class="hl">net-zero target</span>. `;
+    else if(hasOverall) h+=`${esc(p.name)} sets an <strong>overall mitigation target</strong>. `;
     if(p.coalitions&&p.coalitions.length) h+=`It has joined <strong>${p.coalitions.length} international transport coalition${p.coalitions.length>1?"s":""}</strong>.`;
     h+=`</p>`;
   }
   el.innerHTML=h;
 }
 
-/* ── Emissions trend (EDGAR, was in the data but never displayed) ──── */
-function renderTrend(p){
+/* ── Emissions trend: country view (Mt) + indexed global comparison ── */
+function renderTrend(p,bench){
   const wrap=document.getElementById("cp-trend");
   if(!wrap) return;
   const t=p.trends;
   if(!t||!t.years||!t.years.length){ const b=wrap.closest(".cp-trend-block"); if(b) b.hidden=true; return; }
-  // Show 1990 onwards: recent enough to be policy-relevant, long enough for context
   const i0=Math.max(t.years.indexOf(1990),0);
-  const years=t.years.slice(i0), transport=t.transport.slice(i0);
+  const years=t.years.slice(i0);
+  const transport=t.transport.slice(i0);
+  const total=(t.total||[]).slice(i0);
+  const g=bench&&bench.global_transport;
+  const gMap=g?Object.fromEntries(g.years.map((y,i)=>[y,g.transport[i]])):null;
+  const globalT=gMap?years.map(y=>gMap[y]??null):null;
+
   const sub=document.getElementById("cp-trend-sub");
   if(sub){
     const first=transport[0], last=transport[transport.length-1];
     const dir=last>first*1.05?"has grown":last<first*0.95?"has declined":"has remained stable";
     sub.innerHTML=`Transport CO\u2082 in <strong>${esc(p.name)}</strong> ${dir} since ${years[0]}: from ${first} to <strong>${last} Mt</strong> in ${years[years.length-1]} (${esc(t.source||"EDGAR")}).`;
   }
-  const canvas=document.getElementById("cp-trend-chart");
-  if(!canvas) return;
-  // Target pins: the country's commitment years drawn over the reality curve
-  const pinYears=[...new Map((p.target_years||[])
-    .filter(x=>x.year&&x.year>years[0])
-    .map(x=>[x.year,{year:x.year,nz:/net.?zero/i.test(x.scope||"")}])).values()]
-    .sort((a,b)=>a.year-b.year).slice(0,6);
+
+  // Target pins: active targets grouped by year, colour by highest-priority type
+  const PIN_TYPE={"Net zero target":{k:"Net zero",c:"#9DBE3D",pr:0},
+    "Transport sector mitigation target":{k:"Transport",c:"#003D5C",pr:1},
+    "Transport sector adaptation target":{k:"Adaptation",c:"#7A9B2E",pr:2},
+    "Overall mitigation target":{k:"Overall",c:"#E8821A",pr:3}};
+  const byYear={};
+  (p.targets||[]).filter(x=>x.status==="Active"&&PIN_TYPE[x.area]&&+x.year>years[0])
+    .forEach(x=>{ (byYear[+x.year]=byYear[+x.year]||new Set()).add(x.area); });
+  const pinYears=Object.keys(byYear).map(Number).sort((a,b)=>a-b).slice(0,6)
+    .map(yr=>{ const types=[...byYear[yr]].map(a=>PIN_TYPE[a]).sort((a,b)=>a.pr-b.pr);
+      return {year:yr,types,c:types[0].c}; });
   const lastYear=years[years.length-1];
   const allYears=years.slice();
   const maxPin=pinYears.length?Math.max(...pinYears.map(x=>x.year)):0;
-  for(let yr=lastYear+1;yr<=maxPin;yr++) allYears.push(yr); // extend axis to future targets
+  for(let yr=lastYear+1;yr<=maxPin;yr++) allYears.push(yr);
+
+  // Legend: colour key for pin types actually present
+  const legendEl=document.getElementById("cp-pin-legend");
+  if(legendEl&&pinYears.length){
+    const present=[...new Map(pinYears.flatMap(pn=>pn.types).map(x=>[x.k,x])).values()].sort((a,b)=>a.pr-b.pr);
+    legendEl.innerHTML=`<span class="cp-pin-key-title">Target years:</span> `+present.map(x=>
+      `<span class="cp-pin-key"><span class="cp-pin-swatch" style="background:${x.c}"></span>${x.k}</span>`).join("");
+    legendEl.hidden=false;
+  }
+
+  const canvas=document.getElementById("cp-trend-chart");
+  if(!canvas) return;
+
+  const pinPlugin={id:"targetPins",afterDatasetsDraw(chart){
+    const {ctx,chartArea,scales:{x}}=chart;
+    pinYears.forEach((pin,idx)=>{
+      const i=allYears.indexOf(pin.year); if(i<0) return;
+      const px=x.getPixelForValue(i);
+      ctx.save();
+      ctx.strokeStyle=pin.c; ctx.setLineDash([4,3]); ctx.lineWidth=1.5;
+      ctx.beginPath(); ctx.moveTo(px,chartArea.top+16); ctx.lineTo(px,chartArea.bottom); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=pin.c; ctx.font="700 10px 'Source Sans 3'";
+      // year-only label, clamped so it never truncates at the edges
+      const w=ctx.measureText(String(pin.year)).width;
+      let tx=px; ctx.textAlign="center";
+      if(px-w/2<chartArea.left){ tx=chartArea.left; ctx.textAlign="left"; }
+      else if(px+w/2>chartArea.right){ tx=chartArea.right; ctx.textAlign="right"; }
+      ctx.fillText(String(pin.year),tx,chartArea.top+(idx%2?12:2)+8);
+      ctx.restore();
+    });
+  }};
+
+  const F={family:"Source Sans 3",size:11};
+  function mtConfig(){
+    const ds=[{label:"Transport CO\u2082 (Mt)",data:transport,borderColor:TEAL,backgroundColor:"rgba(0,164,189,0.10)",fill:true,pointRadius:0,borderWidth:2.5,tension:0.25}];
+    if(total.length&&total.some(v=>v!=null))
+      ds.push({label:"National total (Mt)",data:total,borderColor:MUTED,borderDash:[6,4],fill:false,pointRadius:0,borderWidth:1.6,tension:0.25});
+    return {type:"line",data:{labels:allYears,datasets:ds},
+      options:{plugins:{legend:{position:"bottom",labels:{font:F,boxWidth:14,boxHeight:2,padding:12}}},interaction:{mode:"index",intersect:false},
+        scales:{x:{ticks:{font:F,maxTicksLimit:9},grid:{display:false}},
+                y:{ticks:{font:F},title:{display:true,text:"Mt CO\u2082",font:F},grid:{color:"rgba(0,0,0,0.05)"}}}},
+      plugins:[pinPlugin]};
+  }
+  function idx100(arr){ const b=arr.find(v=>v!=null)||1; return arr.map(v=>v==null?null:+(v/b*100).toFixed(1)); }
+  function idxConfig(){
+    const ds=[{label:esc(p.name)+" transport",data:idx100(transport),borderColor:TEAL,fill:false,pointRadius:0,borderWidth:2.5,tension:0.25}];
+    if(total.length&&total.some(v=>v!=null))
+      ds.push({label:esc(p.name)+" national total",data:idx100(total),borderColor:MUTED,borderDash:[6,4],fill:false,pointRadius:0,borderWidth:1.6,tension:0.25});
+    if(globalT&&globalT.some(v=>v!=null))
+      ds.push({label:"World transport",data:idx100(globalT),borderColor:ORANGE,fill:false,pointRadius:0,borderWidth:1.8,tension:0.25});
+    return {type:"line",data:{labels:allYears,datasets:ds},
+      options:{plugins:{legend:{position:"bottom",labels:{font:F,boxWidth:14,boxHeight:2,padding:12}}},interaction:{mode:"index",intersect:false},
+        scales:{x:{ticks:{font:F,maxTicksLimit:9},grid:{display:false}},
+                y:{ticks:{font:F},title:{display:true,text:"Index (1990 = 100)",font:F},grid:{color:"rgba(0,0,0,0.05)"}}}},
+      plugins:[pinPlugin]};
+  }
+
   if(window.Chart){
     try{
-      const pinPlugin={id:"targetPins",afterDatasetsDraw(chart){
-        const {ctx,chartArea,scales:{x}}=chart;
-        pinYears.forEach(pin=>{
-          const i=allYears.indexOf(pin.year); if(i<0) return;
-          const px=x.getPixelForValue(i);
-          ctx.save();
-          ctx.strokeStyle=pin.nz?"#9DBE3D":"#E8821A";
-          ctx.setLineDash([4,3]); ctx.lineWidth=1.5;
-          ctx.beginPath(); ctx.moveTo(px,chartArea.top+14); ctx.lineTo(px,chartArea.bottom); ctx.stroke();
-          ctx.setLineDash([]);
-          ctx.fillStyle=pin.nz?"#9DBE3D":"#E8821A";
-          ctx.font="700 10px 'Source Sans 3'"; ctx.textAlign="center";
-          ctx.fillText(pin.nz?`${pin.year} net zero`:`${pin.year} target`,px,chartArea.top+9);
-          ctx.restore();
-        });
-      }};
-      new Chart(canvas,{type:"line",
-        data:{labels:allYears,datasets:[{label:"Transport CO\u2082 (Mt)",data:transport,borderColor:TEAL,backgroundColor:"rgba(0,164,189,0.10)",fill:true,pointRadius:0,borderWidth:2.5,tension:0.25}]},
-        options:{plugins:{legend:{display:false}},interaction:{mode:"index",intersect:false},
-          scales:{x:{ticks:{font:{family:"Source Sans 3",size:11},maxTicksLimit:9},grid:{display:false}},
-                  y:{ticks:{font:{family:"Source Sans 3",size:11}},title:{display:true,text:"Mt CO\u2082",font:{family:"Source Sans 3",size:11}},grid:{color:"rgba(0,0,0,0.05)"}}}},
-        plugins:[pinPlugin]});
+      let chart=new Chart(canvas,mtConfig());
+      const views=document.getElementById("cp-trend-views");
+      if(views){
+        views.hidden=false;
+        views.querySelectorAll(".cp-view-chip").forEach(ch=>ch.addEventListener("click",()=>{
+          views.querySelectorAll(".cp-view-chip").forEach(x=>x.classList.remove("on"));
+          ch.classList.add("on");
+          chart.destroy();
+          chart=new Chart(canvas,ch.dataset.view==="idx"?idxConfig():mtConfig());
+        }));
+      }
       return;
     }catch(e){ console.warn("Trend chart failed:", e); }
   }
-  // SVG fallback: simple sparkline so the trend is visible even without Chart.js
+  // SVG fallback (transport line only)
   const w=640,h=180,pad=6,max=Math.max(...transport),min=Math.min(...transport);
   const pts=transport.map((v,i)=>`${pad+i*(w-2*pad)/(transport.length-1)},${h-pad-((v-min)/(max-min||1))*(h-2*pad)}`).join(" ");
   canvas.outerHTML=`<svg class="cp-trend-fallback" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Transport emissions trend">
     <polyline points="${pts}" fill="none" stroke="#00A4BD" stroke-width="2.5"/></svg>
-    <div class="cp-pub-meta">${years[0]}\u2013${years[years.length-1]} \u00b7 min ${min} Mt \u00b7 max ${max} Mt</div>`;
+    <div class="cp-pub-meta">${years[0]}\u2013${years[years.length-1]}: ${min}\u2013${max} Mt</div>`;
 }
 
 /* ── Generation evolution: is transport content deepening over time? ── */
@@ -348,66 +417,6 @@ function renderGenerations(p){
               y:{ticks:{font:{family:"Source Sans 3",size:11},precision:0},grid:{color:"rgba(0,0,0,0.05)"}}}}};
   if(window.Chart){ try{ new Chart(canvas,cfg); return; }catch(e){ console.warn("Gen chart failed:",e); } }
   chartFallbackBars(canvas, present.map(g=>[LBL[g],counts[g].t+counts[g].m]), g=>COL[present.find(x=>LBL[x]===g)]||TEAL);
-}
-
-/* ── Hero topic search → global full-text search ──────────────────── */
-function setupTopicSearch(){
-  const form=document.getElementById("cp-topic-search");
-  const input=document.getElementById("cp-topic-q");
-  if(!form||!input) return;
-  form.addEventListener("submit",e=>{
-    e.preventDefault();
-    const q=input.value.trim();
-    location.href=`${BASE}../search/${q?`?q=${encodeURIComponent(q)}`:""}`;
-  });
-}
-
-/* ── Target axis — pins → shared detail panel below ──────────────── */
-function renderTargetAxis(p) {
-  const el=document.getElementById("cp-target-axis"); if(!el)return;
-  const years=p.target_years||[];
-  if(!years.length){ el.innerHTML=`<div class="cp-empty">No target years recorded.</div>`; return; }
-  const seen={};
-  const uniq=years.filter(y=>{ const k=y.year+y.scope; if(seen[k])return false; seen[k]=1; return true; });
-
-  el.innerHTML=uniq.map((y,i)=>{
-    const matching=p.targets.filter(t=>t.year===y.year&&t.status==="Active");
-    const hasQ=matching.length>0;
-    return `<div class="cp-target-pin${hasQ?" clickable":""}" data-pin="${i}">
-      <div class="cp-target-pin-year">${esc(y.year)}</div>
-      <div class="cp-target-pin-label">${esc(y.scope)}</div>
-      ${hasQ?`<div class="cp-target-pin-hint">\u25be detail</div>`:""}
-    </div>`;
-  }).join("");
-
-  // Panel below
-  const panel=makePanel("cp-target-detail-panel");
-  el.parentNode.insertBefore(panel,el.nextSibling);
-  panel.querySelector(".cp-detail-panel-close").addEventListener("click",()=>{
-    panel.classList.remove("open");
-    el.querySelectorAll(".cp-target-pin").forEach(p=>p.classList.remove("selected"));
-  });
-
-  el.querySelectorAll(".cp-target-pin.clickable").forEach(pin=>{
-    const idx=+pin.dataset.pin;
-    const y=uniq[idx];
-    const matching=p.targets.filter(t=>t.year===y.year&&t.status==="Active");
-    pin.addEventListener("click",()=>{
-      const already=pin.classList.contains("selected");
-      el.querySelectorAll(".cp-target-pin").forEach(p=>p.classList.remove("selected"));
-      if(already){ panel.classList.remove("open"); return; }
-      pin.classList.add("selected");
-      panel.querySelector(".cp-detail-panel-title").textContent=`${y.year} \u2014 ${y.scope}`;
-      panel.querySelector(".cp-detail-panel-body").innerHTML=matching.map(t=>`
-        <div class="cp-pin-pop-item">
-          <div class="cp-pin-pop-type">${esc(t.area||t.type||"")}</div>
-          <div class="cp-pin-pop-content">${esc(t.content)}</div>
-          <div class="cp-pin-pop-meta">${esc(t.conditionality||"")}${t.conditionality&&(t.version||t.document)?" \xb7 ":""}${esc(t.version||t.document||"")}</div>
-        </div>`).join("");
-      panel.classList.add("open");
-      panel.scrollIntoView({behavior:"smooth",block:"nearest"});
-    });
-  });
 }
 
 /* ── Journey — timeline line + version labels + detail panel ─────── */
@@ -458,8 +467,8 @@ function renderJourney(p, docUrlMap) {
   PARIS_DEADLINES.filter(pd=>pd.year>=minY&&pd.year<=maxY).forEach(pd=>{
     const pct=((pd.year-minY)/span*100).toFixed(1);
     const m=document.createElement("div");
-    m.style.cssText=`position:absolute;left:${pct}%;top:0;transform:translateX(-50%);text-align:center;z-index:1;`;
-    m.innerHTML=`<div style="font-size:0.6rem;color:var(--ct-muted);white-space:nowrap;line-height:1;">${esc(pd.label)}</div><div style="width:1px;height:16px;background:var(--ct-muted);margin:0 auto;opacity:0.4;"></div><div style="font-size:0.65rem;font-weight:700;color:var(--ct-muted);">${pd.year}</div>`;
+    m.style.cssText=`position:absolute;left:${pct}%;top:6px;transform:translateX(-50%);text-align:center;z-index:1;`;
+    m.innerHTML=`<div style="width:1px;height:22px;background:var(--ct-muted);margin:0 auto;opacity:0.45;"></div><div style="font-size:0.65rem;font-weight:700;color:var(--ct-muted);">${pd.year}</div><div style="font-size:0.6rem;color:var(--ct-muted);white-space:nowrap;line-height:1.1;">${esc(pd.label)}</div>`;
     tlBar.appendChild(m);
   });
   wrap.parentNode.insertBefore(tlBar,wrap.nextSibling);
@@ -489,7 +498,7 @@ function renderJourney(p, docUrlMap) {
         {label:"Adaptation measures",val:tc.adaptation_measures},
       ];
       panel.querySelector(".cp-detail-panel-title").innerHTML=
-        `${esc(d.version)} <span style="font-weight:400;color:var(--ct-muted);">${esc(d.type)} \xb7 ${esc(d.status)}${year?" ("+year+")":""}</span>`;
+        `${esc(d.version)} <span style="font-weight:400;color:var(--ct-muted);">${esc(d.type)}, ${esc(d.status)}${year?" ("+year+")":""}</span>`;
       panel.querySelector(".cp-detail-panel-body").innerHTML=tc.has_content?`
         <div class="cp-jcard-checks">${checks.map(c=>`<div class="cp-jcard-check ${c.val?"on":"off"}">${c.val?"\u2713":"\u25cb"} ${esc(c.label)}</div>`).join("")}</div>
         <div class="cp-jcard-count-row">${counts.measures?`<span>${counts.measures} measures</span>`:""} ${counts.targets?`<span>${counts.targets} targets</span>`:""} ${counts.adaptation?`<span>${counts.adaptation} adaptation</span>`:""}</div>
@@ -546,7 +555,7 @@ function renderTargets(p, docUrlMap) {
       return `<div class="cp-measure"><div class="cp-measure-top">
         <span class="cp-measure-instrument">${esc(t.content||t.type)}</span>
         ${t.year?`<span class="cp-measure-asi shift">${esc(t.year)}</span>`:""}
-      </div><p class="cp-measure-meta">${esc(t.area||"")}${t.conditionality?" \xb7 "+esc(t.conditionality):""} \xb7 ${docUrl?`<a href="${esc(docUrl)}" target="_blank" rel="noopener" style="color:var(--ct-teal)">${esc(t.version||t.document||"")}</a>`:esc(t.version||t.document||"")}${t.page&&t.page!=="n/a"?" \xb7 p. "+esc(t.page):""}</p></div>`;
+      </div><p class="cp-measure-meta">${esc(t.area||"")}${t.conditionality?", "+esc(t.conditionality):""}, ${docUrl?`<a href="${esc(docUrl)}" target="_blank" rel="noopener" style="color:var(--ct-teal)">${esc(t.version||t.document||"")}</a>`:esc(t.version||t.document||"")}${t.page&&t.page!=="n/a"?", p. "+esc(t.page):""}</p></div>`;
     }).join(""):`<div class="cp-empty">No targets match.</div>`;
   }
   if(fbar){
@@ -554,6 +563,8 @@ function renderTargets(p, docUrlMap) {
     fbar.querySelectorAll("[data-doc]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-doc]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curDoc=b.dataset.doc;draw();}));
   }
   draw();
+  const navCmp=document.getElementById("cp-nav-compare");
+  if(navCmp) navCmp.href=comparisonUrl("track",{c:p.code});
   const cmpLink=document.getElementById("cp-targets-compare");
   if(cmpLink){cmpLink.href=comparisonUrl("track",{c:p.code});cmpLink.hidden=false;}
 }
@@ -609,7 +620,7 @@ function renderMeasures(p, docUrlMap, bench) {
     }
     safeChart(catC,{type:"bar",
       data:{labels,datasets},
-      options:{indexAxis:"y",plugins:{legend:{display:false},
+      options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
           tooltip:{callbacks:{label:c=>c.dataset.type==="scatter"
             ?`Typical emphasis: ${c.raw.x} of ${catTotal} measures`
             :`${c.raw} measures`}}},
@@ -657,7 +668,7 @@ function renderMeasures(p, docUrlMap, bench) {
     listEl.innerHTML=shown.map(m=>{
       const ac=((m.asi&&m.asi[0])||"improve").toLowerCase();
       const du=m.doc_id?(docUrlMap[m.doc_id]||null):null;
-      return `<div class="cp-measure ${ac}"><div class="cp-measure-top"><span class="cp-measure-instrument">${esc(m.instrument||m.purpose||m.category)}</span>${m.asi&&m.asi.length?`<span class="cp-measure-asi ${ac}">${esc(m.asi.join("/"))}</span>`:""}</div>${m.quote?`<p class="cp-measure-quote">${esc(m.quote)}</p>`:""}<p class="cp-measure-meta">${esc(m.category||"")} \xb7 ${du?`<a href="${esc(du)}" target="_blank" rel="noopener" style="color:var(--ct-teal)">${esc(m.version||m.document||"")}</a>`:esc(m.version||m.document||"")}${m.page?" \xb7 p. "+esc(m.page):""}</p>${m.modes&&m.modes.length?`<div class="cp-measure-tags">${m.modes.map(x=>`<span class="cp-tag">${esc(x)}</span>`).join("")}</div>`:""}</div>`;
+      return `<div class="cp-measure ${ac}"><div class="cp-measure-top"><span class="cp-measure-instrument">${esc(m.instrument||m.purpose||m.category)}</span>${m.asi&&m.asi.length?`<span class="cp-measure-asi ${ac}">${esc(m.asi.join("/"))}</span>`:""}</div>${m.quote?`<p class="cp-measure-quote">${esc(m.quote)}</p>`:""}<p class="cp-measure-meta">${esc(m.category||"")}, ${du?`<a href="${esc(du)}" target="_blank" rel="noopener" style="color:var(--ct-teal)">${esc(m.version||m.document||"")}</a>`:esc(m.version||m.document||"")}${m.page?", p. "+esc(m.page):""}</p>${m.modes&&m.modes.length?`<div class="cp-measure-tags">${m.modes.map(x=>`<span class="cp-tag">${esc(x)}</span>`).join("")}</div>`:""}</div>`;
     }).join("")||`<div class="cp-empty">No measures match.</div>`;
     if(moreBtn){if(list.length>6){moreBtn.hidden=false;moreBtn.textContent=showAll?"Show fewer":`Show all ${list.length} measures`;}else moreBtn.hidden=true;}
   }
@@ -740,7 +751,7 @@ function renderAdaptation(p, docUrlMap) {
           return `<div class="cp-adapt-item">
             <div class="cp-adapt-item-name">${esc(a.measure||"Adaptation measure")}</div>
             ${a.quote?`<div class="cp-adapt-item-quote">${esc(a.quote)}</div>`:""}
-            <div class="cp-adapt-item-meta">${du?`<a href="${esc(du)}" target="_blank" rel="noopener" style="color:var(--ct-teal)">${esc(a.version||a.document||"")}</a>`:esc(a.version||a.document||"")}${a.modes&&a.modes.length?" \xb7 "+a.modes.map(m=>`<span class="cp-tag">${esc(m)}</span>`).join(""):""} ${a.page?" \xb7 p. "+esc(a.page):""}</div>
+            <div class="cp-adapt-item-meta">${du?`<a href="${esc(du)}" target="_blank" rel="noopener" style="color:var(--ct-teal)">${esc(a.version||a.document||"")}</a>`:esc(a.version||a.document||"")}${a.modes&&a.modes.length?" "+a.modes.map(m=>`<span class="cp-tag">${esc(m)}</span>`).join(""):""} ${a.page?", p. "+esc(a.page):""}</div>
           </div>`;
         }).join("")}
       </div>
@@ -767,7 +778,7 @@ function renderSimilar(p){
   const lenses=[
     {key:"region",    title:"Same region",               note:"Geographic peers"},
     {key:"emissions", title:"Similar transport share",    note:"Comparable emissions profile"},
-    {key:"priorities",title:"Similar measure priorities", note:top2.join(" \xb7 ")||"Comparable focus areas"}
+    {key:"priorities",title:"Similar measure priorities", note:top2.join(", ")||"Comparable focus areas"}
   ];
   wrap.innerHTML=lenses.map(l=>{
     const list=(s[l.key]||[]).slice(0,5); if(!list.length)return"";
@@ -816,7 +827,7 @@ function renderPubList(box,own,global,p){
   const types=[...new Set(own.map(x=>x.type).filter(Boolean))];
 
   function pubItem(pub){
-    return `<div class="cp-pub"><a href="${esc(pub.url)}" target="_blank" rel="noopener">${esc(pub.title)}</a><div class="cp-pub-meta">${esc(pub.type||"")}${pub.date?" \xb7 "+esc(pub.date):""}</div></div>`;
+    return `<div class="cp-pub"><a href="${esc(pub.url)}" target="_blank" rel="noopener">${esc(pub.title)}</a><div class="cp-pub-meta">${esc(pub.type||"")}${pub.date?", "+esc(pub.date):""}</div></div>`;
   }
 
   function draw(){
@@ -837,7 +848,7 @@ function renderPubList(box,own,global,p){
           More from Changing Transport (${global.length}) <span class="chev">${state.showGlobal?"\u25b4":"\u25be"}</span>
         </button>
         <div class="cp-pub-global" ${state.showGlobal?"":"hidden"}>${global.slice(0,30).map(pubItem).join("")}
-          ${global.length>30?`<p class="cp-pub-meta" style="padding:0.4rem 0;">Showing 30 of ${global.length} \xb7 <a href="https://changing-transport.org/publications/" target="_blank" rel="noopener">Browse all \u2192</a></p>`:""}
+          ${global.length>30?`<p class="cp-pub-meta" style="padding:0.4rem 0;">Showing 30 of ${global.length}. <a href="https://changing-transport.org/publications/" target="_blank" rel="noopener">Browse all \u2192</a></p>`:""}
         </div>`:"";
     box.innerHTML=filterChips+ownBlock+globalBlock;
 

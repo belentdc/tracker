@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ask the Tracker — GIZ-SLOCAT NDC Transport Tracker</title>
+<meta name="description" content="Guided questions answered live from the GIZ-SLOCAT NDC Transport Tracker database.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-tokens.css">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: var(--ct-font,'Source Sans 3',sans-serif); background: var(--ct-bg,#F4F6F8); color: var(--ct-text,#2C3E50); }
+.wrap { max-width: 860px; margin:0 auto; padding: 2rem 1.25rem 4rem; }
+.kicker { font-size:.8rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color: var(--ct-teal,#00A4BD); }
+h1 { font-size:1.7rem; font-weight:800; color: var(--ct-navy,#003D5C); margin:.25rem 0 .35rem; }
+.sub { font-size:.95rem; color:var(--ct-muted,#6B7280); margin-bottom:1.5rem; }
+.qgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.6rem; margin-bottom:1.6rem; }
+.qbtn {
+  padding:.8rem 1rem; text-align:left; border:1px solid var(--ct-border,#E1E4E8); border-radius:12px;
+  background:#fff; color:var(--ct-navy,#003D5C); font-family:inherit; font-size:.88rem; font-weight:600;
+  cursor:pointer; transition:all .15s; line-height:1.35;
+}
+.qbtn:hover { border-color: var(--ct-teal,#00A4BD); transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,.06); }
+.qbtn.on { background: var(--ct-navy,#003D5C); border-color: var(--ct-navy,#003D5C); color:#fff; }
+.answer { background:#fff; border:1px solid var(--ct-border,#E1E4E8); border-radius:14px; padding:1.25rem 1.4rem; }
+.answer h2 { font-size:1.15rem; font-weight:800; color:var(--ct-navy,#003D5C); margin-bottom:.3rem; }
+.a-count { font-size:1rem; margin-bottom:.35rem; }
+.a-count strong { color: var(--ct-teal,#00A4BD); font-size:1.35rem; }
+.a-note { font-size:.82rem; color:var(--ct-muted,#6B7280); margin-bottom:.9rem; }
+.a-countries { display:flex; flex-wrap:wrap; gap:.4rem; }
+.cchip {
+  display:inline-flex; align-items:center; gap:.35rem; padding:.28rem .7rem;
+  border:1px solid var(--ct-border,#E1E4E8); border-radius:999px; background:var(--ct-bg,#F4F6F8);
+  color:var(--ct-navy,#003D5C); font-size:.8rem; font-weight:600; text-decoration:none;
+}
+.cchip:hover { border-color: var(--ct-teal,#00A4BD); color: var(--ct-teal,#00A4BD); }
+.cchip .n { font-size:.68rem; color:var(--ct-muted,#6B7280); font-weight:700; }
+.empty { text-align:center; color:var(--ct-muted,#6B7280); padding:2.5rem 0; }
+footer { margin-top:2rem; font-size:.78rem; color:var(--ct-muted,#6B7280); }
+footer a { color: var(--ct-teal,#00A4BD); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">GIZ-SLOCAT NDC Transport Tracker</p>
+  <h1>Ask the Tracker</h1>
+  <p class="sub">The questions people ask us most, answered live from the database. Pick a question; every count and country links back to its profile. Answers refer to active documents unless noted.</p>
+
+  <div class="qgrid" id="qgrid"></div>
+  <div class="answer" id="answer"><div class="empty">Pick a question above.</div></div>
+
+  <footer>Answers are recomputed on every data update. <a href="../methodology/">Methodology &amp; citation</a> | <a href="../search/">Full-text search</a></footer>
+</div>
+
+<script>
+(function(){
+  const $g=document.getElementById('qgrid'), $a=document.getElementById('answer');
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let QS=[];
+
+  fetch('../data/processed/questions.json')
+    .then(r=>{ if(!r.ok) throw 0; return r.json(); })
+    .then(d=>{
+      QS=d.questions||[];
+      $g.innerHTML=QS.map((q,i)=>'<button class="qbtn" data-i="'+i+'">'+esc(q.question)+'</button>').join('');
+      const want=new URLSearchParams(location.search).get('q');
+      const start=Math.max(QS.findIndex(x=>x.id===want),0);
+      show(start);
+    })
+    .catch(()=>{ $a.innerHTML='<div class="empty">Could not load answers. Run <code>python pipeline/build_search_index.py</code> after the data pipeline.</div>'; });
+
+  function show(i){
+    const q=QS[i]; if(!q) return;
+    document.querySelectorAll('.qbtn').forEach((b,j)=>b.classList.toggle('on',j===i));
+    history.replaceState(null,'','?q='+encodeURIComponent(q.id));
+    $a.innerHTML='<h2>'+esc(q.question)+'</h2>'
+      +'<p class="a-count"><strong>'+q.countries.length+'</strong> countries</p>'
+      +'<p class="a-note">'+esc(q.note||'')+'</p>'
+      +'<div class="a-countries">'+q.countries.map(c=>
+        '<a class="cchip" href="../'+esc(c.url)+'">'+esc(c.country)
+        +(c.n?'<span class="n">'+c.n+'</span>':'')+'</a>').join('')+'</div>';
+  }
+  $g.addEventListener('click',e=>{ const b=e.target.closest('.qbtn'); if(b) show(+b.dataset.i); });
+})();
+</script>
+</body>
+</html>

@@ -65,21 +65,30 @@ footer a { color: var(--ct-teal,#00A4BD); }
   <div class="meta" id="meta"></div>
   <div id="results"><div class="empty">Loading index…</div></div>
 
-  <footer>Data: GIZ-SLOCAT Transport Tracker database · <a href="../methodology/">Methodology &amp; citation</a> · <a href="../index.html">Dashboard</a> · <a href="../profiles/index.html">Country Explorer</a></footer>
+  <footer>Data: GIZ-SLOCAT Transport Tracker database | <a href="../methodology/">Methodology &amp; citation</a> | <a href="../index.html">Dashboard</a> | <a href="../profiles/index.html">Country Explorer</a></footer>
 </div>
 
 <script>
 (function(){
   const PAGE=30;
-  let INDEX=[], kind='all', shown=PAGE;
+  let INDEX=[], kind='all', shown=PAGE, countryFilter=null;
   const $q=document.getElementById('q'), $r=document.getElementById('results'), $m=document.getElementById('meta');
 
   fetch('../data/processed/search-index.json')
     .then(r=>{ if(!r.ok) throw 0; return r.json(); })
     .then(d=>{ INDEX=d.entries||[];
-      const pre=new URLSearchParams(location.search).get('q');
-      if(pre){ $q.value=pre; }
-      $m.textContent=INDEX.length.toLocaleString()+' entries indexed · updated '+(d.generated||'');
+      const sp=new URLSearchParams(location.search);
+      const pre=sp.get('q'); if(pre){ $q.value=pre; }
+      countryFilter=(sp.get('country')||'').toUpperCase()||null;
+      if(countryFilter){
+        const cn=(INDEX.find(e=>e.code===countryFilter)||{}).country||countryFilter;
+        const chip=document.createElement('button');
+        chip.className='chip on'; chip.style.marginLeft='.25rem';
+        chip.innerHTML='Only: '+cn+' \u2715';
+        chip.onclick=()=>{ countryFilter=null; chip.remove(); run(); };
+        document.getElementById('filters').appendChild(chip);
+      }
+      $m.textContent=INDEX.length.toLocaleString()+' entries indexed, updated '+(d.generated||'');
       run(); })
     .catch(()=>{ $r.innerHTML='<div class="empty">Could not load the search index. Run <code>python pipeline/build_search_index.py</code> after the data pipeline.</div>'; });
 
@@ -105,6 +114,7 @@ footer a { color: var(--ct-teal,#00A4BD); }
   function run(){
     const q=$q.value.trim(), ts=tokens(q);
     let list = kind==='all' ? INDEX : INDEX.filter(e=>e.kind===kind);
+    if(countryFilter) list=list.filter(e=>e.code===countryFilter);
     if(ts.length){ list = list.map(e=>[score(e,ts),e]).filter(x=>x[0]>0).sort((a,b)=>b[0]-a[0]).map(x=>x[1]); }
     else { list = []; }
     if(!q){ $r.innerHTML='<div class="empty">Type to search '+INDEX.length.toLocaleString()+' entries.</div>'; return; }
@@ -112,7 +122,7 @@ footer a { color: var(--ct-teal,#00A4BD); }
     const view=list.slice(0,shown);
     $r.innerHTML = view.map(e=>{
       const link = e.url ? '<a class="r-country" href="../'+esc(e.url)+'">'+esc(e.country)+'</a>' : '<span class="r-country">'+esc(e.country)+'</span>';
-      const meta = [e.gen,e.version,e.status].filter(Boolean).join(' · ');
+      const meta = [e.gen,e.version,e.status].filter(Boolean).join(', ');
       return '<div class="result"><div class="r-top">'+link+
         '<span class="badge '+esc(e.kind)+'">'+esc(e.kind)+'</span>'+
         (meta?'<span class="r-meta">'+esc(meta)+'</span>':'')+'</div>'+

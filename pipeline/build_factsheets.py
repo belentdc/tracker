@@ -87,7 +87,7 @@ def header(c, p, page_no):
         HexColor("#9DBE3D"), bold=True)
     txt(c, M, H - 66, p["name"], 22, HexColor("#FFFFFF"), bold=True,
         max_w=W - 2 * M - 90)
-    sub = " · ".join(filter(None, [p.get("region"), p.get("income")]))
+    sub = ", ".join(filter(None, [p.get("region"), p.get("income")]))
     txt(c, M, H - 82, sub, 9, HexColor("#B8C9D4"))
     txt(c, W - M - 60, H - 40, f"Page {page_no}/2", 8, HexColor("#B8C9D4"))
 
@@ -98,8 +98,8 @@ def footer(c, p):
     gen = (p.get("meta") or {}).get("generated") or ""
     txt(c, M, 30,
         f"GIZ and SLOCAT (2025). NDC Transport Tracker. "
-        f"changing-transport.org/tracker · Data as of {gen}", 7, MUTED)
-    txt(c, W - M - 150, 30, "Emissions: EDGAR · License: CC BY 4.0", 7, MUTED)
+        f"changing-transport.org/tracker. Data as of {gen}", 7, MUTED)
+    txt(c, W - M - 150, 30, "Emissions: EDGAR. License: CC BY 4.0", 7, MUTED)
 
 
 def kpi_card(c, x, y, w, h, value, label, color=NAVY):
@@ -125,7 +125,7 @@ def trend_chart(c, x, y, w, h, trends):
     c.setStrokeColor(BORDER)
     c.roundRect(x, y, w, h, 6, stroke=1, fill=1)
     txt(c, x + 12, y + h - 18, "Transport CO2 emissions (Mt), "
-        f"{years[0]}–{years[-1]} · EDGAR", 8.5, NAVY, bold=True)
+        f"{years[0]}\u2013{years[-1]}, EDGAR", 8.5, NAVY, bold=True)
     px, py, pw, ph = x + 34, y + 26, w - 50, h - 56
     lo, hi = min(tr), max(tr)
     rng = (hi - lo) or 1
@@ -184,7 +184,7 @@ def doc_timeline(c, x, y, w, docs):
         col = {"NDC": TEAL, "LTS": GREEN, "BTR": ORANGE}.get(d.get("type"), MUTED)
         c.setFillColor(col)
         c.circle(x + 4, y + 2.5, 3, stroke=0, fill=1)
-        label = " · ".join(filter(None, [
+        label = ", ".join(filter(None, [
             d.get("type"), str(d.get("version") or ""),
             str(d.get("date") or ""), d.get("status")]))
         txt(c, x + 14, y, label, 8,
@@ -203,8 +203,11 @@ def build_one(p, out_path):
     em = p.get("emissions") or {}
     y = H - 175
     cw = (W - 2 * M - 3 * 10) / 4
+    T_AREAS = ("Transport sector mitigation target",
+               "Transport sector adaptation target")
     n_active_t = len([t for t in (p.get("targets") or [])
-                      if t.get("status") == "Active"])
+                      if t.get("status") == "Active"
+                      and t.get("area") in T_AREAS])
     n_active_m = len([m for m in (p.get("measures") or [])
                       if m.get("status") == "Active"])
     kpi_card(c, M, y, cw, 62,
@@ -275,7 +278,7 @@ def build_one(p, out_path):
         for ln in quote_lines:
             c.drawString(M + 14, yy, ln)
             yy -= 12
-        src = " · ".join(filter(None, [
+        src = ", ".join(filter(None, [
             str(tq.get("document") or ""), str(tq.get("version") or ""),
             f"p. {tq.get('page')}" if tq.get("page") else ""]))
         txt(c, M + 14, yy - 2, src, 7, MUTED)

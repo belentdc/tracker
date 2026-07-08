@@ -273,10 +273,33 @@ def main():
             shares[cat] += n / total
     benchmarks = {cat: round(s / n_countries, 4)
                   for cat, s in shares.items()} if n_countries else {}
+
+    # World transport emissions series (sum of all countries per year),
+    # for the profiles' "compare growth" chart view. Same single source
+    # of truth as everything else: data/ghg.csv via load_ghg_csv().
+    global_trend = {}
+    try:
+        import sys
+        sys.path.insert(0, str(ROOT / "pipeline"))
+        from update_data import load_ghg_csv
+        ghg = load_ghg_csv()
+        sums = {}
+        for v in ghg.values():
+            t = v.get("trends") or {}
+            for yr, val in zip(t.get("years") or [], t.get("transport") or []):
+                if isinstance(val, (int, float)):
+                    sums[yr] = sums.get(yr, 0.0) + val
+        yrs = sorted(sums)
+        global_trend = {"years": yrs,
+                        "transport": [round(sums[y], 1) for y in yrs]}
+    except Exception as exc:
+        print(f"   ⚠ global transport trend skipped: {exc}")
+
     (PROCESSED / "benchmarks.json").write_text(
         json.dumps({"generated": comparison.get("last_updated"),
                     "countries": n_countries,
-                    "category_share": benchmarks},
+                    "category_share": benchmarks,
+                    "global_transport": global_trend},
                    ensure_ascii=False, indent=1),
         encoding="utf-8")
     print(f"📐  benchmarks.json — {len(benchmarks)} categories "

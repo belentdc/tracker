@@ -33,11 +33,6 @@
         <!-- Pills removed per feedback -->
       </div>
     </div>
-    <form class="cp-topic-search" id="cp-topic-search" role="search">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      <input type="search" id="cp-topic-q" placeholder="Ask the data: try “rail freight”, “bus electrification”, “parking”…" aria-label="Search all NDC transport content">
-      <button type="submit">Search all NDCs</button>
-    </form>
     <div class="cp-kpi-strip" id="cp-kpi"></div>
     <div class="cp-eu-note" id="cp-eu-note" hidden></div>
   </div>
@@ -48,14 +43,15 @@
   <div class="cp-container cp-actionbar-inner">
     <nav class="cp-jump">
       <a href="#story">Story</a>
+      <a href="#emissions">Emissions</a>
       <a href="#journey">Journey</a>
-      <a href="#targets-point">Timeline</a>
       <a href="#targets">Targets</a>
       <a href="#measures">Measures</a>
       <a href="#benefits">Co-benefits</a>
       <a href="#adaptation">Adaptation</a>
       <a href="#engage">Engagement</a>
       <a href="#deeper">Go deeper</a>
+      <a href="#" id="cp-nav-compare" target="_blank" rel="noopener">Compare</a>
     </nav>
     <div class="cp-actions">
       <button class="cp-btn" onclick="window.print()">
@@ -77,10 +73,16 @@
     <div class="cp-container">
       <p class="cp-kicker">The story at a glance</p>
       <div class="cp-story" id="cp-story"></div>
-      <div class="cp-trend-block">
-        <h3 class="cp-trend-title">Transport CO&#8322; emissions over time</h3>
+      <div class="cp-trend-block" id="emissions">
+        <h3 class="cp-trend-title">Transport CO&#8322; emissions and where the targets point</h3>
+        <div class="cp-em-kpis" id="cp-em-kpis"></div>
         <p class="cp-trend-sub" id="cp-trend-sub"></p>
+        <div class="cp-trend-views" id="cp-trend-views" hidden>
+          <button class="cp-view-chip on" data-view="mt">This country (Mt)</button>
+          <button class="cp-view-chip" data-view="idx">Compare growth (1990 = 100)</button>
+        </div>
         <div class="cp-trend-wrap" id="cp-trend"><canvas id="cp-trend-chart" height="180"></canvas></div>
+        <div class="cp-pin-legend" id="cp-pin-legend" hidden></div>
       </div>
     </div>
   </section>
@@ -98,7 +100,7 @@
       </div>
       <div class="cp-journey" id="cp-journey"></div>
       <div class="cp-jlegend">
-        <span><span class="cp-jcard-dot has"></span> Carries transport content</span>
+        <span><span class="cp-jcard-dot has"></span> Carries transport content (teal)</span>
         <span><span class="cp-jcard-dot no"></span> No transport content</span>
         <span style="color:var(--ct-green);font-weight:700;">● Green outline = currently active</span>
       </div>
@@ -108,15 +110,6 @@
   </section>
 
   <!-- Where targets point -->
-  <section class="cp-section band" id="targets-point">
-    <div class="cp-container">
-      <p class="cp-kicker">Where the targets point</p>
-      <h2 class="cp-section-title">A timeline of climate ambition</h2>
-      <p class="cp-section-sub">The years by which this country has committed to reach key milestones. <strong>Click a year to see the target detail.</strong></p>
-      <div class="cp-target-axis" id="cp-target-axis"></div>
-    </div>
-  </section>
-
   <!-- Transport targets -->
   <section class="cp-section band" id="targets">
     <div class="cp-container">
@@ -141,12 +134,12 @@
         <div class="cp-charts-col">
           <div class="cp-chart-card">
             <p class="cp-asi-sentence" id="cp-asi-sentence"></p>
-            <canvas id="cp-asi-chart" height="60" aria-label="Avoid Shift Improve breakdown" role="img"></canvas>
+            <div class="cp-asi-wrap"><canvas id="cp-asi-chart" aria-label="Avoid Shift Improve breakdown" role="img"></canvas></div>
             <p class="cp-chart-caption">By Avoid–Shift–Improve approach</p>
           </div>
           <div class="cp-chart-card">
-            <canvas id="cp-cat-chart" height="240" aria-label="Measure categories" role="img"></canvas>
-            <p class="cp-chart-caption">By measure category · ◆ global average emphasis</p>
+            <div class="cp-cat-wrap"><canvas id="cp-cat-chart" aria-label="Measure categories" role="img"></canvas></div>
+            <p class="cp-chart-caption">By measure category (◆ marks global average emphasis)</p>
           </div>
         </div>
         <div>
@@ -236,7 +229,7 @@
 
 <footer class="cp-footer">
   <div class="cp-container">
-    <p>Source: GIZ-SLOCAT <a href="https://changing-transport.org/tracker/" target="_blank" rel="noopener">NDC Transport Tracker</a> database · Emissions: EDGAR, 2024 · Part of the <a href="https://changing-transport.org/project/mobilize-net-zero/" target="_blank" rel="noopener">Mobilize Net-Zero</a> project.</p>
+    <p>Source: GIZ-SLOCAT <a href="https://changing-transport.org/tracker/" target="_blank" rel="noopener">NDC Transport Tracker</a> database. Emissions: EDGAR, 2024. Part of the <a href="https://changing-transport.org/project/mobilize-net-zero/" target="_blank" rel="noopener">Mobilize Net-Zero</a> project.</p>
     <p id="cp-footer-meta" style="margin-top:0.5rem;opacity:0.7;"></p>
   </div>
 </footer>

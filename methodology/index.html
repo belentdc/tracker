@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methodology &amp; Citation — GIZ-SLOCAT NDC Transport Tracker</title>
+<meta name="description" content="How the GIZ-SLOCAT NDC Transport Tracker codes climate documents: taxonomy, sources, update process, limitations, and how to cite it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/design-tokens.css">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: var(--ct-font,'Source Sans 3',sans-serif); background: var(--ct-bg,#F4F6F8); color: var(--ct-text,#2C3E50); line-height:1.55; }
+.wrap { max-width: 820px; margin:0 auto; padding: 2rem 1.25rem 4rem; }
+.kicker { font-size:.8rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color: var(--ct-teal,#00A4BD); }
+h1 { font-size:1.8rem; font-weight:800; color: var(--ct-navy,#003D5C); margin:.25rem 0 .4rem; }
+.lead { font-size:1rem; color:var(--ct-muted,#6B7280); margin-bottom:1.8rem; }
+h2 { font-size:1.2rem; font-weight:800; color:var(--ct-navy,#003D5C); margin:2rem 0 .6rem; }
+h3 { font-size:1rem; font-weight:700; color:var(--ct-navy,#003D5C); margin:1.1rem 0 .35rem; }
+p { margin-bottom:.8rem; font-size:.94rem; }
+ul { margin:0 0 .9rem 1.2rem; }
+li { margin-bottom:.35rem; font-size:.94rem; }
+a { color: var(--ct-teal,#00A4BD); }
+.card { background:#fff; border:1px solid var(--ct-border,#E1E4E8); border-radius:12px; padding:1.1rem 1.3rem; margin-bottom:1rem; }
+.cite { background:#fff; border-left:4px solid var(--ct-green,#9DBE3D); border-radius:0 12px 12px 0; padding:1rem 1.2rem; font-size:.92rem; margin:.6rem 0 1rem; }
+.cite code { font-family:inherit; }
+table { width:100%; border-collapse:collapse; font-size:.86rem; margin-bottom:1rem; background:#fff; border-radius:10px; overflow:hidden; }
+th, td { padding:.55rem .7rem; text-align:left; border-bottom:1px solid var(--ct-border,#E1E4E8); vertical-align:top; }
+th { background: var(--ct-navy,#003D5C); color:#fff; font-weight:700; font-size:.8rem; }
+.pill { display:inline-block; padding:.15rem .6rem; border-radius:999px; background:rgba(157,190,61,.18); color:#5c7522; font-size:.74rem; font-weight:700; }
+footer { margin-top:2.5rem; font-size:.78rem; color:var(--ct-muted,#6B7280); border-top:1px solid var(--ct-border,#E1E4E8); padding-top:1rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">GIZ-SLOCAT NDC Transport Tracker</p>
+  <h1>Methodology &amp; how to cite</h1>
+  <p class="lead">What the tracker measures, where every number comes from, how the database is maintained, and what its limits are. Every indicator shown in the dashboards can be traced to a specific column in the source database.</p>
+
+  <h2>What the tracker does</h2>
+  <p>The NDC Transport Tracker monitors how countries address the transport sector in their Nationally Determined Contributions (NDCs) and related climate documents (Long-Term Strategies, Biennial Transparency Reports, and selected national policy documents). Trained analysts read each document and code its transport content against a structured taxonomy, recording verbatim quotes with page numbers so every entry remains verifiable against the original source.</p>
+
+  <h2>The taxonomy</h2>
+  <p>Content is classified using the <strong>NDC Transport Tracker Taxonomy, version 4.0</strong> (last updated May 2026, licensed CC BY 4.0). It has four domains, each split into dimensions:</p>
+  <ul>
+    <li><strong>Targets</strong> — classified across six independent dimensions, including target area (net zero, overall mitigation, transport sector mitigation, transport sector adaptation), target scope, whether the target is GHG-quantified, target type, conditionality, and target year.</li>
+    <li><strong>Mitigation measures</strong> — a hierarchical Category → Purpose → Instrument structure covering 14 measure categories.</li>
+    <li><strong>Adaptation measures</strong> — a Category → Measure structure.</li>
+    <li><strong>Benefits</strong> — co-benefits and SDG references linked to transport content.</li>
+  </ul>
+  <p>Cross-cutting dimensions (transport mode, geography, activity, status, and the Avoid-Shift-Improve framework) are tagged onto individual measures. The full taxonomy is publicly available in machine-readable form (<a href="../taxonomy/ndc_taxonomy.json">JSON</a>, <a href="../taxonomy/ndc_taxonomy.csv">CSV</a>) and as a <a href="https://github.com/changing-transport/tracker/blob/main/taxonomy/TAXONOMY.md">documented reference</a>.</p>
+
+  <h2>Data sources</h2>
+  <table>
+    <tr><th>Source</th><th>Used for</th><th>Notes</th></tr>
+    <tr><td><strong>GIZ-SLOCAT Transport Tracker database</strong></td><td>All policy document data: documents, targets, measures, benefits, references</td><td>Single source of truth, maintained by the GIZ-SLOCAT team. Every quote carries a page number.</td></tr>
+    <tr><td><strong>EDGAR</strong> (Emissions Database for Global Atmospheric Research)</td><td>Transport CO&#8322; emissions, 1970&ndash;2024, for all indicators, maps and trend charts</td><td>One consolidated series per country. EU-27 figures shown for the collective EU NDC are computed as the sum of the 27 member states.</td></tr>
+    <tr><td><strong>changing-transport.org</strong></td><td>Related publications shown on country profiles</td><td>Matched to countries editorially.</td></tr>
+  </table>
+
+  <h2>Key conventions</h2>
+  <ul>
+    <li><strong>NDC generations.</strong> Documents are grouped into 1st generation (2015&ndash;2019), 2nd generation (2020&ndash;2024) and 3rd generation (2024&ndash;ongoing) based on version numbers.</li>
+    <li><strong>Active vs archived.</strong> Indicators labelled "active" refer to the documents currently in force; superseded documents remain in the database as archived, enabling evolution analysis.</li>
+    <li><strong>EU collective reporting.</strong> EU member states report jointly through the EU NDC. Their profiles display the collective submission, clearly marked, rather than duplicating it as national content.</li>
+    <li><strong>No rankings.</strong> The tracker deliberately avoids ranking countries. Comparisons are self-referential over time or presented as neutral peer discovery.</li>
+    <li><strong>Traceability.</strong> Nothing appears in the tracker that cannot be traced to a source document (policy content) or to EDGAR (emissions).</li>
+  </ul>
+
+  <h2>Update process</h2>
+  <p>The database is updated by the GIZ-SLOCAT team as countries submit new documents. Each database update automatically regenerates all three products (main dashboard, NDC Comparison, Country Explorer with 199 country profiles), the search index, and the country factsheets, after passing an automated validation step. The "last updated" date shown in each product reflects the most recent regeneration.</p>
+
+  <h2>Known limitations</h2>
+  <ul>
+    <li>Coding reflects what documents state, not what is implemented on the ground. An implementation lens based on Biennial Transparency Reports is under development.</li>
+    <li>Quotes are recorded in the language of analysis; nuances of the original legal text always prevail over any classification.</li>
+    <li>Emissions data follow EDGAR's scope and methodology, which may differ from national inventories.</li>
+    <li>Keyword-based views (such as guided questions) match wording and can miss content expressed in other terms.</li>
+  </ul>
+
+  <h2>How to cite</h2>
+  <p><span class="pill">Suggested citation</span></p>
+  <div class="cite">GIZ and SLOCAT (2025). <em>NDC Transport Tracker</em> (vers. 4.0). Available from: <code>www.changing-transport.org/tracker</code>.</div>
+  <p>The taxonomy and derived datasets are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: you may reuse them with attribution.</p>
+
+  <h2>Contact</h2>
+  <p>The tracker is developed under the <strong>Mobilize Net-Zero</strong> initiative by GIZ in partnership with SLOCAT. For questions, corrections, or collaboration proposals, reach the team via <a href="https://changing-transport.org/contact/">changing-transport.org</a>.</p>
+
+  <footer>
+    GIZ-SLOCAT NDC Transport Tracker | <a href="../index.html">Dashboard</a> | <a href="../comparison/index_c.html">NDC Comparison</a> | <a href="../profiles/index.html">Country Explorer</a> | <a href="../search/">Search</a>
+  </footer>
+</div>
+</body>
+</html>
