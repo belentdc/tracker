@@ -227,6 +227,26 @@ body {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
+/* ── Zone 3: Topic search callout ─────────────────────────────── */
+.topic-zone { max-width: 720px; margin: 1.75rem auto 0; padding: 0 1rem; }
+.topic-card {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 1rem 1.25rem; border-radius: var(--ct-radius-lg, 14px);
+  background: var(--ct-surface, #fff); border: 1px solid var(--ct-border);
+  text-decoration: none; transition: border-color .15s ease, box-shadow .15s ease;
+}
+.topic-card:hover { border-color: var(--ct-teal, #00A4BD); box-shadow: var(--ct-shadow-sm); }
+.topic-card-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(0,164,189,0.12); color: var(--ct-teal, #00A4BD);
+}
+.topic-card-icon svg { width: 18px; height: 18px; }
+.topic-card-text { display: flex; flex-direction: column; gap: 0.1rem; flex: 1; }
+.topic-card-title { font-weight: 700; color: var(--ct-navy, #003D5C); font-size: 0.95rem; }
+.topic-card-sub { font-size: 0.82rem; color: var(--ct-muted, #6B7280); }
+.topic-card-arrow { color: var(--ct-teal, #00A4BD); font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -236,7 +256,6 @@ body {
   <!-- ── Zone 1: Search ─────────────────────────────────────────── -->
   <div class="search-zone">
     <h2>Explore transport climate commitments by country</h2>
-    <p style="font-size:0.85rem;margin:-0.35rem 0 0.75rem;"><a href="../search/" style="color:var(--ct-teal,#00A4BD);font-weight:600;text-decoration:none;">Looking for a topic instead? Search all targets and measures &rarr;</a></p>
     <div class="search-wrap">
       <input type="text" id="searchInput" class="search-input"
         placeholder="Type a country name…" autocomplete="off"
@@ -261,6 +280,20 @@ body {
       <div style="height:110px;" class="skeleton"></div>
       <div style="height:110px;" class="skeleton"></div>
     </div>
+  </div>
+
+  <!-- ── Zone 3: Topic search callout ───────────────────────────── -->
+  <div class="topic-zone">
+    <a class="topic-card" href="../search/">
+      <span class="topic-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </span>
+      <span class="topic-card-text">
+        <span class="topic-card-title">Looking for a topic instead?</span>
+        <span class="topic-card-sub">Search all transport targets and measures across every country</span>
+      </span>
+      <span class="topic-card-arrow">&rarr;</span>
+    </a>
   </div>
 
 </div>
