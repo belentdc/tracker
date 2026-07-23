@@ -79,6 +79,21 @@ h1 { font-size: 1.7rem; font-weight: 800; color: var(--ct-navy, #003D5C); margin
 footer { margin-top:2.5rem; font-size:.78rem; color:var(--ct-muted,#6B7280); }
 footer a { color: var(--ct-teal,#00A4BD); }
 </style>
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.sutp.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '16']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
 </head>
 <body>
 <div class="wrap">
@@ -116,7 +131,8 @@ footer a { color: var(--ct-teal,#00A4BD); }
   <div class="meta" id="meta"></div>
   <div id="results"><div class="empty">Loading index…</div></div>
 
-  </div>
+  <footer>Data: GIZ-SLOCAT Transport Tracker database | <a href="https://portal.transport-data.org/@giz/gizslocat-transport-climate-tracker?org=GIZ&dataset=gizslocat-transport-climate-tracker" target="_blank" rel="noopener">Download dataset</a> </footer>
+</div>
 
 <script>
 (function(){
