@@ -12,6 +12,7 @@
 
 body {
   font-family: var(--ct-font);
+  background: #fff;
   color: var(--ct-text);
 }
 
@@ -155,7 +156,7 @@ body {
 .featured-card {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; gap: 0.4rem;
-  aspect-ratio: 1 / 1;
+  width: 100%; max-width: 150px; aspect-ratio: 1 / 1; margin: 0 auto;
   text-decoration: none;
   background: var(--ct-surface); border: 1px solid var(--ct-border);
   border-radius: var(--ct-radius-md); padding: 0.75rem 0.5rem;
@@ -301,9 +302,9 @@ body {
     <div class="recent-zone">
       <p class="zone-label">Recently updated commitments</p>
       <div class="recent-list" id="featuredGrid">
-        <div style="aspect-ratio:1/1;" class="skeleton"></div>
-        <div style="aspect-ratio:1/1;" class="skeleton"></div>
-        <div style="aspect-ratio:1/1;" class="skeleton"></div>
+        <div style="aspect-ratio:1/1;max-width:150px;margin:0 auto;width:100%;" class="skeleton"></div>
+        <div style="aspect-ratio:1/1;max-width:150px;margin:0 auto;width:100%;" class="skeleton"></div>
+        <div style="aspect-ratio:1/1;max-width:150px;margin:0 auto;width:100%;" class="skeleton"></div>
       </div>
     </div>
 
@@ -559,8 +560,14 @@ initQuickSearch();
 function sendHeight() {
     window.parent.postMessage({ type: "ndcTrackerHeight", height: document.body.scrollHeight }, "*");
 }
+function sendHeightDebounced() {
+    clearTimeout(window._sendHeightTimer);
+    window._sendHeightTimer = setTimeout(sendHeight, 150);
+}
+sendHeight();
 window.addEventListener("load", sendHeight);
-new ResizeObserver(sendHeight).observe(document.body);
+window.addEventListener("resize", sendHeightDebounced);
+new ResizeObserver(sendHeightDebounced).observe(document.body);
 
 })();
 </script>
