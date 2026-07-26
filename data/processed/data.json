@@ -1,19 +1,19 @@
 {
   "metadata": {
     "total_possible_ndcs": 169,
-    "last_updated": "2026-07-23",
+    "last_updated": "2026-07-24",
     "data_source": "GIZ-SLOCAT Transport Tracker Database",
     "gen_counts": {
       "gen1": {
-        "active": 7,
-        "archived": 163
+        "active": 5,
+        "archived": 165
       },
       "gen2": {
-        "active": 44,
-        "archived": 113
+        "active": 39,
+        "archived": 118
       },
       "gen3": {
-        "active": 118,
+        "active": 125,
         "archived": 6
       },
       "latest": {
@@ -113,12 +113,12 @@
       "gen3": {
         "name": "Third Generation",
         "period": "2024–ongoing",
-        "total_submitted": 118,
-        "with_transport": 68,
-        "with_ghg_transport": 35,
+        "total_submitted": 125,
+        "with_transport": 70,
+        "with_ghg_transport": 36,
         "regions": {
           "Asia": {
-            "total": 32,
+            "total": 33,
             "with_transport": 15,
             "with_ghg_transport": 7
           },
@@ -128,14 +128,14 @@
             "with_ghg_transport": 7
           },
           "Latin America and the Caribbean": {
-            "total": 24,
+            "total": 26,
             "with_transport": 17,
             "with_ghg_transport": 6
           },
           "Africa": {
-            "total": 32,
-            "with_transport": 22,
-            "with_ghg_transport": 11
+            "total": 36,
+            "with_transport": 24,
+            "with_ghg_transport": 12
           },
           "Europe": {
             "total": 15,
@@ -611,13 +611,17 @@
         "iso3": "GUY",
         "name": "Guyana",
         "region": "Latin America and the Caribbean",
-        "latest_active_gen": "gen1",
+        "latest_active_gen": "gen3",
         "latest_has_transport": false,
         "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
             "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
           }
         },
         "had_transport_previously": false,
@@ -695,7 +699,7 @@
         "iso3": "CMR",
         "name": "Cameroon",
         "region": "Africa",
-        "latest_active_gen": "gen2",
+        "latest_active_gen": "gen3",
         "latest_has_transport": false,
         "latest_has_ghg_transport": false,
         "generations": {
@@ -706,6 +710,10 @@
           "gen2": {
             "has_transport": false,
             "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
           }
         },
         "had_transport_previously": false,
@@ -1667,13 +1675,17 @@
         "iso3": "DZA",
         "name": "Algeria",
         "region": "Africa",
-        "latest_active_gen": "gen1",
+        "latest_active_gen": "gen3",
         "latest_has_transport": false,
         "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
             "has_transport": false,
             "version": "NDC 1.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
           }
         },
         "had_transport_previously": false,
@@ -2935,9 +2947,9 @@
         "iso3": "MWI",
         "name": "Malawi",
         "region": "Africa",
-        "latest_active_gen": "gen2",
+        "latest_active_gen": "gen3",
         "latest_has_transport": true,
-        "latest_has_ghg_transport": false,
+        "latest_has_ghg_transport": true,
         "generations": {
           "gen1": {
             "has_transport": true,
@@ -2946,6 +2958,10 @@
           "gen2": {
             "has_transport": true,
             "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
           }
         },
         "had_transport_previously": false,
@@ -3043,7 +3059,7 @@
         "iso3": "TLS",
         "name": "Timor-Leste",
         "region": "Asia",
-        "latest_active_gen": "gen2",
+        "latest_active_gen": "gen3",
         "latest_has_transport": false,
         "latest_has_ghg_transport": false,
         "generations": {
@@ -3054,6 +3070,10 @@
           "gen2": {
             "has_transport": false,
             "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
           }
         },
         "had_transport_previously": false,
@@ -3171,7 +3191,7 @@
         "iso3": "DOM",
         "name": "Dominican Republic",
         "region": "Latin America and the Caribbean",
-        "latest_active_gen": "gen2",
+        "latest_active_gen": "gen3",
         "latest_has_transport": false,
         "latest_has_ghg_transport": false,
         "generations": {
@@ -3182,6 +3202,10 @@
           "gen2": {
             "has_transport": false,
             "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": false,
+            "version": "NDC 3.0"
           }
         },
         "had_transport_previously": false,
@@ -3215,8 +3239,8 @@
         "iso3": "BEN",
         "name": "Benin",
         "region": "Africa",
-        "latest_active_gen": "gen2",
-        "latest_has_transport": false,
+        "latest_active_gen": "gen3",
+        "latest_has_transport": true,
         "latest_has_ghg_transport": false,
         "generations": {
           "gen1": {
@@ -3226,6 +3250,10 @@
           "gen2": {
             "has_transport": false,
             "version": "NDC 2.0"
+          },
+          "gen3": {
+            "has_transport": true,
+            "version": "NDC 3.0"
           }
         },
         "had_transport_previously": false,
@@ -4596,74 +4624,74 @@
     "categories_latest": {
       "Alternative fuels": {
         "countries_count": 90,
-        "mentions": 172
+        "mentions": 173
       },
       "Energy efficiency": {
-        "countries_count": 98,
+        "countries_count": 99,
         "mentions": 195
       },
       "Mode shift and demand management": {
         "countries_count": 114,
-        "mentions": 349
+        "mentions": 352
       },
       "Transport system improvements": {
-        "countries_count": 88,
-        "mentions": 232
+        "countries_count": 89,
+        "mentions": 233
       },
       "Electrification": {
-        "countries_count": 118,
-        "mentions": 312
+        "countries_count": 122,
+        "mentions": 325
       },
       "Aviation and maritime": {
-        "countries_count": 42,
-        "mentions": 105
+        "countries_count": 45,
+        "mentions": 109
       }
     },
     "cat_latest_gen_breakdown": {
       "Alternative fuels": {
-        "gen1_count": 4,
-        "gen2_count": 22,
-        "gen3_count": 64,
-        "mentions": 172
+        "gen1_count": 3,
+        "gen2_count": 20,
+        "gen3_count": 67,
+        "mentions": 173
       },
       "Energy efficiency": {
         "gen1_count": 3,
-        "gen2_count": 24,
-        "gen3_count": 71,
+        "gen2_count": 21,
+        "gen3_count": 75,
         "mentions": 195
       },
       "Mode shift and demand management": {
         "gen1_count": 3,
-        "gen2_count": 27,
-        "gen3_count": 84,
-        "mentions": 349
+        "gen2_count": 23,
+        "gen3_count": 88,
+        "mentions": 352
       },
       "Transport system improvements": {
         "gen1_count": 2,
-        "gen2_count": 23,
-        "gen3_count": 63,
-        "mentions": 232
+        "gen2_count": 20,
+        "gen3_count": 67,
+        "mentions": 233
       },
       "Electrification": {
         "gen1_count": 2,
-        "gen2_count": 23,
-        "gen3_count": 93,
-        "mentions": 312
+        "gen2_count": 21,
+        "gen3_count": 99,
+        "mentions": 325
       },
       "Aviation and maritime": {
         "gen1_count": 0,
         "gen2_count": 6,
-        "gen3_count": 36,
-        "mentions": 105
+        "gen3_count": 39,
+        "mentions": 109
       }
     },
     "cat_gen_active_archived": {
       "gen1": {
         "Alternative fuels": {
-          "active_countries": 4,
-          "archived_countries": 44,
-          "active_mentions": 6,
-          "archived_mentions": 50
+          "active_countries": 3,
+          "archived_countries": 45,
+          "active_mentions": 5,
+          "archived_mentions": 51
         },
         "Energy efficiency": {
           "active_countries": 3,
@@ -4698,34 +4726,34 @@
       },
       "gen2": {
         "Mode shift and demand management": {
-          "active_countries": 27,
-          "archived_countries": 69,
-          "active_mentions": 71,
-          "archived_mentions": 219
+          "active_countries": 23,
+          "archived_countries": 73,
+          "active_mentions": 60,
+          "archived_mentions": 230
         },
         "Transport system improvements": {
-          "active_countries": 23,
-          "archived_countries": 45,
-          "active_mentions": 55,
-          "archived_mentions": 119
+          "active_countries": 20,
+          "archived_countries": 48,
+          "active_mentions": 52,
+          "archived_mentions": 122
         },
         "Energy efficiency": {
-          "active_countries": 24,
-          "archived_countries": 45,
-          "active_mentions": 50,
-          "archived_mentions": 97
+          "active_countries": 21,
+          "archived_countries": 48,
+          "active_mentions": 45,
+          "archived_mentions": 102
         },
         "Alternative fuels": {
-          "active_countries": 22,
-          "archived_countries": 47,
-          "active_mentions": 47,
-          "archived_mentions": 71
+          "active_countries": 20,
+          "archived_countries": 49,
+          "active_mentions": 44,
+          "archived_mentions": 74
         },
         "Electrification": {
-          "active_countries": 23,
-          "archived_countries": 66,
-          "active_mentions": 42,
-          "archived_mentions": 135
+          "active_countries": 21,
+          "archived_countries": 68,
+          "active_mentions": 39,
+          "archived_mentions": 138
         },
         "Aviation and maritime": {
           "active_countries": 6,
@@ -4736,39 +4764,39 @@
       },
       "gen3": {
         "Alternative fuels": {
-          "active_countries": 64,
+          "active_countries": 67,
           "archived_countries": 2,
-          "active_mentions": 119,
+          "active_mentions": 124,
           "archived_mentions": 2
         },
         "Electrification": {
-          "active_countries": 93,
+          "active_countries": 99,
           "archived_countries": 3,
-          "active_mentions": 268,
+          "active_mentions": 284,
           "archived_mentions": 3
         },
         "Energy efficiency": {
-          "active_countries": 71,
+          "active_countries": 75,
           "archived_countries": 2,
-          "active_mentions": 140,
+          "active_mentions": 145,
           "archived_mentions": 2
         },
         "Mode shift and demand management": {
-          "active_countries": 84,
+          "active_countries": 88,
           "archived_countries": 2,
-          "active_mentions": 275,
+          "active_mentions": 289,
           "archived_mentions": 3
         },
         "Transport system improvements": {
-          "active_countries": 63,
+          "active_countries": 67,
           "archived_countries": 1,
-          "active_mentions": 175,
+          "active_mentions": 179,
           "archived_mentions": 4
         },
         "Aviation and maritime": {
-          "active_countries": 36,
+          "active_countries": 39,
           "archived_countries": 0,
-          "active_mentions": 92,
+          "active_mentions": 96,
           "archived_mentions": 0
         }
       }
@@ -4792,6 +4820,13 @@
       "DZA": {
         "gen1": {
           "Alternative fuels": 1
+        },
+        "gen3": {
+          "Mode shift and demand management": 4,
+          "Electrification": 5,
+          "Alternative fuels": 1,
+          "Energy efficiency": 1,
+          "Aviation and maritime": 2
         }
       },
       "AND": {
@@ -4976,6 +5011,12 @@
         "gen2": {
           "Transport system improvements": 1,
           "Mode shift and demand management": 2
+        },
+        "gen3": {
+          "Electrification": 2,
+          "Mode shift and demand management": 1,
+          "Aviation and maritime": 1,
+          "Transport system improvements": 1
         }
       },
       "BTN": {
@@ -5122,6 +5163,12 @@
           "Energy efficiency": 2,
           "Electrification": 1,
           "Mode shift and demand management": 2
+        },
+        "gen3": {
+          "Alternative fuels": 2,
+          "Energy efficiency": 1,
+          "Mode shift and demand management": 6,
+          "Electrification": 2
         }
       },
       "CAN": {
@@ -5318,6 +5365,13 @@
           "Electrification": 2,
           "Alternative fuels": 1,
           "Energy efficiency": 2
+        },
+        "gen3": {
+          "Mode shift and demand management": 3,
+          "Transport system improvements": 1,
+          "Energy efficiency": 2,
+          "Aviation and maritime": 1,
+          "Electrification": 1
         }
       },
       "ECU": {
@@ -5765,6 +5819,11 @@
           "Mode shift and demand management": 1,
           "Transport system improvements": 1,
           "Alternative fuels": 2
+        },
+        "gen3": {
+          "Electrification": 5,
+          "Alternative fuels": 2,
+          "Transport system improvements": 1
         }
       },
       "MDV": {
@@ -6513,6 +6572,11 @@
         },
         "gen2": {
           "Energy efficiency": 1,
+          "Transport system improvements": 1
+        },
+        "gen3": {
+          "Energy efficiency": 1,
+          "Electrification": 1,
           "Transport system improvements": 1
         }
       },
@@ -7294,9 +7358,6 @@
         "Alternative fuels": 1,
         "Electrification": 1
       },
-      "DZA": {
-        "Alternative fuels": 1
-      },
       "ATG": {
         "Mode shift and demand management": 1,
         "Alternative fuels": 2,
@@ -7308,11 +7369,6 @@
         "Transport system improvements": 4,
         "Alternative fuels": 5,
         "Electrification": 2,
-        "Mode shift and demand management": 2
-      },
-      "CMR": {
-        "Energy efficiency": 2,
-        "Electrification": 1,
         "Mode shift and demand management": 2
       },
       "COK": {
@@ -7332,12 +7388,6 @@
         "Aviation and maritime": 2,
         "Transport system improvements": 1,
         "Energy efficiency": 1
-      },
-      "DOM": {
-        "Mode shift and demand management": 6,
-        "Electrification": 2,
-        "Alternative fuels": 1,
-        "Energy efficiency": 2
       },
       "EGY": {
         "Transport system improvements": 4,
@@ -7384,11 +7434,6 @@
         "Transport system improvements": 1,
         "Electrification": 1,
         "Alternative fuels": 1
-      },
-      "MWI": {
-        "Mode shift and demand management": 1,
-        "Transport system improvements": 1,
-        "Alternative fuels": 2
       },
       "MLI": {
         "Alternative fuels": 1
@@ -7447,10 +7492,6 @@
         "Alternative fuels": 1,
         "Transport system improvements": 4,
         "Mode shift and demand management": 2
-      },
-      "TLS": {
-        "Energy efficiency": 1,
-        "Transport system improvements": 1
       },
       "TGO": {
         "Electrification": 1,
@@ -7533,10 +7574,6 @@
         "Electrification": 1,
         "Mode shift and demand management": 3,
         "Transport system improvements": 1
-      },
-      "BEN": {
-        "Transport system improvements": 1,
-        "Mode shift and demand management": 2
       },
       "URY": {
         "Alternative fuels": 4,
@@ -8123,6 +8160,42 @@
         "Transport system improvements": 1,
         "Energy efficiency": 2
       },
+      "CMR": {
+        "Alternative fuels": 2,
+        "Energy efficiency": 1,
+        "Mode shift and demand management": 6,
+        "Electrification": 2
+      },
+      "DOM": {
+        "Mode shift and demand management": 3,
+        "Transport system improvements": 1,
+        "Energy efficiency": 2,
+        "Aviation and maritime": 1,
+        "Electrification": 1
+      },
+      "TLS": {
+        "Energy efficiency": 1,
+        "Electrification": 1,
+        "Transport system improvements": 1
+      },
+      "BEN": {
+        "Electrification": 2,
+        "Mode shift and demand management": 1,
+        "Aviation and maritime": 1,
+        "Transport system improvements": 1
+      },
+      "MWI": {
+        "Electrification": 5,
+        "Alternative fuels": 2,
+        "Transport system improvements": 1
+      },
+      "DZA": {
+        "Mode shift and demand management": 4,
+        "Electrification": 5,
+        "Alternative fuels": 1,
+        "Energy efficiency": 1,
+        "Aviation and maritime": 2
+      },
       "AUT": {
         "Aviation and maritime": 2,
         "Mode shift and demand management": 5,
@@ -8328,6 +8401,10 @@
       "DZA": {
         "gen1": {
           "Improve": 1
+        },
+        "gen3": {
+          "Shift": 3,
+          "Improve": 10
         }
       },
       "AND": {
@@ -8473,6 +8550,10 @@
         "gen2": {
           "Improve": 1,
           "Shift": 2
+        },
+        "gen3": {
+          "Improve": 3,
+          "Shift": 2
         }
       },
       "BTN": {
@@ -8588,6 +8669,10 @@
         "gen2": {
           "Improve": 3,
           "Shift": 2
+        },
+        "gen3": {
+          "Improve": 5,
+          "Shift": 6
         }
       },
       "CAN": {
@@ -8739,6 +8824,10 @@
       "DOM": {
         "gen2": {
           "Shift": 6,
+          "Improve": 5
+        },
+        "gen3": {
+          "Shift": 3,
           "Improve": 5
         }
       },
@@ -9120,6 +9209,10 @@
         "gen2": {
           "Shift": 2,
           "Improve": 2
+        },
+        "gen3": {
+          "Improve": 7,
+          "Shift": 1
         }
       },
       "MDV": {
@@ -9735,6 +9828,10 @@
           "Improve": 1,
           "Avoid": 1,
           "Shift": 1
+        },
+        "gen3": {
+          "Improve": 2,
+          "Shift": 1
         }
       },
       "TGO": {
@@ -10034,9 +10131,6 @@
         "Shift": 3,
         "Improve": 3
       },
-      "DZA": {
-        "Improve": 1
-      },
       "ATG": {
         "Avoid": 1,
         "Improve": 5
@@ -10045,10 +10139,6 @@
         "Improve": 13,
         "Avoid": 2,
         "Shift": 3
-      },
-      "CMR": {
-        "Improve": 3,
-        "Shift": 2
       },
       "COK": {
         "Improve": 3
@@ -10061,10 +10151,6 @@
       "DMA": {
         "Improve": 22,
         "Shift": 1
-      },
-      "DOM": {
-        "Shift": 6,
-        "Improve": 5
       },
       "EGY": {
         "Shift": 6,
@@ -10098,10 +10184,6 @@
       },
       "LAO": {
         "Shift": 3,
-        "Improve": 2
-      },
-      "MWI": {
-        "Shift": 2,
         "Improve": 2
       },
       "MLI": {
@@ -10147,11 +10229,6 @@
         "Improve": 5,
         "Shift": 5,
         "Avoid": 1
-      },
-      "TLS": {
-        "Improve": 1,
-        "Avoid": 1,
-        "Shift": 1
       },
       "TGO": {
         "Improve": 5,
@@ -10210,10 +10287,6 @@
         "Improve": 4,
         "Avoid": 1,
         "Shift": 1
-      },
-      "BEN": {
-        "Improve": 1,
-        "Shift": 2
       },
       "URY": {
         "Improve": 8,
@@ -10617,12 +10690,34 @@
       "IND": {
         "Shift": 1,
         "Improve": 3
+      },
+      "CMR": {
+        "Improve": 5,
+        "Shift": 6
+      },
+      "DOM": {
+        "Shift": 3,
+        "Improve": 5
+      },
+      "TLS": {
+        "Improve": 2,
+        "Shift": 1
+      },
+      "BEN": {
+        "Improve": 3,
+        "Shift": 2
+      },
+      "MWI": {
+        "Improve": 7,
+        "Shift": 1
+      },
+      "DZA": {
+        "Shift": 3,
+        "Improve": 10
       }
     },
     "latest_gen_map": {
-      "GUY": "gen1",
       "COK": "gen1",
-      "DZA": "gen1",
       "AFG": "gen1",
       "SMR": "gen1",
       "SYR": "gen1",
@@ -10630,13 +10725,11 @@
       "GRD": "gen2",
       "PNG": "gen2",
       "SEN": "gen1",
-      "DOM": "gen2",
       "ATG": "gen2",
       "PHL": "gen2",
       "MKD": "gen2",
       "BIH": "gen2",
       "ISR": "gen2",
-      "MWI": "gen2",
       "TZA": "gen2",
       "MMR": "gen2",
       "LAO": "gen2",
@@ -10645,12 +10738,10 @@
       "PSE": "gen2",
       "ALB": "gen2",
       "TGO": "gen2",
-      "BEN": "gen2",
       "TCD": "gen2",
       "KNA": "gen2",
       "ARG": "gen2",
       "GHA": "gen2",
-      "CMR": "gen2",
       "MLI": "gen2",
       "GNB": "gen2",
       "KWT": "gen2",
@@ -10663,7 +10754,6 @@
       "UGA": "gen2",
       "SDN": "gen2",
       "GNQ": "gen2",
-      "TLS": "gen2",
       "VNM": "gen2",
       "TKM": "gen2",
       "KIR": "gen2",
@@ -10789,6 +10879,13 @@
       "GEO": "gen3",
       "COM": "gen3",
       "IND": "gen3",
+      "CMR": "gen3",
+      "DOM": "gen3",
+      "TLS": "gen3",
+      "BEN": "gen3",
+      "MWI": "gen3",
+      "GUY": "gen3",
+      "DZA": "gen3",
       "AUT": "gen3",
       "BEL": "gen3",
       "BGR": "gen3",

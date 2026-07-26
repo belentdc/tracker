@@ -4775,7 +4775,7 @@
             "version": "NDC 1.0",
             "generation": "gen1",
             "date": "05.2016",
-            "status": "Active",
+            "status": "Archived",
             "has_transport_target": false,
             "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Guyana%27s%20revised%20NDC%20-%20Final.pdf",
@@ -4794,7 +4794,24 @@
           }
         ],
         "gen2": [],
-        "gen3": []
+        "gen3": [
+          {
+            "doc_id": 85070,
+            "country_code": "GUY",
+            "country_name": "Guyana",
+            "doc_type": "NDC",
+            "version": "NDC 3.0",
+            "generation": "gen3",
+            "date": "07.2026",
+            "status": "Active",
+            "has_transport_target": false,
+            "has_netzero_target": false,
+            "url": "Guyanas NDC 2025-2035 V2.pdf",
+            "targets": [],
+            "mitigation_measures": {},
+            "adaptation_measures": {}
+          }
+        ]
       }
     },
     "NOR": {
@@ -5322,7 +5339,7 @@
             "version": "NDC 2.0",
             "generation": "gen2",
             "date": "11.2021",
-            "status": "Active",
+            "status": "Archived",
             "has_transport_target": false,
             "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/CDN%20r%C3%A9vis%C3%A9e%20CMR%20finale%20sept%202021.pdf",
@@ -5405,7 +5422,141 @@
             }
           }
         ],
-        "gen3": []
+        "gen3": [
+          {
+            "doc_id": 84919,
+            "country_code": "CMR",
+            "country_name": "Cameroon",
+            "doc_type": "NDC",
+            "version": "NDC 3.0",
+            "generation": "gen3",
+            "date": "06.2026",
+            "status": "Active",
+            "has_transport_target": false,
+            "has_netzero_target": false,
+            "url": "https://unfccc.int/sites/default/files/2026-06/CDN%203.0%20CMR%20FINAL.pdf",
+            "targets": [
+              {
+                "target_area": "Net zero target",
+                "target_scope": "Overall mitigation target",
+                "ghg_target": "GHG",
+                "target_type": "GHG: Fixed level",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2050",
+                "content": "la réalisation de ses objectifs de neutralité carbone et de résilience d'ici 2050",
+                "page": "28"
+              }
+            ],
+            "mitigation_measures": {
+              "Alternative fuels": [
+                {
+                  "quote": "Favorisation de l'achat de véhicules peu polluants",
+                  "purpose": "Promote alternative fuels",
+                  "instrument": "Low emission vehicle purchase incentives",
+                  "asi": "Improve",
+                  "modes": "Road",
+                  "page": "17"
+                },
+                {
+                  "quote": "Mise en circulation des voitures fontionants au gaz naturel",
+                  "purpose": "Promote alternative fuels",
+                  "instrument": "LPG/CNG/LNG support measures",
+                  "asi": "Improve",
+                  "modes": "Road",
+                  "page": "23"
+                }
+              ],
+              "Energy efficiency": [
+                {
+                  "quote": "mise au rebut des véhicules plus polluants via des normes, incitations ou obligations",
+                  "purpose": "Promote vehicle improvements",
+                  "instrument": "Vehicle scrappage scheme",
+                  "asi": "Improve",
+                  "modes": "Road",
+                  "page": "17"
+                }
+              ],
+              "Mode shift and demand management": [
+                {
+                  "quote": "Promotion des modes de transport à faible émission carbone",
+                  "purpose": "Transport demand management",
+                  "instrument": "Transport demand management measures",
+                  "asi": "Shift",
+                  "modes": "Mode: Not defined",
+                  "page": "17"
+                },
+                {
+                  "quote": "Services d'autobus Express",
+                  "purpose": "Public transport improvement",
+                  "instrument": "Express lanes/ public transport priority",
+                  "asi": "Shift",
+                  "modes": "Bus",
+                  "page": "17"
+                },
+                {
+                  "quote": "Bus à Transite Rapide (BRT)",
+                  "purpose": "Public transport improvement",
+                  "instrument": "BRT",
+                  "asi": "Shift",
+                  "modes": "Bus",
+                  "page": "23"
+                },
+                {
+                  "quote": "Substitution de transport individuel par le transport de massse (trains, covoiturage etc.)",
+                  "purpose": "Transport demand management",
+                  "instrument": "Transport demand management measures",
+                  "asi": "Shift",
+                  "modes": "Rail",
+                  "page": "23"
+                },
+                {
+                  "quote": "Substitution de transport individuel par le transport de massse (trains, covoiturage etc.)",
+                  "purpose": "Digital solutions",
+                  "instrument": "Shared mobility",
+                  "asi": "Shift",
+                  "modes": "Cars",
+                  "page": "23"
+                },
+                {
+                  "quote": "Mise en place d'un système de transport multimodal bas carbone en milieu urbain",
+                  "purpose": "Public transport improvement",
+                  "instrument": "Public transport integration and expansion",
+                  "asi": "Shift",
+                  "modes": "Mode: Not defined",
+                  "page": "38"
+                }
+              ],
+              "Electrification": [
+                {
+                  "quote": "Substitution de voitures personnelles à énergies fossiles aux voitures électriques",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Private cars",
+                  "page": "23"
+                },
+                {
+                  "quote": "Mise en circulation des autobus électriques de 18 m",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Bus",
+                  "page": "23"
+                }
+              ]
+            },
+            "adaptation_measures": {
+              "Structural and Technical": [
+                {
+                  "quote": "Construction des infrastructures résilientes au climat et renforcement de la résilience des systèmes et des corridors de transport nationaux, (régionaux, urbains et ruraux)",
+                  "measure": "Transport Infrastructure Resilience",
+                  "modes": "Road",
+                  "page": "38"
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     "COK": {
@@ -19512,7 +19663,7 @@
             "version": "NDC 1.0",
             "generation": "gen1",
             "date": "10.2016",
-            "status": "Active",
+            "status": "Archived",
             "has_transport_target": false,
             "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Algérie%20-INDC-%2003%20septembre%202015.pdf",
@@ -19542,7 +19693,230 @@
           }
         ],
         "gen2": [],
-        "gen3": []
+        "gen3": [
+          {
+            "doc_id": 85171,
+            "country_code": "DZA",
+            "country_name": "Algeria",
+            "doc_type": "NDC",
+            "version": "NDC 3.0",
+            "generation": "gen3",
+            "date": "06.2026",
+            "status": "Active",
+            "has_transport_target": false,
+            "has_netzero_target": false,
+            "url": "https://unfccc.int/sites/default/files/2026-06/CDN%20Algeria.pdf",
+            "targets": [],
+            "mitigation_measures": {
+              "Mode shift and demand management": [
+                {
+                  "quote": "l'extension du métro d'Alger",
+                  "purpose": "Public transport improvement",
+                  "instrument": "Public transport integration and expansion",
+                  "asi": "Shift",
+                  "modes": "Transit rail",
+                  "page": "3"
+                },
+                {
+                  "quote": "la construction de lignes de tramway dans 7 grandes villes",
+                  "purpose": "Public transport improvement",
+                  "instrument": "Public transport integration and expansion",
+                  "asi": "Shift",
+                  "modes": "Transit rail",
+                  "page": "3"
+                },
+                {
+                  "quote": "la modernisation et l'électrification du transport ferroviaire",
+                  "purpose": "Public transport improvement",
+                  "instrument": "General public transport improvement",
+                  "asi": "Improve",
+                  "modes": "Rail",
+                  "page": "3"
+                },
+                {
+                  "quote": "Extension et modernisation des réseaux de transport collectif (métro, tramways, téléphériques, bus électriques, ferroviaire)",
+                  "purpose": "Public transport improvement",
+                  "instrument": "Public transport integration and expansion",
+                  "asi": "Shift",
+                  "modes": "Bus, Rail",
+                  "page": "9"
+                }
+              ],
+              "Electrification": [
+                {
+                  "quote": "la modernisation et l'électrification du transport ferroviaire",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Rail",
+                  "page": "3"
+                },
+                {
+                  "quote": "Introduction progressive de la mobilité électrique",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Road",
+                  "page": "3"
+                },
+                {
+                  "quote": "le développement d'infrastructures de recharge",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "EV charging infrastructure measures",
+                  "asi": "Improve",
+                  "modes": "Road",
+                  "page": "3"
+                },
+                {
+                  "quote": "de mécanismes d'incitation financière pour favoriser leur adoption",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "EV purchase incentives",
+                  "asi": "Improve",
+                  "modes": "Road",
+                  "page": "9"
+                },
+                {
+                  "quote": "bus électriques",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Bus",
+                  "page": "9"
+                }
+              ],
+              "Alternative fuels": [
+                {
+                  "quote": "Promotion du GPL carburant (Sirghaz) pour le parc automobile, avec des subventions importantes du combustible, des équipements de conversion et l'ouverture de points de distribution sur tout le territoire",
+                  "purpose": "Promote alternative fuels",
+                  "instrument": "LPG/CNG/LNG support measures",
+                  "asi": "Improve",
+                  "modes": "Cars",
+                  "page": "3"
+                }
+              ],
+              "Energy efficiency": [
+                {
+                  "quote": "Amélioration de l'efficacité énergétique du parc de véhicules thermiques existants Normes renforcées,renouvellement du parc et l'adoption de technologies plus performantes (moteurs efficients, carburants alternatifs)",
+                  "purpose": "Promote vehicle improvements",
+                  "instrument": "Vehicle efficiency standards",
+                  "asi": "Improve",
+                  "modes": "Road",
+                  "page": "9"
+                }
+              ],
+              "Aviation and maritime": [
+                {
+                  "quote": "Optimisation de la navigation maritime ... pour une meilleure efficacité énergétique.",
+                  "purpose": "Promote improvements in shipping",
+                  "instrument": "Ship efficiency improvements",
+                  "asi": "Improve",
+                  "modes": "Water",
+                  "page": "9"
+                },
+                {
+                  "quote": "Optimisation de la navigation ... aérienne pour une meilleure efficacité énergétique.",
+                  "purpose": "Promote improvements in aviation",
+                  "instrument": "General aviation improvements",
+                  "asi": "Improve",
+                  "modes": "Aviation",
+                  "page": "9"
+                }
+              ]
+            },
+            "adaptation_measures": {
+              "Institutional and Regulatory": [
+                {
+                  "quote": "Intégration de critères de résilience climatique dans les infrastructures de transport, l'urbanisme et l'aménagement du territoire",
+                  "measure": "Transport Planning",
+                  "modes": "Road",
+                  "page": "16"
+                },
+                {
+                  "quote": "Prise en compte des impacts des changements climatiques dans les cahiers des charges techniques et les normes de construction",
+                  "measure": "Design Standards and updates",
+                  "modes": "Road",
+                  "page": "35"
+                }
+              ],
+              "Structural and Technical": [
+                {
+                  "quote": "Planification d'infrastructures résilientes au climat (routes, ponts, tunnels)",
+                  "measure": "Transport Infrastructure Resilience",
+                  "modes": "Road",
+                  "page": "35"
+                },
+                {
+                  "quote": "Réalisation d'études de vulnérabilité des infrastructures de base face aux inondations, glissements de terrain, canicules et tempêtes",
+                  "measure": "Risk assessment",
+                  "modes": "Road",
+                  "page": "35"
+                },
+                {
+                  "quote": "Renforcement des digues et ouvrages de protection contre la montée du niveau de la mer et l'érosion côtière",
+                  "measure": "Transport Infrastructure Resilience",
+                  "modes": "Water",
+                  "page": "35"
+                },
+                {
+                  "quote": "Aménagement des pistes et aires de stationnement avec des revêtements résistants aux fortes chaleurs.",
+                  "measure": "Resilient transport technologies",
+                  "modes": "Aviation",
+                  "page": "35"
+                },
+                {
+                  "quote": "Mise en place de systèmes de drainage performants pour prévenir les inondations",
+                  "measure": "Transport Infrastructure Resilience",
+                  "modes": "Aviation",
+                  "page": "35"
+                },
+                {
+                  "quote": "Plantation des aménagements de protection contre l'érosion et l'ensablement.",
+                  "measure": "Transport Infrastructure Resilience",
+                  "modes": "Road",
+                  "page": "35"
+                },
+                {
+                  "quote": "Utilisation de matériaux innovants et durables adaptés aux conditions climatiques extrêmes (chaleurs, pluies intenses).",
+                  "measure": "Resilient transport technologies",
+                  "modes": "Road",
+                  "page": "35"
+                },
+                {
+                  "quote": "adapter les trajectoires, la consommation de carburant et les procédures opérationnelles afin de limiter les impacts des aléas climatiques sur l'aviation civile.",
+                  "measure": "Transport System Adaptation",
+                  "modes": "Aviation",
+                  "page": "36"
+                },
+                {
+                  "quote": "Renforcer les contrôles techniques des véhicules et navires pour améliorer la sécurité des transports et réduire la vulnérabilité aux conditions climatiques extrêmes.",
+                  "measure": "Repair and maintenance",
+                  "modes": "Road, Water",
+                  "page": "36"
+                },
+                {
+                  "quote": "Renforcement des infrastructures aéroportuaires et portuaires",
+                  "measure": "Transport Infrastructure Resilience",
+                  "modes": "Water, Aviation",
+                  "page": "36"
+                }
+              ],
+              "Informational and Educational": [
+                {
+                  "quote": "Moderniser les systèmes de prévision et de détection afin de renforcer la sécurité aérienne et d'assurer une meilleure gestion des aléas climatiques.",
+                  "measure": "Early warning & emergency planning",
+                  "modes": "Aviation",
+                  "page": "36"
+                },
+                {
+                  "quote": "Mise en place de la Carte de vigilance par l'ONM",
+                  "measure": "Early warning & emergency planning",
+                  "modes": "Mode: Not defined",
+                  "page": "36"
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     "TKM": {
@@ -34020,7 +34394,7 @@
             "version": "NDC 2.0",
             "generation": "gen2",
             "date": "07.2021",
-            "status": "Active",
+            "status": "Archived",
             "has_transport_target": true,
             "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Malawi%20Updated%20NDC%20July%202021%20submitted.pdf",
@@ -34106,7 +34480,313 @@
             }
           }
         ],
-        "gen3": []
+        "gen3": [
+          {
+            "doc_id": 85069,
+            "country_code": "MWI",
+            "country_name": "Malawi",
+            "doc_type": "NDC",
+            "version": "NDC 3.0",
+            "generation": "gen3",
+            "date": "07.2026",
+            "status": "Active",
+            "has_transport_target": true,
+            "has_netzero_target": false,
+            "url": "https://unfccc.int/sites/default/files/2026-07/NDC3.0%20Malawi_17June2026_Final%20Version.pdf",
+            "targets": [
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "Reduce ICE vehicle share to 98%",
+                "page": "33"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2035",
+                "content": "Reduce ICE vehicle share to 95%",
+                "page": "33"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2040",
+                "content": "Reduce ICE vehicle share to 94%",
+                "page": "33"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: Base year",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "When both unconditional and conditional measures are combined (UC+C), emissions could be reduced by 57% in 2030.",
+                "page": "31"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: Base year",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2035",
+                "content": "When both unconditional and conditional measures are combined (UC+C), emissions could be reduced by 2035 onward, representing the full mitigation potential of the sector.",
+                "page": "31"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "Increase electric cars by 1%",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2035",
+                "content": "Increase electric cars by 3%",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2040",
+                "content": "Increase electric cars by 4%",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Biofuel targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "bio ethanol production for blending with Petrol goal of 44 ML/Year",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Biofuel targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2035",
+                "content": "bio ethanol production for blending with Petrol goal of 61 ML/Year",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Biofuel targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2040",
+                "content": "bio ethanol production for blending with Petrol goal of 81 ML/Year",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Biofuel targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "bio diesel production for blending with diesel goal of 20 ML/Year",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Biofuel targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2035",
+                "content": "bio diesel production for blending with diesel goal of 38 ML/Year",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Biofuel targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2040",
+                "content": "bio diesel production for blending with diesel goal of 55 ML/Year",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "Increase electric two-wheelers by 4%",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2035",
+                "content": "Increase electric two-wheelers by 13%",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2040",
+                "content": "Increase electric two-wheelers by 14%",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "Increase electric three-wheelers by 1%",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2035",
+                "content": "Increase electric three-wheelers by 4%",
+                "page": "34"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2040",
+                "content": "Increase electric three-wheelers by 5%",
+                "page": "34"
+              }
+            ],
+            "mitigation_measures": {
+              "Electrification": [
+                {
+                  "quote": "Reducing the share of internal combustion engine vehicles ( ICEs )",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Road",
+                  "page": "33"
+                },
+                {
+                  "quote": "Introduce electric minibuses",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Informal transport",
+                  "page": "34"
+                },
+                {
+                  "quote": "Promoting electrification of two wheelers ( 2Ws )",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Two-/Three-wheelers",
+                  "page": "34"
+                },
+                {
+                  "quote": "Promoting electrification of two wheelers ( 3Ws )",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Two-/Three-wheelers",
+                  "page": "34"
+                },
+                {
+                  "quote": "Encouraging adoption of electric cars",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Cars",
+                  "page": "34"
+                }
+              ],
+              "Alternative fuels": [
+                {
+                  "quote": "Scale up domestic bio ethanol production for blending with Petrol",
+                  "purpose": "Promote alternative fuels",
+                  "instrument": "Biofuels support measures",
+                  "asi": "Improve",
+                  "modes": "Mode: Not defined",
+                  "page": "34"
+                },
+                {
+                  "quote": "Scale up domestic bio diesel production for blending with diesel",
+                  "purpose": "Promote alternative fuels",
+                  "instrument": "Biofuels support measures",
+                  "asi": "Improve",
+                  "modes": "Mode: Not defined",
+                  "page": "34"
+                }
+              ],
+              "Transport system improvements": [
+                {
+                  "quote": "In the transport sector, the modal shift from road to rail and increased ethanol and biodiesel blending support economic diversification, import substitution, and job creation, particularly in value chains such as sugarcane and jatropha production.",
+                  "purpose": "Freight efficiency improvements",
+                  "instrument": "Freight transport shifting to rail or inland waterways",
+                  "asi": "Shift",
+                  "modes": "Two-/Three-wheelers, Rail, Water, Aviation",
+                  "page": "71"
+                }
+              ]
+            },
+            "adaptation_measures": {
+              "Structural and Technical": [
+                {
+                  "quote": "Conduct Sector Climate Risk Vulnerability Assessment ( CRVA ) with a gender focus and a methodology of prioritizing adaptation investment in critical transport networks.",
+                  "measure": "Risk assessment",
+                  "modes": "Mode: Not defined",
+                  "page": "50"
+                }
+              ],
+              "Institutional and Regulatory": [
+                {
+                  "quote": "Revise the Road Public Act ( 2023 ) to integrate climate adaptation.",
+                  "measure": "Transport Planning",
+                  "modes": "Mode: Not defined",
+                  "page": "50"
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     "SRB": {
@@ -34649,7 +35329,7 @@
             "version": "NDC 2.0",
             "generation": "gen2",
             "date": "11.2022",
-            "status": "Active",
+            "status": "Archived",
             "has_transport_target": false,
             "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-11/Timor_Leste%20Updated%20NDC%202022_2030.pdf",
@@ -34699,7 +35379,64 @@
             }
           }
         ],
-        "gen3": []
+        "gen3": [
+          {
+            "doc_id": 84933,
+            "country_code": "TLS",
+            "country_name": "Timor-Leste",
+            "doc_type": "NDC",
+            "version": "NDC 3.0",
+            "generation": "gen3",
+            "date": "06.2026",
+            "status": "Active",
+            "has_transport_target": false,
+            "has_netzero_target": false,
+            "url": "Timor-Leste’s Nationally Determined Contribution 2026-2035",
+            "targets": [],
+            "mitigation_measures": {
+              "Energy efficiency": [
+                {
+                  "quote": "Timor-Leste adopted standards in Decree-Law No. 30/2011 that prohibits the import of light passenger and mixed vehicles that are more than 5 years old (from the date of their original manufacture to the date of import) ... This policy will be maintained to manage vehicle imports and revised as necessary in line with national climate policy objectives - Unconditional",
+                  "purpose": "Promote vehicle improvements",
+                  "instrument": "Vehicle restrictions (import, age, access, sale, taxation)",
+                  "asi": "Improve",
+                  "modes": "Cars",
+                  "page": "76"
+                }
+              ],
+              "Electrification": [
+                {
+                  "quote": "The government will promote EVs in private transport by proposing a regulatory environment in support of the electrification of rickshaws or tum-tums. These vehicles not only are the main form of transport but also provide jobs and livelihoods for many families.",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Two-/Three-wheelers",
+                  "page": "76"
+                }
+              ],
+              "Transport system improvements": [
+                {
+                  "quote": "A transport master plan will be developed to build sector resilience and reduce emissions derived from the transport sector, creating policy entry points for promoting and supporting climate-friendly public transport options and non-motorised transport solutions.",
+                  "purpose": "Enhance comprehensive transport planning",
+                  "instrument": "National mobility plans",
+                  "asi": "Shift",
+                  "modes": "Mode: Not defined",
+                  "page": "76"
+                }
+              ]
+            },
+            "adaptation_measures": {
+              "Institutional and Regulatory": [
+                {
+                  "quote": "Integrating mobility considerations into sectoral adaptation plans for housing, health, and livelihoods.",
+                  "measure": "Relocation",
+                  "modes": "Mode: Not defined",
+                  "page": "80"
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     "PSE": {
@@ -36008,7 +36745,7 @@
             "version": "NDC 2.0",
             "generation": "gen2",
             "date": "12.2020",
-            "status": "Active",
+            "status": "Archived",
             "has_transport_target": false,
             "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Dominican%20Republic%20First%20NDC%20(Updated%20Submission).pdf",
@@ -36154,7 +36891,99 @@
             }
           }
         ],
-        "gen3": []
+        "gen3": [
+          {
+            "doc_id": 84930,
+            "country_code": "DOM",
+            "country_name": "Dominican Republic",
+            "doc_type": "NDC",
+            "version": "NDC 3.0",
+            "generation": "gen3",
+            "date": "06.2026",
+            "status": "Active",
+            "has_transport_target": false,
+            "has_netzero_target": false,
+            "url": "*NDC_3.0_Versión Final_1303_conAnexos_REV_2.pdf",
+            "targets": [],
+            "mitigation_measures": {
+              "Mode shift and demand management": [
+                {
+                  "quote": "Nuevos corredores de autobuses con tecnologías más eficientes a nivel nacional (174 buses; ~22,925.66 t CO2eq/yr)",
+                  "purpose": "Public transport improvement",
+                  "instrument": "Public transport integration and expansion",
+                  "asi": "Shift",
+                  "modes": "Bus",
+                  "page": "40"
+                },
+                {
+                  "quote": "Nuevas líneas de transporte masivo en grandes ciudades a través de líneas férreas(~111,642 t CO2eq/yr evitadas)",
+                  "purpose": "Public transport improvement",
+                  "instrument": "Public transport integration and expansion",
+                  "asi": "Shift",
+                  "modes": "Transit rail",
+                  "page": "40"
+                },
+                {
+                  "quote": "Nuevas líneas de transporte masivo en grandes ciudades a través del teleférico (hasta 4,500 passengers/hr/direction; ~11,343 t CO2eq/yr)",
+                  "purpose": "Public transport improvement",
+                  "instrument": "Public transport integration and expansion",
+                  "asi": "Shift",
+                  "modes": "Transit rail",
+                  "page": "40"
+                }
+              ],
+              "Transport system improvements": [
+                {
+                  "quote": "Establecer programas para renovar y diseñar flotas de carga, incluyendo pilotos y estándares para nuevos modos de transportación",
+                  "purpose": "Freight efficiency improvements",
+                  "instrument": "General freight efficiency improvements",
+                  "asi": "Improve",
+                  "modes": "Truck",
+                  "page": "41"
+                }
+              ],
+              "Energy efficiency": [
+                {
+                  "quote": "Articulación y marcos regulatorios para la inspección técnica vehicular y la estrategia de chatarrización",
+                  "purpose": "Promote vehicle improvements",
+                  "instrument": "Inspection and maintenance",
+                  "asi": "Improve",
+                  "modes": "Cars, Truck",
+                  "page": "41"
+                },
+                {
+                  "quote": "Articulación y marcos regulatorios para ... la estrategia de chatarrización",
+                  "purpose": "Promote vehicle improvements",
+                  "instrument": "Vehicle scrappage scheme",
+                  "asi": "Improve",
+                  "modes": "Cars, Truck",
+                  "page": "41"
+                }
+              ],
+              "Aviation and maritime": [
+                {
+                  "quote": "Propuesta de incorporación del combustible sostenible de SAF y LCAF en la aviación doméstica dominicana (~1,000 t CO2eq reducción)",
+                  "purpose": "Promote improvements in aviation",
+                  "instrument": "Jet fuel policies",
+                  "asi": "Improve",
+                  "modes": "Domestic aviation",
+                  "page": "41"
+                }
+              ],
+              "Electrification": [
+                {
+                  "quote": "Iniciar el estudio para el corredor eléctrico en la Av. Ecológica",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Bus",
+                  "page": "155"
+                }
+              ]
+            },
+            "adaptation_measures": {}
+          }
+        ]
       }
     },
     "CHE": {
@@ -36383,7 +37212,7 @@
             "version": "NDC 2.0",
             "generation": "gen2",
             "date": "10.2021",
-            "status": "Active",
+            "status": "Archived",
             "has_transport_target": false,
             "has_netzero_target": false,
             "url": "",
@@ -36421,7 +37250,94 @@
             "adaptation_measures": {}
           }
         ],
-        "gen3": []
+        "gen3": [
+          {
+            "doc_id": 84934,
+            "country_code": "BEN",
+            "country_name": "Benin",
+            "doc_type": "NDC",
+            "version": "NDC 3.0",
+            "generation": "gen3",
+            "date": "06.2026",
+            "status": "Active",
+            "has_transport_target": true,
+            "has_netzero_target": false,
+            "url": "https://unfccc.int/sites/default/files/2026-06/CDN%203.0_BENIN.pdf",
+            "targets": [
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Zero emission vehicle targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "Objectif 10 : Promotion de la mobilité routière électrique avec pour objectif 1% au moins de motos électrique en 2030 et 2% en 2035",
+                "page": "40"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Zero emission vehicle targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2035",
+                "content": "Objectif 10 : Promotion de la mobilité routière électrique avec pour objectif 2% au moins de motos électrique en 2035",
+                "page": "40"
+              }
+            ],
+            "mitigation_measures": {
+              "Electrification": [
+                {
+                  "quote": "Mesure 1 : Poursuite des activités de développement du marché par les sociétés de commercialisation des motos électriques",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Two-/Three-wheelers",
+                  "page": "40"
+                },
+                {
+                  "quote": "Mesure 2 : Mise en œuvre d'un programme favorisant le déploiement d'une flotte de taxi-motos électriques et de facilitation de l'accès des particuliers aux motos électriques",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Two-/Three-wheelers, Taxis",
+                  "page": "40"
+                }
+              ],
+              "Mode shift and demand management": [
+                {
+                  "quote": "Mesure 1 : Développement du transport routier en commun par bus ; Projet de mobilité durable dans le Grand Nokoué (volet transport en commun par bus)",
+                  "purpose": "Public transport improvement",
+                  "instrument": "Public transport integration and expansion",
+                  "asi": "Shift",
+                  "modes": "Bus",
+                  "page": "40"
+                }
+              ],
+              "Aviation and maritime": [
+                {
+                  "quote": "Mesure 2 : Développement du transport en commun par voie fluvio-lagunaire dans la région du Grand Nokoué ; Projet mobilité durable dans le Grand Nokoué : Composante transport fluvio-lagunaire",
+                  "purpose": "Promote improvements in shipping",
+                  "instrument": "General shipping improvement",
+                  "asi": "Shift",
+                  "modes": "Inland shipping",
+                  "page": "40"
+                }
+              ],
+              "Transport system improvements": [
+                {
+                  "quote": "Mesure 1 : Mis en œuvre de différents projets de développement des infrastructures routières pour décongestionner la circulation dans le Grand Nokoué",
+                  "purpose": "Enhance comprehensive transport planning",
+                  "instrument": "Traffic management improvements",
+                  "asi": "Improve",
+                  "modes": "Road",
+                  "page": "40"
+                }
+              ]
+            },
+            "adaptation_measures": {}
+          }
+        ]
       }
     },
     "URY": {
@@ -43294,5 +44210,5 @@
       }
     }
   },
-  "last_updated": "2026-07-23"
+  "last_updated": "2026-07-24"
 }
