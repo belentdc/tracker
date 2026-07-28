@@ -954,6 +954,59 @@ def run_dashboards(excel_path):
 
     print(f"   Countries: {len(data['tab1']['countries'])} · "
           f"Comparison: {len(comparison_data['countries'])}")
+
+    # ── Widget summary (widget/widget-summary.json) ───────────────────
+    # Small JSON consumed by the home-page iframe widget on changing-transport.org.
+    # Numbers are derived from gen3 data already computed above — no extra
+    # parsing. "with_transport_actions" = gen3 countries with at least one
+    # mitigation measure in their latest active doc.
+    gen3_with_actions = sum(
+        1 for code, cd in data["tab1"]["countries"].items()
+        if cd.get("latest_active_gen") == "gen3"
+        and data["tab2"]["country_latest_cats"].get(code)
+    )
+
+    gen3 = data["tab1"]["generations"].get("gen3", {})
+    total_possible = data["metadata"]["total_possible_ndcs"]
+    n_submitted    = gen3.get("total_submitted", 0)
+    n_targets      = gen3.get("with_transport", 0)
+
+    from datetime import date as _date
+    _d = _date.today()
+    today_label = f"{_d.day} {_d.strftime('%B %Y')}"    # e.g. "10 April 2026"
+
+    widget_summary = {
+        "as_of": today_label,
+        "stats": [
+            {
+                "label": "NDCs 3.0 submitted",
+                "value": n_submitted,
+                "of":    f"of {total_possible} NDCs",
+                "pct":   round(n_submitted / total_possible * 100) if total_possible else 0,
+            },
+            {
+                "label": "With transport targets",
+                "value": n_targets,
+                "of":    f"of {n_submitted} NDCs",
+                "pct":   round(n_targets / n_submitted * 100) if n_submitted else 0,
+            },
+            {
+                "label": "With transport actions",
+                "value": gen3_with_actions,
+                "of":    f"of {n_submitted} NDCs",
+                "pct":   round(gen3_with_actions / n_submitted * 100) if n_submitted else 0,
+            },
+        ],
+    }
+
+    widget_dir = Path("widget")
+    widget_dir.mkdir(exist_ok=True)
+    (widget_dir / "widget-summary.json").write_text(
+        json.dumps(widget_summary, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(f"🪟  widget-summary.json saved → widget/")
+
     return data, comparison_data
 
 
