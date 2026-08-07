@@ -753,17 +753,43 @@ function renderMeasures(p, docUrlMap, bench) {
     const srch=document.getElementById("cp-measures-search");
     if(srch) srch.addEventListener("input",()=>{curSearch=srch.value.toLowerCase().trim();showAll=false;draw();});
   }
+  // Category display order: global frequency from data
+  const CAT_ORDER=["Mode shift and demand management","Transport system improvements",
+    "Electrification","Alternative fuels","Energy efficiency","Aviation and maritime"];
+
   function draw(){
     const list=active.filter(m=>(curAsi==="all"||(m.asi||[]).includes(curAsi))&&(curCat==="all"||m.category===curCat)&&(curMode==="all"||(m.modes||[]).includes(curMode))&&(curDoc==="all"||m.doc_type===curDoc)&&(!curSearch||[m.instrument,m.purpose,m.category,m.quote].some(f=>f&&f.toLowerCase().includes(curSearch))));
-    const shown=showAll?list:list.slice(0,6);
-    listEl.innerHTML=shown.map(m=>{
-      const ac=((m.asi&&m.asi[0])||"improve").toLowerCase();
-      const du=m.doc_id?(docUrlMap[m.doc_id]||null):null;
-      return `<div class="cp-measure ${ac}"><div class="cp-measure-top"><span class="cp-measure-instrument">${esc(m.instrument||m.purpose||m.category)}</span>${m.asi&&m.asi.length?`<span class="cp-measure-asi ${ac}">${esc(m.asi.join("/"))}</span>`:""}</div>${m.quote?`<p class="cp-measure-quote">${esc(m.quote)}</p>`:""}<p class="cp-measure-meta">${esc(m.category||"")}, ${du?`<a href="${esc(du)}" target="_blank" rel="noopener" style="color:var(--ct-teal)">${esc(m.version||m.document||"")}</a>`:esc(m.version||m.document||"")}${m.page?", p. "+esc(m.page):""}</p>${m.modes&&m.modes.length?`<div class="cp-measure-tags">${m.modes.map(x=>`<span class="cp-tag">${esc(x)}</span>`).join("")}</div>`:""}</div>`;
-    }).join("")||`<div class="cp-empty">No measures match.</div>`;
-    if(moreBtn){if(list.length>6){moreBtn.hidden=false;moreBtn.textContent=showAll?"Show fewer":`Show all ${list.length} measures`;}else moreBtn.hidden=true;}
+    if(!list.length){listEl.innerHTML=`<div class="cp-empty">No measures match.</div>`;if(moreBtn)moreBtn.hidden=true;return;}
+    const byCat={};
+    list.forEach(m=>{(byCat[m.category]=byCat[m.category]||[]).push(m);});
+    const catKeys=[...CAT_ORDER.filter(c=>byCat[c]),...Object.keys(byCat).filter(c=>!CAT_ORDER.includes(c)).sort()];
+    listEl.innerHTML=catKeys.map(cat=>{
+      const items=byCat[cat];
+      const byPurpose={};
+      items.forEach(m=>{(byPurpose[m.purpose||""]=byPurpose[m.purpose||""]||[]).push(m);});
+      const purposes=Object.keys(byPurpose).sort((a,b)=>byPurpose[b].length-byPurpose[a].length);
+      const multiPurpose=purposes.length>1;
+      const purposeHtml=purposes.map(purpose=>{
+        const ms=byPurpose[purpose];
+        const rowsHtml=ms.map(m=>{
+          const du=m.doc_id?(docUrlMap[m.doc_id]||null):null;
+          const asiCls=((m.asi&&m.asi[0])||"improve").toLowerCase();
+          const asiTag=m.asi&&m.asi.length?`<span class="cp-mrow-asi ${asiCls}">${esc(m.asi.join("/"))}</span>`:"";
+          return `<div class="cp-mrow">
+            <div class="cp-mrow-main"><span class="cp-mrow-instrument">${esc(m.instrument||m.purpose||m.category)}</span>${asiTag}</div>
+            ${m.quote?`<div class="cp-mrow-quote">${esc(m.quote)}</div>`:""}
+            <div class="cp-mrow-meta">${du?`<a href="${esc(du)}" target="_blank" rel="noopener" class="cp-target-doc">${esc(m.version||m.document||"")}</a>`:`<span>${esc(m.version||m.document||"")}</span>`}${m.page?` · p. ${esc(m.page)}`:""}${m.modes&&m.modes.length?` · `+m.modes.slice(0,3).map(x=>`<span class="cp-tag">${esc(x)}</span>`).join(""):""}</div>
+          </div>`;
+        }).join("");
+        return multiPurpose&&purpose?`<div class="cp-mpurpose"><div class="cp-mpurpose-label">${esc(purpose)}</div>${rowsHtml}</div>`:rowsHtml;
+      }).join("");
+      return `<div class="cp-mcat-group">
+        <div class="cp-mcat-header"><span class="cp-mcat-name">${esc(cat)}</span><span class="cp-mcat-count">${items.length}</span></div>
+        <div class="cp-mcat-body">${purposeHtml}</div>
+      </div>`;
+    }).join("");
+    if(moreBtn) moreBtn.hidden=true;
   }
-  if(moreBtn) moreBtn.addEventListener("click",()=>{showAll=!showAll;draw();});
   draw();
   const cmpLink=document.getElementById("cp-measures-compare");
   if(cmpLink){cmpLink.href=comparisonUrl("track",{c:p.code});cmpLink.hidden=false;}

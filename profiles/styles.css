@@ -319,18 +319,11 @@ button.cp-country-name:hover::after { border-color: #fff; }
 .cp-filter.active { background: var(--ct-navy); border-color: var(--ct-navy); color: #fff; }
 
 /* ── Measures grid ──────────────────────────────────────────────── */
-.cp-measures-grid {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 1.5rem;
-  align-items: start;
+.cp-charts-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem; margin-bottom: 1.25rem; align-items: start;
 }
-@media (max-width: 860px) { .cp-measures-grid { grid-template-columns: 1fr; } }
-
-.cp-charts-col {
-  display: flex; flex-direction: column; gap: 1rem;
-  position: sticky; top: 64px;
-}
+@media (max-width: 700px) { .cp-charts-row { grid-template-columns: 1fr; } }
 .cp-chart-card {
   background: var(--ct-surface); border: 1px solid var(--ct-border);
   border-radius: var(--ct-radius-lg); padding: 1.5rem;
@@ -385,6 +378,46 @@ button.cp-country-name:hover::after { border-color: #fff; }
   font-weight: 700; cursor: pointer; font-family: var(--ct-font);
 }
 .cp-showmore:hover { background: var(--ct-bg); }
+
+/* ── Grouped measure layout ──────────────────────────────────────── */
+.cp-mcat-group { margin-bottom: 1rem; }
+.cp-mcat-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.4rem 0.65rem; background: var(--ct-navy); color: #fff;
+  border-radius: var(--ct-radius-sm); margin-bottom: 0.35rem;
+}
+.cp-mcat-name { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.cp-mcat-count {
+  font-size: 0.7rem; font-weight: 700; background: rgba(255,255,255,0.2);
+  border-radius: 999px; padding: 0.05rem 0.45rem;
+}
+.cp-mcat-body { padding-left: 0.5rem; }
+.cp-mpurpose { margin-bottom: 0.25rem; }
+.cp-mpurpose-label {
+  font-size: 0.7rem; font-weight: 700; color: var(--ct-teal);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  padding: 0.15rem 0; margin-bottom: 0.1rem;
+  border-bottom: 1px solid var(--ct-border);
+}
+.cp-mrow { padding: 0.3rem 0; border-top: 1px solid var(--ct-bg); }
+.cp-mrow:first-child { border-top: none; }
+.cp-mrow-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; }
+.cp-mrow-instrument { font-size: 0.87rem; color: var(--ct-navy); font-weight: 500; line-height: 1.35; flex: 1; }
+.cp-mrow-asi {
+  font-size: 0.62rem; font-weight: 800; text-transform: uppercase;
+  padding: 0.1rem 0.4rem; border-radius: 999px; white-space: nowrap; flex-shrink: 0;
+}
+.cp-mrow-asi.avoid   { background: rgba(0,61,92,0.12);   color: var(--ct-navy); }
+.cp-mrow-asi.shift   { background: rgba(0,164,189,0.15); color: var(--ct-teal); }
+.cp-mrow-asi.improve { background: rgba(157,190,61,0.2); color: var(--ct-green-dark); }
+.cp-mrow-quote {
+  font-size: 0.82rem; color: var(--ct-text); font-style: italic;
+  margin: 0.15rem 0; padding-left: 0.6rem; border-left: 2px solid var(--ct-border);
+}
+.cp-mrow-meta {
+  font-size: 0.72rem; color: var(--ct-muted); margin-top: 0.1rem;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem;
+}
 
 /* ── Co-benefits (icon grid) ────────────────────────────────────── */
 .cp-benefits-grid {
@@ -758,10 +791,10 @@ a.cp-dl-btn { text-decoration: none; }
 /* Fixed-height chart wrappers: REQUIRED with maintainAspectRatio:false.
    Without them Chart.js resizes the canvas, grows the parent, and loops —
    the "page grows forever" bug. */
-.cp-asi-wrap { position:relative; height:96px; }
-.cp-asi-wrap canvas { max-height:96px; }
-.cp-cat-wrap { position:relative; height:250px; }
-.cp-cat-wrap canvas { max-height:250px; }
+.cp-asi-wrap { position:relative; height:90px; }
+.cp-asi-wrap canvas { max-height:90px; }
+.cp-cat-wrap { position:relative; height:200px; }
+.cp-cat-wrap canvas { max-height:200px; }
 
 
 /* Emissions stat row (inside the trend block) — stats, not boxes */
@@ -808,7 +841,6 @@ a.cp-dl-btn { text-decoration: none; }
 @media print {
   .cp-actionbar, .cp-jump, .cp-actions,
   .cp-showmore, .cp-filterbar { display: none !important; }
-  .cp-charts-col { position: static; }
   body { background: #fff; }
   .cp-section { break-inside: avoid; }
 }
