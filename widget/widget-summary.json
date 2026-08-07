@@ -1,22 +1,22 @@
 {
-  "as_of": "28 July 2026",
+  "as_of": "7 August 2026",
   "stats": [
     {
       "label": "NDCs 3.0 submitted",
-      "value": 125,
+      "value": 126,
       "of": "of 169 NDCs",
-      "pct": 74
+      "pct": 75
     },
     {
       "label": "With transport targets",
       "value": 70,
-      "of": "of 125 NDCs",
+      "of": "of 126 NDCs",
       "pct": 56
     },
     {
       "label": "With transport actions",
-      "value": 137,
-      "of": "of 125 NDCs",
+      "value": 138,
+      "of": "of 126 NDCs",
       "pct": 110
     }
   ]

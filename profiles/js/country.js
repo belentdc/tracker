@@ -845,9 +845,59 @@ function renderAdaptation(p, docUrlMap) {
 /* ── Coalitions ───────────────────────────────────────────────────── */
 function renderCoalitions(p){
   const box=document.getElementById("cp-coalitions"); if(!box)return;
-  box.innerHTML=(!p.coalitions||!p.coalitions.length)
-    ?`<div class="cp-empty">${esc(p.name)} has not joined any of the tracked transport coalitions.</div>`
-    :p.coalitions.map(c=>`<div class="cp-coalition"><div class="cp-coalition-icon">\u2713</div><div class="cp-coalition-name">${esc(c)}</div></div>`).join("");
+  if(!p.coalitions||!p.coalitions.length){
+    box.innerHTML=`<div class="cp-empty">No transport coalitions registered for ${esc(p.name)}. Do you know one? <a href="mailto:transport-tracker@giz.de" class="cp-contact-link">Contact us</a></div>`;
+    return;
+  }
+  // Group by subsector; empty subsector = ungrouped (rendered flat)
+  const grouped={};
+  for(const c of p.coalitions){
+    const s=c.subsector||"";
+    if(!grouped[s]) grouped[s]=[];
+    grouped[s].push(c);
+  }
+  const hasSectors=Object.keys(grouped).some(s=>s!=="");
+  let html="";
+  if(hasSectors){
+    // Render grouped: named sectors first (alpha), ungrouped last
+    const sectors=Object.keys(grouped).filter(s=>s).sort();
+    if(grouped[""]) sectors.push("");
+    for(const s of sectors){
+      if(s) html+=`<div class="cp-coal-sector">${esc(s)}</div>`;
+      html+=grouped[s].map(c=>coalitionCard(c)).join("");
+    }
+  } else {
+    html=p.coalitions.map(c=>coalitionCard(c)).join("");
+  }
+  box.innerHTML=html;
+  // Attach toggle listeners
+  box.querySelectorAll(".cp-coalition").forEach(el=>{
+    el.addEventListener("click",()=>{
+      const body=el.querySelector(".cp-coal-body");
+      if(!body) return;
+      const open=el.classList.toggle("open");
+      body.hidden=!open;
+    });
+  });
+}
+
+function coalitionCard(c){
+  const hasDetail=c.description||c.urls.length;
+  const urlsHtml=c.urls.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener" class="cp-coal-url" onclick="event.stopPropagation()">${esc(u.replace(/^https?:\/\//,"").replace(/\/$/,""))}</a>`).join("");
+  const bodyHtml=hasDetail?`
+    <div class="cp-coal-body" hidden>
+      ${c.description?`<p class="cp-coal-desc">${esc(c.description)}</p>`:""}
+      ${urlsHtml?`<div class="cp-coal-urls">${urlsHtml}</div>`:""}
+    </div>`:"";
+  return `<div class="cp-coalition${hasDetail?" cp-coal-clickable":""}">
+    <div class="cp-coalition-icon">&#10003;</div>
+    <div class="cp-coal-main">
+      <div class="cp-coalition-name">${esc(c.key)}</div>
+      ${hasDetail?`<div class="cp-coal-hint">Click to ${hasDetail?"expand":""}</div>`:""}
+      ${bodyHtml}
+    </div>
+    ${hasDetail?`<div class="cp-coal-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>`:""}
+  </div>`;
 }
 
 /* ── Similar countries ────────────────────────────────────────────── */

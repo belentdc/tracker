@@ -646,7 +646,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Base year",
+                "target_type": "GHG: Base year intensity",
                 "conditionality": "Conditional",
                 "target_year": "2050",
                 "content": "New ships must achieve a 50% reduction in CO2 per tonne/km by 2050",
@@ -1422,10 +1422,20 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Trajectory",
+                "target_type": "GHG: BAU",
+                "conditionality": "Conditional",
+                "target_year": "2030",
+                "content": "Cumulative avoided emissions of 127 ktCO2e by 2030 with respect to BAU emissions from 2020 levels. [for conditionality refer to page 26]",
+                "page": "72"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
                 "conditionality": "Conditional",
                 "target_year": "2035",
-                "content": "Cumulative avoided emissions of 127 and 312 ktCO2e by 2030 and 2035, respectively, with respect to BAU emissions from 2020 levels. [for conditionality refer to page 26]",
+                "content": "Cumulative avoided emissions of 312 ktCO2e by 2035 with respect to BAU emissions from 2020 levels. [for conditionality refer to page 26]",
                 "page": "72"
               },
               {
@@ -1852,7 +1862,7 @@
                   "quote": "Under the aegis of the Physical Development Plan, described above, a Sustainable Urban Mobility Plan for the Greater Bridgetown Area and the Urban Corridor has been prepared. This plan aims at upgrading the public transport system (fleet renovation, payment systems, tracking systems and demand management), introducing bicycle lanes, connected sidewalks and accessibility measures, as well as parking management policies.",
                   "purpose": "Enhance comprehensive transport planning",
                   "instrument": "Sustainable urban mobility plans",
-                  "asi": "Avoid, shift, improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Walking, Cycling, Road, Bus",
                   "page": "21"
                 },
@@ -2703,7 +2713,17 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Trajectory",
+                "target_type": "GHG: Base year",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "As part of the Pacific Blue Shipping Partnership, RMI already has a national vision to reduce domestic shipping emissions by 40% below 2010 levels by 2030",
+                "page": "6"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "GHG",
+                "target_type": "GHG: Fixed level",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2050",
                 "content": "As part of the Pacific Blue Shipping Partnership, RMI already has a national vision to reduce domestic shipping emissions by 40% below 2010 levels by 2030 and full decarbonization of the sector by 2050.",
@@ -2908,7 +2928,7 @@
               },
               {
                 "target_area": "Transport sector mitigation target",
-                "target_scope": "Sector-wide",
+                "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
                 "target_type": "GHG: Fixed level",
                 "conditionality": "Conditional",
@@ -2918,7 +2938,7 @@
               },
               {
                 "target_area": "Transport sector mitigation target",
-                "target_scope": "Sector-wide",
+                "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
                 "target_type": "GHG: Fixed level",
                 "conditionality": "Conditional",
@@ -3033,7 +3053,7 @@
                   "quote": "Progressively green light transit system … Phases 1–4 installing solar PV capacity up to 8.5 MW by 2035, avoiding up to 9.45 kt CO₂ annually by 2035.",
                   "purpose": "Public transport improvement",
                   "instrument": "General public transport improvement",
-                  "asi": "Avoid, improve",
+                  "asi": "Avoid, Improve",
                   "modes": "Rail",
                   "page": "13"
                 },
@@ -3095,7 +3115,7 @@
                   "quote": "Progressively green light transit system … Phases 1–4 installing solar PV capacity up to 8.5 MW by 2035, avoiding up to 9.45 kt CO₂ annually by 2035.",
                   "purpose": "Promote electric mobility",
                   "instrument": "General e-mobility measures",
-                  "asi": "Avoid, improve",
+                  "asi": "Avoid, Improve",
                   "modes": "Rail",
                   "page": "13"
                 },
@@ -3103,7 +3123,7 @@
                   "quote": "The fleet of cars in Mauritius was increasing by 5% annually and taxation on conventional cars has recently been reviewed and a 2% reduction is foreseen in the new vehicle market. Accordingly, it is anticipated that this will cause an annual decrease of 14,000 vehicles, 22 million litres of fuel with a 52 ktons of CO2 emission reduction.",
                   "purpose": "Promote electric mobility",
                   "instrument": "General e-mobility measures",
-                  "asi": "Avoid, improve",
+                  "asi": "Avoid, Improve",
                   "modes": "Road, Cars, Private cars",
                   "page": "13"
                 },
@@ -3135,7 +3155,7 @@
                 },
                 {
                   "quote": "Roads, drains and flood-control works designed and upgraded to international flood-resilient standards (AASHTO/DMRB/TRL)",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Road",
                   "page": "24"
                 }
@@ -3590,7 +3610,7 @@
                 "target_type": "GHG: Base year",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2035",
-                "content": "Saint Lucia pledges to further reduce greenhouse gas emissions from the energy and transport sectors by 22% in 2035 [compared to 2010 levels], through enhanced deployment of wind and solar energy with battery storage, upgrades to the grid infrastructure, continued efforts to improve energy efficiency, and enhanced uptake of electric vehicles.",
+                "content": "Saint Lucia pledges to further reduce greenhouse gas emissions from the energy and transport sectors by 22% in 2035 [compared to 2010 levels].",
                 "page": "3"
               },
               {
@@ -3600,7 +3620,17 @@
                 "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2035",
-                "content": "Transportation decarbonisation is expected to be another cornerstone of Saint Lucia’s mitigation efforts in NDC 3.0. The Government has set an ambitious target to achieve 30% electric vehicle (EV) sales by 2030, increasing to 40% by 2035.",
+                "content": "achieve 30% electric vehicle (EV) sales by 2030",
+                "page": "8"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Zero emission vehicle targets",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2035",
+                "content": "achieve 40% electric vehicle (EV) sales by 2035.",
                 "page": "8"
               }
             ],
@@ -3682,7 +3712,7 @@
                   "quote": "Flood management systems, including early warning mechanisms and flood defences, are critical to reducing risks in urban centres like the capital city of Castries.",
                   "measure": "Early warning & emergency planning",
                   "modes": "Mode: Not defined",
-                  "page": "11/12"
+                  "page": "2026-11-12 00:00:00"
                 }
               ]
             }
@@ -4482,7 +4512,7 @@
                 "ghg_target": "Non GHG",
                 "target_type": "Renewable energy in transport targets",
                 "conditionality": "Conditional",
-                "target_year": "—",
+                "target_year": "n/a",
                 "content": "15.8 MW of solar PV for meeting the energy demand of electric vehicles",
                 "page": "17"
               },
@@ -4806,7 +4836,7 @@
             "status": "Active",
             "has_transport_target": false,
             "has_netzero_target": false,
-            "url": "Guyanas NDC 2025-2035 V2.pdf",
+            "url": "https://unfccc.int/sites/default/files/2026-07/Guyanas%20NDC%202025-2035%20V2.pdf",
             "targets": [],
             "mitigation_measures": {},
             "adaptation_measures": {}
@@ -4828,7 +4858,7 @@
             "date": "06.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NorwayINDC.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -4857,8 +4887,8 @@
             "date": "11.2022",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
-            "url": "NDC Norway_second update.pdf (unfccc.int)",
+            "has_netzero_target": true,
+            "url": "https://unfccc.int/sites/default/files/NDC/2022-11/NDC%20Norway_second%20update.pdf",
             "targets": [],
             "mitigation_measures": {
               "Mode shift and demand management": [
@@ -4892,7 +4922,7 @@
             "date": "02.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Norway_updatedNDC_2020%20(Updated%20submission).pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -4910,7 +4940,7 @@
             "date": "06.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-06/Norways%20NDC%20for%202035..pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -4980,7 +5010,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "Non GHG",
-                "target_type": "Other non-GHG transport targets",
+                "target_type": "Vehicle efficiency targets",
                 "conditionality": "Conditional",
                 "target_year": "2030",
                 "content": "15% reduction in fossil fuel consumption from transport sector.",
@@ -6208,18 +6238,7 @@
             "has_transport_target": false,
             "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/U.S.A.%20First%20NDC%20Submission.pdf",
-            "targets": [
-              {
-                "target_area": "Net zero target",
-                "target_scope": "Overall mitigation target",
-                "ghg_target": "GHG",
-                "target_type": "GHG: Base year",
-                "conditionality": "Unclear conditionality",
-                "target_year": "2050",
-                "content": "Economy-wide emission reductions of 80% or more by 2050, relative to 2005",
-                "page": "2"
-              }
-            ],
+            "targets": [],
             "mitigation_measures": {
               "Energy efficiency": [
                 {
@@ -6384,7 +6403,7 @@
                   "quote": "The combination of catalytic public investments from the IRA and BIL and smart federal standards to limit greenhouse gas emissions and boost fuel economy, are spurring a historic turn toward decarbonization in the U.S. transportation sector. This powerful combination is driving EV sales and growing the public charging network. Together, this approach is helping to scale manufacturing, strengthen the domestic workforce and supply chains, increase adoption of clean transportation fuels, and advance progress toward zero-emission freight. BIL provided\ntransformational investments in U.S. public transportation and passenger rail that are expanding these low-carbon options for all Americans. By engaging stakeholders across the sector, the United States developed durable public incentives to support private investment in the low- or zero-emission fuels future and cut emissions across transportation modes, including rail, maritime and aviation, all while growing new jobs in clean fuels through innovations such as climate-smart agriculture.",
                   "purpose": "Economic conditions for sustainable transport",
                   "instrument": "Financial instruments to support decarbonisation",
-                  "asi": "Avoid, shift, improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Road, Bus, Rail, Transit rail, Water, Aviation",
                   "page": "7"
                 },
@@ -6831,7 +6850,7 @@
                   "quote": "Develop National Master Transport Plan and associated State Action Plans, integrating land and marine transportation",
                   "purpose": "Enhance comprehensive transport planning",
                   "instrument": "National mobility plans",
-                  "asi": "Avoid, shift, improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Road, Water",
                   "page": "29"
                 }
@@ -6968,7 +6987,7 @@
                 "ghg_target": "Non GHG",
                 "target_type": "Mode share targets",
                 "conditionality": "Unconditional",
-                "target_year": "—",
+                "target_year": "n/a",
                 "content": "Create a USD 200 million support fund for urban road transportation",
                 "page": "10"
               },
@@ -8686,7 +8705,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/BRAZIL%20iNDC%20english%20FINAL.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -8725,7 +8744,7 @@
             "date": "11.2023",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-11/Brazil%20First%20NDC%202023%20adjustment.pdf",
             "targets": [
               {
@@ -8773,7 +8792,7 @@
             "date": "04.2022",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Updated%20-%20First%20NDC%20-%20%20FINAL%20-%20PDF.pdf",
             "targets": [
               {
@@ -8809,7 +8828,7 @@
             "date": "09.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Updated%20-%20First%20NDC%20-%20%20FINAL%20-%20PDF.pdf",
             "targets": [
               {
@@ -8849,7 +8868,7 @@
             "date": "11.2024",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2024-11/Brazil_Second%20Nationally%20Determined%20Contribution%20%28NDC%29_November2024.pdf",
             "targets": [
               {
@@ -8955,7 +8974,7 @@
                   "quote": "In the cities and urban mobility sector, mitigation will involve sustainable urban development, active mobility and improving public transport, with the strong aim of reducing dependence on individual transportation.",
                   "purpose": "Transport demand management",
                   "instrument": "Transport demand management measures",
-                  "asi": "Avoid, shift",
+                  "asi": "Avoid, Shift",
                   "modes": "Active mobility, Bus, Transit rail",
                   "page": "16"
                 },
@@ -8963,7 +8982,7 @@
                   "quote": "In the cities and urban mobility sector, mitigation will involve sustainable urban development, active mobility and improving public transport, with the strong aim of reducing dependence on individual transportation.",
                   "purpose": "Public transport improvement",
                   "instrument": "General public transport improvement",
-                  "asi": "Avoid, shift",
+                  "asi": "Avoid, Shift",
                   "modes": "Active mobility, Bus, Transit rail",
                   "page": "16"
                 },
@@ -8971,7 +8990,7 @@
                   "quote": "In the cities and urban mobility sector, mitigation will involve sustainable urban development, active mobility and improving public transport, with the strong aim of reducing dependence on individual transportation.",
                   "purpose": "Promote active mobility",
                   "instrument": "General active mobility",
-                  "asi": "Avoid, shift",
+                  "asi": "Avoid, Shift",
                   "modes": "Active mobility, Bus, Transit rail",
                   "page": "16"
                 },
@@ -9031,7 +9050,7 @@
                   "quote": "After concluding the National Adaptation and Mitigation Strategies, Brazil will elaborate specific sectorial plans (16 for adaptation and 7 for mitigation), together with cross-cutting plans, which are intended to be finalized around the mid 2025. These plans will include sector-by-sector contributions to national efforts towards the implementation of Brazil’s 2035 NDC target. Sectorial plans will also include detailed action plans and necessary means of implementation. As with the national climate strategies, the sectorial plans will be elaborated in a highly participatory manner. [(viii) transportation]",
                   "measure": "Transport Planning",
                   "modes": "Mode: Not defined",
-                  "page": "11/12"
+                  "page": "2026-11-12 00:00:00"
                 }
               ],
               "Informational and Educational": [
@@ -10124,7 +10143,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Honduras%20INDC_esp.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -10142,7 +10161,7 @@
             "date": "05.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC%20de%20Honduras_%20Primera%20Actualizaci%C3%B3n.pdf",
             "targets": [
               {
@@ -10182,7 +10201,7 @@
             "date": "01.2026",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2026-01/HON%20NDC%203.0%202026%20Oficial.pdf",
             "targets": [
               {
@@ -10260,7 +10279,7 @@
             "date": "09.2025",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/Honduras%20Segunda%20Actualizacio%CC%81n%20de%20su%20NDC%20%282021-2030%29serna_rev_final.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -11331,7 +11350,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "Elaborar lineamientos para diseñar e incorporar SbN y los enfoques de la adaptación para proteger la infraestructura estratégica del país.",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Mode: Not defined",
                   "page": "86"
                 },
@@ -11343,7 +11362,7 @@
                 },
                 {
                   "quote": "Diseñar un mecanismo para la certificación verde enfocada en la construcción de infraestructura estratégica del país con una visión de adaptación al cambio climático.",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Mode: Not defined",
                   "page": "86"
                 },
@@ -11563,7 +11582,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "Revise and approve Government Resolution No. 286 (2015) on \"Regulations, Lists, and Schedules for Hydrometeorological Data Use,\" including updated climatic and hydrological parameters for design norms in buildings, roads, and bridges",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Road",
                   "page": "29"
                 }
@@ -12367,21 +12386,11 @@
                 "target_area": "Net zero target",
                 "target_scope": "Overall mitigation target",
                 "ghg_target": "GHG",
-                "target_type": "GHG: BAU",
+                "target_type": "GHG: Fixed level",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2050",
                 "content": "With appropriate international assistance, Solomon Islands can achieve net zero emissions by 2050",
                 "page": "9"
-              },
-              {
-                "target_area": "Net zero target",
-                "target_scope": "Overall mitigation target",
-                "ghg_target": "GHG",
-                "target_type": "GHG: BAU",
-                "conditionality": "Unclear conditionality",
-                "target_year": "2050",
-                "content": "With appropriate international assistance, Solomon Islands can achieve net zero emissions by 2050",
-                "page": ""
               }
             ],
             "mitigation_measures": {
@@ -12426,7 +12435,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Fixed level",
+                "target_type": "GHG: BAU",
                 "conditionality": "Conditional",
                 "target_year": "2035",
                 "content": "Land Transport GHG Mitigation (ktCO2e/yr): 14.1 by 2035",
@@ -12436,7 +12445,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Fixed level",
+                "target_type": "GHG: BAU",
                 "conditionality": "Conditional",
                 "target_year": "2035",
                 "content": "Maritime Transport GHG Mitigation (ktCO2e/yr): 16.6 by 2035",
@@ -12778,15 +12787,15 @@
             "status": "Archived",
             "has_transport_target": false,
             "has_netzero_target": false,
-            "url": "",
+            "url": "https://unfccc.int/sites/default/files/NDC/2022-11/Thailand%202nd%20Updated%20NDC.pdf",
             "targets": [
               {
                 "target_area": "Net zero target",
                 "target_scope": "Overall mitigation target",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Trajectory",
+                "target_type": "GHG: Fixed level",
                 "conditionality": "Unclear conditionality",
-                "target_year": "2065",
+                "target_year": "2050",
                 "content": "Furthermore, Thailand will continue vigorous efforts in its challenge to meet the long-term goal of carbon neutrality by 2050 and net-zero greenhouse gas emission by 2065.",
                 "page": "1"
               }
@@ -12853,7 +12862,7 @@
                 "target_type": "GHG: Base year",
                 "conditionality": "Conditional",
                 "target_year": "2035",
-                "content": "Transport: 2019 Emissions MtCO2eq: 76.8; 2035 Emissions MtCO2eq: 54.2;  NDC emissions reduction MtCO2eq: 22.6  [see table on page 4]",
+                "content": "Thailand commits to reducing transport GHG emissions by 22.6 MtCO2eq by 2035, from a 2019 baseline of 76.8 MtCO2eq, reaching 54.2 MtCO2eq in 2035. [see table on page 4]",
                 "page": "4"
               },
               {
@@ -13144,8 +13153,18 @@
                 "ghg_target": "GHG",
                 "target_type": "GHG: Base year",
                 "conditionality": "Conditional",
+                "target_year": "2030",
+                "content": "Reduce transport emissions in the energy sector by 26 GgCO2e by 2030 compared to the baseline emissions of 2006.",
+                "page": "40"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: Base year",
+                "conditionality": "Conditional",
                 "target_year": "2035",
-                "content": "Reduce transport emissions in the energy sector by 26 GgCO2e by 2030 and 45 GgCO2e by 2035 compared to the baseline emissions of 2006.",
+                "content": "Reduce transport emissions in the energy sector by 45 GgCO2e by 2035 compared to the baseline emissions of 2006.",
                 "page": "40"
               }
             ],
@@ -13529,13 +13548,13 @@
               },
               {
                 "target_area": "Transport sector mitigation target",
-                "target_scope": "Subsector targets",
-                "ghg_target": "Non GHG",
-                "target_type": "Avoid targets",
-                "conditionality": "Unconditional",
-                "target_year": "—",
-                "content": "5% reduction in VKM and 5% increase in load factor from improved organisation of urban public transport.",
-                "page": "40"
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "Transport sector GHG emissions under Business-As-Usual conditions will more than double from 4.2 MtCO2e in 2015 to 9.6 MtCO2e in 2030. If all the main mitigation measures under the NDC scenario are implemented fully, they have the potential to limit the growth of the emissions by 29% to 6.8 MtCO2e in 2030",
+                "page": "41"
               },
               {
                 "target_area": "Transport sector mitigation target",
@@ -13553,7 +13572,7 @@
                 "ghg_target": "Non GHG",
                 "target_type": "Biofuel targets",
                 "conditionality": "Unconditional",
-                "target_year": "—",
+                "target_year": "2030",
                 "content": "1% per year increase in alternative fuel use for all road vehicles\n- 60% of the increase comes from natural gas.\n- 20% from ethanol (E10).\n- 20% from biodiesel.",
                 "page": "40"
               },
@@ -15183,7 +15202,7 @@
                 "ghg_target": "Non GHG",
                 "target_type": "Mode share targets",
                 "conditionality": "Conditional",
-                "target_year": "—",
+                "target_year": "n/a",
                 "content": "Increase the share of railways in total land transport from 36% to 45%",
                 "page": "14"
               }
@@ -15491,7 +15510,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -15509,7 +15528,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16051,18 +16070,7 @@
             "has_transport_target": false,
             "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
-            "targets": [
-              {
-                "target_area": "Net zero target",
-                "target_scope": "Overall mitigation target",
-                "ghg_target": "GHG",
-                "target_type": "GHG: Base year",
-                "conditionality": "Unclear conditionality",
-                "target_year": "2050",
-                "content": "to reduce its emissions by 80-95% by 2050 compared to 1990",
-                "page": "3"
-              }
-            ],
+            "targets": [],
             "mitigation_measures": {},
             "adaptation_measures": {}
           }
@@ -16118,7 +16126,7 @@
                   "quote": "The revision of the EU ETS Directive also applies a separate carbon pricing framework to fuel combustion in road transport and buildings and additional sectors (ETS2) and is designed to price emissions from 20274 without free allocation and to contribute to 42% emission reductions by 2030 compared to 2005 in the sectors covered.",
                   "purpose": "Economic conditions for sustainable transport",
                   "instrument": "Emissions trading and carbon pricing",
-                  "asi": "Avoid, shift, Improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Road",
                   "page": "5"
                 }
@@ -16128,7 +16136,7 @@
                   "quote": "With regard to commercial aviation, the EU ETS will continue to apply effective carbon pricing for intra-European flights and departing flights to the United Kingdom and to Switzerland.",
                   "purpose": "Promote improvements in aviation",
                   "instrument": "General aviation improvements",
-                  "asi": "Avoid, shift, Improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Aviation",
                   "page": "4"
                 },
@@ -16136,7 +16144,7 @@
                   "quote": "legislation is in place to apply the Carbon Offsetting and Reduction Scheme for International Aviation of the International Civil Aviation Organization (CORSIA)",
                   "purpose": "Promote improvements in shipping",
                   "instrument": "General shipping improvement",
-                  "asi": "Avoid, shift, Improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Water",
                   "page": "4"
                 },
@@ -16218,7 +16226,7 @@
                   "quote": "Emissions from aviation are included in the EU ETS; however, currently, the scope of the EU ETS is limited to flights within the European Economic Area",
                   "purpose": "Economic conditions for sustainable transport",
                   "instrument": "Emissions trading and carbon pricing",
-                  "asi": "Avoid, shift, Improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Aviation",
                   "page": "4"
                 }
@@ -16258,7 +16266,7 @@
                 "target_type": "Vehicle efficiency targets",
                 "conditionality": "Unconditional",
                 "target_year": "2050",
-                "content": "The FuelEU Maritime sets maximum limits for the yearly average GHG intensity of the energy used by ships above 5,000 gross tonnage calling at European ports, regardless of their flag. Targets will ensure that the GHG intensity of fuels used in the sector will gradually decrease over time, starting with a 2% decrease by 2025, 14.5% decrease by 2035, and reaching up to an 80% reduction by 2050.",
+                "content": "FuelEU Maritime: 2% decrease in GHG intensity of energy used by ships above 5,000 GT by 2025",
                 "page": "7"
               },
               {
@@ -16267,8 +16275,8 @@
                 "ghg_target": "Non GHG",
                 "target_type": "Vehicle efficiency targets",
                 "conditionality": "Unconditional",
-                "target_year": "2050",
-                "content": "The ReFuelEU Aviation promotes the increased use of sustainable aviation fuels (SAF). It sets requirements for aviation fuel suppliers to gradually increase the share of SAF blended into the conventional aviation fuel supplied at EU airports to 2% from 2025 and 70% from 2050.",
+                "target_year": "2025",
+                "content": "ReFuelEU Aviation: requirements for aviation fuel suppliers to increase SAF share blended into conventional aviation fuel at EU airports to 2% from 2025",
                 "page": "8"
               },
               {
@@ -16290,6 +16298,36 @@
                 "target_year": "2050",
                 "content": "climate neutrality by 2050",
                 "page": "43"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unconditional",
+                "target_year": "2035",
+                "content": "FuelEU Maritime: 14.5% decrease in GHG intensity of energy used by ships above 5,000 GT by 2035",
+                "page": "7"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unconditional",
+                "target_year": "2050",
+                "content": "FuelEU Maritime: 80% reduction in GHG intensity of energy used by ships above 5,000 GT by 2050",
+                "page": "7"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Vehicle efficiency targets",
+                "conditionality": "Unconditional",
+                "target_year": "2050",
+                "content": "ReFuelEU Aviation: requirements for aviation fuel suppliers to increase SAF share blended into conventional aviation fuel at EU airports to 70% from 2050",
+                "page": "8"
               }
             ],
             "mitigation_measures": {
@@ -17205,10 +17243,20 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Fixed level",
-                "conditionality": "Conditional",
+                "target_type": "GHG: BAU",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "reduction in transport sub-sector of 1,426.22 GgCO2eq by 2030",
+                "page": "15"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Unclear conditionality",
                 "target_year": "2035",
-                "content": "reduction in transport sub-sector of 1,426.22 GgCO2eq by 2030 and 2,731.57 GgCO2eq by 2035",
+                "content": "reduction in transport sub-sector of 2,731.57 GgCO2eq by 2035",
                 "page": "15"
               },
               {
@@ -17239,7 +17287,7 @@
                 "conditionality": "Conditional",
                 "target_year": "2035",
                 "content": "In 2030 and 2035, increase sales of battery electric vehicles (BEVs) to 90% and 95% for all private passenger vehicles (including 2-wheelers), and to 70% and 90% for all public passenger vehicles respectively. By 2035: 9.2 billion conditional. Of this, by 2030: 4.45 billion conditional.",
-                "page": "4-5"
+                "page": "2026-04-05 00:00:00"
               }
             ],
             "mitigation_measures": {
@@ -17519,7 +17567,7 @@
                 "target_area": "Net zero target",
                 "target_scope": "Overall mitigation target",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Base year",
+                "target_type": "GHG: Fixed level",
                 "conditionality": "Unconditional",
                 "target_year": "2050",
                 "content": "A system of emissions budgets and emissions reduction plans to act as stepping stones toward the 2050 target and to provide a framework for planning.",
@@ -17588,7 +17636,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17606,7 +17654,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17714,7 +17762,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17732,7 +17780,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17756,7 +17804,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17774,7 +17822,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17946,7 +17994,7 @@
                 "conditionality": "Unconditional",
                 "target_year": "2050",
                 "content": "the UK is committed to transitioning away from fossil fuels to achieve net zero by 2050.",
-                "page": "6/7"
+                "page": "2026-06-07 00:00:00"
               }
             ],
             "mitigation_measures": {
@@ -17963,7 +18011,7 @@
                   "quote": "The Isle of Man has a statutory emissions reduction target of 45% by 2035, (…) Headline actions include 100% decarbonisation of the Island’s fossil fuel electricity supply by 2030 and a ban on the registration of Internal Combustion Engine vehicles in 2030 and hybrids in 2035.",
                   "purpose": "Promote alternative fuels",
                   "instrument": "ICE (gasoline and diesel) bans",
-                  "asi": "Avoid, improve",
+                  "asi": "Avoid, Improve",
                   "modes": "Mode: Not defined",
                   "page": "23"
                 }
@@ -18007,7 +18055,7 @@
                   "quote": "Jersey's decarbonisation policies are described in the Carbon Neutral Roadmap (2022). The focus is on the electrification of on-Island heating and transport, including proposed legislation to prohibit both the importation and registration of fossil fuel vehicles new to the Island and the installation of fossil fuel boilers as well as incentive schemes for low carbon heating, electric vehicles and the installation of charging points",
                   "purpose": "Promote vehicle improvements",
                   "instrument": "Vehicle restrictions (import, age, access, sale, taxation)",
-                  "asi": "Avoid, improve",
+                  "asi": "Avoid, Improve",
                   "modes": "Mode: Not defined",
                   "page": "23"
                 }
@@ -18025,7 +18073,7 @@
                   "quote": "Guernsey’s Integrated Transport Strategy aims to reduce the number of car journeys and increase participation in active travel",
                   "purpose": "Transport demand management",
                   "instrument": "Transport demand management measures",
-                  "asi": "Avoid, shift",
+                  "asi": "Avoid, Shift",
                   "modes": "Active mobility, Cars",
                   "page": "23"
                 },
@@ -18773,7 +18821,7 @@
             "date": "10.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC%20Costa%20Rica%20Version%202%200%20final%20ENG.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -18846,7 +18894,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Contribucio%CC%81n%20Nacionalmente%20Determinada%20de%20Costa%20Rica%202020%20-%20Versio%CC%81n%20Completa.pdf",
             "targets": [
               {
@@ -19009,7 +19057,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/CND-2025-2035.pdf",
             "targets": [
               {
@@ -20536,7 +20584,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "Renforcer la durabilité et la sécurité des infrastructures face aux aléas climatiques en intégrant des normes de construction adaptées",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Road",
                   "page": "70"
                 }
@@ -20740,7 +20788,7 @@
                 "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
                 "target_type": "Zero emission vehicle targets",
-                "conditionality": "Unclear conditionality",
+                "conditionality": "Unconditional",
                 "target_year": "2030",
                 "content": "Les bus thermiques urbains sont progressivement substitués par des bus électriques, avec un objectif de substitution complète d’ici 2030.",
                 "page": "32"
@@ -20750,7 +20798,7 @@
                 "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
                 "target_type": "Biofuel targets",
-                "conditionality": "Unclear conditionality",
+                "conditionality": "Unconditional",
                 "target_year": "2035",
                 "content": "la Principauté de Monaco entend substituer les carburants fossiles par des carburants biogéniques pour la totalité de ses vols domestiques d’ici 2035.",
                 "page": "33"
@@ -20788,7 +20836,7 @@
                   "quote": "Aussi, la seconde priorité pour le Gouvernement est la diminution absolue des kilomètres parcourus en transports individuels motorisés, au bénéfice des modes actifs et des transports publics",
                   "purpose": "Public transport improvement",
                   "instrument": "General public transport improvement",
-                  "asi": "Avoid, shift",
+                  "asi": "Avoid, Shift",
                   "modes": "Active mobility, Bus, Transit rail",
                   "page": "32"
                 },
@@ -20796,7 +20844,7 @@
                   "quote": "Aussi, la seconde priorité pour le Gouvernement est la diminution absolue des kilomètres parcourus en transports individuels motorisés, au bénéfice des modes actifs et des transports publics",
                   "purpose": "Promote active mobility",
                   "instrument": "General active mobility",
-                  "asi": "Avoid, shift",
+                  "asi": "Avoid, Shift",
                   "modes": "Active mobility, Bus, Transit rail",
                   "page": "32"
                 }
@@ -21584,7 +21632,7 @@
                 "conditionality": "Conditional",
                 "target_year": "2035",
                 "content": "Reduction of 214 GgCO₂ per year by the introduction of 100 electric buses; by 2035\nRelated 2030 targets:\n- 50 e-buses in service; ≥7,500 pax/day; (Ind.: fleet registry; AFC/ticketing data)\n- Availability ≥ 90%; energy use ≤ 1.2–1.5 kWh/km (route-dependent); (Ind.: telematics)\n- 2 depots electrified; 10 chargers installed; (Ind.: charger uptime logs)\n- 107 ktCO₂e/yr avoided (net of grid emissions); (Ind.: tCO₂e/yr)\n\nRelated 2035 targets:\n- 100 e-buses; 15,000 pax/day; (Ind.: AFC; AVL/telematics)\n- Availability ≥ 92%; energy use ≤ 1.1–1.4 kWh/km; (Ind.: telematics)\n- 4 depots; 20 chargers; (Ind.: uptime logs)\n- 214 ktCO₂e/yr avoided; (Ind.: tCO₂e/yr)",
-                "page": "10/41"
+                "page": "1941-10-01 00:00:00"
               },
               {
                 "target_area": "Transport sector mitigation target",
@@ -21594,7 +21642,7 @@
                 "conditionality": "Conditional",
                 "target_year": "2035",
                 "content": "Reduction of 141.5 GgCO₂ per year by the introduction of 10,000 electric kekehs; by 2035\nRelated 2030 targets: \n- 5,000 e-kekeh in operation, around 35% of kekehs; (Ind.: registration data; vendor sales)\n- Average energy use ≤ 35–45 Wh/km; availability ≥ 92%; (Ind.: telematics)\n- 150 neighbourhood charge points; 25 swap kiosks; (Ind.: uptime logs)\n- 67.5 ktCO₂e/yr avoided (net of grid emissions); (Ind.: tCO₂e/yr)\n\nRelated 2035 targets:\n- 10,000 e-kekeh, around 70%; (Ind.: registrations; telematics)\n- Energy use ≤ 35–45 Wh/km; availability ≥ 94%; (Ind.: telematics)\n- 300 charge points; 50 swap kiosks; (Ind.: uptime logs)\n- 141.5 ktCO₂e/yr avoided; (Ind.: tCO₂e/yr)",
-                "page": "10/42"
+                "page": "1942-10-01 00:00:00"
               },
               {
                 "target_area": "Transport sector mitigation target",
@@ -21604,7 +21652,7 @@
                 "conditionality": "Conditional",
                 "target_year": "2035",
                 "content": "Reduction of 179 GgCO₂ per year by improving the efficiency of the vehicle fleet; by 2035\nRelated 2030 targets:\n- Import standards gazetted; max age 10 years (LDV); inspection coverage ≥ 70%; (Ind.: legal notices; inspection stats)\n- Average fuel intensity reduced 10% vs 2025 baseline; (Ind.: cohort model; inspection data)\n- 20–35 million litres/yr saved (range to be refined); (Ind.: fuel sales vs baseline; model outputs)\n- 77 ktCO₂e/yr avoided; (Ind.: tCO₂e/yr)\n- Road‑worthiness failure rate declines 30%; sulphur/spec standards enforced; (Ind.: inspection logs; fuel QA)\n\nRelated 2035 targets:\n- Max age 8 years; inspection coverage ≥ 90%; (Ind.: legal notices; inspection stats)\n- Average fuel intensity reduced 20%; (Ind.: cohort model)\n- 45–70 million litres/yr saved; (Ind.: same)\n- 179 ktCO₂e/yr avoided; (Ind.: tCO₂e/yr)\n- Failure rate declines 50%; (Ind.: inspection logs)",
-                "page": "10/43"
+                "page": "1943-10-01 00:00:00"
               },
               {
                 "target_area": "Transport sector mitigation target",
@@ -21614,7 +21662,7 @@
                 "conditionality": "Conditional",
                 "target_year": "2035",
                 "content": "Reduce GHG emissions from the transport sector by 16.2% below BAU levels by 2035 [251.5 Gg CO2 per year in 2030 → 534.5 Gg CO2 in 2035]",
-                "page": "10/49"
+                "page": "1949-10-01 00:00:00"
               }
             ],
             "mitigation_measures": {
@@ -21783,7 +21831,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "Upgrade resilient design codes, design standards,",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Road",
                   "page": "58"
                 },
@@ -22076,7 +22124,7 @@
                 "ghg_target": "GHG",
                 "target_type": "GHG: Fixed level",
                 "conditionality": "Unclear conditionality",
-                "target_year": "Already achieved and commit to maintain",
+                "target_year": "2050",
                 "content": "Le Gabon va tout faire pour garantir ses absorptions nettes à au moins 100 millions de tonnes d'équivalent CO2 par an, au-delà de 2050.",
                 "page": "4"
               }
@@ -22126,7 +22174,7 @@
                 "ghg_target": "GHG",
                 "target_type": "GHG: Fixed level",
                 "conditionality": "Conditional",
-                "target_year": "achieved",
+                "target_year": "2050",
                 "content": "Maintenir et renforcer la neutralité carbone du Gabon au-delà de 2050",
                 "page": "1"
               }
@@ -22425,7 +22473,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "Rehabilitate 50% of roads and bridges in high-risk areas with climate-proof designs and materials.",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Road",
                   "page": "76"
                 }
@@ -22671,8 +22719,18 @@
                 "ghg_target": "Non GHG",
                 "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unconditional",
+                "target_year": "2030",
+                "content": "The Republic of Korea will expand the deployment of electric and hydrogen vehicles, aiming to increase electric vehicles’ share in new passenger car sales to 40% by 2030.",
+                "page": "3"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Zero emission vehicle targets",
+                "conditionality": "Unconditional",
                 "target_year": "2035",
-                "content": "The Republic of Korea will expand the deployment of electric and hydrogen vehicles, aiming to increase electric vehicles’ share in new passenger car sales to 40% by 2030 and 70% by 2035.",
+                "content": "The Republic of Korea will expand the deployment of electric and hydrogen vehicles, aiming to increase electric vehicles’ share in new passenger car sales to 70% by 2035.",
                 "page": "3"
               }
             ],
@@ -22732,7 +22790,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "Infrastructure such as dams, buildings and harbor, which were previously designed based on past meteorological data, will now be designed in line with revised standards that allow future climate crisis scenarios to be taken into account",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Water",
                   "page": "3"
                 },
@@ -24995,7 +25053,7 @@
                 "ghg_target": "GHG",
                 "target_type": "GHG: Fixed level",
                 "conditionality": "Unclear conditionality",
-                "target_year": "as close as possible to 2050",
+                "target_year": "2050",
                 "content": "As for the long-term, Japan submitted its Long-term Strategy under the Paris Agreement as Growth Strategy to the UNFCCC Secretariat in June 2019. In this strategy, Japan proclaims a \"decarbonized society\" and aims to accomplish it as early as possible in the second half of this century, based on the basic principle of “a virtuous cycle of environment and growth”. Japan will strive to achieve a \"decarbonized society\" as close as possible to 2050 with disruptive innovations, such as artificial photosynthesis and other CCUS technologies and realization of a hydrogen society.",
                 "page": "1"
               },
@@ -25667,7 +25725,7 @@
                   "quote": "compact city design;",
                   "purpose": "Enhance comprehensive transport planning",
                   "instrument": "General transport and land use planning",
-                  "asi": "Avoid, shift",
+                  "asi": "Avoid, Shift",
                   "modes": "Mode: Not defined",
                   "page": "30"
                 }
@@ -25787,7 +25845,7 @@
                 },
                 {
                   "quote": "Update engineering codes to address combined climate loadslike floods, wind, and seismic risks",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Mode: Not defined",
                   "page": "23"
                 }
@@ -25845,7 +25903,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Fixed level",
+                "target_type": "GHG: BAU",
                 "conditionality": "Unconditional",
                 "target_year": "2030",
                 "content": "Shift to rail; Target 2030: 30%;  GHG reductions by 2030 (Gg CO2eq) : 13.97; Conditionality: Unconditional",
@@ -25855,7 +25913,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Fixed level",
+                "target_type": "GHG: BAU",
                 "conditionality": "Unconditional",
                 "target_year": "2030",
                 "content": "Improve public transport; Target 2030: 30%;  GHG reductions by 2030 (Gg CO2eq) : 230.29; Conditionality: Unconditional",
@@ -25865,7 +25923,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Fixed level",
+                "target_type": "GHG: BAU",
                 "conditionality": "Unconditional",
                 "target_year": "2030",
                 "content": "Improve ICT to reduce demand; GHG reductions by 2030 (Gg CO2eq) : 37.3; Conditionality: Unconditional",
@@ -25875,7 +25933,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Fixed level",
+                "target_type": "GHG: BAU",
                 "conditionality": "Unconditional",
                 "target_year": "2030",
                 "content": "Increase share of hybrid; GHG reductions by 2030 (Gg CO2eq) : 1.1; Conditionality: Unconditional",
@@ -25885,7 +25943,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Fixed level",
+                "target_type": "GHG: BAU",
                 "conditionality": "Conditional",
                 "target_year": "2030",
                 "content": "Increase share of renewables ; GHG reductions by 2030 (Gg CO2eq) : 146.78; Conditionality: Conditional [increase the share of renewable energy sources in the transport sector by 10% each decade.]",
@@ -26209,10 +26267,60 @@
                 "target_scope": "Sector-wide",
                 "ghg_target": "GHG",
                 "target_type": "GHG: BAU",
+                "conditionality": "Unconditional",
+                "target_year": "2030",
+                "content": "Transport: réduction des émissions de GES de 691,97 GgCO2eq en 2030, par rapport au BAU.",
+                "page": "16"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Conditional",
+                "target_year": "2030",
+                "content": "Transport: réduction des émissions de GES de 773,00 GgCO2eq en 2030, par rapport au BAU.",
+                "page": "16"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Unconditional",
+                "target_year": "2035",
+                "content": "Transport: réduction des émissions de GES de 1 086,33 GgCO2eq en 2035, par rapport au BAU.",
+                "page": "16"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Unconditional",
+                "target_year": "2050",
+                "content": "Transport: réduction des émissions de GES de 3 378,57 GgCO2eq en 2050, par rapport au BAU.",
+                "page": "16"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Conditional",
+                "target_year": "2035",
+                "content": "Transport: réduction des émissions de GES de 1 272,00 GgCO2eq en 2035, par rapport au BAU.",
+                "page": "16"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
                 "conditionality": "Conditional",
                 "target_year": "2050",
-                "content": "Transport to contribute reduction levels of 1 464.97 Gg CO2eq by 2030 (unconditional: 691.97 Gg CO2eq, conditional: 773.00 Gg CO2eq); then 2 358.33 Gg CO2eq by 2035 (unconditional: 1 086.33; conditional: 1 272.00),  3 763.49 Gg CO2eq by 2050 (unconditional: 3 378.57; conditional: 7 142.06)",
-                "page": ""
+                "content": "Transport: réduction des émissions de GES de 7 142,06 GgCO2eq en 2050, par rapport au BAU.",
+                "page": "16"
               }
             ],
             "mitigation_measures": {
@@ -26500,7 +26608,7 @@
                   "instrument": "Expansion of infrastructure",
                   "asi": "Shift",
                   "modes": "Rail",
-                  "page": "6/7"
+                  "page": "2026-06-07 00:00:00"
                 }
               ],
               "Mode shift and demand management": [
@@ -26510,7 +26618,7 @@
                   "instrument": "Public transport integration and expansion",
                   "asi": "Shift",
                   "modes": "Transit rail",
-                  "page": "6/7"
+                  "page": "2026-06-07 00:00:00"
                 },
                 {
                   "quote": "Malaysia also has commenced significant fuel subsidy reforms, which serve as an important driver in realigning fiscal and environmental priorities. Malaysia began phasing out blanket diesel subsidies on 10 June 2024 by allowing the price in Peninsular Malaysia to float to market rates, while maintaining subsidized rates for Sabah, Sarawak, and Labuan, as well as targeted groups such as fishermen and eligible logistics companies through programmes such as Diesel Fleet Card 2.0.",
@@ -26546,7 +26654,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "Increasing resilience for infrastructure and cities: Apply climate-risk standards to all major projects, integrate sponge city concepts and Smart City Master Plans, and implement the Circular Economy Blueprint (2025–2035) to reduce waste and enhance resource efficiency.",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Mode: Not defined",
                   "page": "16"
                 }
@@ -27017,7 +27125,7 @@
                 "ghg_target": "GHG",
                 "target_type": "GHG: Fixed level",
                 "conditionality": "Unclear conditionality",
-                "target_year": "Already achieved and commit to maintain",
+                "target_year": "2030",
                 "content": "L’Union des Comores présente un bilan net, neutre en carbone, selon le scénario CNA,  d’environ -1 260 ktCO2eq en 2030 : le puits de carbone compense toutes les émissions des autres secteurs.",
                 "page": "4"
               }
@@ -27248,7 +27356,7 @@
                 "target_area": "Net zero target",
                 "target_scope": "Overall mitigation target",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Base year",
+                "target_type": "GHG: Fixed level",
                 "conditionality": "Conditional",
                 "target_year": "2060",
                 "content": "long-term goal of achieving carbon neutrality by 2060",
@@ -27268,7 +27376,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "GHG",
-                "target_type": "GHG: BAU",
+                "target_type": "GHG: Base year",
                 "conditionality": "Conditional",
                 "target_year": "2035",
                 "content": "8.11% below 1990 levels by 2035, a reduction of 2.11 million tonnes CO2eq",
@@ -27816,7 +27924,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "Develop and adopt guidelines and standards to guide the design and construction of climate proof infrastructure across all sectors.",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Mode: Not defined",
                   "page": "21"
                 }
@@ -27984,8 +28092,38 @@
                 "ghg_target": "Non GHG",
                 "target_type": "Zero emission vehicle targets",
                 "conditionality": "Conditional",
+                "target_year": "2030",
+                "content": "10% del total de vehículos de la flota vehicular son eléctricos en el año 2030.",
+                "page": "21"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Zero emission vehicle targets",
+                "conditionality": "Conditional",
                 "target_year": "2035",
-                "content": "10% del total de vehículos de la flota vehicular son eléctricos en el año 2030.\n15% del total de vehículos de la flota vehicular son eléctricos en el año 2035.\n45% del total de los vehículos matriculados son eléctricos en el año 2030.\n70% del total de vehículos matriculados son eléctricos en el año 2035.",
+                "content": "15% del total de vehículos de la flota vehicular son eléctricos en el año 2035.",
+                "page": "21"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Zero emission vehicle targets",
+                "conditionality": "Conditional",
+                "target_year": "2030",
+                "content": "45% del total de los vehículos matriculados son eléctricos en el año 2030.",
+                "page": "21"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Zero emission vehicle targets",
+                "conditionality": "Conditional",
+                "target_year": "2035",
+                "content": "70% del total de vehículos matriculados son eléctricos en el año 2035.",
                 "page": "21"
               }
             ],
@@ -28750,7 +28888,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "Strengthen standards to climate proof roads and critical public infrastructure",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Road",
                   "page": "20"
                 }
@@ -29389,7 +29527,7 @@
             "date": "02.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC%20Chile%20english%20version.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -29418,7 +29556,7 @@
             "date": "09.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Chile's_NDC_2020_english.pdf",
             "targets": [
               {
@@ -29524,7 +29662,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/NDC-2025-220925%201.pdf",
             "targets": [
               {
@@ -29714,7 +29852,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "A 2030, se habrá desarrollado e implementado un marco metodológico para la incorporación de criterios de resiliencia climática en los Términos de Referencia para el diseño de nuevas obras urbanas, tales como vialidad, parques y espacios públicos en el 100% de las licitaciones de este tipo.",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Road",
                   "page": "31"
                 }
@@ -29964,20 +30102,20 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Fixed level",
+                "target_type": "GHG: BAU",
                 "conditionality": "Unconditional",
-                "target_year": "2050",
-                "content": "1.A.3. Transports [avoided emissions]: 2030: 4,34; 2035: 5,39; 2050: 7,75",
+                "target_year": "2030",
+                "content": "1.A.3. Transports [avoided emissions]: 4,34 GgCO2eq vs BAU by 2030",
                 "page": "38"
               },
               {
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Fixed level",
+                "target_type": "GHG: BAU",
                 "conditionality": "Conditional",
-                "target_year": "2050",
-                "content": "1.A.3. Transports [avoided emissions]: 2030: 5,03; 2035: 14,77; 2050: 21,22",
+                "target_year": "2030",
+                "content": "1.A.3. Transports [avoided emissions]: 5,03 GgCO2eq vs BAU by 2030",
                 "page": "38"
               },
               {
@@ -30009,6 +30147,46 @@
                 "target_year": "2050",
                 "content": "Promotion des voitures hybrides : dans ce cadre, la mise en exploitation du gisement gazier du pays prévue dans un proche avenir facilite la Pénétration des véhicules à gaz ainsi que des voitures électriques. Ces nouvelles technologies seront basées sur l’appuie international et pour objectif 6000 voitures en 2030 dont 50% à Gaz et 20000 en 2050.",
                 "page": "113"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Unconditional",
+                "target_year": "2035",
+                "content": "1.A.3. Transports [avoided emissions]: 5,39 GgCO2eq vs BAU by 2035",
+                "page": "38"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Unconditional",
+                "target_year": "2050",
+                "content": "1.A.3. Transports [avoided emissions]: 7,75 GgCO2eq vs BAU by 2050",
+                "page": "38"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Conditional",
+                "target_year": "2035",
+                "content": "1.A.3. Transports [avoided emissions]: 14,77 GgCO2eq vs BAU by 2035",
+                "page": "38"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Conditional",
+                "target_year": "2050",
+                "content": "1.A.3. Transports [avoided emissions]: 21,22 GgCO2eq vs BAU by 2050",
+                "page": "38"
               }
             ],
             "mitigation_measures": {
@@ -30381,7 +30559,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "the integration of climate resilience into the design and maintenance of roads and railways has become a cornerstone of sustainable infrastructure development",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Road, Rail",
                   "page": "6"
                 }
@@ -31087,7 +31265,7 @@
                 "target_area": "Net zero target",
                 "target_scope": "Overall mitigation target",
                 "ghg_target": "GHG",
-                "target_type": "GHG: BAU",
+                "target_type": "GHG: Fixed level",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2050",
                 "content": "Neutralidad en carbono",
@@ -31348,7 +31526,7 @@
                 "target_scope": "Sector-wide",
                 "ghg_target": "GHG",
                 "target_type": "GHG: BAU",
-                "conditionality": "Conditional",
+                "conditionality": "Unclear conditionality",
                 "target_year": "2035",
                 "content": "Para 2035 -las PAMs del sector transporte- en un Escenario WM permitirán reducir, aproximadamente, 313 kt CO₂eq respecto al Escenario sin medidas, y 618 kt CO₂eq considerando la adicionalidad del Escenario WAM.",
                 "page": "37"
@@ -31789,8 +31967,18 @@
                 "ghg_target": "GHG",
                 "target_type": "GHG: BAU",
                 "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "Georgia intends to increase its mitigation target of the greenhouse gas emissions from the transport sector to 20% by 2030, compared to WOM scenario.",
+                "page": "21"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Unclear conditionality",
                 "target_year": "2035",
-                "content": "Georgia intends to increase its mitigation target of the greenhouse gas emissions from the transport sector to 20% by 2030, compared to WOM scenario. Georgia also intends to further reduce the greenhouse gas emissions from the transport sector by 25% by 2035, compared to the same scenario.",
+                "content": "Georgia also intends to further reduce the greenhouse gas emissions from the transport sector by 25% by 2035, compared to WOM scenario",
                 "page": "21"
               }
             ],
@@ -32062,7 +32250,7 @@
                 "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
                 "target_type": "Zero emission vehicle targets",
-                "conditionality": "Unclear conditionality",
+                "conditionality": "Unconditional",
                 "target_year": "2035",
                 "content": "Accelerating the reduction of emissions from road transport. Canada is working to decarbonize the transport sector through a range of actions. Canada is investing in charging infrastructure and finalized the Electric Vehicle Availability Standard (regulated targets for zero-emission vehicles) in December 2023, which requires 100% of new light-duty vehicles (LDVs) offered for sale in Canada to be ZEVs by 2035.",
                 "page": "24"
@@ -32071,7 +32259,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
-                "target_type": "Avoid targets",
+                "target_type": "Infrastructure targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2026",
                 "content": "and in July 2024, the federal government announced the Canada Public Transit Fund (CPTF); starting in 2026-27, the CPTF will contribute an average of $3 billion per year with the aim of providing stable and predictable funding to address active transportation and long-term public transit goals.",
@@ -32300,7 +32488,7 @@
                   "quote": "Working with Metro Vancouver to reduce light-duty vehicle GHG emissions and transition to low-carbon transit",
                   "purpose": "Public transport improvement",
                   "instrument": "General public transport improvement",
-                  "asi": "Avoid, shift",
+                  "asi": "Avoid, Shift",
                   "modes": "Bus, Transit rail",
                   "page": "44"
                 },
@@ -32316,7 +32504,7 @@
                   "quote": "Work with B.C. to identify further federal actions to support B.C.’s Clean Transportation Action Plan, transportation energy intensity, mode share, and vehicle kilometre travelled targets",
                   "purpose": "Transport demand management",
                   "instrument": "Transport demand management measures",
-                  "asi": "Avoid, shift, improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Mode: Not defined",
                   "page": "49"
                 },
@@ -32364,7 +32552,7 @@
                   "quote": "Subnational target for Prince Edward Island:\nPillar 1: Transform the way people and goods move. Target: Reduce transportation emissions by 25-30% by 2030.",
                   "purpose": "Transport demand management",
                   "instrument": "Transport demand management measures",
-                  "asi": "Avoid, shift, improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Mode: Not defined",
                   "page": "72"
                 },
@@ -32372,7 +32560,7 @@
                   "quote": "Yukon's target:\nreducing road transportation emissions by 30 per cent below 2010 levels by 2030;",
                   "purpose": "Transport demand management",
                   "instrument": "Transport demand management measures",
-                  "asi": "Avoid, shift, improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Road",
                   "page": "81"
                 },
@@ -32406,7 +32594,7 @@
                   "quote": "Enacting a Clean Transportation Act on Plan to map out additional system-wide actions to meet the transportation emission reduction targets",
                   "purpose": "Enhance comprehensive transport planning",
                   "instrument": "General transport and land use planning",
-                  "asi": "Avoid, shift, improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Mode: Not defined",
                   "page": "43"
                 },
@@ -33235,7 +33423,7 @@
               },
               {
                 "target_area": "Transport sector mitigation target",
-                "target_scope": "Sector-wide",
+                "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
                 "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unconditional",
@@ -33245,9 +33433,9 @@
               },
               {
                 "target_area": "Transport sector mitigation target",
-                "target_scope": "Sector-wide",
+                "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
-                "target_type": "Vehicle efficiency targets",
+                "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unconditional",
                 "target_year": "2030",
                 "content": "switch of urban public transport to hybrid by 2030",
@@ -33255,17 +33443,17 @@
               },
               {
                 "target_area": "Transport sector mitigation target",
-                "target_scope": "Sector-wide",
+                "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
                 "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unconditional",
                 "target_year": "2050",
-                "content": "switch of urban public transport to electric by 2050 (50 percent by 2040)",
+                "content": "switch of urban public transport to electric 100% by 2050",
                 "page": "12"
               },
               {
                 "target_area": "Transport sector mitigation target",
-                "target_scope": "Sector-wide",
+                "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
                 "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unconditional",
@@ -33275,12 +33463,12 @@
               },
               {
                 "target_area": "Transport sector mitigation target",
-                "target_scope": "Sector-wide",
+                "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
                 "target_type": "Mode share targets",
                 "conditionality": "Unconditional",
                 "target_year": "2050",
-                "content": "switch of road freight transport to rail freight transport (30 percent in 2030, 60 percent in 2050)",
+                "content": "switch of road freight transport to rail freight transport  60 percent by 2050",
                 "page": "12"
               },
               {
@@ -33292,6 +33480,26 @@
                 "target_year": "2030",
                 "content": "To reduce unconditionally GHG emissions from the transport sector in 2030 by 52 percent compared to the 1990 level",
                 "page": "33"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Zero emission vehicle targets",
+                "conditionality": "Unconditional",
+                "target_year": "2040",
+                "content": "switch of urban public transport to electric by 50 percent by 2040",
+                "page": "12"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Mode share targets",
+                "conditionality": "Unconditional",
+                "target_year": "2050",
+                "content": "switch of road freight transport to rail freight transport 30 percent by 2030",
+                "page": "12"
               }
             ],
             "mitigation_measures": {
@@ -33300,7 +33508,7 @@
                   "quote": "Implementing Sustainable Urban Mobility Plans for the biggest cities will help encourage behavior change in passenger transport.",
                   "purpose": "Education and behavioral change",
                   "instrument": "General education and behavior change",
-                  "asi": "Avoid, shift, improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Mode: Not defined",
                   "page": "12"
                 },
@@ -33308,7 +33516,7 @@
                   "quote": "Implementing Sustainable Urban Mobility Plans for the biggest cities will help encourage behavior change in passenger transport.",
                   "purpose": "Enhance comprehensive transport planning",
                   "instrument": "Sustainable urban mobility plans",
-                  "asi": "Avoid, shift, improve",
+                  "asi": "Avoid, Shift, Improve",
                   "modes": "Mode: Not defined",
                   "page": "12"
                 },
@@ -33334,7 +33542,7 @@
                   "quote": "The government also intends to promote the consumption of biofuels in the transport sector. The production of domestic biofuels will be promoted through the provision of subsidies and fiscal incentives.",
                   "purpose": "Promote alternative fuels",
                   "instrument": "Biofuels support measures",
-                  "asi": "Avoid, shift",
+                  "asi": "Avoid, Shift",
                   "modes": "Mode: Not defined",
                   "page": "12"
                 },
@@ -34498,7 +34706,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
-                "target_type": "Vehicle efficiency targets",
+                "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2030",
                 "content": "Reduce ICE vehicle share to 98%",
@@ -34508,7 +34716,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
-                "target_type": "Vehicle efficiency targets",
+                "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2035",
                 "content": "Reduce ICE vehicle share to 95%",
@@ -34518,7 +34726,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
-                "target_type": "Vehicle efficiency targets",
+                "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2040",
                 "content": "Reduce ICE vehicle share to 94%",
@@ -34528,27 +34736,67 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Base year",
-                "conditionality": "Unclear conditionality",
+                "target_type": "GHG: BAU",
+                "conditionality": "Conditional",
                 "target_year": "2030",
-                "content": "When both unconditional and conditional measures are combined (UC+C), emissions could be reduced by 57% in 2030.",
-                "page": "31"
+                "content": "When applying conditional measures, emissions could be reduced by 40% (9.78 MtCO₂e) by 2030",
+                "page": "15"
               },
               {
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Base year",
-                "conditionality": "Unclear conditionality",
+                "target_type": "GHG: BAU",
+                "conditionality": "Conditional",
                 "target_year": "2035",
-                "content": "When both unconditional and conditional measures are combined (UC+C), emissions could be reduced by 2035 onward, representing the full mitigation potential of the sector.",
-                "page": "31"
+                "content": "When applying conditional measures, emissions could be reduced by 54% (15.06 MtCO₂e) by 2035",
+                "page": "15"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Conditional",
+                "target_year": "2040",
+                "content": "When applying conditional measures, emissions could be reduced by 54% (17.3 MtCO₂e) by 2040",
+                "page": "15"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Unconditional",
+                "target_year": "2030",
+                "content": "When applying unconditional measures, emissions could be reduced by 17% (4.19 MtCO₂e) by 2030",
+                "page": "15"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Unconditional",
+                "target_year": "2035",
+                "content": "When applying unconditional measures, emissions could be reduced by 23% (6.46 MtCO₂e) by 2035",
+                "page": "15"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: BAU",
+                "conditionality": "Unconditional",
+                "target_year": "2040",
+                "content": "When applying unconditional measures, emissions could be reduced by 23% (7.41 MtCO₂e) by 2040",
+                "page": "15"
               },
               {
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "Non GHG",
-                "target_type": "Vehicle efficiency targets",
+                "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2030",
                 "content": "Increase electric cars by 1%",
@@ -34558,7 +34806,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "Non GHG",
-                "target_type": "Vehicle efficiency targets",
+                "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2035",
                 "content": "Increase electric cars by 3%",
@@ -34568,7 +34816,7 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "Non GHG",
-                "target_type": "Vehicle efficiency targets",
+                "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2040",
                 "content": "Increase electric cars by 4%",
@@ -35391,7 +35639,7 @@
             "status": "Active",
             "has_transport_target": false,
             "has_netzero_target": false,
-            "url": "Timor-Leste’s Nationally Determined Contribution 2026-2035",
+            "url": "https://unfccc.int/sites/default/files/2026-06/Timor-Leste%20Updated%20NDC%203.0.pdf",
             "targets": [],
             "mitigation_measures": {
               "Energy efficiency": [
@@ -36639,8 +36887,18 @@
                 "ghg_target": "Non GHG",
                 "target_type": "Biofuel targets",
                 "conditionality": "Conditional",
+                "target_year": "2030",
+                "content": "Increase in the blending of imported SAF with conventional aviation kerosene 5 % in 2030.",
+                "page": "38"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Subsector targets",
+                "ghg_target": "Non GHG",
+                "target_type": "Biofuel targets",
+                "conditionality": "Conditional",
                 "target_year": "2035",
-                "content": "Increase in the blending of imported SAF with conventional aviation kerosene, in line with European Union targets, rising from 5 % in 2030 to 10 % in 2035.",
+                "content": "Increase in the blending of imported SAF with conventional aviation kerosene 10 % in 2035.",
                 "page": "38"
               }
             ],
@@ -36720,7 +36978,7 @@
             "date": "09.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC-RD%20Agosto%202015%20%28espa%C3%B1ol%29.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -36747,7 +37005,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Dominican%20Republic%20First%20NDC%20(Updated%20Submission).pdf",
             "targets": [
               {
@@ -36902,8 +37160,8 @@
             "date": "06.2026",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
-            "url": "*NDC_3.0_Versión Final_1303_conAnexos_REV_2.pdf",
+            "has_netzero_target": true,
+            "url": "https://unfccc.int/sites/default/files/2026-06/NDC_3.0_Versio%CC%81n%20Final_1303_conAnexos_REV_2.pdf",
             "targets": [],
             "mitigation_measures": {
               "Mode shift and demand management": [
@@ -37002,18 +37260,7 @@
             "has_transport_target": false,
             "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/15%2002%2027_INDC%20Contribution%20of%20Switzerland.pdf",
-            "targets": [
-              {
-                "target_area": "Net zero target",
-                "target_scope": "Overall mitigation target",
-                "ghg_target": "GHG",
-                "target_type": "GHG: Base year",
-                "conditionality": "Unclear conditionality",
-                "target_year": "2050",
-                "content": "Reduce emissions by 2050 by 70 to 85 % compared to 1990 including use of international credits",
-                "page": "2"
-              }
-            ],
+            "targets": [],
             "mitigation_measures": {},
             "adaptation_measures": {}
           }
@@ -37111,10 +37358,30 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Sector-wide",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Trajectory",
-                "conditionality": "Unclear conditionality",
+                "target_type": "GHG: Base year",
+                "conditionality": "Unconditional",
+                "target_year": "2035",
+                "content": "in the transport sector (excluding international aviation):\nBy 2035: minus 41 percent [compared to 1990 levels].",
+                "page": "7"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: Base year",
+                "conditionality": "Unconditional",
+                "target_year": "2040",
+                "content": "in the transport sector (excluding international aviation):\nBy 2040: minus 57 percent [compared to 1990 levels]",
+                "page": "7"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: Fixed level",
+                "conditionality": "Unconditional",
                 "target_year": "2050",
-                "content": "in the transport sector (excluding international aviation):\n• By 2035: minus 41 percent;\n• Through 2040: minus 57 percent;\n• Until 2050: minus 100 percent.\n[compared to 1990 levels]",
+                "content": "in the transport sector (excluding international aviation): \nUntil 2050: minus 100 percent [compared to 1990 levels].",
                 "page": "7"
               }
             ],
@@ -37149,10 +37416,20 @@
                 "target_area": "Net zero target",
                 "target_scope": "Overall mitigation target",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Trajectory",
+                "target_type": "GHG: Fixed level",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2050",
-                "content": "Switzerland is committed to follow the recommendations of science in order to limit warming to 1.5 degrees Celsius. In view of its climate target of net zero greenhouse gas emissions by 2050, Switzerland’s first NDC is to reduce its net greenhouse gas emissions by at least 50 per cent by 2030 compared with 1990 levels, corresponding to an average reduction of net greenhouse gas emissions by at least 35 per cent over the period 2021–2030. By 2025, a reduction of net greenhouse gas emissions by at least 35 per cent compared with 1990 levels is anticipated.",
+                "content": "Switzerland is committed to follow the recommendations of science in order to limit warming to 1.5 degrees Celsius. In view of its climate target of net zero greenhouse gas emissions by 2050",
+                "page": "2"
+              },
+              {
+                "target_area": "Net zero target",
+                "target_scope": "Overall mitigation target",
+                "ghg_target": "GHG",
+                "target_type": "GHG: Trajectory",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2030",
+                "content": "Switzerland’s first NDC is to reduce its net greenhouse gas emissions by at least 50 per cent by 2030 compared with 1990 levels, corresponding to an average reduction of net greenhouse gas emissions by at least 35 per cent over the period 2021–2030. By 2025, a reduction of net greenhouse gas emissions by at least 35 per cent compared with 1990 levels is anticipated.",
                 "page": "2"
               }
             ],
@@ -37215,7 +37492,7 @@
             "status": "Archived",
             "has_transport_target": false,
             "has_netzero_target": false,
-            "url": "",
+            "url": "https://unfccc.int/sites/default/files/NDC/2022-06/CDN_ACTUALISEE_BENIN2021.pdf",
             "targets": [],
             "mitigation_measures": {
               "Transport system improvements": [
@@ -37271,7 +37548,7 @@
                 "target_type": "Zero emission vehicle targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2030",
-                "content": "Objectif 10 : Promotion de la mobilité routière électrique avec pour objectif 1% au moins de motos électrique en 2030 et 2% en 2035",
+                "content": "Objectif 10 : Promotion de la mobilité routière électrique avec pour objectif 1% au moins de motos électrique en 2030",
                 "page": "40"
               },
               {
@@ -38481,8 +38758,18 @@
                 "ghg_target": "GHG",
                 "target_type": "GHG: Base year",
                 "conditionality": "Unconditional",
+                "target_year": "2030",
+                "content": "Trinidad and Tobago commits to reduce public transportation emissions by 30% compared to 2013 levels by 2030",
+                "page": "3"
+              },
+              {
+                "target_area": "Transport sector mitigation target",
+                "target_scope": "Sector-wide",
+                "ghg_target": "GHG",
+                "target_type": "GHG: Base year",
+                "conditionality": "Unconditional",
                 "target_year": "2035",
-                "content": "Trinidad and Tobago commits to reduce public transportation emissions by 30% compared to 2013 levels by 2030 and 50% total transportation emissions by 2035 compared to 2013 levels.",
+                "content": "Trinidad and Tobago commits to reduce public transportation emissions 50% total transportation emissions by 2035 compared to 2013 levels.",
                 "page": "3"
               }
             ],
@@ -38559,7 +38846,7 @@
             "mitigation_measures": {
               "Mode shift and demand management": [
                 {
-                  "quote": "Garantizar el servicio de transporte público masivo, mediante la operación permanente y efectiva del sistema, prestando el servicio de forma permanente, puntual, solidaria, cómoda, segura y ecológica [...] Realizar planes para la adquisición y mantenimiento de equipos e \ninstalaciones a fin de garantizar la prestación permanente, continua y eficaz del servicio y preservar el medio ambiente ofreciendo tecnologías limpias",
+                  "quote": "Garantizar el servicio de transporte público masivo, mediante la operación permanente y efectiva del sistema, prestando el servicio de forma permanente, puntual, solidaria, cómoda, segura y ecológica [...] Realizar planes para la adquisición y mantenimiento de equipos e instalaciones a fin de garantizar la prestación permanente, continua y eficaz del servicio y preservar el medio ambiente ofreciendo tecnologías limpias",
                   "purpose": "Public transport improvement",
                   "instrument": "General public transport improvement",
                   "asi": "Improve",
@@ -38699,10 +38986,10 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Base year",
+                "target_type": "GHG: BAU",
                 "conditionality": "Unclear conditionality",
-                "target_year": "2050",
-                "content": "Los vehículos de apoyo a las operaciones en tierra de los aviones de Aeropostal (...) realizar la conversión a Gas Natural Vehicular (GNV), con equipos de alta eficiencia de 5ta. Generación, para reducir en un 99 % el material particulado y disminuir un 50 % las emisiones de CO2, en un plazo de cinco (05) años - Esta medida contribuye a la reducción de emisiones totales de GEI del sector transporte (línea base 2022).\n\nFortalecimiento de capacidades para la reducción de emisiones GEI ocasionada por los buques: Reducción de emisiones GEI del 25% (2025-2030)",
+                "target_year": "2030",
+                "content": "Fortalecimiento de capacidades para la reducción de emisiones GEI ocasionada por los buques: Reducción de emisiones GEI del 25% (2025-2030)",
                 "page": "56"
               },
               {
@@ -38719,11 +39006,11 @@
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
-                "target_type": "Mode share targets",
+                "target_type": "Infrastructure targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2030",
-                "content": "10.000 unidades incorporadas anualmente en el programa de mantenimiento de la flota de transporte superficial de TROMERCA.\n\nUna Jornada anual de actividades de Silvicultura y paisajismo urbano de las áreas adyacentes a los sistemas de transporte multimodales de la empresa (TROMERCA).\n\nUna Jornada anual de movilidad sustentable (TROMERCA)\n\nDisminucion de intervalo de los mantenimientos preventivos de las unidades, mediante la sustitución de filtros originales (SITSSA).\n\nReemplazo de 100 unidades de la flota de vehículos del transporte superficial (SITSSA).\n\nRecuperación de 5 unidades de transporte superficial con sistema de gas natural al año (Tranzoategui).\n\n2500 unidades incorporadas anualmente en el programa de mantenimiento de la flota de transporte superficial de Tranzoategui.\n\nFortalecimiento del programa de mantenimiento de unidades pertenecientes a la flota Yutong a nivel nacional.\n\nAumentar la flota de unidades de Buses de Gas natural (Metro de Maracaibo).\n\nActivar la estación de Servicio de Gas natural perteneciente a la empresa (Metro de Maracaibo).\n\nRenovación de la flota de buses para mejorar la prestación del servicio Metrobús (C.A. Metro de Caracas).",
-                "page": "66"
+                "content": "No exceder las 448.631,08 Tn CO2 por año durante el periodo 2025 - 2030 en los procesos operacionales del Sistema de Transporte Aéreo provenientes de los vuelos internacionales.",
+                "page": "50"
               },
               {
                 "target_area": "Transport sector mitigation target",
@@ -38732,18 +39019,18 @@
                 "target_type": "Infrastructure targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2030",
-                "content": "100% de las acciones ejecutadas en 6 aeropuertos administrados por BAER S.A que permitan contribuir a la reducción de emisiones de GEI al año 2030:\nSeis (6) reportes anuales elaborados para la determinación de la huella de carbono en seis (06) aeropuertos administrados por BAER S.A.\n\nSeis (6) reportes anuales elaborados para el control operativo de la eficiencia energética en seis (6) aeropuertos del país administrados bolivariana de aeropuertos.\n\nTreinta (30) Brigadas ecológicas aeroportuarias constituidas para la sensibilización al cambio climático.\n\nNo exceder las 448.631,08 Tn CO2 por año durante el periodo 2025 - 2030 en los procesos operacionales del Sistema de Transporte Aéreo provenientes de los vuelos internacionales.\n\n100% implementada las acciones para la eficiencia energética en las instalaciones del aeropuerto mediante la modernización de sistemas de iluminación y climatización.",
-                "page": "50, 61"
+                "content": "Expansion de la red Ferroviaria (Linea 5: tramo Zona Rental - Hugo Chávez) - 7.5 km by 2030",
+                "page": "50"
               },
               {
                 "target_area": "Transport sector mitigation target",
                 "target_scope": "Subsector targets",
                 "ghg_target": "Non GHG",
-                "target_type": "Mode share targets",
+                "target_type": "Infrastructure targets",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2030",
-                "content": "Implementación de medidas de eficiencia y ahorro energético en el sistema Metro de Los Teques con la sustitucion de 1000 luminarias fluorescentes a luminarias con tecnología LED (Metro de los Teques).\n\nFortalecimiento del Metro de Los Teques con 6 estaciones construidas (Metro de los Teques).\n\nFortalecimiento del mantenimiento del sistema Ferroviario linea 1 del Metro de Maracaibo (43 mantenimientos anuales)\n\nImpulso del Plan Metro Se Mueve Contigo (40 trenes y 20 unidades).\n\nExpansion de la red Ferroviaria (Linea 5: tramo Zona Rental - Hugo Chávez) - 7.5 km by 2030\n\nConstruccion de la Línea 2 tramo desde Negra Hipolita, hasta Tacarigua - 4.3 km by 2030\n\n100% Disenado y Fabricado el prototipo de aerogenerador sin aspas con una capacidad de 1KW (Ferroven S.A)\n\nImplementacion de un plan anual de eficiencia y ahorro energetico en el sistema de Ferrocarriles (06)\n\nPlan de Mantenimiento de la via ferrea ejecutado anualmente.\n\n300 Unidades de Transporte de Carga pesada sustituidas\n\n100% implementado el Plan de mantenimiento general de la flota de transporte de carga pesada",
-                "page": "72, 75"
+                "content": "Construccion de la Línea 2 tramo desde Negra Hipolita, hasta Tacarigua - 4.3 km by 2030",
+                "page": "50"
               }
             ],
             "mitigation_measures": {
@@ -38799,7 +39086,7 @@
                   "page": "69"
                 },
                 {
-                  "quote": "M11. PLAN DE MANTENIMIENTO Y SUSTITUCIÓN DE UNIDADES DE TRANSPORTE DE CARGA PESADA\n\nDisponer de una flota de vehículos de carga moderna y ambientalmente sustentadle, lo cual abarca la sustitución del parque automotor que alcanzó su vida útil operativa y la ejecución de un plan de mantenimiento mayor, menor, preventivo y correctivo, que garantice la operatividad de la flota de unidades de transporte de carga pesada en el país a los fines de asegurar la disminución progresiva y sostenida de las emisiones de gases de efecto invernadero, lo que se traduce en mejora de la calidad del aire.\nCorpologística como empresa estadal de Transporte de Carga Pesada, asume acciones en la búsqueda de mitigar las emisiones GEI, para ello como parte del esfuerzo para la acción climática se prevé el reemplazo de unidades que han cumplido la vida útil, así como garantizar el mantenimiento preventivo y correctivo de su parque automotor.",
+                  "quote": "M11. PLAN DE MANTENIMIENTO Y SUSTITUCIÓN DE UNIDADES DE TRANSPORTE DE CARGA PESADA\nDisponer de una flota de vehículos de carga moderna y ambientalmente sustentadle, lo cual abarca la sustitución del parque automotor que alcanzó su vida útil operativa y la ejecución de un plan de mantenimiento mayor, menor, preventivo y correctivo, que garantice la operatividad de la flota de unidades de transporte de carga pesada en el país a los fines de asegurar la disminución progresiva y sostenida de las emisiones de gases de efecto invernadero, lo que se traduce en mejora de la calidad del aire.\nCorpologística como empresa estadal de Transporte de Carga Pesada, asume acciones en la búsqueda de mitigar las emisiones GEI, para ello como parte del esfuerzo para la acción climática se prevé el reemplazo de unidades que han cumplido la vida útil, así como garantizar el mantenimiento preventivo y correctivo de su parque automotor.",
                   "purpose": "Freight efficiency improvements",
                   "instrument": "General freight efficiency improvements",
                   "asi": "Improve",
@@ -38851,7 +39138,7 @@
                   "page": "56"
                 },
                 {
-                  "quote": "M8. MODERNIZACIÓN DEL SISTEMA OPERACIONAL DEL INSTITUTO AUTÓNOMO AEROPUERTO INTERNACIONAL DE MAIQUETÍA PROMOVIENDO PRÁCTICAS SOSTENIBLES EN LAS OPERACIONES AEROPORTUARIAS\n\nFomentar la eficiencia en los sistemas de iluminación, climatización, de residuos y de otros sistemas operacionales que se desarrollan en las operaciones áreas ejecutadas en el Instituto Autónomo Aeropuerto Internacional de Maiquetía, que permitan reducir las emisiones de GEI al año 2030.",
+                  "quote": "M8. MODERNIZACIÓN DEL SISTEMA OPERACIONAL DEL INSTITUTO AUTÓNOMO AEROPUERTO INTERNACIONAL DE MAIQUETÍA PROMOVIENDO PRÁCTICAS SOSTENIBLES EN LAS OPERACIONES AEROPORTUARIAS\nFomentar la eficiencia en los sistemas de iluminación, climatización, de residuos y de otros sistemas operacionales que se desarrollan en las operaciones áreas ejecutadas en el Instituto Autónomo Aeropuerto Internacional de Maiquetía, que permitan reducir las emisiones de GEI al año 2030.",
                   "purpose": "Promote improvements in aviation",
                   "instrument": "General aviation improvements",
                   "asi": "Improve",
@@ -38867,7 +39154,7 @@
                   "page": "77"
                 },
                 {
-                  "quote": "M13. MONITOREO DE CALIDAD DE AIRE Y AGUA EN AMBIENTES MARINOS\n\nMonitorear la calidad del aire y agua en áreas de influencia de los archipiélagos Los Roques y Los Monjes, y el muelle de la Base Naval Juan Crisóstomo Falcón ubicado en la península de Paraguaná, estado Falcón.\nSe realizará la captación puntual de Partículas Totales Suspendidas (PTS), PM10, PM2,5 en la atmósfera, y de los gases NO2 y SÜ2en áreas de influencia de los archipiélagos Los Roques y Los Monjes, y el muelle de la Base Naval Juan Crisóstomo Falcón ubicado en la península de Paraguaná, estado Falcón.",
+                  "quote": "M13. MONITOREO DE CALIDAD DE AIRE Y AGUA EN AMBIENTES MARINOS\nMonitorear la calidad del aire y agua en áreas de influencia de los archipiélagos Los Roques y Los Monjes, y el muelle de la Base Naval Juan Crisóstomo Falcón ubicado en la península de Paraguaná, estado Falcón.\nSe realizará la captación puntual de Partículas Totales Suspendidas (PTS), PM10, PM2,5 en la atmósfera, y de los gases NO2 y SÜ2en áreas de influencia de los archipiélagos Los Roques y Los Monjes, y el muelle de la Base Naval Juan Crisóstomo Falcón ubicado en la península de Paraguaná, estado Falcón.",
                   "purpose": "Promote improvements in shipping",
                   "instrument": "General shipping improvement",
                   "asi": "Improve",
@@ -39130,7 +39417,7 @@
                 "ghg_target": "Non GHG",
                 "target_type": "Vehicle efficiency targets",
                 "conditionality": "Conditional",
-                "target_year": "—",
+                "target_year": "n/a",
                 "content": "Massification of Natural Gas Use: o Construction of ten (10) Compressed Natural Gas Supply Stations,\n• Importation of one hundred and fifty (150) CNG Buses\n• Import of one thousand (1000) kits and respective conversion Cylinders for Natural Gas.\n• Conversion of 1000 cars to NG",
                 "page": "77"
               }
@@ -39414,7 +39701,7 @@
             "date": "07.2018",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Colombia%20iNDC%20Unofficial%20translation%20Eng.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -39441,7 +39728,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC%20actualizada%20de%20Colombia.pdf",
             "targets": [
               {
@@ -39708,14 +39995,14 @@
             "date": "12.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-12/NDC%203.0%20Transformaciones%20para%20la%20Vida%20%28Colombia%29.pdf",
             "targets": [
               {
                 "target_area": "Net zero target",
                 "target_scope": "Overall mitigation target",
                 "ghg_target": "GHG",
-                "target_type": "GHG: Base year",
+                "target_type": "GHG: Fixed level",
                 "conditionality": "Unclear conditionality",
                 "target_year": "2050",
                 "content": "Alcanzar la carbono neutralidad en 2050, reduciendo en un 90% las emisiones frente a 2015 y compensando el 10% restante con absorciones.",
@@ -40004,7 +40291,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "Se pretende incorporar criterios climáticos y de riesgo en las diferentes fases de la infraestructura, el diseño, operación y mantenimiento de la infraestructura de transporte para asegurar continuidad de servicios y protección de la vida, sin dejar de lado la protección y \ngestión del impacto en la biodiversidad.",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Mode: Not defined",
                   "page": "50"
                 },
@@ -40016,7 +40303,7 @@
                 },
                 {
                   "quote": "Incorporar los Lineamientos de Infraestructura Verde Vial y el concepto de Corredor Geotécnico en la estructuración de nuevos proyectos viales a cargo del sector transporte a par�r del 2026 [There is extensive information on this adaptation measure on pages 343-345]",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Mode: Not defined",
                   "page": "343-345"
                 },
@@ -40045,7 +40332,7 @@
             "date": "09.2025",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/NDC%203.0%20Declarativa%20Colombia%20Transformaciones%20para%20la%20Vida%20V.25.09.2025%20Gob.%20Nacional.pdf",
             "targets": [
               {
@@ -40197,7 +40484,7 @@
               "Institutional and Regulatory": [
                 {
                   "quote": "se promoverá la incorporación de criterios de resiliencia climática en la infraestructura, mejora en sistemas de información y la implementación de la Política de Gestión del Riesgo y Cambio Climático del sector, reduciendo la vulnerabilidad frente a fenómenos extremos y asegurando la continuidad de los servicios.",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Mode: Not defined",
                   "page": "46"
                 },
@@ -40741,7 +41028,7 @@
                 },
                 {
                   "quote": "Updating design and construction standards and materials to ensure that future infrastructure is more resilient to anticipated climate and extreme weather events.",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Mode: Not defined",
                   "page": "36"
                 },
@@ -40753,7 +41040,7 @@
                 },
                 {
                   "quote": "By 2030, Adopt climate-resilient construction standards (e.g. elevated roadbeds, improved drainage, durable materials) suited to Liberia’s terrain.",
-                  "measure": "Design standards and updates",
+                  "measure": "Design Standards and updates",
                   "modes": "Road",
                   "page": "36"
                 }
@@ -42053,7 +42340,7 @@
             "version": "NDC 2.1",
             "generation": "gen2",
             "date": "11.2023",
-            "status": "Active",
+            "status": "Archived",
             "has_transport_target": true,
             "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-11/Oman%201st%20Update%20of%20the%202nd%20NDC%20-%20Optimized%20Size%20%281%29.pdf",
@@ -42262,7 +42549,65 @@
             "adaptation_measures": {}
           }
         ],
-        "gen3": []
+        "gen3": [
+          {
+            "doc_id": 85248,
+            "country_code": "OMN",
+            "country_name": "Oman",
+            "doc_type": "NDC",
+            "version": "NDC 3.0",
+            "generation": "gen3",
+            "date": "07.2026",
+            "status": "Active",
+            "has_transport_target": false,
+            "has_netzero_target": false,
+            "url": "https://unfccc.int/sites/default/files/2026-07/The%20Sultanate%20of%20Omans%20Third%20Nationally%20Determined%20Contributions%20%20%28NDC%203.0%29.pdf",
+            "targets": [
+              {
+                "target_area": "Net zero target",
+                "target_scope": "Overall mitigation target",
+                "ghg_target": "GHG",
+                "target_type": "GHG: Fixed level",
+                "conditionality": "Unclear conditionality",
+                "target_year": "2050",
+                "content": "2050 net-zero objective",
+                "page": "13"
+              }
+            ],
+            "mitigation_measures": {
+              "Electrification": [
+                {
+                  "quote": "In the transport sector, actions include the gradual electrification of light-duty vehicles through the uptake of Battery Electric Vehicles (BEVs)",
+                  "purpose": "Promote electric mobility",
+                  "instrument": "General e-mobility measures",
+                  "asi": "Improve",
+                  "modes": "Cars, Private cars",
+                  "page": "53"
+                }
+              ],
+              "Mode shift and demand management": [
+                {
+                  "quote": "together with measures that promote modal shift and strengthen public transport infrastructure",
+                  "purpose": "Public transport improvement",
+                  "instrument": "General public transport improvement",
+                  "asi": "Shift",
+                  "modes": "Mode: Not defined",
+                  "page": "53"
+                }
+              ]
+            },
+            "adaptation_measures": {
+              "Structural and Technical": [
+                {
+                  "quote": "Oman's adaptation response focuses on mainstreaming climate risk into spatial planning and development standards, including the Oman National Spatial Strategy (ONSS), upgrading urban drainage and flood-risk management, strengthening the resilience of utilities and critical services, and reinforcing DRR and institutional coordination",
+                  "measure": "Transport Infrastructure Resilience",
+                  "modes": "Road",
+                  "page": "33"
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     "LBN": {
@@ -43117,7 +43462,7 @@
             "status": "Active",
             "has_transport_target": false,
             "has_netzero_target": false,
-            "url": "",
+            "url": "https://unfccc.int/sites/default/files/2025-09/%D0%A0%D0%A4%20%D0%B2%D1%82%D0%BE%D1%80%D0%BE%D0%B9%20%D0%9E%D0%9D%D0%A3%D0%92.pdf",
             "targets": [
               {
                 "target_area": "Net zero target",
@@ -44210,9 +44555,5 @@
       }
     }
   },
-<<<<<<< HEAD
-  "last_updated": "2026-07-28"
-=======
-  "last_updated": "2026-07-26"
->>>>>>> 0a6b3884e2da878a035bb4ca9d02f82f080165ae
+  "last_updated": "2026-08-07"
 }

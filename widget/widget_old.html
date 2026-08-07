@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport in NDCs 3.0</title>
+    <style>
+       
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .update-date {
+            color: #003d5c;
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* ── Grid: 3 columns on desktop, 1 on mobile ── */
+        .buckets-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* ── Cards ── */
+        .bucket {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0, 61, 92, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .bucket:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 61, 92, 0.12);
+        }
+
+        .bucket-label {
+            color: #003d5c;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 20px;
+            min-height: 40px;
+        }
+
+        .label-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .bucket-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #003d5c;
+            margin-bottom: 8px;
+        }
+
+        .bucket-fraction {
+            color: #666;
+            font-size: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .bucket-percentage {
+            display: inline-block;
+            background-color: #AFC841;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 14px;
+        }
+
+        /* ── Progress bar ── */
+        .progress-wrap {
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            height: 12px;
+            width: 100%;
+            margin-top: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 20px;
+            background-color: #AFC841;
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        /* ── Tooltip ── */
+        .tooltip-wrap {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .tooltip-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #003d5c;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            font-style: normal;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            /* touch-friendly tap area */
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .tooltip-box {
+            visibility: hidden;
+            opacity: 0;
+            background-color: #003d5c;
+            color: white;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 1.5;
+            border-radius: 6px;
+            padding: 10px 14px;
+            width: 240px;
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .tooltip-box::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-bottom-color: #003d5c;
+        }
+
+        /* Show on hover (desktop) */
+        .tooltip-wrap:hover .tooltip-box {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Show on focus (keyboard / touch) */
+        .tooltip-wrap:focus-within .tooltip-box {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* ── Responsive ── */
+
+        /* Tablet: 2 columns */
+        @media (max-width: 900px) {
+            .buckets-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile: 1 column */
+        @media (max-width: 560px) {
+            body {
+                padding: 24px 16px;
+            }
+
+            .buckets-container {
+                grid-template-columns: 1fr;
+            }
+
+            .bucket {
+                padding: 24px 20px;
+            }
+
+            .bucket-number {
+                font-size: 40px;
+            }
+
+            .bucket-fraction {
+                font-size: 18px;
+            }
+
+            .update-date {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            /* On mobile keep tooltip readable and not clipped */
+            .tooltip-box {
+                width: 200px;
+                left: 0;
+                transform: translateX(0);
+            }
+
+            .tooltip-box::before {
+                left: 8px;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="update-date">As of 10 April 2026</p>
+
+        <div class="buckets-container">
+
+            <!-- Block 1 -->
+            <div class="bucket">
+                <div class="bucket-label">
+                    <span class="label-inner">
+                        NDCs 3.0 Submitted
+                        <div class="tooltip-wrap">
+                            <span class="tooltip-icon" tabindex="0" role="button" aria-label="What is NDC 3.0?">?</span>
+                            <div class="tooltip-box">NDC 3.0 covers every NDC that has been submitted since November 2024, regardless of its document title, version number or content.</div>
+                        </div>
+                    </span>
+                </div>
+                <div class="bucket-number">117</div>
+                <div class="bucket-fraction">
+                    of 169 NDCs
+                    <div class="tooltip-wrap">
+                        <span class="tooltip-icon" tabindex="0" role="button" aria-label="How is 169 calculated?">?</span>
+                        <div class="tooltip-box">The European Union's single submission represents all 27 member states, resulting in an estimated total of 169 possible NDCs.</div>
+                    </div>
+                </div>
+                <div class="bucket-percentage">69%</div>
+                <div class="progress-wrap">
+                    <div class="progress-bar" data-width="65"></div>
+                </div>
+            </div>
+
+            <!-- Block 2 -->
+            <div class="bucket">
+                <div class="bucket-label">NDCs 3.0 with Transport Targets</div>
+                <div class="bucket-number">69</div>
+                <div class="bucket-fraction">of 117 NDCs</div>
+                <div class="bucket-percentage">59%</div>
+                <div class="progress-wrap">
+                    <div class="progress-bar" data-width="60"></div>
+                </div>
+            </div>
+
+            <!-- Block 3 -->
+            <div class="bucket">
+                <div class="bucket-label">NDCs 3.0 with Transport Actions</div>
+                <div class="bucket-number">103</div>
+                <div class="bucket-fraction">of 117 NDCs</div>
+                <div class="bucket-percentage">88%</div>
+                <div class="progress-wrap">
+                    <div class="progress-bar" data-width="90"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Animate progress bars when they enter the viewport
+        const bars = document.querySelectorAll('.progress-bar');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    bar.style.width = bar.dataset.width + '%';
+                    observer.unobserve(bar);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        bars.forEach(bar => observer.observe(bar));
+
+        // Touch support for tooltips (toggle on tap)
+        document.querySelectorAll('.tooltip-icon').forEach(icon => {
+            icon.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const box = icon.nextElementSibling;
+                const isVisible = box.style.visibility === 'visible';
+                // Close all tooltips first
+                document.querySelectorAll('.tooltip-box').forEach(b => {
+                    b.style.visibility = 'hidden';
+                    b.style.opacity = '0';
+                });
+                if (!isVisible) {
+                    box.style.visibility = 'visible';
+                    box.style.opacity = '1';
+                }
+            });
+        });
+
+        // Close tooltips when tapping elsewhere
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.tooltip-box').forEach(b => {
+                b.style.visibility = 'hidden';
+                b.style.opacity = '0';
+            });
+        });
+    </script>
+</body>
+</html>
