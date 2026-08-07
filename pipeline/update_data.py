@@ -1109,9 +1109,9 @@ def load_initiatives(wb):
             continue
         key = str(key).strip()
         urls = [
-            str(r.get(f"URL{i}", "") or "").strip()
+            str(r.get(f"URL {i}") or r.get(f"URL{i}") or "").strip()
             for i in range(1, 6)
-            if str(r.get(f"URL{i}", "") or "").strip()
+            if str(r.get(f"URL {i}") or r.get(f"URL{i}") or "").strip()
         ]
         meta[key.lower()] = {
             "key":         key,
