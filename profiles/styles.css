@@ -453,14 +453,61 @@ button.cp-country-name:hover::after { border-color: #fff; }
 .cp-adapt-titles { flex: 1; }
 .cp-adapt-cat { font-weight: 700; color: var(--ct-navy); font-size: 0.95rem; }
 .cp-adapt-count { font-size: 0.8rem; color: var(--ct-muted); }
-.cp-adapt-chevron { color: var(--ct-muted); transition: transform 0.2s; }
-.cp-adapt-group.open .cp-adapt-chevron { transform: rotate(180deg); }
-.cp-adapt-body { display: none; padding: 0 1.25rem 1.25rem; }
-.cp-adapt-group.open .cp-adapt-body { display: block; }
+.cp-adapt-head-static { cursor: default; }
+.cp-adapt-head-static:hover { background: transparent; }
+.cp-adapt-body { display: block; padding: 0 1.25rem 1.25rem; }
 .cp-adapt-item { padding: 0.75rem 0; border-top: 1px solid var(--ct-bg); font-size: 0.88rem; }
 .cp-adapt-item-name { font-weight: 700; color: var(--ct-navy); }
 .cp-adapt-item-quote { font-style: italic; color: var(--ct-text); margin-top: 0.25rem; font-size: 0.85rem; }
 .cp-adapt-item-meta { font-size: 0.75rem; color: var(--ct-muted); margin-top: 0.25rem; }
+
+/* ── Target buckets ──────────────────────────────────────────────── */
+.cp-target-bucket { margin-bottom: 1.25rem; }
+.cp-target-year {
+  font-size: 1rem; font-weight: 800; color: var(--ct-navy);
+  padding: 0.2rem 0 0.5rem;
+  border-bottom: 2px solid var(--ct-border);
+  margin-bottom: 0.5rem;
+}
+.cp-target-typegroup {
+  border-left: 3px solid var(--ttype-color, var(--ct-border));
+  padding: 0.4rem 0 0.4rem 0.75rem;
+  margin-bottom: 0.35rem;
+}
+.cp-target-typelabel {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--ttype-color, var(--ct-muted));
+  margin-bottom: 0.3rem;
+}
+.cp-target-row {
+  display: flex; flex-direction: column;
+  padding: 0.25rem 0;
+  border-top: 1px solid var(--ct-bg);
+}
+.cp-target-row:first-of-type { border-top: none; }
+.cp-target-row-content {
+  font-size: 0.88rem; color: var(--ct-navy); font-weight: 500; line-height: 1.35;
+}
+.cp-target-row-meta {
+  font-size: 0.75rem; color: var(--ct-muted); margin-top: 0.15rem;
+  display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: center;
+}
+.cp-target-cond {
+  background: var(--ct-bg); border-radius: 3px;
+  padding: 0.05rem 0.35rem; font-size: 0.7rem; color: var(--ct-text);
+}
+.cp-target-doc { color: var(--ct-teal); text-decoration: none; }
+.cp-target-doc:hover { text-decoration: underline; }
+
+/* ── Pin tooltip ─────────────────────────────────────────────────── */
+.cp-pin-tip {
+  display: none; position: fixed; z-index: 9999;
+  background: var(--ct-navy); color: #fff;
+  font-size: 0.8rem; line-height: 1.4;
+  padding: 0.4rem 0.65rem; border-radius: var(--ct-radius-sm);
+  pointer-events: none; max-width: 160px;
+  box-shadow: var(--ct-shadow-md);
+}
 
 /* ── Coalitions ─────────────────────────────────────────────────── */
 .cp-coalitions { display: flex; flex-direction: column; gap: 0.5rem; }
@@ -531,7 +578,7 @@ button.cp-country-name:hover::after { border-color: #fff; }
   width: 24px; height: 16px; object-fit: cover;
   border-radius: 2px; border: 1px solid var(--ct-border);
 }
-.cp-lens-country .share { margin-left: auto; font-size: 0.8rem; color: var(--ct-muted); font-weight: 600; }
+/* .share replaced by .cp-lens-share */
 
 /* ── Go deeper ──────────────────────────────────────────────────── */
 .cp-go-grid {
@@ -922,11 +969,19 @@ a.cp-dl-btn { text-decoration: none; }
 /* ── Similar countries ──────────────────────────────────────────── */
 .cp-lens-note { font-size:0.78rem; color:var(--ct-muted); margin-bottom:0.75rem; font-style:italic; }
 .cp-lens-row { display:flex; align-items:center; gap:0.3rem; }
+.cp-lens-name { flex: 1; }
+.cp-lens-share { margin-left: auto; font-size: 0.8rem; color: var(--ct-muted); font-weight: 600; flex-shrink: 0; }
+.cp-lens-focus { font-size: 0.72rem; color: var(--ct-muted); flex-shrink: 0; }
 .cp-lens-cmp {
-  font-size:0.9rem; color:var(--ct-muted); text-decoration:none;
-  padding:0.15rem 0.35rem; border-radius:var(--ct-radius-sm); transition:all 0.12s; flex-shrink:0;
+  display: flex; align-items: center; gap: 0.25rem; flex-shrink: 0;
+  text-decoration: none; color: var(--ct-teal);
+  border: 1.5px solid var(--ct-teal); border-radius: 20px;
+  padding: 0.2rem 0.6rem; font-size: 0.75rem; font-weight: 700;
+  transition: all 0.15s; white-space: nowrap;
 }
-.cp-lens-cmp:hover { color:var(--ct-teal); background:var(--ct-bg); }
+.cp-lens-cmp:hover { background: var(--ct-teal); color: #fff; }
+.cp-lens-cmp-icon { font-size: 0.9rem; }
+.cp-lens-cmp-label { font-size: 0.72rem; }
 
 /* Comparison links */
 .cp-section-compare {

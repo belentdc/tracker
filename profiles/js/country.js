@@ -53,6 +53,13 @@ const GEN_NOTE = `Our definition of NDC generations:
    Net zero, overall mitigation, and energy targets are NOT transport targets. */
 const T_AREAS=new Set(["Transport sector mitigation target","Transport sector adaptation target"]);
 function transportTargets(p,status){return (p.targets||[]).filter(t=>T_AREAS.has(t.area)&&(!status||t.status===status));}
+const TARGET_TYPE_CFG=[
+  {area:"Net zero target",                    label:"Net-zero",             color:"#9DBE3D"},
+  {area:"Overall mitigation target",          label:"Overall mitigation",   color:"#E8821A"},
+  {area:"Transport sector mitigation target", label:"Transport mitigation", color:"#00A4BD"},
+  {area:"Transport sector adaptation target", label:"Transport adaptation", color:"#003D5C"},
+];
+const TARGET_AREAS_ALL=new Set(TARGET_TYPE_CFG.map(c=>c.area));
 
 /* ── Bootstrap ───────────────────────────────────────────────────── */
 const params = new URLSearchParams(location.search);
@@ -294,74 +301,73 @@ function renderTrend(p,bench){
     sub.innerHTML=`Transport CO\u2082 in <strong>${esc(p.name)}</strong> ${dir} since ${years[0]}: from ${first} to <strong>${last} Mt</strong> in ${years[years.length-1]} (${esc(t.source||"EDGAR")}).`;
   }
 
-  // Target pins: active targets grouped by year, colour by highest-priority type
-  const PIN_TYPE={"Net zero target":{k:"Net zero",c:"#9DBE3D",pr:0},
-    "Transport sector mitigation target":{k:"Transport",c:"#003D5C",pr:1},
-    "Transport sector adaptation target":{k:"Adaptation",c:"#7A9B2E",pr:2},
-    "Overall mitigation target":{k:"Overall",c:"#E8821A",pr:3}};
-  const byYear={};
-  (p.targets||[]).filter(x=>x.status==="Active"&&PIN_TYPE[x.area]&&+x.year>years[0])
-    .forEach(x=>{ (byYear[+x.year]=byYear[+x.year]||new Set()).add(x.area); });
-  const pinYears=Object.keys(byYear).map(Number).sort((a,b)=>a-b).slice(0,6)
-    .map(yr=>{ const types=[...byYear[yr]].map(a=>PIN_TYPE[a]).sort((a,b)=>a.pr-b.pr);
-      return {year:yr,types,c:types[0].c}; });
+  // Target pins: stacked per type per year, colors aligned with buckets
+  const byPinYear={};
+  (p.targets||[]).filter(x=>x.status==="Active"&&TARGET_AREAS_ALL.has(x.area)&&+x.year>years[0])
+    .forEach(x=>{const yr=+x.year;if(!byPinYear[yr])byPinYear[yr]={};byPinYear[yr][x.area]=(byPinYear[yr][x.area]||0)+1;});
+  const pinYears=Object.keys(byPinYear).map(Number).sort((a,b)=>a-b).slice(0,6)
+    .map(yr=>({year:yr,types:TARGET_TYPE_CFG.filter(cfg=>byPinYear[yr][cfg.area]).map(cfg=>({...cfg,count:byPinYear[yr][cfg.area]}))}));
   const lastYear=years[years.length-1];
   const allYears=years.slice();
   const maxPin=pinYears.length?Math.max(...pinYears.map(x=>x.year)):0;
   for(let yr=lastYear+1;yr<=maxPin;yr++) allYears.push(yr);
-
-  // Legend: colour key for pin types actually present
   const legendEl=document.getElementById("cp-pin-legend");
   if(legendEl&&pinYears.length){
-    const present=[...new Map(pinYears.flatMap(pn=>pn.types).map(x=>[x.k,x])).values()].sort((a,b)=>a.pr-b.pr);
+    const presentAreas=new Set(pinYears.flatMap(pn=>pn.types.map(t=>t.area)));
+    const present=TARGET_TYPE_CFG.filter(x=>presentAreas.has(x.area));
     legendEl.innerHTML=`<span class="cp-pin-key-title">Target years:</span> `+present.map(x=>
-      `<span class="cp-pin-key"><span class="cp-pin-swatch" style="background:${x.c}"></span>${x.k}</span>`).join("");
+      `<span class="cp-pin-key"><span class="cp-pin-swatch" style="background:${x.color}"></span>${esc(x.label)}</span>`).join("");
     legendEl.hidden=false;
   }
 
   const canvas=document.getElementById("cp-trend-chart");
   if(!canvas) return;
 
+  const _pillRects=[];
   const pinPlugin={id:"targetPins",afterDatasetsDraw(chart){
     const {ctx,chartArea,scales:{x}}=chart;
-    const PILL_H=16, PILL_Y=chartArea.top+2, PAD=6, GAP=4;
-    ctx.save();
-    ctx.font="700 10px 'Source Sans 3'";
-    // Pass 1: measure every pill and clamp inside the chart area
-    const pills=[];
-    pinYears.forEach(pin=>{
-      const i=allYears.indexOf(pin.year); if(i<0) return;
+    const PILL_H=13,PAD=5,STACK_GAP=2,COL_GAP=3;
+    ctx.save(); ctx.font="700 9px 'Source Sans 3'"; _pillRects.length=0;
+    const columns=pinYears.map(pin=>{
+      const i=allYears.indexOf(pin.year); if(i<0) return null;
       const px=x.getPixelForValue(i);
-      const label=String(pin.year);
-      const w=ctx.measureText(label).width+PAD*2;
-      let cx=Math.min(Math.max(px,chartArea.left+w/2),chartArea.right-w/2);
-      pills.push({pin,px,label,w,cx});
-    });
-    // Pass 2: resolve overlaps left→right, then bounce back off the right wall
-    for(let i=1;i<pills.length;i++){
-      const prev=pills[i-1],cur=pills[i];
-      if(cur.cx-cur.w/2<prev.cx+prev.w/2+GAP) cur.cx=prev.cx+prev.w/2+GAP+cur.w/2;
+      const w=ctx.measureText(String(pin.year)).width+PAD*2;
+      return {px,w,pills:pin.types.map(tp=>({...tp,year:pin.year,w}))};
+    }).filter(Boolean);
+    const colCxs=columns.map(c=>c.px);
+    for(let i=1;i<columns.length;i++){
+      const minCx=colCxs[i-1]+columns[i-1].w/2+COL_GAP+columns[i].w/2;
+      if(colCxs[i]<minCx) colCxs[i]=minCx;
     }
-    for(let i=pills.length-1;i>=0;i--){
-      const cur=pills[i];
-      const wall=i===pills.length-1?chartArea.right:pills[i+1].cx-pills[i+1].w/2-GAP;
-      if(cur.cx+cur.w/2>wall) cur.cx=wall-cur.w/2;
-      if(cur.cx-cur.w/2<chartArea.left) cur.cx=chartArea.left+cur.w/2;
+    for(let i=columns.length-1;i>=0;i--){
+      const wall=i===columns.length-1?chartArea.right:colCxs[i+1]-columns[i+1].w/2-COL_GAP;
+      if(colCxs[i]+columns[i].w/2>wall) colCxs[i]=wall-columns[i].w/2;
+      if(colCxs[i]-columns[i].w/2<chartArea.left) colCxs[i]=chartArea.left+columns[i].w/2;
     }
-    // Draw: dashed line at the true year, pill at its resolved position
-    pills.forEach(({pin,px,label,w,cx})=>{
-      ctx.strokeStyle=pin.c; ctx.setLineDash([4,3]); ctx.lineWidth=1.5;
-      ctx.beginPath(); ctx.moveTo(px,PILL_Y+PILL_H); ctx.lineTo(px,chartArea.bottom); ctx.stroke();
-      ctx.setLineDash([]);
-      const bx=cx-w/2;
-      ctx.fillStyle=pin.c;
-      if(ctx.roundRect){ ctx.beginPath(); ctx.roundRect(bx,PILL_Y,w,PILL_H,PILL_H/2); ctx.fill(); }
-      else ctx.fillRect(bx,PILL_Y,w,PILL_H);
-      ctx.fillStyle="#fff"; ctx.textAlign="center"; ctx.textBaseline="middle";
-      ctx.fillText(label,cx,PILL_Y+PILL_H/2+0.5);
+    columns.forEach((col,ci)=>{
+      const cx=colCxs[ci];
+      const lineTop=chartArea.top+col.pills.length*(PILL_H+STACK_GAP);
+      ctx.strokeStyle=col.pills[0]?.color||"#999"; ctx.setLineDash([4,3]); ctx.lineWidth=1.2;
+      ctx.beginPath(); ctx.moveTo(col.px,lineTop); ctx.lineTo(col.px,chartArea.bottom); ctx.stroke(); ctx.setLineDash([]);
+      col.pills.forEach((pill,si)=>{
+        const py=chartArea.top+si*(PILL_H+STACK_GAP), bx=cx-pill.w/2;
+        ctx.fillStyle=pill.color;
+        if(ctx.roundRect){ctx.beginPath();ctx.roundRect(bx,py,pill.w,PILL_H,PILL_H/2);ctx.fill();}
+        else ctx.fillRect(bx,py,pill.w,PILL_H);
+        ctx.fillStyle="#fff"; ctx.textAlign="center"; ctx.textBaseline="middle";
+        ctx.fillText(String(pill.year),cx,py+PILL_H/2+0.5);
+        _pillRects.push({x1:bx,y1:py,x2:bx+pill.w,y2:py+PILL_H,pill});
+      });
     });
     ctx.restore();
   }};
+  function setupPinInteraction(cvs){
+    const tip=(()=>{let d=document.getElementById("cp-pin-tip");if(!d){d=document.createElement("div");d.id="cp-pin-tip";d.className="cp-pin-tip";document.body.appendChild(d);}return d;})();
+    function hit(e){const r=cvs.getBoundingClientRect(),sx=cvs.width/r.width,sy=cvs.height/r.height,mx=(e.clientX-r.left)*sx,my=(e.clientY-r.top)*sy;return _pillRects.find(p=>mx>=p.x1&&mx<=p.x2&&my>=p.y1&&my<=p.y2)||null;}
+    cvs.addEventListener("mousemove",e=>{const h=hit(e);if(h){cvs.style.cursor="pointer";tip.innerHTML=`<strong>${h.pill.year}</strong> · ${esc(h.pill.label)}<br>${h.pill.count} target${h.pill.count>1?"s":""}`;tip.style.cssText=`display:block;position:fixed;left:${Math.min(e.clientX+12,innerWidth-170)}px;top:${e.clientY-46}px`;}else{cvs.style.cursor="";tip.style.display="none";}});
+    cvs.addEventListener("mouseleave",()=>{cvs.style.cursor="";tip.style.display="none";});
+    cvs.addEventListener("click",e=>{const h=hit(e);if(!h)return;const el=document.getElementById("tb-"+h.pill.year);if(el)el.scrollIntoView({behavior:"smooth",block:"start"});});
+  }
 
   const F={family:"Source Sans 3",size:11};
   function mtConfig(){
@@ -391,6 +397,7 @@ function renderTrend(p,bench){
   if(window.Chart){
     try{
       let chart=new Chart(canvas,mtConfig());
+      setupPinInteraction(canvas);
       const views=document.getElementById("cp-trend-views");
       if(views){
         views.hidden=false;
@@ -399,6 +406,7 @@ function renderTrend(p,bench){
           ch.classList.add("on");
           chart.destroy();
           chart=new Chart(canvas,ch.dataset.view==="idx"?idxConfig():mtConfig());
+          setupPinInteraction(canvas);
         }));
       }
       return;
@@ -615,35 +623,37 @@ function renderTargets(p, docUrlMap) {
   const fbar=document.getElementById("cp-target-filters");
   const listEl=document.getElementById("cp-targets");
   if(!listEl)return;
-  const active=transportTargets(p,"Active");
-  if(subEl) subEl.innerHTML=`<strong>${active.length}</strong> transport target${active.length!==1?"s":""} in <span class="hl">active documents</span>.`;
-  const areas=[...new Set(active.map(t=>t.area).filter(Boolean))];
-  const docTypes=[...new Set(active.map(t=>t.doc_type).filter(Boolean))];
+  const allActive=(p.targets||[]).filter(t=>t.status==="Active"&&TARGET_AREAS_ALL.has(t.area)&&t.year&&/\d{4}/.test(String(t.year)));
+  const total=allActive.length;
+  if(subEl) subEl.innerHTML=`<strong>${total}</strong> target${total!==1?"s":""} in <span class="hl">active documents</span>.`;
+  const docTypes=[...new Set(allActive.map(t=>t.doc_type).filter(Boolean))];
+  let curDoc="all";
   if(fbar){
-    fbar.innerHTML=`
-      <div class="cp-filter-row"><span class="cp-filter-label">By document:</span>
-        <button class="cp-filter active" data-doc="all">All (${active.length})</button>
-        ${docTypes.map(dt=>`<button class="cp-filter" data-doc="${esc(dt)}">${esc(dt)} (${active.filter(t=>t.doc_type===dt).length})</button>`).join("")}
-      </div>
-      <div class="cp-filter-row" style="margin-top:0.4rem;"><span class="cp-filter-label">By type:</span>
-        <button class="cp-filter active" data-type="all">All (${active.length})</button>
-        ${areas.map(a=>`<button class="cp-filter" data-type="${esc(a)}">${esc(a)} (${active.filter(t=>t.area===a).length})</button>`).join("")}
-      </div>`;
-  }
-  let curType="all",curDoc="all";
-  function draw(){
-    const list=active.filter(t=>(curType==="all"||t.area===curType)&&(curDoc==="all"||t.doc_type===curDoc));
-    listEl.innerHTML=list.length?list.map(t=>{
-      const docUrl=t.doc_id?(docUrlMap[t.doc_id]||null):null;
-      return `<div class="cp-measure"><div class="cp-measure-top">
-        <span class="cp-measure-instrument">${esc(t.content||t.type)}</span>
-        ${t.year?`<span class="cp-measure-asi shift">${esc(t.year)}</span>`:""}
-      </div><p class="cp-measure-meta">${esc(t.area||"")}${t.conditionality?", "+esc(t.conditionality):""}, ${docUrl?`<a href="${esc(docUrl)}" target="_blank" rel="noopener" style="color:var(--ct-teal)">${esc(t.version||t.document||"")}</a>`:esc(t.version||t.document||"")}${t.page&&t.page!=="n/a"?", p. "+esc(t.page):""}</p></div>`;
-    }).join(""):`<div class="cp-empty">No targets match.</div>`;
-  }
-  if(fbar){
-    fbar.querySelectorAll("[data-type]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-type]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curType=b.dataset.type;draw();}));
+    fbar.innerHTML=`<div class="cp-filter-row"><span class="cp-filter-label">By document:</span>
+      <button class="cp-filter active" data-doc="all">All (${total})</button>
+      ${docTypes.map(dt=>`<button class="cp-filter" data-doc="${esc(dt)}">${esc(dt)} (${allActive.filter(t=>t.doc_type===dt).length})</button>`).join("")}
+    </div>`;
     fbar.querySelectorAll("[data-doc]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-doc]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curDoc=b.dataset.doc;draw();}));
+  }
+  const typeOrder=Object.fromEntries(TARGET_TYPE_CFG.map((c,i)=>[c.area,i]));
+  function draw(){
+    const list=allActive.filter(t=>curDoc==="all"||t.doc_type===curDoc);
+    if(!list.length){listEl.innerHTML=`<div class="cp-empty">No targets match.</div>`;return;}
+    const byYear={};
+    list.forEach(t=>{const y=String(t.year).match(/(\d{4})/)[1];(byYear[y]=byYear[y]||[]).push(t);});
+    listEl.innerHTML=Object.keys(byYear).sort().map(yr=>{
+      const sorted=byYear[yr].sort((a,b)=>(typeOrder[a.area]??99)-(typeOrder[b.area]??99));
+      const byType={};sorted.forEach(t=>(byType[t.area]=byType[t.area]||[]).push(t));
+      const groups=TARGET_TYPE_CFG.filter(cfg=>byType[cfg.area]);
+      return `<div class="cp-target-bucket" id="tb-${yr}">
+        <div class="cp-target-year">${esc(yr)}</div>
+        ${groups.map(cfg=>`<div class="cp-target-typegroup" style="--ttype-color:${cfg.color}">
+          <div class="cp-target-typelabel">${esc(cfg.label)}</div>
+          ${byType[cfg.area].map(t=>{const docUrl=t.doc_id?(docUrlMap[t.doc_id]||null):null;
+            return `<div class="cp-target-row"><span class="cp-target-row-content">${esc(t.content||t.type||"")}</span><span class="cp-target-row-meta">${t.conditionality&&t.conditionality!=="\u2014"?`<span class="cp-target-cond">${esc(t.conditionality)}</span> `:""}${docUrl?`<a href="${esc(docUrl)}" target="_blank" rel="noopener" class="cp-target-doc">${esc(t.version||t.document||"")}</a>`:`<span>${esc(t.version||t.document||"")}</span>`}${t.page&&t.page!=="n/a"?` · p. ${esc(t.page)}`:""}</span></div>`;
+          }).join("")}</div>`).join("")}
+      </div>`;
+    }).join("");
   }
   draw();
   const cmpLink=document.getElementById("cp-targets-compare");
@@ -820,11 +830,10 @@ function renderAdaptation(p, docUrlMap) {
   const groups={};
   active.forEach(a=>{(groups[a.category]=groups[a.category]||[]).push(a);});
   wrap.innerHTML=Object.entries(groups).sort((a,b)=>b[1].length-a[1].length).map(([cat,items])=>`
-    <div class="cp-adapt-group">
-      <div class="cp-adapt-head">
+    <div class="cp-adapt-group open">
+      <div class="cp-adapt-head cp-adapt-head-static">
         <div class="cp-adapt-icon"><svg viewBox="0 0 24 24">${ADAPT_ICONS[cat]||ADAPT_ICONS["Other adaptation and resilience measures"]}</svg></div>
         <div class="cp-adapt-titles"><div class="cp-adapt-cat">${esc(cat)}</div><div class="cp-adapt-count">${items.length} measure${items.length>1?"s":""}</div></div>
-        <svg class="cp-adapt-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
       </div>
       <div class="cp-adapt-body">
         ${items.map(a=>{
@@ -837,7 +846,7 @@ function renderAdaptation(p, docUrlMap) {
         }).join("")}
       </div>
     </div>`).join("");
-  wrap.querySelectorAll(".cp-adapt-head").forEach(h=>h.addEventListener("click",()=>h.parentElement.classList.toggle("open")));
+
   const cmpLink=document.getElementById("cp-adaptation-compare");
   if(cmpLink){cmpLink.href=comparisonUrl("track",{c:p.code});cmpLink.hidden=false;}
 }
@@ -921,7 +930,7 @@ function renderSimilar(p){
           <span>${esc(c.name)}</span>
           ${c.share!=null?`<span class="share">${c.share}%</span>`:""}
           ${c.shared_focus?`<span class="share" style="font-size:0.7rem;">${esc(c.shared_focus)}</span>`:""}
-        </a><a class="cp-lens-cmp" href="${cmpHref}" target="_blank" rel="noopener" title="Compare with ${esc(p.name)}">\u21c4</a></div>`;
+        </a><a class="cp-lens-cmp" href="${cmpHref}" target="_blank" rel="noopener"><span class="cp-lens-cmp-icon">\u21c4</span><span class="cp-lens-cmp-label">Compare</span></a></div>`;
       }).join("")}</div></div>`;
   }).join("");
   const link=document.getElementById("cp-compare-link");
