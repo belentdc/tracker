@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-28",
+ "generated": "2026-08-07",
  "questions": [
   {
    "id": "conditional-targets",
@@ -10,7 +10,7 @@
      "code": "MWI",
      "country": "Malawi",
      "url": "profiles/countries/malawi/",
-     "n": 20
+     "n": 24
     },
     {
      "code": "UGA",
@@ -43,6 +43,24 @@
      "n": 9
     },
     {
+     "code": "MRT",
+     "country": "Mauritania",
+     "url": "profiles/countries/mauritania/",
+     "n": 9
+    },
+    {
+     "code": "NPL",
+     "country": "Nepal",
+     "url": "profiles/countries/nepal/",
+     "n": 9
+    },
+    {
+     "code": "MDA",
+     "country": "Republic of Moldova",
+     "url": "profiles/countries/republic-of-moldova/",
+     "n": 9
+    },
+    {
      "code": "BDI",
      "country": "Burundi",
      "url": "profiles/countries/burundi/",
@@ -61,15 +79,15 @@
      "n": 8
     },
     {
-     "code": "LSO",
-     "country": "Lesotho",
-     "url": "profiles/countries/lesotho/",
+     "code": "EEU",
+     "country": "European Union",
+     "url": "profiles/countries/european-union/",
      "n": 8
     },
     {
-     "code": "NPL",
-     "country": "Nepal",
-     "url": "profiles/countries/nepal/",
+     "code": "LSO",
+     "country": "Lesotho",
+     "url": "profiles/countries/lesotho/",
      "n": 8
     },
     {
@@ -85,12 +103,6 @@
      "n": 7
     },
     {
-     "code": "MDA",
-     "country": "Republic of Moldova",
-     "url": "profiles/countries/republic-of-moldova/",
-     "n": 7
-    },
-    {
      "code": "LKA",
      "country": "Sri Lanka",
      "url": "profiles/countries/sri-lanka/",
@@ -100,6 +112,18 @@
      "code": "BGD",
      "country": "Bangladesh",
      "url": "profiles/countries/bangladesh/",
+     "n": 6
+    },
+    {
+     "code": "BLZ",
+     "country": "Belize",
+     "url": "profiles/countries/belize/",
+     "n": 6
+    },
+    {
+     "code": "BFA",
+     "country": "Burkina Faso",
+     "url": "profiles/countries/burkina-faso/",
      "n": 6
     },
     {
@@ -121,12 +145,6 @@
      "n": 6
     },
     {
-     "code": "BLZ",
-     "country": "Belize",
-     "url": "profiles/countries/belize/",
-     "n": 5
-    },
-    {
      "code": "BWA",
      "country": "Botswana",
      "url": "profiles/countries/botswana/",
@@ -136,18 +154,6 @@
      "code": "SWZ",
      "country": "Eswatini",
      "url": "profiles/countries/eswatini/",
-     "n": 5
-    },
-    {
-     "code": "EEU",
-     "country": "European Union",
-     "url": "profiles/countries/european-union/",
-     "n": 5
-    },
-    {
-     "code": "MRT",
-     "country": "Mauritania",
-     "url": "profiles/countries/mauritania/",
      "n": 5
     },
     {
@@ -217,6 +223,12 @@
      "n": 4
     },
     {
+     "code": "CUB",
+     "country": "Cuba",
+     "url": "profiles/countries/cuba/",
+     "n": 4
+    },
+    {
      "code": "FJI",
      "country": "Fiji",
      "url": "profiles/countries/fiji/",
@@ -232,6 +244,12 @@
      "code": "STP",
      "country": "Sao Tome and Principe",
      "url": "profiles/countries/sao-tome-and-principe/",
+     "n": 4
+    },
+    {
+     "code": "CHE",
+     "country": "Switzerland",
+     "url": "profiles/countries/switzerland/",
      "n": 4
     },
     {
@@ -295,9 +313,15 @@
      "n": 3
     },
     {
-     "code": "OMN",
-     "country": "Oman",
-     "url": "profiles/countries/oman/",
+     "code": "KOR",
+     "country": "Republic of Korea",
+     "url": "profiles/countries/republic-of-korea/",
+     "n": 3
+    },
+    {
+     "code": "LCA",
+     "country": "Saint Lucia",
+     "url": "profiles/countries/saint-lucia/",
      "n": 3
     },
     {
@@ -313,9 +337,21 @@
      "n": 2
     },
     {
+     "code": "CPV",
+     "country": "Cabo Verde",
+     "url": "profiles/countries/cabo-verde/",
+     "n": 2
+    },
+    {
      "code": "COM",
      "country": "Comoros",
      "url": "profiles/countries/comoros/",
+     "n": 2
+    },
+    {
+     "code": "GEO",
+     "country": "Georgia",
+     "url": "profiles/countries/georgia/",
      "n": 2
     },
     {
@@ -337,6 +373,12 @@
      "n": 2
     },
     {
+     "code": "MHL",
+     "country": "Marshall Islands",
+     "url": "profiles/countries/marshall-islands/",
+     "n": 2
+    },
+    {
      "code": "NAM",
      "country": "Namibia",
      "url": "profiles/countries/namibia/",
@@ -355,27 +397,9 @@
      "n": 2
     },
     {
-     "code": "KOR",
-     "country": "Republic of Korea",
-     "url": "profiles/countries/republic-of-korea/",
-     "n": 2
-    },
-    {
-     "code": "LCA",
-     "country": "Saint Lucia",
-     "url": "profiles/countries/saint-lucia/",
-     "n": 2
-    },
-    {
      "code": "SYC",
      "country": "Seychelles",
      "url": "profiles/countries/seychelles/",
-     "n": 2
-    },
-    {
-     "code": "CHE",
-     "country": "Switzerland",
-     "url": "profiles/countries/switzerland/",
      "n": 2
     },
     {
@@ -388,6 +412,18 @@
      "code": "TGO",
      "country": "Togo",
      "url": "profiles/countries/togo/",
+     "n": 2
+    },
+    {
+     "code": "TON",
+     "country": "Tonga",
+     "url": "profiles/countries/tonga/",
+     "n": 2
+    },
+    {
+     "code": "TTO",
+     "country": "Trinidad and Tobago",
+     "url": "profiles/countries/trinidad-and-tobago/",
      "n": 2
     },
     {
@@ -439,18 +475,6 @@
      "n": 1
     },
     {
-     "code": "BFA",
-     "country": "Burkina Faso",
-     "url": "profiles/countries/burkina-faso/",
-     "n": 1
-    },
-    {
-     "code": "CPV",
-     "country": "Cabo Verde",
-     "url": "profiles/countries/cabo-verde/",
-     "n": 1
-    },
-    {
      "code": "CMR",
      "country": "Cameroon",
      "url": "profiles/countries/cameroon/",
@@ -460,12 +484,6 @@
      "code": "COG",
      "country": "Congo",
      "url": "profiles/countries/congo/",
-     "n": 1
-    },
-    {
-     "code": "CUB",
-     "country": "Cuba",
-     "url": "profiles/countries/cuba/",
      "n": 1
     },
     {
@@ -490,12 +508,6 @@
      "code": "GMB",
      "country": "Gambia (Republic of The)",
      "url": "profiles/countries/gambia-republic-of-the/",
-     "n": 1
-    },
-    {
-     "code": "GEO",
-     "country": "Georgia",
-     "url": "profiles/countries/georgia/",
      "n": 1
     },
     {
@@ -541,12 +553,6 @@
      "n": 1
     },
     {
-     "code": "MHL",
-     "country": "Marshall Islands",
-     "url": "profiles/countries/marshall-islands/",
-     "n": 1
-    },
-    {
      "code": "MEX",
      "country": "Mexico",
      "url": "profiles/countries/mexico/",
@@ -562,6 +568,12 @@
      "code": "NZL",
      "country": "New Zealand",
      "url": "profiles/countries/new-zealand/",
+     "n": 1
+    },
+    {
+     "code": "OMN",
+     "country": "Oman",
+     "url": "profiles/countries/oman/",
      "n": 1
     },
     {
@@ -631,18 +643,6 @@
      "n": 1
     },
     {
-     "code": "TON",
-     "country": "Tonga",
-     "url": "profiles/countries/tonga/",
-     "n": 1
-    },
-    {
-     "code": "TTO",
-     "country": "Trinidad and Tobago",
-     "url": "profiles/countries/trinidad-and-tobago/",
-     "n": 1
-    },
-    {
      "code": "TUV",
      "country": "Tuvalu",
      "url": "profiles/countries/tuvalu/",
@@ -677,7 +677,7 @@
      "code": "MWI",
      "country": "Malawi",
      "url": "profiles/countries/malawi/",
-     "n": 20
+     "n": 24
     },
     {
      "code": "UGA",
@@ -698,10 +698,22 @@
      "n": 11
     },
     {
+     "code": "MRT",
+     "country": "Mauritania",
+     "url": "profiles/countries/mauritania/",
+     "n": 9
+    },
+    {
      "code": "MUS",
      "country": "Mauritius",
      "url": "profiles/countries/mauritius/",
      "n": 9
+    },
+    {
+     "code": "MDA",
+     "country": "Republic of Moldova",
+     "url": "profiles/countries/republic-of-moldova/",
+     "n": 8
     },
     {
      "code": "CIV",
@@ -710,9 +722,21 @@
      "n": 7
     },
     {
+     "code": "EEU",
+     "country": "European Union",
+     "url": "profiles/countries/european-union/",
+     "n": 7
+    },
+    {
      "code": "LSO",
      "country": "Lesotho",
      "url": "profiles/countries/lesotho/",
+     "n": 7
+    },
+    {
+     "code": "NPL",
+     "country": "Nepal",
+     "url": "profiles/countries/nepal/",
      "n": 7
     },
     {
@@ -728,21 +752,21 @@
      "n": 6
     },
     {
-     "code": "NPL",
-     "country": "Nepal",
-     "url": "profiles/countries/nepal/",
-     "n": 6
-    },
-    {
-     "code": "MDA",
-     "country": "Republic of Moldova",
-     "url": "profiles/countries/republic-of-moldova/",
+     "code": "BFA",
+     "country": "Burkina Faso",
+     "url": "profiles/countries/burkina-faso/",
      "n": 6
     },
     {
      "code": "ATG",
      "country": "Antigua and Barbuda",
      "url": "profiles/countries/antigua-and-barbuda/",
+     "n": 5
+    },
+    {
+     "code": "BLZ",
+     "country": "Belize",
+     "url": "profiles/countries/belize/",
      "n": 5
     },
     {
@@ -767,12 +791,6 @@
      "code": "KGZ",
      "country": "Kyrgyzstan",
      "url": "profiles/countries/kyrgyzstan/",
-     "n": 5
-    },
-    {
-     "code": "MRT",
-     "country": "Mauritania",
-     "url": "profiles/countries/mauritania/",
      "n": 5
     },
     {
@@ -818,27 +836,21 @@
      "n": 4
     },
     {
-     "code": "BLZ",
-     "country": "Belize",
-     "url": "profiles/countries/belize/",
-     "n": 4
-    },
-    {
      "code": "CHL",
      "country": "Chile",
      "url": "profiles/countries/chile/",
      "n": 4
     },
     {
-     "code": "SWZ",
-     "country": "Eswatini",
-     "url": "profiles/countries/eswatini/",
+     "code": "CUB",
+     "country": "Cuba",
+     "url": "profiles/countries/cuba/",
      "n": 4
     },
     {
-     "code": "EEU",
-     "country": "European Union",
-     "url": "profiles/countries/european-union/",
+     "code": "SWZ",
+     "country": "Eswatini",
+     "url": "profiles/countries/eswatini/",
      "n": 4
     },
     {
@@ -920,15 +932,27 @@
      "n": 3
     },
     {
-     "code": "OMN",
-     "country": "Oman",
-     "url": "profiles/countries/oman/",
+     "code": "LCA",
+     "country": "Saint Lucia",
+     "url": "profiles/countries/saint-lucia/",
+     "n": 3
+    },
+    {
+     "code": "CHE",
+     "country": "Switzerland",
+     "url": "profiles/countries/switzerland/",
      "n": 3
     },
     {
      "code": "BEN",
      "country": "Benin",
      "url": "profiles/countries/benin/",
+     "n": 2
+    },
+    {
+     "code": "CPV",
+     "country": "Cabo Verde",
+     "url": "profiles/countries/cabo-verde/",
      "n": 2
     },
     {
@@ -941,6 +965,12 @@
      "code": "ETH",
      "country": "Ethiopia",
      "url": "profiles/countries/ethiopia/",
+     "n": 2
+    },
+    {
+     "code": "GEO",
+     "country": "Georgia",
+     "url": "profiles/countries/georgia/",
      "n": 2
     },
     {
@@ -962,6 +992,12 @@
      "n": 2
     },
     {
+     "code": "MHL",
+     "country": "Marshall Islands",
+     "url": "profiles/countries/marshall-islands/",
+     "n": 2
+    },
+    {
      "code": "MCO",
      "country": "Monaco",
      "url": "profiles/countries/monaco/",
@@ -974,9 +1010,9 @@
      "n": 2
     },
     {
-     "code": "LCA",
-     "country": "Saint Lucia",
-     "url": "profiles/countries/saint-lucia/",
+     "code": "KOR",
+     "country": "Republic of Korea",
+     "url": "profiles/countries/republic-of-korea/",
      "n": 2
     },
     {
@@ -989,6 +1025,18 @@
      "code": "TGO",
      "country": "Togo",
      "url": "profiles/countries/togo/",
+     "n": 2
+    },
+    {
+     "code": "TON",
+     "country": "Tonga",
+     "url": "profiles/countries/tonga/",
+     "n": 2
+    },
+    {
+     "code": "TTO",
+     "country": "Trinidad and Tobago",
+     "url": "profiles/countries/trinidad-and-tobago/",
      "n": 2
     },
     {
@@ -1028,27 +1076,9 @@
      "n": 1
     },
     {
-     "code": "BFA",
-     "country": "Burkina Faso",
-     "url": "profiles/countries/burkina-faso/",
-     "n": 1
-    },
-    {
-     "code": "CPV",
-     "country": "Cabo Verde",
-     "url": "profiles/countries/cabo-verde/",
-     "n": 1
-    },
-    {
      "code": "COG",
      "country": "Congo",
      "url": "profiles/countries/congo/",
-     "n": 1
-    },
-    {
-     "code": "CUB",
-     "country": "Cuba",
-     "url": "profiles/countries/cuba/",
      "n": 1
     },
     {
@@ -1070,12 +1100,6 @@
      "n": 1
     },
     {
-     "code": "GEO",
-     "country": "Georgia",
-     "url": "profiles/countries/georgia/",
-     "n": 1
-    },
-    {
      "code": "GRD",
      "country": "Grenada",
      "url": "profiles/countries/grenada/",
@@ -1094,12 +1118,6 @@
      "n": 1
     },
     {
-     "code": "MHL",
-     "country": "Marshall Islands",
-     "url": "profiles/countries/marshall-islands/",
-     "n": 1
-    },
-    {
      "code": "MAR",
      "country": "Morocco",
      "url": "profiles/countries/morocco/",
@@ -1115,12 +1133,6 @@
      "code": "PAK",
      "country": "Pakistan",
      "url": "profiles/countries/pakistan/",
-     "n": 1
-    },
-    {
-     "code": "KOR",
-     "country": "Republic of Korea",
-     "url": "profiles/countries/republic-of-korea/",
      "n": 1
     },
     {
@@ -1178,27 +1190,9 @@
      "n": 1
     },
     {
-     "code": "CHE",
-     "country": "Switzerland",
-     "url": "profiles/countries/switzerland/",
-     "n": 1
-    },
-    {
      "code": "THA",
      "country": "Thailand",
      "url": "profiles/countries/thailand/",
-     "n": 1
-    },
-    {
-     "code": "TON",
-     "country": "Tonga",
-     "url": "profiles/countries/tonga/",
-     "n": 1
-    },
-    {
-     "code": "TTO",
-     "country": "Trinidad and Tobago",
-     "url": "profiles/countries/trinidad-and-tobago/",
      "n": 1
     },
     {
@@ -1383,6 +1377,12 @@
      "n": 1
     },
     {
+     "code": "OMN",
+     "country": "Oman",
+     "url": "profiles/countries/oman/",
+     "n": 1
+    },
+    {
      "code": "PNG",
      "country": "Papua New Guinea",
      "url": "profiles/countries/papua-new-guinea/",
@@ -1535,6 +1535,12 @@
      "n": 6
     },
     {
+     "code": "MDA",
+     "country": "Republic of Moldova",
+     "url": "profiles/countries/republic-of-moldova/",
+     "n": 4
+    },
+    {
      "code": "UGA",
      "country": "Uganda",
      "url": "profiles/countries/uganda/",
@@ -1580,12 +1586,6 @@
      "code": "PAK",
      "country": "Pakistan",
      "url": "profiles/countries/pakistan/",
-     "n": 3
-    },
-    {
-     "code": "MDA",
-     "country": "Republic of Moldova",
-     "url": "profiles/countries/republic-of-moldova/",
      "n": 3
     },
     {
@@ -1959,12 +1959,6 @@
      "code": "MAR",
      "country": "Morocco",
      "url": "profiles/countries/morocco/",
-     "n": 4
-    },
-    {
-     "code": "OMN",
-     "country": "Oman",
-     "url": "profiles/countries/oman/",
      "n": 4
     },
     {
@@ -2442,6 +2436,12 @@
      "n": 1
     },
     {
+     "code": "OMN",
+     "country": "Oman",
+     "url": "profiles/countries/oman/",
+     "n": 1
+    },
+    {
      "code": "PNG",
      "country": "Papua New Guinea",
      "url": "profiles/countries/papua-new-guinea/",
@@ -2821,12 +2821,6 @@
      "n": 2
     },
     {
-     "code": "OMN",
-     "country": "Oman",
-     "url": "profiles/countries/oman/",
-     "n": 2
-    },
-    {
      "code": "PAK",
      "country": "Pakistan",
      "url": "profiles/countries/pakistan/",
@@ -3010,6 +3004,12 @@
      "code": "MCO",
      "country": "Monaco",
      "url": "profiles/countries/monaco/",
+     "n": 1
+    },
+    {
+     "code": "OMN",
+     "country": "Oman",
+     "url": "profiles/countries/oman/",
      "n": 1
     },
     {
@@ -3197,12 +3197,6 @@
      "code": "NGA",
      "country": "Nigeria",
      "url": "profiles/countries/nigeria/",
-     "n": 6
-    },
-    {
-     "code": "OMN",
-     "country": "Oman",
-     "url": "profiles/countries/oman/",
      "n": 6
     },
     {
@@ -3653,6 +3647,12 @@
      "code": "NIC",
      "country": "Nicaragua",
      "url": "profiles/countries/nicaragua/",
+     "n": 1
+    },
+    {
+     "code": "OMN",
+     "country": "Oman",
+     "url": "profiles/countries/oman/",
      "n": 1
     },
     {
@@ -4326,6 +4326,12 @@
      "code": "NOR",
      "country": "Norway",
      "url": "profiles/countries/norway/",
+     "n": null
+    },
+    {
+     "code": "OMN",
+     "country": "Oman",
+     "url": "profiles/countries/oman/",
      "n": null
     },
     {
