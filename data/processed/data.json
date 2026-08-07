@@ -1,7 +1,11 @@
 {
   "metadata": {
     "total_possible_ndcs": 169,
+<<<<<<< HEAD
     "last_updated": "2026-08-07",
+=======
+    "last_updated": "2026-07-28",
+>>>>>>> 63307792f15832d349762718a4ab1db5d8af57a1
     "data_source": "GIZ-SLOCAT Transport Tracker Database",
     "gen_counts": {
       "gen1": {
