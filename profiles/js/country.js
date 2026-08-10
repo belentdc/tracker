@@ -70,10 +70,10 @@ const GEN_NOTE = `Our definition of NDC generations:
 const T_AREAS=new Set(["Transport sector mitigation target","Transport sector adaptation target"]);
 function transportTargets(p,status){return (p.targets||[]).filter(t=>T_AREAS.has(t.area)&&(!status||t.status===status));}
 const TARGET_TYPE_CFG=[
-  {area:"Net zero target",                    label:"Net-zero",             color:"#9DBE3D"},
-  {area:"Overall mitigation target",          label:"Overall mitigation",   color:"#E8821A"},
-  {area:"Transport sector mitigation target", label:"Transport mitigation", color:"#00A4BD"},
-  {area:"Transport sector adaptation target", label:"Transport adaptation", color:"#003D5C"},
+  {area:"Net zero target",                    label:"Net-zero",             color:"#9DBE3D", icon:`<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>`},
+  {area:"Overall mitigation target",          label:"Overall mitigation",   color:"#E8821A", icon:`<path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0M12 8v4l3 3"/>`},
+  {area:"Transport sector mitigation target", label:"Transport mitigation", color:"#00A4BD", icon:`<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>`},
+  {area:"Transport sector adaptation target", label:"Transport adaptation", color:"#003D5C", icon:`<path d="M2 22h20M6 18V9l6-4 6 4v9M9 18v-5h6v5"/>`},
 ];
 const TARGET_AREAS_ALL=new Set(TARGET_TYPE_CFG.map(c=>c.area));
 
@@ -661,15 +661,49 @@ function renderTargets(p, docUrlMap) {
       const sorted=byYear[yr].sort((a,b)=>(typeOrder[a.area]??99)-(typeOrder[b.area]??99));
       const byType={};sorted.forEach(t=>(byType[t.area]=byType[t.area]||[]).push(t));
       const groups=TARGET_TYPE_CFG.filter(cfg=>byType[cfg.area]);
+      const yearTotal=sorted.length;
       return `<div class="cp-target-bucket" id="tb-${yr}">
-        <div class="cp-target-year">${esc(yr)}</div>
-        ${groups.map(cfg=>`<div class="cp-target-typegroup" style="--ttype-color:${cfg.color}">
-          <div class="cp-target-typelabel">${esc(cfg.label)}</div>
-          ${byType[cfg.area].map(t=>{const docUrl=t.doc_id?(docUrlMap[t.doc_id]||null):null;
-            return `<div class="cp-target-row"><span class="cp-target-row-content">${esc(t.content||t.type||"")}</span><span class="cp-target-row-meta">${t.conditionality&&t.conditionality!=="\u2014"?`<span class="cp-target-cond">${esc(t.conditionality)}</span> `:""}${docUrl?`<a href="${esc(docUrl)}" target="_blank" rel="noopener" class="cp-target-doc">${esc(t.version||t.document||"")}</a>`:`<span>${esc(t.version||t.document||"")}</span>`}${t.page&&t.page!=="n/a"?` · p. ${esc(t.page)}`:""}</span></div>`;
-          }).join("")}</div>`).join("")}
+        <div class="cp-target-year-head">
+          <div class="cp-target-year-badge">${esc(yr)}</div>
+          <div class="cp-target-year-count">${yearTotal} target${yearTotal>1?"s":""}</div>
+        </div>
+        ${groups.map(cfg=>{
+          const items=byType[cfg.area];
+          const cardId=`cp-tcat-${yr}-${cfg.area.replace(/\s+/g,"-").toLowerCase()}`;
+          const itemsHtml=items.map(t=>{
+            const docUrl=t.doc_id?(docUrlMap[t.doc_id]||null):null;
+            return `<div class="cp-pitem">
+              <div class="cp-pitem-head"><span class="cp-pitem-name">${esc(t.content||t.type||"")}</span></div>
+              <div class="cp-pitem-meta">${t.conditionality&&t.conditionality!=="\u2014"?`<span class="cp-target-cond">${esc(t.conditionality)}</span> `:""}${docUrl?`<a href="${esc(docUrl)}" target="_blank" rel="noopener" class="cp-target-doc">${esc(t.version||t.document||"")}</a>`:`<span>${esc(t.version||t.document||"")}</span>`}${t.page&&t.page!=="n/a"?` · p. ${esc(t.page)}`:""}</div>
+            </div>`;
+          }).join("");
+          return `<div class="cp-pcat-card collapsed" id="${esc(cardId)}">
+            <button class="cp-pcat-head" aria-expanded="false" aria-controls="${esc(cardId)}-body">
+              <div class="cp-pcat-icon" style="background:${cfg.color}1F;color:${cfg.color};">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${cfg.icon}</svg>
+              </div>
+              <div class="cp-pcat-info">
+                <div class="cp-pcat-name">${esc(cfg.label)}</div>
+                <div class="cp-pcat-meta">${items.length} target${items.length>1?"s":""}</div>
+              </div>
+              <div class="cp-pcat-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            </button>
+            <div class="cp-pcat-body" id="${esc(cardId)}-body" hidden>${itemsHtml}</div>
+          </div>`;
+        }).join("")}
       </div>`;
     }).join("");
+    // Toggle listeners
+    listEl.querySelectorAll(".cp-pcat-head").forEach(btn=>{
+      btn.addEventListener("click",()=>{
+        const card=btn.closest(".cp-pcat-card");
+        const body=card.querySelector(".cp-pcat-body");
+        const open=btn.getAttribute("aria-expanded")==="true";
+        btn.setAttribute("aria-expanded",String(!open));
+        card.classList.toggle("collapsed",open);
+        body.hidden=open;
+      });
+    });
   }
   draw();
   const cmpLink=document.getElementById("cp-targets-compare");
@@ -709,19 +743,33 @@ function renderMeasures(p, docUrlMap, bench) {
         }).join("")
       : `<span style="font-size:0.82rem;color:var(--ct-muted);">No A-S-I data.</span>`;
 
-    // Category vs global comparison (only if benchmark available)
+    // Category vs global: dumbbell — country dot, global dot, connecting line,
+    // with only the country's +/- diff labeled (avoids crowding both raw values).
     const catRows=gShare&&catTotal
-      ? Object.entries(cats).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([cat,n])=>{
-          const pct=Math.round(n/catTotal*100);
-          const gPct=Math.round((gShare[cat]||0)*100);
-          const diff=pct-gPct;
-          const diffStr=diff>0?`+${diff}pp`:diff<0?`${diff}pp`:"avg";
-          const diffCls=diff>0?"cp-gcmp-up":diff<0?"cp-gcmp-dn":"cp-gcmp-eq";
-          return `<div class="cp-gcmp-row">
-            <span class="cp-gcmp-cat">${esc(cat)}</span>
-            <span class="${diffCls}">${diffStr} vs global</span>
-          </div>`;
-        }).join("")
+      ? (()=>{
+          const rows=Object.entries(cats).sort((a,b)=>b[1]-a[1]).map(([cat,n])=>({
+            cat, pct:n/catTotal*100, gPct:(gShare[cat]||0)*100
+          }));
+          const maxV=Math.max(...rows.map(r=>Math.max(r.pct,r.gPct)))*1.15||10;
+          return rows.map(r=>{
+            const diff=r.pct-r.gPct;
+            const diffStr=(diff>=0?"+":"")+diff.toFixed(1)+"%";
+            const diffCls=diff>=0?"cp-gcmp-up":"cp-gcmp-dn";
+            const lo=Math.min(r.pct,r.gPct), hi=Math.max(r.pct,r.gPct);
+            const loPct=lo/maxV*100, hiPct=hi/maxV*100;
+            const countryPct=r.pct/maxV*100, globalPct=r.gPct/maxV*100;
+            const countryOnRight=countryPct>=globalPct;
+            return `<div class="cp-gcmp-row">
+              <span class="cp-gcmp-cat">${esc(r.cat)}</span>
+              <div class="cp-gcmp-dumbbell">
+                <div class="cp-gcmp-line" style="left:${loPct}%;width:${hiPct-loPct}%;"></div>
+                <div class="cp-gcmp-dot global" style="left:${globalPct}%;"></div>
+                <div class="cp-gcmp-dot country" style="left:${countryPct}%;"></div>
+                <span class="${diffCls}" style="left:${countryPct}%;transform:${countryOnRight?"translateX(14px)":"translateX(calc(-100% - 14px))"};">${diffStr}</span>
+              </div>
+            </div>`;
+          }).join("");
+        })()
       : "";
 
     const strip=document.createElement("div");
@@ -732,7 +780,9 @@ function renderMeasures(p, docUrlMap, bench) {
         <div class="cp-asi-chips">${asiChips}</div>
       </div>
       ${catRows?`<div class="cp-asi-strip-right">
-        <p class="cp-asi-strip-title">Category focus vs global average</p>
+        <p class="cp-asi-strip-title">Category focus vs global average
+          <span class="cp-gcmp-legend"><span class="dot country"></span>This country<span class="dot global"></span>Global avg.</span>
+        </p>
         <div class="cp-gcmp">${catRows}</div>
       </div>`:""}`;
     fbar.before(strip);
@@ -799,8 +849,8 @@ function renderMeasures(p, docUrlMap, bench) {
       }).join("");
 
       const cardId=`cp-pcat-${cat.replace(/\s+/g,"-").toLowerCase()}`;
-      return `<div class="cp-pcat-card" id="${esc(cardId)}">
-        <button class="cp-pcat-head" aria-expanded="true" aria-controls="${esc(cardId)}-body">
+      return `<div class="cp-pcat-card collapsed" id="${esc(cardId)}">
+        <button class="cp-pcat-head" aria-expanded="false" aria-controls="${esc(cardId)}-body">
           <div class="cp-pcat-icon" style="background:${clr.bg};color:${clr.fg};">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${iconPath}</svg>
           </div>
@@ -810,7 +860,7 @@ function renderMeasures(p, docUrlMap, bench) {
           </div>
           <div class="cp-pcat-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
         </button>
-        <div class="cp-pcat-body" id="${esc(cardId)}-body">${itemsHtml}</div>
+        <div class="cp-pcat-body" id="${esc(cardId)}-body" hidden>${itemsHtml}</div>
       </div>`;
     }).join("");
 
@@ -909,8 +959,8 @@ function renderAdaptation(p, docUrlMap) {
     }).join("");
 
     const cardId=`cp-acat-${cat.replace(/\s+/g,"-").toLowerCase()}`;
-    return `<div class="cp-pcat-card" id="${esc(cardId)}">
-      <button class="cp-pcat-head" aria-expanded="true" aria-controls="${esc(cardId)}-body">
+    return `<div class="cp-pcat-card collapsed" id="${esc(cardId)}">
+      <button class="cp-pcat-head" aria-expanded="false" aria-controls="${esc(cardId)}-body">
         <div class="cp-pcat-icon" style="background:rgba(0,164,189,0.12);color:var(--ct-teal);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${iconPath}</svg>
         </div>
@@ -920,7 +970,7 @@ function renderAdaptation(p, docUrlMap) {
         </div>
         <div class="cp-pcat-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
       </button>
-      <div class="cp-pcat-body" id="${esc(cardId)}-body">${itemsHtml}</div>
+      <div class="cp-pcat-body" id="${esc(cardId)}-body" hidden>${itemsHtml}</div>
     </div>`;
   }).join("");
 

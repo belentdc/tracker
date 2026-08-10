@@ -346,12 +346,29 @@ button.cp-country-name:hover::after { border-color: #fff; }
 .cp-asi-chip-label { display: block; font-size: 0.72rem; color: var(--ct-muted); margin: 0.1rem 0 0.3rem; }
 .cp-asi-chip-bar { height: 4px; border-radius: 2px; background: var(--ct-border); overflow: hidden; }
 .cp-asi-chip-bar div { height: 100%; border-radius: 2px; }
-.cp-gcmp { display: flex; flex-direction: column; gap: 0.3rem; }
-.cp-gcmp-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 0.8rem; }
-.cp-gcmp-cat { color: var(--ct-navy); flex: 1; }
-.cp-gcmp-up { font-size: 0.72rem; font-weight: 700; color: var(--ct-green-dark); white-space: nowrap; }
-.cp-gcmp-dn { font-size: 0.72rem; font-weight: 700; color: var(--ct-muted); white-space: nowrap; }
-.cp-gcmp-eq { font-size: 0.72rem; font-weight: 700; color: var(--ct-teal); white-space: nowrap; }
+.cp-gcmp { display: flex; flex-direction: column; gap: 0.65rem; }
+.cp-gcmp-row { display: flex; flex-direction: column; gap: 0.25rem; }
+.cp-gcmp-cat { font-size: 0.78rem; color: var(--ct-navy); }
+.cp-gcmp-dumbbell { position: relative; height: 16px; margin-top: 0.1rem; }
+.cp-gcmp-line { position: absolute; top: 7px; height: 2px; background: var(--ct-border); }
+.cp-gcmp-dot { position: absolute; top: 2px; width: 12px; height: 12px; border-radius: 50%; transform: translateX(-6px); border: 2px solid var(--ct-surface); }
+.cp-gcmp-dot.global { background: var(--ct-muted); z-index: 1; }
+.cp-gcmp-dot.country { background: var(--ct-teal); z-index: 2; }
+.cp-gcmp-up, .cp-gcmp-dn {
+  position: absolute; top: -1px;
+  font-size: 0.75rem; font-weight: 700; white-space: nowrap;
+  transform: translateX(14px);
+}
+.cp-gcmp-up { color: var(--ct-green-dark); }
+.cp-gcmp-dn { color: var(--ct-orange); }
+.cp-gcmp-legend {
+  float: right; display: flex; align-items: center; gap: 0.3rem;
+  font-size: 0.68rem; font-weight: 400; text-transform: none;
+  letter-spacing: normal; color: var(--ct-muted);
+}
+.cp-gcmp-legend .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.cp-gcmp-legend .dot.country { background: var(--ct-teal); }
+.cp-gcmp-legend .dot.global { background: var(--ct-muted); margin-left: 0.5rem; }
 
 /* ── Shared policy category card (Mitigation + Adaptation) ──────── */
 .cp-pcat-card {
@@ -469,37 +486,18 @@ button.cp-country-name:hover::after { border-color: #fff; }
 /* ── Adaptation — now uses cp-pcat-card (same as Mitigation) ────── */
 /* Legacy cp-adapt-* styles removed; see cp-pcat-card above. */
 
-/* ── Target buckets ──────────────────────────────────────────────── */
-.cp-target-bucket { margin-bottom: 1.25rem; }
-.cp-target-year {
-  font-size: 1rem; font-weight: 800; color: var(--ct-navy);
-  padding: 0.2rem 0 0.5rem;
-  border-bottom: 2px solid var(--ct-border);
-  margin-bottom: 0.5rem;
+/* ── Target buckets — year header + shared cp-pcat-card per type ──── */
+.cp-target-bucket { margin-bottom: 1.5rem; }
+.cp-target-year-head {
+  display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.65rem;
 }
-.cp-target-typegroup {
-  border-left: 3px solid var(--ttype-color, var(--ct-border));
-  padding: 0.4rem 0 0.4rem 0.75rem;
-  margin-bottom: 0.35rem;
+.cp-target-year-badge {
+  min-width: 44px; height: 44px; padding: 0 0.5rem; border-radius: var(--ct-radius-md);
+  background: rgba(0,61,92,0.08); color: var(--ct-navy);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.95rem; flex-shrink: 0;
 }
-.cp-target-typelabel {
-  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em;
-  text-transform: uppercase; color: var(--ttype-color, var(--ct-muted));
-  margin-bottom: 0.3rem;
-}
-.cp-target-row {
-  display: flex; flex-direction: column;
-  padding: 0.25rem 0;
-  border-top: 1px solid var(--ct-bg);
-}
-.cp-target-row:first-of-type { border-top: none; }
-.cp-target-row-content {
-  font-size: 0.88rem; color: var(--ct-navy); font-weight: 500; line-height: 1.35;
-}
-.cp-target-row-meta {
-  font-size: 0.75rem; color: var(--ct-muted); margin-top: 0.15rem;
-  display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: center;
-}
+.cp-target-year-count { font-size: 0.8rem; color: var(--ct-muted); }
 .cp-target-cond {
   background: var(--ct-bg); border-radius: 3px;
   padding: 0.05rem 0.35rem; font-size: 0.7rem; color: var(--ct-text);
