@@ -1,19 +1,31 @@
-    # ── Widget summary (widget/widget-summary.json) ───────────────────
+# ── Widget summary (widget/widget-summary.json) ───────────────────
     # Small JSON consumed by the home-page iframe widget on changing-transport.org.
-    # All three numbers come from gen3 active docs already computed above.
-    # "with_transport_actions" = countries with at least one mitigation measure
-    # in an active NDC 3.x doc (mirrors the Document sheet column
-    # "Contains transport mitigation measures").
-
-    # Count gen3 countries that have mitigation measures (actions)
-    # by scanning doc_id_info for gen3 active docs and checking the
-    # category_latest_gen_breakdown already in tab2 — or more directly,
-    # counting countries with any entry in country_latest_cats where gen3
-    # is their latest gen.
-    gen3_with_actions = sum(
-        1 for code, cd in data["tab1"]["countries"].items()
+    # Numbers are derived from gen3 data already computed above — no extra
+    # parsing. "with_transport_measures" = gen3 countries with at least one
+    # mitigation measure in their latest active doc.
+    #
+    # IMPORTANT — EU bloc: the 27 EU member states each get a copy of the
+    # EU's collective NDC data (see "Adding EU member states" in process()),
+    # so a naive per-code count here counts the EU 27 times. total_submitted
+    # (the denominator) counts the EU as a single bloc (code EEU), so the
+    # numerator must match that scope or the percentage can exceed 100%.
+    # We count EU members as at most 1 unit here, same as the denominator.
+    # (EU_MEMBER_ISO3 is defined at module level in update_data.py; this
+    # file is a standalone reference copy, so it's repeated here.)
+    EU_MEMBER_ISO3 = {
+        "AUT", "BEL", "BGR", "HRV", "CYP", "CZE", "DNK", "EST", "FIN", "FRA",
+        "DEU", "GRC", "HUN", "IRL", "ITA", "LVA", "LTU", "LUX", "MLT", "NLD",
+        "POL", "PRT", "ROU", "SVK", "SVN", "ESP", "SWE",
+    }
+    _gen3_with_measures_codes = {
+        code for code, cd in data["tab1"]["countries"].items()
         if cd.get("latest_active_gen") == "gen3"
         and data["tab2"]["country_latest_cats"].get(code)
+    }
+    _eu_in_count = _gen3_with_measures_codes & EU_MEMBER_ISO3
+    gen3_with_measures = (
+        len(_gen3_with_measures_codes - EU_MEMBER_ISO3)
+        + (1 if _eu_in_count else 0)
     )
 
     gen3 = data["tab1"]["generations"].get("gen3", {})
@@ -40,10 +52,10 @@
                 "pct":   round(n_targets / n_submitted * 100) if n_submitted else 0,
             },
             {
-                "label": "With transport actions",
-                "value": gen3_with_actions,
+                "label": "With transport measures",
+                "value": gen3_with_measures,
                 "of":    f"of {n_submitted} NDCs",
-                "pct":   round(gen3_with_actions / n_submitted * 100) if n_submitted else 0,
+                "pct":   min(round(gen3_with_measures / n_submitted * 100), 100) if n_submitted else 0,
             },
         ],
     }

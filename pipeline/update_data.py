@@ -974,12 +974,26 @@ def run_dashboards(excel_path):
     # ── Widget summary (widget/widget-summary.json) ───────────────────
     # Small JSON consumed by the home-page iframe widget on changing-transport.org.
     # Numbers are derived from gen3 data already computed above — no extra
-    # parsing. "with_transport_actions" = gen3 countries with at least one
+    # parsing. "with_transport_measures" = gen3 countries with at least one
     # mitigation measure in their latest active doc.
-    gen3_with_actions = sum(
-        1 for code, cd in data["tab1"]["countries"].items()
+    #
+    # IMPORTANT — EU bloc: the 27 EU member states each get a copy of the
+    # EU's collective NDC data (see "Adding EU member states" above), so a
+    # naive per-code count here counts the EU 27 times. total_submitted
+    # (used as the denominator) counts the EU as a single bloc (code EEU),
+    # so the numerator must match that scope or the percentage can exceed
+    # 100%. We count EU members as at most 1 unit here, same as the
+    # denominator.
+    _gen3_with_measures_codes = {
+        code for code, cd in data["tab1"]["countries"].items()
         if cd.get("latest_active_gen") == "gen3"
         and data["tab2"]["country_latest_cats"].get(code)
+    }
+    _eu_set = set(EU_MEMBER_ISO3)
+    _eu_in_count = _gen3_with_measures_codes & _eu_set
+    gen3_with_measures = (
+        len(_gen3_with_measures_codes - _eu_set)
+        + (1 if _eu_in_count else 0)
     )
 
     gen3 = data["tab1"]["generations"].get("gen3", {})
@@ -1007,10 +1021,10 @@ def run_dashboards(excel_path):
                 "pct":   round(n_targets / n_submitted * 100) if n_submitted else 0,
             },
             {
-                "label": "With transport actions",
-                "value": gen3_with_actions,
+                "label": "With transport measures",
+                "value": gen3_with_measures,
                 "of":    f"of {n_submitted} NDCs",
-                "pct":   round(gen3_with_actions / n_submitted * 100) if n_submitted else 0,
+                "pct":   min(round(gen3_with_measures / n_submitted * 100), 100) if n_submitted else 0,
             },
         ],
     }
