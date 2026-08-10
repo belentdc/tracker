@@ -307,7 +307,12 @@ button.cp-country-name:hover::after { border-color: #fff; }
 .cp-doc-card.btr { border-top-color: var(--ct-btr); }
 
 /* ── Filters ────────────────────────────────────────────────────── */
-.cp-filterbar { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.cp-filterbar { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+.cp-filter-row { display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center; }
+.cp-filter-label {
+  font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.04em; color: var(--ct-muted); white-space: nowrap;
+}
 .cp-filter {
   font-family: var(--ct-font); font-size: 0.8rem; font-weight: 600;
   padding: 0.35rem 0.85rem; border-radius: 999px;
@@ -318,59 +323,100 @@ button.cp-country-name:hover::after { border-color: #fff; }
 .cp-filter:hover { border-color: var(--ct-teal); color: var(--ct-navy); }
 .cp-filter.active { background: var(--ct-navy); border-color: var(--ct-navy); color: #fff; }
 
-/* ── Measures grid ──────────────────────────────────────────────── */
-.cp-charts-row {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 1rem; margin-bottom: 1.25rem; align-items: start;
-}
-@media (max-width: 700px) { .cp-charts-row { grid-template-columns: 1fr; } }
-.cp-chart-card {
+/* ── A-S-I summary strip (replaces two Chart.js blocks) ─────────── */
+.cp-asi-strip {
+  display: flex; gap: 1.25rem; margin-bottom: 1.1rem;
   background: var(--ct-surface); border: 1px solid var(--ct-border);
-  border-radius: var(--ct-radius-lg); padding: 1.5rem;
-  box-shadow: var(--ct-shadow-sm);
+  border-radius: var(--ct-radius-lg); padding: 1rem 1.25rem;
+  flex-wrap: wrap; align-items: flex-start;
 }
-.cp-chart-caption {
-  font-size: 0.82rem; color: var(--ct-muted);
-  text-align: center; margin-top: 0.75rem;
+.cp-asi-strip-left { flex: 1; min-width: 180px; }
+.cp-asi-strip-right { flex: 1; min-width: 180px; border-left: 1px solid var(--ct-border); padding-left: 1.25rem; }
+@media (max-width: 600px) {
+  .cp-asi-strip { flex-direction: column; }
+  .cp-asi-strip-right { border-left: none; border-top: 1px solid var(--ct-border); padding-left: 0; padding-top: 0.85rem; }
 }
+.cp-asi-strip-title {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--ct-muted); margin-bottom: 0.6rem;
+}
+.cp-asi-chips { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+.cp-asi-chip { min-width: 72px; }
+.cp-asi-chip-val { display: block; font-size: 1.4rem; font-weight: 800; line-height: 1; }
+.cp-asi-chip-label { display: block; font-size: 0.72rem; color: var(--ct-muted); margin: 0.1rem 0 0.3rem; }
+.cp-asi-chip-bar { height: 4px; border-radius: 2px; background: var(--ct-border); overflow: hidden; }
+.cp-asi-chip-bar div { height: 100%; border-radius: 2px; }
+.cp-gcmp { display: flex; flex-direction: column; gap: 0.3rem; }
+.cp-gcmp-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 0.8rem; }
+.cp-gcmp-cat { color: var(--ct-navy); flex: 1; }
+.cp-gcmp-up { font-size: 0.72rem; font-weight: 700; color: var(--ct-green-dark); white-space: nowrap; }
+.cp-gcmp-dn { font-size: 0.72rem; font-weight: 700; color: var(--ct-muted); white-space: nowrap; }
+.cp-gcmp-eq { font-size: 0.72rem; font-weight: 700; color: var(--ct-teal); white-space: nowrap; }
 
-/* ── Measure cards ──────────────────────────────────────────────── */
-.cp-measure-list { display: flex; flex-direction: column; gap: 0.75rem; }
-.cp-measure {
+/* ── Shared policy category card (Mitigation + Adaptation) ──────── */
+.cp-pcat-card {
   background: var(--ct-surface); border: 1px solid var(--ct-border);
-  border-radius: var(--ct-radius-md); padding: 1rem 1.15rem;
-  border-left: 3px solid var(--ct-improve);
+  border-radius: var(--ct-radius-lg); overflow: hidden; margin-bottom: 0.65rem;
 }
-.cp-measure.avoid  { border-left-color: var(--ct-avoid); }
-.cp-measure.shift  { border-left-color: var(--ct-shift); }
-.cp-measure.improve{ border-left-color: var(--ct-improve); }
+.cp-pcat-head {
+  width: 100%; display: flex; align-items: center; gap: 0.85rem;
+  padding: 0.95rem 1.1rem; background: none; border: none;
+  font-family: var(--ct-font); cursor: pointer; text-align: left;
+  transition: background 0.12s;
+}
+.cp-pcat-head:hover { background: var(--ct-bg); }
+.cp-pcat-icon {
+  width: 38px; height: 38px; border-radius: var(--ct-radius-md);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.cp-pcat-icon svg { width: 20px; height: 20px; }
+.cp-pcat-info { flex: 1; min-width: 0; }
+.cp-pcat-name { font-weight: 700; color: var(--ct-navy); font-size: 0.95rem; }
+.cp-pcat-meta {
+  font-size: 0.78rem; color: var(--ct-muted); margin-top: 0.1rem;
+  display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;
+}
+.cp-pcat-badges { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+.cp-pcat-badge {
+  font-size: 0.62rem; font-weight: 800; text-transform: uppercase;
+  padding: 0.08rem 0.38rem; border-radius: 999px; white-space: nowrap;
+}
+.cp-pcat-badge.avoid   { background: rgba(0,61,92,0.12);   color: var(--ct-navy); }
+.cp-pcat-badge.shift   { background: rgba(0,164,189,0.15); color: var(--ct-teal); }
+.cp-pcat-badge.improve { background: rgba(157,190,61,0.2); color: var(--ct-green-dark); }
+.cp-pcat-chevron { flex-shrink: 0; color: var(--ct-muted); transition: transform 0.2s; }
+.cp-pcat-chevron svg { width: 18px; height: 18px; }
+.cp-pcat-card.collapsed .cp-pcat-chevron { transform: rotate(-90deg); }
 
-.cp-measure-top {
-  display: flex; justify-content: space-between;
-  align-items: start; gap: 0.75rem; margin-bottom: 0.4rem;
-}
-.cp-measure-instrument { font-weight: 700; color: var(--ct-navy); font-size: 0.98rem; }
-.cp-measure-asi {
-  font-size: 0.68rem; font-weight: 800;
-  text-transform: uppercase; padding: 0.1rem 0.5rem;
-  border-radius: 999px; white-space: nowrap;
-}
-.cp-measure-asi.avoid   { background: rgba(0,61,92,0.12);    color: var(--ct-navy); }
-.cp-measure-asi.shift   { background: rgba(0,164,189,0.15);  color: var(--ct-teal); }
-.cp-measure-asi.improve { background: rgba(157,190,61,0.2);  color: var(--ct-green-dark); }
+.cp-pcat-body { border-top: 1px solid var(--ct-border); padding: 0 1.1rem 0.85rem; }
 
-.cp-measure-quote {
-  font-size: 0.9rem; color: var(--ct-text); font-style: italic;
-  margin: 0.5rem 0; padding-left: 0.75rem;
+/* ── Shared policy item (row inside a category card) ────────────── */
+.cp-pitem { padding: 0.6rem 0; border-bottom: 1px solid var(--ct-bg); font-size: 0.87rem; }
+.cp-pitem:last-child { border-bottom: none; }
+.cp-pitem-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; }
+.cp-pitem-name { font-weight: 600; color: var(--ct-navy); flex: 1; line-height: 1.35; }
+.cp-pitem-asi {
+  font-size: 0.6rem; font-weight: 800; text-transform: uppercase;
+  padding: 0.1rem 0.38rem; border-radius: 999px; white-space: nowrap; flex-shrink: 0;
+}
+.cp-pitem-asi.avoid   { background: rgba(0,61,92,0.12);   color: var(--ct-navy); }
+.cp-pitem-asi.shift   { background: rgba(0,164,189,0.15); color: var(--ct-teal); }
+.cp-pitem-asi.improve { background: rgba(157,190,61,0.2); color: var(--ct-green-dark); }
+.cp-pitem-quote {
+  font-size: 0.82rem; color: var(--ct-text); font-style: italic;
+  margin: 0.2rem 0 0.1rem; padding-left: 0.6rem;
   border-left: 2px solid var(--ct-border);
 }
-.cp-measure-meta { font-size: 0.78rem; color: var(--ct-muted); }
-.cp-measure-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.cp-pitem-meta {
+  font-size: 0.72rem; color: var(--ct-muted); margin-top: 0.15rem;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem;
+}
+
+/* ── Misc: showmore, tags (kept for other uses) ──────────────────── */
 .cp-tag {
   font-size: 0.7rem; padding: 0.1rem 0.5rem; border-radius: 999px;
   background: var(--ct-bg); border: 1px solid var(--ct-border); color: var(--ct-muted);
 }
-
 .cp-showmore {
   margin-top: 1rem; width: 100%; padding: 0.6rem;
   border: 1px dashed var(--ct-border); background: var(--ct-surface);
@@ -378,46 +424,6 @@ button.cp-country-name:hover::after { border-color: #fff; }
   font-weight: 700; cursor: pointer; font-family: var(--ct-font);
 }
 .cp-showmore:hover { background: var(--ct-bg); }
-
-/* ── Grouped measure layout ──────────────────────────────────────── */
-.cp-mcat-group { margin-bottom: 1rem; }
-.cp-mcat-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0.4rem 0.65rem; background: var(--ct-navy); color: #fff;
-  border-radius: var(--ct-radius-sm); margin-bottom: 0.35rem;
-}
-.cp-mcat-name { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
-.cp-mcat-count {
-  font-size: 0.7rem; font-weight: 700; background: rgba(255,255,255,0.2);
-  border-radius: 999px; padding: 0.05rem 0.45rem;
-}
-.cp-mcat-body { padding-left: 0.5rem; }
-.cp-mpurpose { margin-bottom: 0.25rem; }
-.cp-mpurpose-label {
-  font-size: 0.7rem; font-weight: 700; color: var(--ct-teal);
-  text-transform: uppercase; letter-spacing: 0.05em;
-  padding: 0.15rem 0; margin-bottom: 0.1rem;
-  border-bottom: 1px solid var(--ct-border);
-}
-.cp-mrow { padding: 0.3rem 0; border-top: 1px solid var(--ct-bg); }
-.cp-mrow:first-child { border-top: none; }
-.cp-mrow-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; }
-.cp-mrow-instrument { font-size: 0.87rem; color: var(--ct-navy); font-weight: 500; line-height: 1.35; flex: 1; }
-.cp-mrow-asi {
-  font-size: 0.62rem; font-weight: 800; text-transform: uppercase;
-  padding: 0.1rem 0.4rem; border-radius: 999px; white-space: nowrap; flex-shrink: 0;
-}
-.cp-mrow-asi.avoid   { background: rgba(0,61,92,0.12);   color: var(--ct-navy); }
-.cp-mrow-asi.shift   { background: rgba(0,164,189,0.15); color: var(--ct-teal); }
-.cp-mrow-asi.improve { background: rgba(157,190,61,0.2); color: var(--ct-green-dark); }
-.cp-mrow-quote {
-  font-size: 0.82rem; color: var(--ct-text); font-style: italic;
-  margin: 0.15rem 0; padding-left: 0.6rem; border-left: 2px solid var(--ct-border);
-}
-.cp-mrow-meta {
-  font-size: 0.72rem; color: var(--ct-muted); margin-top: 0.1rem;
-  display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem;
-}
 
 /* ── Co-benefits (icon grid) ────────────────────────────────────── */
 .cp-benefits-grid {
@@ -460,39 +466,8 @@ button.cp-country-name:hover::after { border-color: #fff; }
   color: #fff; font-weight: 800; font-size: 0.95rem;
 }
 
-/* ── Adaptation (grouped) ───────────────────────────────────────── */
-.cp-adapt-groups {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-}
-.cp-adapt-group {
-  background: var(--ct-surface); border: 1px solid var(--ct-border);
-  border-radius: var(--ct-radius-lg); overflow: hidden;
-}
-.cp-adapt-head {
-  padding: 1.1rem 1.25rem; cursor: pointer;
-  display: flex; align-items: center; gap: 0.85rem;
-  transition: background 0.12s;
-}
-.cp-adapt-head:hover { background: var(--ct-bg); }
-.cp-adapt-icon {
-  width: 38px; height: 38px; border-radius: var(--ct-radius-md);
-  background: rgba(0,164,189,0.12);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--ct-teal); flex-shrink: 0;
-}
-.cp-adapt-icon svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; }
-.cp-adapt-titles { flex: 1; }
-.cp-adapt-cat { font-weight: 700; color: var(--ct-navy); font-size: 0.95rem; }
-.cp-adapt-count { font-size: 0.8rem; color: var(--ct-muted); }
-.cp-adapt-head-static { cursor: default; }
-.cp-adapt-head-static:hover { background: transparent; }
-.cp-adapt-body { display: block; padding: 0 1.25rem 1.25rem; }
-.cp-adapt-item { padding: 0.75rem 0; border-top: 1px solid var(--ct-bg); font-size: 0.88rem; }
-.cp-adapt-item-name { font-weight: 700; color: var(--ct-navy); }
-.cp-adapt-item-quote { font-style: italic; color: var(--ct-text); margin-top: 0.25rem; font-size: 0.85rem; }
-.cp-adapt-item-meta { font-size: 0.75rem; color: var(--ct-muted); margin-top: 0.25rem; }
+/* ── Adaptation — now uses cp-pcat-card (same as Mitigation) ────── */
+/* Legacy cp-adapt-* styles removed; see cp-pcat-card above. */
 
 /* ── Target buckets ──────────────────────────────────────────────── */
 .cp-target-bucket { margin-bottom: 1.25rem; }

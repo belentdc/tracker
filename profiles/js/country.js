@@ -38,6 +38,22 @@ const ADAPT_ICONS = {
   "Informational and Educational":            `<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>`,
   "Other adaptation and resilience measures": `<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>`
 };
+const MITIG_ICONS = {
+  "Mode shift and demand management": `<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>`,
+  "Transport system improvements":    `<path d="M3 17l2-7h14l2 7M3 17h18M7 17v2m10-2v2M5 10h14"/>`,
+  "Electrification":                  `<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>`,
+  "Alternative fuels":                `<path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0M12 8v4l3 3"/>`,
+  "Energy efficiency":                `<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>`,
+  "Aviation and maritime":            `<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.93 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.88 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91"/>`
+};
+const MITIG_ICON_COLORS = {
+  "Mode shift and demand management": {bg:"rgba(0,164,189,0.12)",   fg:"var(--ct-teal)"},
+  "Transport system improvements":    {bg:"rgba(0,61,92,0.10)",     fg:"var(--ct-navy)"},
+  "Electrification":                  {bg:"rgba(157,190,61,0.15)",  fg:"var(--ct-green-dark)"},
+  "Alternative fuels":                {bg:"rgba(232,130,26,0.12)",  fg:"#B85E0A"},
+  "Energy efficiency":                {bg:"rgba(157,190,61,0.15)",  fg:"var(--ct-green-dark)"},
+  "Aviation and maritime":            {bg:"rgba(0,164,189,0.12)",   fg:"var(--ct-teal)"}
+};
 const PARIS_DEADLINES = [
   {year:2015,label:"Paris Agreement"},
   {year:2020,label:"NDC update due"},
@@ -670,124 +686,145 @@ function renderMeasures(p, docUrlMap, bench) {
   const active=p.measures.filter(m=>m.status==="Active");
   if(subEl) subEl.innerHTML=`<strong>${active.length}</strong> transport mitigation measures in <span class="hl">active documents</span>.`;
 
-  // A-S-I: one stacked bar plus a generated sentence — the sentence is the
-  // insight, the bar is its picture (replaces the space-hungry doughnut).
-  const asiC=document.getElementById("cp-asi-chart");
-  if(asiC){
+  // ── Summary strip ─────────────────────────────────────────────────
+  // Inserted before the filterbar. Pure HTML — no Chart.js needed,
+  // works behind the GIZ proxy where the CDN is blocked.
+  if(fbar){
     const asi=p.asi_summary||{};
-    const order=["Avoid","Shift","Improve"].filter(k=>asi[k]);
-    const total=order.reduce((s,k)=>s+asi[k],0);
-    const sEl=document.getElementById("cp-asi-sentence");
-    if(sEl&&total){
-      const top=order.slice().sort((a,b)=>asi[b]-asi[a])[0];
-      const low=order.slice().sort((a,b)=>asi[a]-asi[b])[0];
-      const missing=["Avoid","Shift","Improve"].filter(k=>!asi[k]);
-      let sent=`The strategy leans on <strong>${top}</strong> (${asi[top]} of ${total} measures)`;
-      if(missing.length) sent+=`, with no ${missing.join(" or ")} content`;
-      else if(low!==top&&asi[low]/total<0.15) sent+=`, with limited ${low} content (${asi[low]})`;
-      sEl.innerHTML=sent+".";
-    }
-    safeChart(asiC,{type:"bar",
-      data:{labels:[""],datasets:order.map(k=>({label:k,data:[asi[k]],backgroundColor:ASI_COLOR[k]||MUTED,barThickness:26}))},
-      options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{position:"bottom",labels:{font:{family:"Source Sans 3",size:11},boxWidth:12,padding:10}},
-          tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.raw} (${Math.round(c.raw/total*100)}%)`}}},
-        scales:{x:{stacked:true,display:false,max:total},y:{stacked:true,display:false}}}},
-      order.map(k=>[k,asi[k]]), k=>ASI_COLOR[k]||MUTED);
-  }
-  // Category chart with global-average emphasis markers (◆): shows whether
-  // this country's focus on a category is above or below what is typical.
-  const catC=document.getElementById("cp-cat-chart");
-  if(catC){
+    const asiOrder=["Avoid","Shift","Improve"].filter(k=>asi[k]);
+    const asiTotal=asiOrder.reduce((s,k)=>s+asi[k],0);
     const cats=p.category_summary||{};
-    const catTotal=Object.values(cats).reduce((s,v)=>s+v,0);
     const gShare=(bench&&bench.category_share)||null;
-    const labels=Object.keys(cats);
-    const datasets=[{type:"bar",data:Object.values(cats),backgroundColor:TEAL,borderRadius:4,order:2}];
-    if(gShare&&catTotal){
-      datasets.push({type:"scatter",label:"Global average emphasis",
-        data:labels.map(l=>({x:+( (gShare[l]||0)*catTotal ).toFixed(1),y:l})),
-        pointStyle:"rectRot",radius:5,backgroundColor:NAVY,borderColor:"#fff",borderWidth:1,order:1});
-    }
-    safeChart(catC,{type:"bar",
-      data:{labels,datasets},
-      options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
-          tooltip:{callbacks:{label:c=>c.dataset.type==="scatter"
-            ?`Typical emphasis: ${c.raw.x} of ${catTotal} measures`
-            :`${c.raw} measures`}}},
-        scales:{x:{ticks:{font:{family:"Source Sans 3"}},grid:{display:false}},
-                y:{ticks:{font:{family:"Source Sans 3",size:11},callback:function(v){const l=this.getLabelForValue(v);return l.length>24?l.slice(0,24)+"\u2026":l;}},grid:{display:false}}}}},
-      Object.entries(cats));
+    const catTotal=Object.values(cats).reduce((s,v)=>s+v,0);
+
+    // A-S-I chips
+    const asiChips=asiOrder.length
+      ? asiOrder.map(k=>{
+          const pct=asiTotal?Math.round(asi[k]/asiTotal*100):0;
+          return `<div class="cp-asi-chip">
+            <span class="cp-asi-chip-val" style="color:${ASI_COLOR[k]}">${asi[k]}</span>
+            <span class="cp-asi-chip-label">${k}</span>
+            <div class="cp-asi-chip-bar"><div style="width:${pct}%;background:${ASI_COLOR[k]};"></div></div>
+          </div>`;
+        }).join("")
+      : `<span style="font-size:0.82rem;color:var(--ct-muted);">No A-S-I data.</span>`;
+
+    // Category vs global comparison (only if benchmark available)
+    const catRows=gShare&&catTotal
+      ? Object.entries(cats).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([cat,n])=>{
+          const pct=Math.round(n/catTotal*100);
+          const gPct=Math.round((gShare[cat]||0)*100);
+          const diff=pct-gPct;
+          const diffStr=diff>0?`+${diff}pp`:diff<0?`${diff}pp`:"avg";
+          const diffCls=diff>0?"cp-gcmp-up":diff<0?"cp-gcmp-dn":"cp-gcmp-eq";
+          return `<div class="cp-gcmp-row">
+            <span class="cp-gcmp-cat">${esc(cat)}</span>
+            <span class="${diffCls}">${diffStr} vs global</span>
+          </div>`;
+        }).join("")
+      : "";
+
+    const strip=document.createElement("div");
+    strip.className="cp-asi-strip";
+    strip.innerHTML=`
+      <div class="cp-asi-strip-left">
+        <p class="cp-asi-strip-title">Avoid · Shift · Improve breakdown</p>
+        <div class="cp-asi-chips">${asiChips}</div>
+      </div>
+      ${catRows?`<div class="cp-asi-strip-right">
+        <p class="cp-asi-strip-title">Category focus vs global average</p>
+        <div class="cp-gcmp">${catRows}</div>
+      </div>`:""}`;
+    fbar.before(strip);
   }
 
-  const categories=[...new Set(active.map(m=>m.category).filter(Boolean))];
-  const modes=[...new Set(active.flatMap(m=>m.modes||[]).filter(Boolean))].sort();
+  // ── Filters: one compact row (doc + A-S-I) + optional search ─────
   const docTypes=[...new Set(active.map(m=>m.doc_type).filter(Boolean))];
-  let curAsi="all",curCat="all",curMode="all",curDoc="all",curSearch="",showAll=false;
+  let curAsi="all",curDoc="all",curSearch="";
 
   if(fbar){
     fbar.innerHTML=`
-      <div class="cp-filter-row"><span class="cp-filter-label">By document:</span>
+      <div class="cp-filter-row">
+        <span class="cp-filter-label">Document:</span>
         <button class="cp-filter active" data-doc="all">All (${active.length})</button>
         ${docTypes.map(dt=>`<button class="cp-filter" data-doc="${esc(dt)}">${esc(dt)} (${active.filter(m=>m.doc_type===dt).length})</button>`).join("")}
-      </div>
-      <div class="cp-filter-row" style="margin-top:0.4rem;"><span class="cp-filter-label">By A-S-I:</span>
-        <button class="cp-filter active" data-asi="all">All (${active.length})</button>
+        <span class="cp-filter-label" style="margin-left:0.75rem;">A-S-I:</span>
+        <button class="cp-filter active" data-asi="all">All</button>
         ${["Avoid","Shift","Improve"].map(a=>{const n=active.filter(m=>(m.asi||[]).includes(a)).length;return n?`<button class="cp-filter" data-asi="${a}">${a} (${n})</button>`:""}).join("")}
       </div>
-      <div class="cp-filter-row" style="margin-top:0.4rem;"><span class="cp-filter-label">By category:</span>
-        <button class="cp-filter active" data-cat="all">All (${active.length})</button>
-        ${categories.map(c=>`<button class="cp-filter" data-cat="${esc(c)}">${esc(c)} (${active.filter(m=>m.category===c).length})</button>`).join("")}
-      </div>
-      ${modes.length?`<div class="cp-filter-row" style="margin-top:0.4rem;"><span class="cp-filter-label">By mode:</span>
-        <button class="cp-filter active" data-mode="all">All (${active.length})</button>
-        ${modes.map(m=>`<button class="cp-filter" data-mode="${esc(m)}">${esc(m)} (${active.filter(x=>(x.modes||[]).includes(m)).length})</button>`).join("")}
-      </div>`:""}
-      <div class="cp-filter-row" style="margin-top:0.5rem;">
-        <input class="cp-search-input" id="cp-measures-search" placeholder="Search measures\u2026" type="text">
+      <div class="cp-filter-row" style="margin-top:0.4rem;">
+        <input class="cp-search-input" id="cp-measures-search" placeholder="Search measures\u2026" type="text" style="max-width:320px;">
       </div>`;
-    fbar.querySelectorAll("[data-doc]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-doc]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curDoc=b.dataset.doc;showAll=false;draw();}));
-    fbar.querySelectorAll("[data-asi]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-asi]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curAsi=b.dataset.asi;showAll=false;draw();}));
-    fbar.querySelectorAll("[data-cat]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-cat]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curCat=b.dataset.cat;showAll=false;draw();}));
-    fbar.querySelectorAll("[data-mode]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-mode]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curMode=b.dataset.mode;showAll=false;draw();}));
+    fbar.querySelectorAll("[data-doc]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-doc]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curDoc=b.dataset.doc;draw();}));
+    fbar.querySelectorAll("[data-asi]").forEach(b=>b.addEventListener("click",()=>{fbar.querySelectorAll("[data-asi]").forEach(x=>x.classList.remove("active"));b.classList.add("active");curAsi=b.dataset.asi;draw();}));
     const srch=document.getElementById("cp-measures-search");
-    if(srch) srch.addEventListener("input",()=>{curSearch=srch.value.toLowerCase().trim();showAll=false;draw();});
+    if(srch) srch.addEventListener("input",()=>{curSearch=srch.value.toLowerCase().trim();draw();});
   }
-  // Category display order: global frequency from data
+
+  // ── Category display order ────────────────────────────────────────
   const CAT_ORDER=["Mode shift and demand management","Transport system improvements",
     "Electrification","Alternative fuels","Energy efficiency","Aviation and maritime"];
 
   function draw(){
-    const list=active.filter(m=>(curAsi==="all"||(m.asi||[]).includes(curAsi))&&(curCat==="all"||m.category===curCat)&&(curMode==="all"||(m.modes||[]).includes(curMode))&&(curDoc==="all"||m.doc_type===curDoc)&&(!curSearch||[m.instrument,m.purpose,m.category,m.quote].some(f=>f&&f.toLowerCase().includes(curSearch))));
+    const list=active.filter(m=>
+      (curAsi==="all"||(m.asi||[]).includes(curAsi))&&
+      (curDoc==="all"||m.doc_type===curDoc)&&
+      (!curSearch||[m.instrument,m.purpose,m.category,m.quote].some(f=>f&&f.toLowerCase().includes(curSearch))));
     if(!list.length){listEl.innerHTML=`<div class="cp-empty">No measures match.</div>`;if(moreBtn)moreBtn.hidden=true;return;}
+
     const byCat={};
     list.forEach(m=>{(byCat[m.category]=byCat[m.category]||[]).push(m);});
     const catKeys=[...CAT_ORDER.filter(c=>byCat[c]),...Object.keys(byCat).filter(c=>!CAT_ORDER.includes(c)).sort()];
+
     listEl.innerHTML=catKeys.map(cat=>{
       const items=byCat[cat];
-      const byPurpose={};
-      items.forEach(m=>{(byPurpose[m.purpose||""]=byPurpose[m.purpose||""]||[]).push(m);});
-      const purposes=Object.keys(byPurpose).sort((a,b)=>byPurpose[b].length-byPurpose[a].length);
-      const multiPurpose=purposes.length>1;
-      const purposeHtml=purposes.map(purpose=>{
-        const ms=byPurpose[purpose];
-        const rowsHtml=ms.map(m=>{
-          const du=m.doc_id?(docUrlMap[m.doc_id]||null):null;
-          const asiCls=((m.asi&&m.asi[0])||"improve").toLowerCase();
-          const asiTag=m.asi&&m.asi.length?`<span class="cp-mrow-asi ${asiCls}">${esc(m.asi.join("/"))}</span>`:"";
-          return `<div class="cp-mrow">
-            <div class="cp-mrow-main"><span class="cp-mrow-instrument">${esc(m.instrument||m.purpose||m.category)}</span>${asiTag}</div>
-            ${m.quote?`<div class="cp-mrow-quote">${esc(m.quote)}</div>`:""}
-            <div class="cp-mrow-meta">${du?`<a href="${esc(du)}" target="_blank" rel="noopener" class="cp-target-doc">${esc(m.version||m.document||"")}</a>`:`<span>${esc(m.version||m.document||"")}</span>`}${m.page?` · p. ${esc(m.page)}`:""}${m.modes&&m.modes.length?` · `+m.modes.slice(0,3).map(x=>`<span class="cp-tag">${esc(x)}</span>`).join(""):""}</div>
-          </div>`;
-        }).join("");
-        return multiPurpose&&purpose?`<div class="cp-mpurpose"><div class="cp-mpurpose-label">${esc(purpose)}</div>${rowsHtml}</div>`:rowsHtml;
+      const clr=MITIG_ICON_COLORS[cat]||{bg:"rgba(0,61,92,0.10)",fg:"var(--ct-navy)"};
+      const iconPath=MITIG_ICONS[cat]||`<circle cx="12" cy="12" r="9"/>`;
+      // Dominant A-S-I badges for the header
+      const asiCounts={};
+      items.forEach(m=>(m.asi||[]).forEach(a=>{asiCounts[a]=(asiCounts[a]||0)+1;}));
+      const asiBadges=["Avoid","Shift","Improve"].filter(a=>asiCounts[a])
+        .map(a=>`<span class="cp-pcat-badge ${a.toLowerCase()}">${a}</span>`).join("");
+
+      const itemsHtml=items.map(m=>{
+        const du=m.doc_id?(docUrlMap[m.doc_id]||null):null;
+        const asiTag=m.asi&&m.asi.length?`<span class="cp-pitem-asi ${((m.asi[0])||"improve").toLowerCase()}">${esc(m.asi.join("/"))}</span>`:"";
+        return `<div class="cp-pitem">
+          <div class="cp-pitem-head">
+            <span class="cp-pitem-name">${esc(m.instrument||m.purpose||m.category)}</span>${asiTag}
+          </div>
+          ${m.quote?`<div class="cp-pitem-quote">${esc(m.quote)}</div>`:""}
+          <div class="cp-pitem-meta">${du?`<a href="${esc(du)}" target="_blank" rel="noopener" class="cp-target-doc">${esc(m.version||m.document||"")}</a>`:`<span>${esc(m.version||m.document||"")}</span>`}${m.page?` · p. ${esc(m.page)}`:""}${m.modes&&m.modes.length?` · `+m.modes.slice(0,3).map(x=>`<span class="cp-tag">${esc(x)}</span>`).join(""):""}</div>
+        </div>`;
       }).join("");
-      return `<div class="cp-mcat-group">
-        <div class="cp-mcat-header"><span class="cp-mcat-name">${esc(cat)}</span><span class="cp-mcat-count">${items.length}</span></div>
-        <div class="cp-mcat-body">${purposeHtml}</div>
+
+      const cardId=`cp-pcat-${cat.replace(/\s+/g,"-").toLowerCase()}`;
+      return `<div class="cp-pcat-card" id="${esc(cardId)}">
+        <button class="cp-pcat-head" aria-expanded="true" aria-controls="${esc(cardId)}-body">
+          <div class="cp-pcat-icon" style="background:${clr.bg};color:${clr.fg};">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${iconPath}</svg>
+          </div>
+          <div class="cp-pcat-info">
+            <div class="cp-pcat-name">${esc(cat)}</div>
+            <div class="cp-pcat-meta">${items.length} measure${items.length>1?"s":""}${asiBadges?` <span class="cp-pcat-badges">${asiBadges}</span>`:""}</div>
+          </div>
+          <div class="cp-pcat-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+        </button>
+        <div class="cp-pcat-body" id="${esc(cardId)}-body">${itemsHtml}</div>
       </div>`;
     }).join("");
+
+    // Attach toggle listeners
+    listEl.querySelectorAll(".cp-pcat-head").forEach(btn=>{
+      btn.addEventListener("click",()=>{
+        const card=btn.closest(".cp-pcat-card");
+        const body=card.querySelector(".cp-pcat-body");
+        const open=btn.getAttribute("aria-expanded")==="true";
+        btn.setAttribute("aria-expanded",String(!open));
+        card.classList.toggle("collapsed",open);
+        body.hidden=open;
+      });
+    });
     if(moreBtn) moreBtn.hidden=true;
   }
   draw();
@@ -853,25 +890,51 @@ function renderAdaptation(p, docUrlMap) {
   const wrap=document.getElementById("cp-adaptation"); if(!wrap)return;
   const active=p.adaptation.filter(a=>a.status==="Active");
   if(!active.length){wrap.innerHTML=`<div class="cp-empty">No transport adaptation measures in active documents.</div>`;return;}
+
+  // Uses the same cp-pcat-card component as Mitigation for visual consistency.
   const groups={};
   active.forEach(a=>{(groups[a.category]=groups[a.category]||[]).push(a);});
-  wrap.innerHTML=Object.entries(groups).sort((a,b)=>b[1].length-a[1].length).map(([cat,items])=>`
-    <div class="cp-adapt-group open">
-      <div class="cp-adapt-head cp-adapt-head-static">
-        <div class="cp-adapt-icon"><svg viewBox="0 0 24 24">${ADAPT_ICONS[cat]||ADAPT_ICONS["Other adaptation and resilience measures"]}</svg></div>
-        <div class="cp-adapt-titles"><div class="cp-adapt-cat">${esc(cat)}</div><div class="cp-adapt-count">${items.length} measure${items.length>1?"s":""}</div></div>
-      </div>
-      <div class="cp-adapt-body">
-        ${items.map(a=>{
-          const du=a.doc_id?(docUrlMap[a.doc_id]||null):null;
-          return `<div class="cp-adapt-item">
-            <div class="cp-adapt-item-name">${esc(a.measure||"Adaptation measure")}</div>
-            ${a.quote?`<div class="cp-adapt-item-quote">${esc(a.quote)}</div>`:""}
-            <div class="cp-adapt-item-meta">${du?`<a href="${esc(du)}" target="_blank" rel="noopener" style="color:var(--ct-teal)">${esc(a.version||a.document||"")}</a>`:esc(a.version||a.document||"")}${a.modes&&a.modes.length?" "+a.modes.map(m=>`<span class="cp-tag">${esc(m)}</span>`).join(""):""} ${a.page?", p. "+esc(a.page):""}</div>
-          </div>`;
-        }).join("")}
-      </div>
-    </div>`).join("");
+
+  wrap.innerHTML=Object.entries(groups).sort((a,b)=>b[1].length-a[1].length).map(([cat,items])=>{
+    const iconPath=ADAPT_ICONS[cat]||ADAPT_ICONS["Other adaptation and resilience measures"];
+    const itemsHtml=items.map(a=>{
+      const du=a.doc_id?(docUrlMap[a.doc_id]||null):null;
+      return `<div class="cp-pitem">
+        <div class="cp-pitem-head">
+          <span class="cp-pitem-name">${esc(a.measure||"Adaptation measure")}</span>
+        </div>
+        ${a.quote?`<div class="cp-pitem-quote">${esc(a.quote)}</div>`:""}
+        <div class="cp-pitem-meta">${du?`<a href="${esc(du)}" target="_blank" rel="noopener" class="cp-target-doc">${esc(a.version||a.document||"")}</a>`:esc(a.version||a.document||"")}${a.modes&&a.modes.length?" "+a.modes.map(m=>`<span class="cp-tag">${esc(m)}</span>`).join(""):""} ${a.page?`· p. ${esc(a.page)}`:""}</div>
+      </div>`;
+    }).join("");
+
+    const cardId=`cp-acat-${cat.replace(/\s+/g,"-").toLowerCase()}`;
+    return `<div class="cp-pcat-card" id="${esc(cardId)}">
+      <button class="cp-pcat-head" aria-expanded="true" aria-controls="${esc(cardId)}-body">
+        <div class="cp-pcat-icon" style="background:rgba(0,164,189,0.12);color:var(--ct-teal);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${iconPath}</svg>
+        </div>
+        <div class="cp-pcat-info">
+          <div class="cp-pcat-name">${esc(cat)}</div>
+          <div class="cp-pcat-meta">${items.length} measure${items.length>1?"s":""}</div>
+        </div>
+        <div class="cp-pcat-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+      </button>
+      <div class="cp-pcat-body" id="${esc(cardId)}-body">${itemsHtml}</div>
+    </div>`;
+  }).join("");
+
+  // Toggle listeners
+  wrap.querySelectorAll(".cp-pcat-head").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const card=btn.closest(".cp-pcat-card");
+      const body=card.querySelector(".cp-pcat-body");
+      const open=btn.getAttribute("aria-expanded")==="true";
+      btn.setAttribute("aria-expanded",String(!open));
+      card.classList.toggle("collapsed",open);
+      body.hidden=open;
+    });
+  });
 
   const cmpLink=document.getElementById("cp-adaptation-compare");
   if(cmpLink){cmpLink.href=comparisonUrl("track",{c:p.code});cmpLink.hidden=false;}
