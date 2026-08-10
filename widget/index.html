@@ -20,11 +20,32 @@
     padding: 24px 28px 20px;
   }
 
+  .widget__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .widget__logo {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .widget__title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ct-navy);
+  }
+
   .widget__date {
     font-size: 13px;
     font-style: italic;
     color: var(--ct-muted);
-    margin-bottom: 16px;
+    margin: 2px 0 16px 44px;
   }
 
   .widget__body {
@@ -201,6 +222,10 @@
 <body>
 
 <div class="widget">
+  <div class="widget__header">
+    <img class="widget__logo" src="tracker.jpg" alt="" aria-hidden="true">
+    <span class="widget__title">NDC Transport Tracker</span>
+  </div>
   <p class="widget__date" id="asOfDate">As of —</p>
 
   <div class="widget__body">
@@ -211,7 +236,8 @@
 
       <a class="nav-tile"
          href="https://changing-transport.org/tracker/"
-         target="_blank" rel="noopener">
+         target="_blank" rel="noopener"
+         aria-label="Country explorer — NDC Transport Tracker, Changing Transport">
         <span class="nav-tile__icon" aria-hidden="true">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="20" cy="20" r="13" stroke="#00A4BD" stroke-width="2"/>
@@ -234,7 +260,7 @@
       </a>
 
       <a class="nav-tile"
-         href="https://changing-transport.org/tracker/compare-ndc/"
+         href="https://changing-transport.org/tracker/compare-ndc"
          target="_blank" rel="noopener">
         <span class="nav-tile__icon" aria-hidden="true">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -281,7 +307,7 @@
     stats: [
       { label: 'NDCs 3.0 submitted',    value: 117, of: 'of 169 NDCs', pct: 69 },
       { label: 'With transport targets', value: 69,  of: 'of 117 NDCs', pct: 59 },
-      { label: 'With transport actions', value: 103, of: 'of 117 NDCs', pct: 88 }
+      { label: 'With transport measures', value: 96, of: 'of 117 NDCs', pct: 82 }
     ]
   };
 
