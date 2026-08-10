@@ -58,7 +58,6 @@
   <div class="cp-container cp-actionbar-inner">
     <nav class="cp-jump">
       <a href="#story">Overview</a>
-      <a href="#journey">Journey</a>
       <a href="#targets">Targets</a>
       <a href="#measures">Measures</a>
       <a href="#adaptation">Adaptation</a>
@@ -78,30 +77,12 @@
 
 <main>
 
-  <!-- Story -->
+  <!-- Story at a glance: narrative + policy journey -->
   <section class="cp-section" id="story">
     <div class="cp-container">
       <p class="cp-kicker">The story at a glance</p>
       <div class="cp-story" id="cp-story"></div>
-      <div class="cp-trend-block" id="emissions">
-        <h3 class="cp-trend-title">Transport CO&#8322; emissions and where the targets point</h3>
-        <div class="cp-em-kpis" id="cp-em-kpis"></div>
-        <p class="cp-trend-sub" id="cp-trend-sub"></p>
-        <div class="cp-trend-views" id="cp-trend-views" hidden>
-          <button class="cp-view-chip on" data-view="mt">This country (Mt)</button>
-          <button class="cp-view-chip" data-view="idx">Compare growth (1990 = 100)</button>
-        </div>
-        <div class="cp-trend-wrap" id="cp-trend"><canvas id="cp-trend-chart" height="180"></canvas></div>
-        <div class="cp-pin-legend" id="cp-pin-legend" hidden></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Policy journey -->
-  <section class="cp-section" id="journey">
-    <div class="cp-container">
-      <p class="cp-kicker">The policy journey</p>
-      <h2 class="cp-section-title">Every climate document, in order</h2>
+      <h2 class="cp-section-title" style="margin-top:1.5rem;">Every climate document, in order</h2>
       <p class="cp-section-sub">Each submission under the Paris Agreement. <strong>Click any document for a summary.</strong></p>
       <div class="cp-gen-block" id="cp-gen-block" hidden>
         <h3 class="cp-trend-title">Transport content across NDC generations</h3>
@@ -115,20 +96,29 @@
         <span><span class="cp-tl-dot-key is-archived"></span> Archived</span>
         <span><span class="cp-tl-dot-key selected"></span> Selected (archived)</span>
       </div>
-      <!-- Generation note: filled by JS -->
       <div id="cp-journey-note"></div>
     </div>
   </section>
 
-  <!-- Where targets point -->
   <!-- Transport targets -->
   <section class="cp-section band" id="targets">
     <div class="cp-container">
       <p class="cp-kicker">Transport targets</p>
       <h2 class="cp-section-title">What this country has committed to</h2>
-      <p class="cp-section-sub" id="cp-targets-sub"></p>
+      <div class="cp-trend-block" id="emissions">
+        <h3 class="cp-trend-title">Transport CO&#8322; emissions and where the targets point</h3>
+        <div class="cp-em-kpis" id="cp-em-kpis"></div>
+        <p class="cp-trend-sub" id="cp-trend-sub"></p>
+        <div class="cp-trend-views" id="cp-trend-views" hidden>
+          <button class="cp-view-chip on" data-view="mt">This country (Mt)</button>
+          <button class="cp-view-chip" data-view="idx">Compare growth (1990 = 100)</button>
+        </div>
+        <div class="cp-trend-wrap" id="cp-trend"><canvas id="cp-trend-chart" height="180"></canvas></div>
+        <div class="cp-pin-legend" id="cp-pin-legend" hidden></div>
+      </div>
+      <p class="cp-section-sub" id="cp-targets-sub" style="margin-top:1.25rem;"></p>
       <div class="cp-filterbar" id="cp-target-filters"></div>
-      <div class="cp-measure-list" id="cp-targets"></div>
+      <div id="cp-targets"></div>
       <a class="cp-section-compare" id="cp-targets-compare" href="#" target="_blank" rel="noopener" hidden>
         Compare how targets evolved across generations →
       </a>
@@ -141,24 +131,10 @@
       <p class="cp-kicker">Transport mitigation measures</p>
       <h2 class="cp-section-title">How this country plans to cut transport emissions</h2>
       <p class="cp-section-sub" id="cp-measures-sub"></p>
-      <div class="cp-measures-grid">
-        <div class="cp-charts-col">
-          <div class="cp-chart-card">
-            <p class="cp-asi-sentence" id="cp-asi-sentence"></p>
-            <div class="cp-asi-wrap"><canvas id="cp-asi-chart" aria-label="Avoid Shift Improve breakdown" role="img"></canvas></div>
-            <p class="cp-chart-caption">By Avoid–Shift–Improve approach</p>
-          </div>
-          <div class="cp-chart-card">
-            <div class="cp-cat-wrap"><canvas id="cp-cat-chart" aria-label="Measure categories" role="img"></canvas></div>
-            <p class="cp-chart-caption">By measure category (◆ marks global average emphasis)</p>
-          </div>
-        </div>
-        <div>
-          <div class="cp-filterbar" id="cp-measure-filters"></div>
-          <div class="cp-measure-list" id="cp-measures"></div>
-          <button class="cp-showmore" id="cp-measures-more" hidden></button>
-        </div>
-      </div>
+      <!-- A-S-I summary strip injected here by renderMeasures() -->
+      <div class="cp-filterbar" id="cp-measure-filters"></div>
+      <div id="cp-measures"></div>
+      <button class="cp-showmore" id="cp-measures-more" hidden></button>
       <a class="cp-section-compare" id="cp-measures-compare" href="#" target="_blank" rel="noopener" hidden>
         Compare how measures evolved across generations →
       </a>
@@ -170,8 +146,8 @@
     <div class="cp-container">
       <p class="cp-kicker">Transport adaptation measures</p>
       <h2 class="cp-section-title">Making transport resilient to climate impacts</h2>
-      <p class="cp-section-sub">Grouped by type of action. <strong>Click a group to expand.</strong></p>
-      <div class="cp-adapt-groups" id="cp-adaptation"></div>
+      <p class="cp-section-sub" id="cp-adaptation-sub">Grouped by type of action.</p>
+      <div id="cp-adaptation"></div>
       <a class="cp-section-compare" id="cp-adaptation-compare" href="#" target="_blank" rel="noopener" hidden>
         Compare how adaptation evolved across generations →
       </a>
@@ -239,7 +215,6 @@
           <a class="cp-resource-cta" id="cp-tdc-link" href="https://portal.transport-data.org/search" target="_blank" rel="noopener">Explore datasets →</a>
         </div>
       </div>
-      <a class="cp-back" href="../../index.html">← All country profiles</a>
     </div>
   </section>
 

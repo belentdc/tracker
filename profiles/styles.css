@@ -346,29 +346,10 @@ button.cp-country-name:hover::after { border-color: #fff; }
 .cp-asi-chip-label { display: block; font-size: 0.72rem; color: var(--ct-muted); margin: 0.1rem 0 0.3rem; }
 .cp-asi-chip-bar { height: 4px; border-radius: 2px; background: var(--ct-border); overflow: hidden; }
 .cp-asi-chip-bar div { height: 100%; border-radius: 2px; }
-.cp-gcmp { display: flex; flex-direction: column; gap: 0.65rem; }
-.cp-gcmp-row { display: flex; flex-direction: column; gap: 0.25rem; }
-.cp-gcmp-cat { font-size: 0.78rem; color: var(--ct-navy); }
-.cp-gcmp-dumbbell { position: relative; height: 16px; margin-top: 0.1rem; }
-.cp-gcmp-line { position: absolute; top: 7px; height: 2px; background: var(--ct-border); }
-.cp-gcmp-dot { position: absolute; top: 2px; width: 12px; height: 12px; border-radius: 50%; transform: translateX(-6px); border: 2px solid var(--ct-surface); }
-.cp-gcmp-dot.global { background: var(--ct-muted); z-index: 1; }
-.cp-gcmp-dot.country { background: var(--ct-teal); z-index: 2; }
-.cp-gcmp-up, .cp-gcmp-dn {
-  position: absolute; top: -1px;
-  font-size: 0.75rem; font-weight: 700; white-space: nowrap;
-  transform: translateX(14px);
-}
-.cp-gcmp-up { color: var(--ct-green-dark); }
-.cp-gcmp-dn { color: var(--ct-orange); }
-.cp-gcmp-legend {
-  float: right; display: flex; align-items: center; gap: 0.3rem;
-  font-size: 0.68rem; font-weight: 400; text-transform: none;
-  letter-spacing: normal; color: var(--ct-muted);
-}
-.cp-gcmp-legend .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-.cp-gcmp-legend .dot.country { background: var(--ct-teal); }
-.cp-gcmp-legend .dot.global { background: var(--ct-muted); margin-left: 0.5rem; }
+.cp-topcat { display: flex; flex-direction: column; gap: 0.55rem; }
+.cp-topcat-row { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; }
+.cp-topcat-name { font-size: 0.82rem; color: var(--ct-navy); }
+.cp-topcat-pct { font-size: 0.95rem; font-weight: 700; color: var(--ct-teal); white-space: nowrap; }
 
 /* ── Shared policy category card (Mitigation + Adaptation) ──────── */
 .cp-pcat-card {
@@ -574,7 +555,7 @@ button.cp-country-name:hover::after { border-color: #fff; }
 }
 .cp-lens-countries { display: flex; flex-direction: column; gap: 0.4rem; }
 .cp-lens-country {
-  display: flex; align-items: center; gap: 0.6rem;
+  display: flex; align-items: center; gap: 0.6rem; flex: 1; min-width: 0;
   padding: 0.4rem 0.5rem; border-radius: var(--ct-radius-sm);
   text-decoration: none; color: var(--ct-navy);
   font-weight: 600; font-size: 0.9rem; transition: background 0.12s;
@@ -805,10 +786,6 @@ a.cp-dl-btn { text-decoration: none; }
   padding: 2rem 0; font-size: 0.88rem;
 }
 .cp-footer a { color: var(--ct-green); }
-.cp-back {
-  display: inline-block; margin: 1.5rem 0;
-  color: var(--ct-teal); font-weight: 700; text-decoration: none;
-}
 
 /* ── Print ──────────────────────────────────────────────────────── */
 @media print {
@@ -973,20 +950,19 @@ a.cp-dl-btn { text-decoration: none; }
 
 /* ── Similar countries ──────────────────────────────────────────── */
 .cp-lens-note { font-size:0.78rem; color:var(--ct-muted); margin-bottom:0.75rem; font-style:italic; }
-.cp-lens-row { display:flex; align-items:center; gap:0.3rem; }
+.cp-lens-row { display:flex; align-items:center; gap:0.5rem; }
 .cp-lens-name { flex: 1; }
 .cp-lens-share { margin-left: auto; font-size: 0.8rem; color: var(--ct-muted); font-weight: 600; flex-shrink: 0; }
 .cp-lens-focus { font-size: 0.72rem; color: var(--ct-muted); flex-shrink: 0; }
 .cp-lens-cmp {
-  display: flex; align-items: center; gap: 0.25rem; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 30px; height: 30px; border-radius: 50%;
   text-decoration: none; color: var(--ct-teal);
-  border: 1.5px solid var(--ct-teal); border-radius: 20px;
-  padding: 0.2rem 0.6rem; font-size: 0.75rem; font-weight: 700;
-  transition: all 0.15s; white-space: nowrap;
+  border: 1.5px solid var(--ct-teal);
+  font-size: 0.95rem; font-weight: 700;
+  transition: all 0.15s;
 }
 .cp-lens-cmp:hover { background: var(--ct-teal); color: #fff; }
-.cp-lens-cmp-icon { font-size: 0.9rem; }
-.cp-lens-cmp-label { font-size: 0.72rem; }
 
 /* Comparison links */
 .cp-section-compare {

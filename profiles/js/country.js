@@ -83,7 +83,7 @@ const CODE   = (window.CP_CODE || params.get("country") || "COL").toUpperCase();
 const BASE   = window.CP_BASE  || "";
 
 function comparisonUrl(mode, opts) {
-  const base = BASE + "../comparison/index_c.html";
+  const base = "https://changing-transport.org/tracker/compare-ndc";
   if (mode === "track")   return `${base}?mode=track&c=${encodeURIComponent(opts.c)}`;
   if (mode === "compare") return `${base}?mode=compare&c1=${encodeURIComponent(opts.c1||"")}&c2=${encodeURIComponent(opts.c2||"")}&c3=${encodeURIComponent(opts.c3||"")}&gen=${encodeURIComponent(opts.gen||"latest")}`;
   return base;
@@ -728,7 +728,6 @@ function renderMeasures(p, docUrlMap, bench) {
     const asiOrder=["Avoid","Shift","Improve"].filter(k=>asi[k]);
     const asiTotal=asiOrder.reduce((s,k)=>s+asi[k],0);
     const cats=p.category_summary||{};
-    const gShare=(bench&&bench.category_share)||null;
     const catTotal=Object.values(cats).reduce((s,v)=>s+v,0);
 
     // A-S-I chips
@@ -743,33 +742,15 @@ function renderMeasures(p, docUrlMap, bench) {
         }).join("")
       : `<span style="font-size:0.82rem;color:var(--ct-muted);">No A-S-I data.</span>`;
 
-    // Category vs global: dumbbell — country dot, global dot, connecting line,
-    // with only the country's +/- diff labeled (avoids crowding both raw values).
-    const catRows=gShare&&catTotal
-      ? (()=>{
-          const rows=Object.entries(cats).sort((a,b)=>b[1]-a[1]).map(([cat,n])=>({
-            cat, pct:n/catTotal*100, gPct:(gShare[cat]||0)*100
-          }));
-          const maxV=Math.max(...rows.map(r=>Math.max(r.pct,r.gPct)))*1.15||10;
-          return rows.map(r=>{
-            const diff=r.pct-r.gPct;
-            const diffStr=(diff>=0?"+":"")+diff.toFixed(1)+"%";
-            const diffCls=diff>=0?"cp-gcmp-up":"cp-gcmp-dn";
-            const lo=Math.min(r.pct,r.gPct), hi=Math.max(r.pct,r.gPct);
-            const loPct=lo/maxV*100, hiPct=hi/maxV*100;
-            const countryPct=r.pct/maxV*100, globalPct=r.gPct/maxV*100;
-            const countryOnRight=countryPct>=globalPct;
-            return `<div class="cp-gcmp-row">
-              <span class="cp-gcmp-cat">${esc(r.cat)}</span>
-              <div class="cp-gcmp-dumbbell">
-                <div class="cp-gcmp-line" style="left:${loPct}%;width:${hiPct-loPct}%;"></div>
-                <div class="cp-gcmp-dot global" style="left:${globalPct}%;"></div>
-                <div class="cp-gcmp-dot country" style="left:${countryPct}%;"></div>
-                <span class="${diffCls}" style="left:${countryPct}%;transform:${countryOnRight?"translateX(14px)":"translateX(calc(-100% - 14px))"};">${diffStr}</span>
-              </div>
-            </div>`;
-          }).join("");
-        })()
+    // Top 3 categories by share — simple, no global comparison.
+    const topCats=catTotal
+      ? Object.entries(cats).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([cat,n])=>{
+          const pct=Math.round(n/catTotal*100);
+          return `<div class="cp-topcat-row">
+            <span class="cp-topcat-name">${esc(cat)}</span>
+            <span class="cp-topcat-pct">${pct}%</span>
+          </div>`;
+        }).join("")
       : "";
 
     const strip=document.createElement("div");
@@ -779,11 +760,9 @@ function renderMeasures(p, docUrlMap, bench) {
         <p class="cp-asi-strip-title">Avoid · Shift · Improve breakdown</p>
         <div class="cp-asi-chips">${asiChips}</div>
       </div>
-      ${catRows?`<div class="cp-asi-strip-right">
-        <p class="cp-asi-strip-title">Category focus vs global average
-          <span class="cp-gcmp-legend"><span class="dot country"></span>This country<span class="dot global"></span>Global avg.</span>
-        </p>
-        <div class="cp-gcmp">${catRows}</div>
+      ${topCats?`<div class="cp-asi-strip-right">
+        <p class="cp-asi-strip-title">Top categories</p>
+        <div class="cp-topcat">${topCats}</div>
       </div>`:""}`;
     fbar.before(strip);
   }
@@ -795,10 +774,10 @@ function renderMeasures(p, docUrlMap, bench) {
   if(fbar){
     fbar.innerHTML=`
       <div class="cp-filter-row">
-        <span class="cp-filter-label">Document:</span>
+        <span class="cp-filter-label">By document:</span>
         <button class="cp-filter active" data-doc="all">All (${active.length})</button>
         ${docTypes.map(dt=>`<button class="cp-filter" data-doc="${esc(dt)}">${esc(dt)} (${active.filter(m=>m.doc_type===dt).length})</button>`).join("")}
-        <span class="cp-filter-label" style="margin-left:0.75rem;">A-S-I:</span>
+        <span class="cp-filter-label" style="margin-left:0.75rem;">By A-S-I:</span>
         <button class="cp-filter active" data-asi="all">All</button>
         ${["Avoid","Shift","Improve"].map(a=>{const n=active.filter(m=>(m.asi||[]).includes(a)).length;return n?`<button class="cp-filter" data-asi="${a}">${a} (${n})</button>`:""}).join("")}
       </div>
@@ -1069,7 +1048,7 @@ function renderSimilar(p){
           <span>${esc(c.name)}</span>
           ${c.share!=null?`<span class="share">${c.share}%</span>`:""}
           ${c.shared_focus?`<span class="share" style="font-size:0.7rem;">${esc(c.shared_focus)}</span>`:""}
-        </a><a class="cp-lens-cmp" href="${cmpHref}" target="_blank" rel="noopener"><span class="cp-lens-cmp-icon">\u21c4</span><span class="cp-lens-cmp-label">Compare</span></a></div>`;
+        </a><a class="cp-lens-cmp" href="${cmpHref}" target="_blank" rel="noopener" aria-label="Compare with ${esc(c.name)}"><span class="cp-lens-cmp-icon">\u21c4</span></a></div>`;
       }).join("")}</div></div>`;
   }).join("");
   const link=document.getElementById("cp-compare-link");
