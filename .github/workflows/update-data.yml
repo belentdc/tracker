@@ -46,7 +46,7 @@ jobs:
           python-version: '3.11'
 
       - name: 📦 Install dependencies
-        run: pip install openpyxl pycountry reportlab
+        run: pip install openpyxl pycountry reportlab requests
 
       # Rebuild publications.json from publications.xlsx on EVERY run.
       # This is what removes the ordering problem: whether you upload the
@@ -92,6 +92,22 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+
+      # Mirrors the source Excel onto the tracker's TDC dataset entry.
+      # Non-blocking on purpose (continue-on-error): if TDC is unreachable
+      # or the token is missing/expired, this step goes yellow in the logs
+      # but never fails the whole workflow or triggers the failure-issue
+      # step below — the dashboards already built and committed fine above,
+      # which is the part that actually matters. Requires the CKAN_API_TOKEN
+      # secret (Settings → Secrets and variables → Actions) to do anything;
+      # without it, push_database.py exits with a clear message and this
+      # step is simply skipped in effect.
+      - name: 🌐 Push database to TDC
+        if: ${{ github.event_name == 'push' }}
+        continue-on-error: true
+        env:
+          CKAN_API_TOKEN: ${{ secrets.CKAN_API_TOKEN }}
+        run: python pipeline/push_database.py
 
       # Runs ONLY if any previous step failed. Opens a GitHub issue so the
       # failure is visible and emailed to you — no more silent red X.
