@@ -1057,8 +1057,10 @@ function coalitionTile(c, currentCode){
   return `<div class="cp-coal-tile">
     <button class="cp-coal-tile-head" aria-expanded="false" aria-controls="cp-coal-${esc(slug)}-body">
       <div class="cp-coal-tile-icon">&#10003;</div>
-      <div class="cp-coal-tile-name">${esc(c.key)}</div>
-      ${count!=null?`<div class="cp-coal-tile-count">${count} ${count===1?"country":"countries"}</div>`:""}
+      <div class="cp-coal-tile-main">
+        <div class="cp-coal-tile-name">${esc(c.key)}</div>
+        ${count!=null?`<div class="cp-coal-tile-count">${count} ${count===1?"country":"countries"}</div>`:""}
+      </div>
       <div class="cp-coal-tile-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
     </button>
     <div class="cp-coal-tile-body" id="cp-coal-${esc(slug)}-body" hidden>
