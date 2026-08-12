@@ -364,7 +364,7 @@
             "date": "03.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/PNG_INDC%20to%20the%20UNFCCC.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -401,7 +401,7 @@
             "date": "12.2020",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/PNG%20Second%20NDC.pdf",
             "targets": [
               {
@@ -520,7 +520,7 @@
             "date": "04.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Nauru_NDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -538,7 +538,7 @@
             "date": "10.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Nauru%20Updated%20NDC%20pdf.pdf",
             "targets": [
               {
@@ -629,7 +629,7 @@
             "date": "01.2026",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2026-01/Nauru%20NDC%203.pdf",
             "targets": [
               {
@@ -867,7 +867,7 @@
             "date": "04.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/PANAMA%20NDC.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -906,7 +906,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/CDN1%20Actualizada%20Rep%C3%BAblica%20de%20Panam%C3%A1.pdf",
             "targets": [
               {
@@ -982,7 +982,7 @@
             "date": "06.2024",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2024-06/Segunda%20Contribuci%C3%B3n%20Determinada%20a%20Nivel%20Nacional_CDN2.pdf",
             "targets": [
               {
@@ -1076,7 +1076,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/Pacto%20de%20Panam%C3%A1%20con%20la%20Naturaleza%20%28Nature%20Pledge%29.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -1112,7 +1112,7 @@
             "date": "09.2025",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-10/Declaratoria%20-%20CDN%203.0%20Panam%C3%A1.pdf",
             "targets": [
               {
@@ -1167,7 +1167,7 @@
             "date": "04.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/BELIZE%27s%20%20NDC.pdf",
             "targets": [
               {
@@ -1274,7 +1274,7 @@
             "date": "01.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Belize%20Updated%20NDC.pdf",
             "targets": [
               {
@@ -1385,7 +1385,7 @@
             "date": "06.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-06/BELIZE%20FINAL%20NDC%203.0.pdf",
             "targets": [
               {
@@ -1595,7 +1595,7 @@
             "date": "04.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Barbados%20INDC%20FINAL%20September%20%2028%2C%202015.pdf",
             "targets": [
               {
@@ -1661,7 +1661,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/2021%20Barbados%20NDC%20update%20-%2021%20July%202021.pdf",
             "targets": [
               {
@@ -1788,7 +1788,7 @@
             "date": "08.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/Barbados%20Second%20NDC.pdf",
             "targets": [
               {
@@ -1904,7 +1904,7 @@
             "date": "04.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/FIJI_iNDC_Final_051115.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -1943,7 +1943,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Republic%20of%20Fiji's%20Updated%20NDC%2020201.pdf",
             "targets": [
               {
@@ -1972,7 +1972,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/Fiji%20NDC3.0_Final.pdf",
             "targets": [
               {
@@ -2327,7 +2327,7 @@
             "date": "04.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Maldives%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -2362,7 +2362,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Maldives%20Nationally%20Determined%20Contribution%202020.pdf",
             "targets": [
               {
@@ -2469,7 +2469,7 @@
             "date": "02.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-02/Maldives%E2%80%99%20Third%20Nationally%20Determined%20Contribution.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -2572,7 +2572,7 @@
             "date": "04.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/150721%20RMI%20INDC%20JULY%202015%20FINAL%20SUBMITTED.pdf",
             "targets": [
               {
@@ -2656,7 +2656,7 @@
             "date": "11.2018",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/20181122%20Marshall%20Islands%20NDC%20to%20UNFCCC%2022%20November%202018%20FINAL.pdf",
             "targets": [
               {
@@ -2706,7 +2706,7 @@
             "date": "02.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-02/Republic%20of%20the%20Marshall%20Islands%20NDC%203.0.pdf",
             "targets": [
               {
@@ -2779,7 +2779,7 @@
             "date": "04.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Final%20INDC%20for%20Mauritius%2028%20Sept%202015.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -2827,7 +2827,7 @@
             "date": "05.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Final%20Updated%20NDC%20for%20the%20Republic%20of%20Mauritius%2001%20October%202021.docx",
             "targets": [
               {
@@ -2893,7 +2893,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/NDC%203.0%20%20Mauritius.pdf",
             "targets": [
               {
@@ -4483,7 +4483,7 @@
             "date": "04.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC%20of%20Seychelles.pdf",
             "targets": [
               {
@@ -4600,7 +4600,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Seychelles%20-%20NDC_Jul30th%202021%20_Final.pdf",
             "targets": [
               {
@@ -4763,7 +4763,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/ICTU%20Update%202025%20for%20Seychelles%20new%20NDC%203.0.pdf",
             "targets": [
               {
@@ -4807,7 +4807,7 @@
             "date": "05.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Guyana%27s%20revised%20NDC%20-%20Final.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -4835,7 +4835,7 @@
             "date": "07.2026",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2026-07/Guyanas%20NDC%202025-2035%20V2.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -4858,7 +4858,7 @@
             "date": "06.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": true,
+            "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NorwayINDC.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -4887,7 +4887,7 @@
             "date": "11.2022",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": true,
+            "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-11/NDC%20Norway_second%20update.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -4922,7 +4922,7 @@
             "date": "02.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": true,
+            "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Norway_updatedNDC_2020%20(Updated%20submission).pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -4940,7 +4940,7 @@
             "date": "06.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": true,
+            "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/2025-06/Norways%20NDC%20for%202035..pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -5108,7 +5108,7 @@
             "date": "07.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/iNDC%20Per%C3%BA%20english.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -5135,7 +5135,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Reporte%20de%20Actualizacio%CC%81n%20de%20las%20NDC%20del%20Peru%CC%81.pdf",
             "targets": [
               {
@@ -5164,7 +5164,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/Documento%20NDC%203.0_UNFCCC.pdf",
             "targets": [
               {
@@ -5659,7 +5659,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/China%27s%20First%20NDC%20Submission.pdf",
             "targets": [
               {
@@ -5761,7 +5761,7 @@
             "date": "10.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/China%E2%80%99s%20Achievements,%20New%20Goals%20and%20New%20Measures%20for%20Nationally%20Determined%20Contributions.pdf",
             "targets": [
               {
@@ -5947,7 +5947,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/2035%E5%B9%B4%E4%B8%AD%E5%9B%BD%E5%9B%BD%E5%AE%B6%E8%87%AA%E4%B8%BB%E8%B4%A1%E7%8C%AE%E6%8A%A5%E5%91%8A.pdf",
             "targets": [
               {
@@ -6236,7 +6236,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/U.S.A.%20First%20NDC%20Submission.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -6265,7 +6265,7 @@
             "date": "04.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/United%20States%20NDC%20April%2021%202021%20Final.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -6350,7 +6350,7 @@
             "date": "12.2024",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2024-12/United%20States%202035%20NDC.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -6512,7 +6512,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Lao%20People%27s%20Democratic%20Republic%20First%20NDC.pdf",
             "targets": [
               {
@@ -6589,7 +6589,7 @@
             "date": "09.2021",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC%202020%20of%20Lao%20PDR%20(English),%2009%20April%202021%20(1).pdf",
             "targets": [
               {
@@ -6968,7 +6968,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Morocco%20First%20NDC.pdf",
             "targets": [
               {
@@ -7107,7 +7107,7 @@
             "date": "06.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Moroccan%20updated%20NDC%202021%20_Fr.pdf",
             "targets": [
               {
@@ -7249,7 +7249,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-10/MOROCCO%20NDC%203.0%20_30.9.25.pdf",
             "targets": [
               {
@@ -7549,7 +7549,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Ukraine%20First%20NDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -7567,7 +7567,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Ukraine%20NDC_July%2031.pdf",
             "targets": [
               {
@@ -7596,7 +7596,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/2%20%D0%9D%D0%92%D0%922%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82%20%28%D0%B7%D0%BC%D1%96%D0%BD%D0%B5%D0%BD%D0%B0%20%D1%86%D1%96%D0%BB%D1%8C%20_%20%D0%B7%D0%B2%D1%96%D1%82%29%20.pdf",
             "targets": [
               {
@@ -7789,7 +7789,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Antigua%20and%20Barbuda%20First.pdf",
             "targets": [
               {
@@ -7838,7 +7838,7 @@
             "date": "02.2021",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/ATG%20-%20UNFCCC%20NDC%20-%202021-09-02%20-%20Final.pdf",
             "targets": [
               {
@@ -9080,7 +9080,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Commonwealth%20of%20Dominica-%20Intended%20Nationally%20Determined%20Contributions%20%28INDC%29.pdf",
             "targets": [
               {
@@ -9146,7 +9146,7 @@
             "date": "07.2022",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2022-07/The%20Commonwealth%20of%20Dominica%20updated%20NDC%20July%204%20%2C.pdf",
             "targets": [
               {
@@ -9684,7 +9684,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/GH_INDC_2392015.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -9732,7 +9732,7 @@
             "date": "11.2021",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Ghana's%20Updated%20Nationally%20Determined%20Contribution%20to%20the%20UNFCCC_2021.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -9768,7 +9768,7 @@
             "date": "10.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Ghana_Transmittal%20Letter_Interim%20Updated%20NDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -10143,7 +10143,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": true,
+            "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Honduras%20INDC_esp.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -10161,7 +10161,7 @@
             "date": "05.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": true,
+            "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC%20de%20Honduras_%20Primera%20Actualizaci%C3%B3n.pdf",
             "targets": [
               {
@@ -10201,7 +10201,7 @@
             "date": "01.2026",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": true,
+            "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/2026-01/HON%20NDC%203.0%202026%20Oficial.pdf",
             "targets": [
               {
@@ -10279,7 +10279,7 @@
             "date": "09.2025",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": true,
+            "has_netzero_target": false,
             "url": "https://unfccc.int/sites/default/files/2025-09/Honduras%20Segunda%20Actualizacio%CC%81n%20de%20su%20NDC%20%282021-2030%29serna_rev_final.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -10302,7 +10302,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC-ICELAND.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -10320,7 +10320,7 @@
             "date": "02.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Iceland_updated_NDC_Submission_Feb_2021.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -10338,7 +10338,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/Icelands%20NDC%202030%20-%20Revision.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -11606,7 +11606,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC%20of%20Namibia%20Final%20pdf.pdf",
             "targets": [
               {
@@ -11692,7 +11692,7 @@
             "date": "01.2024",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2024-01/FINAL%20UPDATED%20NAMIBIA%20NDC%202023.pdf",
             "targets": [
               {
@@ -11821,7 +11821,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Namibia's%20Updated%20NDC_%20FINAL%2025%20July%202021.pdf",
             "targets": [
               {
@@ -12049,7 +12049,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Singapore%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -12082,7 +12082,7 @@
             "date": "11.2022",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-11/Singapore%20Second%20Update%20of%20First%20NDC.pdf",
             "targets": [
               {
@@ -12176,7 +12176,7 @@
             "date": "03.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Singapore's%20Update%20of%201st%20NDC.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -12251,7 +12251,7 @@
             "date": "02.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-02/Singapore%20Second%20Nationally%20Determined%20Contribution.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -12361,7 +12361,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/SOLOMON%20ISLANDS%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -12379,7 +12379,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC%20Report%202021%20Final%20Solomon%20Islands%20(1).pdf",
             "targets": [
               {
@@ -12428,7 +12428,7 @@
             "date": "08.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-08/Solomon%20Islands%20NDC3.0_0.pdf",
             "targets": [
               {
@@ -12694,7 +12694,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Thailand_INDC.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -12749,7 +12749,7 @@
             "date": "10.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Thailand%20Updated%20NDC.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -12786,7 +12786,7 @@
             "date": "11.2022",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-11/Thailand%202nd%20Updated%20NDC.pdf",
             "targets": [
               {
@@ -12852,7 +12852,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/TH%20NDC%203.0.pdf",
             "targets": [
               {
@@ -13791,7 +13791,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/UAE%20INDC%20-%2022%20October.pdf",
             "targets": [
               {
@@ -13879,7 +13879,7 @@
             "date": "07.2023",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-07/Third%20Update%20of%20Second%20NDC%20for%20the%20UAE_v15.pdf",
             "targets": [
               {
@@ -14154,7 +14154,7 @@
             "date": "09.2022",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-09/UpdateNDC-EN-2022.pdf",
             "targets": [
               {
@@ -14339,7 +14339,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/UAE%20Second%20NDC%20-%20UNFCCC%20Submission%20-%20English%20-%20FINAL.pdf",
             "targets": [
               {
@@ -14475,7 +14475,7 @@
             "date": "11.2024",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2024-11/UAE-NDC3.0.pdf",
             "targets": [
               {
@@ -14751,7 +14751,7 @@
             "date": "09.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/VANUATU%20%20INDC%20UNFCCC%20Submission.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -14769,7 +14769,7 @@
             "date": "08.2022",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-08/Vanuatu%20NDC%20Revised%20and%20Enhanced.pdf",
             "targets": [
               {
@@ -14922,7 +14922,7 @@
             "date": "03.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Vanuatu%E2%80%99s%20First%20Nationally%20Determined%20Contribution%20(NDC)%20(Updated%20Submission%202020).pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -14940,7 +14940,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/Vanuatu%20NDC%203.0.pdf",
             "targets": [
               {
@@ -15193,7 +15193,7 @@
             "date": "10.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDIA%20INDC%20TO%20UNFCCC.pdf",
             "targets": [
               {
@@ -15339,7 +15339,7 @@
             "date": "08.2022",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-08/India%20Updated%20First%20Nationally%20Determined%20Contrib.pdf",
             "targets": [
               {
@@ -15368,7 +15368,7 @@
             "date": "04.2026",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2026-04/INDIA%20NDC%202031-35.pdf",
             "targets": [
               {
@@ -15552,7 +15552,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -15570,7 +15570,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -15833,7 +15833,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -15851,7 +15851,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -15875,7 +15875,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -15893,7 +15893,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -15917,7 +15917,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -15935,7 +15935,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -15959,7 +15959,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -15977,7 +15977,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16001,7 +16001,7 @@
             "date": "10.2016",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16026,7 +16026,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16044,7 +16044,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16068,7 +16068,7 @@
             "date": "10.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16086,7 +16086,7 @@
             "date": "10.2023",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [
               {
@@ -16180,7 +16180,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/EU_NDC_Submission_December%202020.pdf",
             "targets": [
               {
@@ -16246,7 +16246,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/DK-2025-11-05%20EU%20NDC.pdf",
             "targets": [
               {
@@ -16458,7 +16458,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16476,7 +16476,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16500,7 +16500,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16518,7 +16518,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16542,7 +16542,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16560,7 +16560,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16584,7 +16584,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16602,7 +16602,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16626,7 +16626,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16644,7 +16644,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16668,7 +16668,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16686,7 +16686,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16710,7 +16710,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16728,7 +16728,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16752,7 +16752,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16770,7 +16770,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16794,7 +16794,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16812,7 +16812,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16836,7 +16836,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16854,7 +16854,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16878,7 +16878,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16896,7 +16896,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -16920,7 +16920,7 @@
             "date": "10.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Nepal%20First%20NDC.pdf",
             "targets": [
               {
@@ -17080,7 +17080,7 @@
             "date": "08.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Second%20Nationally%20Determined%20Contribution%20(NDC)%20-%202020.pdf",
             "targets": [
               {
@@ -17196,7 +17196,7 @@
             "date": "05.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-05/Nepal%20NDC3.pdf",
             "targets": [
               {
@@ -17424,7 +17424,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17442,7 +17442,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17466,7 +17466,7 @@
             "date": "10.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/New%20Zealand%20first%20NDC%20%28Archived%29.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17484,7 +17484,7 @@
             "date": "11.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/New%20Zealand%20NDC%20November%202021.pdf",
             "targets": [
               {
@@ -17542,7 +17542,7 @@
             "date": "04.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NEW%20ZEALAND%20NDC%20update%2022%2004%202020.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17560,7 +17560,7 @@
             "date": "01.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-01/New%20Zealand%27s%20second%20Nationally%20Determined%20Contribution.pdf",
             "targets": [
               {
@@ -17594,7 +17594,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17612,7 +17612,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17678,7 +17678,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17696,7 +17696,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17720,7 +17720,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17738,7 +17738,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17846,7 +17846,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17864,7 +17864,7 @@
             "date": "10.2023",
             "status": "Covered by EU",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-10/ES-2023-10-17%20EU%20submission%20NDC%20update.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17888,7 +17888,7 @@
             "date": "10.2016",
             "status": "Covered by EU archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/LV-03-06-EU%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -17906,7 +17906,7 @@
             "date": "09.2022",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-09/UK%20NDC%20ICTU%202022.pdf",
             "targets": [
               {
@@ -17944,7 +17944,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/UK%20Nationally%20Determined%20Contribution.pdf",
             "targets": [
               {
@@ -17973,7 +17973,7 @@
             "date": "01.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-01/UK%27s%202035%20NDC%20ICTU.pdf",
             "targets": [
               {
@@ -18132,7 +18132,7 @@
             "date": "10.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC_Rwanda_Nov.2015.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -18372,7 +18372,7 @@
             "date": "05.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Rwanda_Updated_NDC_May_2020.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -18518,7 +18518,7 @@
             "date": "12.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/Rwanda%20NDC3.0.pdf",
             "targets": [
               {
@@ -20608,7 +20608,7 @@
             "date": "10.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Monaco_INDC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -20626,7 +20626,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Monaco_NDC_2020.pdf",
             "targets": [
               {
@@ -20770,7 +20770,7 @@
             "date": "07.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-07/NDC_2025_Monaco.pdf",
             "targets": [
               {
@@ -21861,7 +21861,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/South%20Africa.pdf",
             "targets": [
               {
@@ -21901,7 +21901,7 @@
             "date": "09.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/South%20Africa%20updated%20first%20NDC%20September%202021.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -21963,7 +21963,7 @@
             "date": "10.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-10/South%20Africa%27s%20second%20Nationally%20Determined%20Contribution_2025.pdf",
             "targets": [
               {
@@ -22055,7 +22055,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/20150331%20INDC%20Gabon.pdf",
             "targets": [
               {
@@ -22115,7 +22115,7 @@
             "date": "07.2022",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-07/20220706_Gabon_Updated%20NDC.pdf",
             "targets": [
               {
@@ -22165,7 +22165,7 @@
             "date": "12.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-12/NDC3.0_Gabon_5_11_2025-final%20version.pdf",
             "targets": [
               {
@@ -22497,7 +22497,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC%20Submission%20by%20the%20Republic%20of%20Korea%20on%20June%2030.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -22556,7 +22556,7 @@
             "date": "12.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/211223_The%20Republic%20of%20Korea's%20Enhanced%20Update%20of%20its%20First%20Nationally%20Determined%20Contribution_211227_editorial%20change.pdf",
             "targets": [
               {
@@ -22622,7 +22622,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/201230_ROK's%20Update%20of%20its%20First%20NDC_editorial%20change.pdf",
             "targets": [
               {
@@ -22700,7 +22700,7 @@
             "date": "12.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-12/The%20Republic%20of%20Koreas%202035%20NDC.pdf",
             "targets": [
               {
@@ -22828,7 +22828,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/KSA-INDCs%20English.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -22876,7 +22876,7 @@
             "date": "10.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/resource/202203111154---KSA%20NDC%202021.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -22939,7 +22939,7 @@
             "date": "12.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2026-01/2nd%20KSA%20NDC%20Document%20Final%20Document%20%2828122025%29_DNA.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -23000,7 +23000,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/VIETNAM%27S%20INDC.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -23075,7 +23075,7 @@
             "date": "11.2022",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-11/Viet%20Nam%20NDC%202022%20Update.pdf",
             "targets": [
               {
@@ -23200,7 +23200,7 @@
             "date": "11.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Viet%20Nam_NDC_2020_Eng.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -23610,7 +23610,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/First%20NDC%20Indonesia_submitted%20to%20UNFCCC%20Set_November%20%202016.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -23639,7 +23639,7 @@
             "date": "09.2022",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-09/ENDC%20Indonesia.pdf",
             "targets": [
               {
@@ -23728,7 +23728,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Updated%20NDC%20Indonesia%202021%20-%20corrected%20version.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -23765,7 +23765,7 @@
             "date": "10.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-10/Indonesia_Second%20NDC_2025.10.24.pdf",
             "targets": [
               {
@@ -23874,7 +23874,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDCs%20of%20Sri%20Lanka.pdf",
             "targets": [
               {
@@ -24056,7 +24056,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDCs%20of%20Sri%20Lanka-2021.pdf",
             "targets": [
               {
@@ -24396,7 +24396,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/Sri%20Lankas%20Nationally%20Determined%20Contributions%203.0%20%282026-2035%29%20submitted%2022.09.2025%20%281%29.pdf",
             "targets": [
               {
@@ -24628,7 +24628,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/The%20INDC%20OF%20THE%20GAMBIA.pdf",
             "targets": [
               {
@@ -24666,7 +24666,7 @@
             "date": "09.2021",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Second%20NDC%20of%20The%20Republic%20of%20The%20Gambia-16-12-2021.pdf",
             "targets": [
               {
@@ -24791,7 +24791,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/20150717_Japan%27s%20INDC.pdf",
             "targets": [
               {
@@ -24981,7 +24981,7 @@
             "date": "10.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/JAPAN_FIRST%20NDC%20(UPDATED%20SUBMISSION).pdf",
             "targets": [
               {
@@ -25018,7 +25018,7 @@
             "date": "10.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/JAPAN_FIRST%20NDC%20(INTERIM-UPDATED%20SUBMISSION).pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -25034,7 +25034,7 @@
             "date": "03.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/SUBMISSION%20OF%20JAPAN'S%20NATIONALLY%20DETERMINED%20CONTRIBUTION%20(NDC).PDF",
             "targets": [
               {
@@ -25122,7 +25122,7 @@
             "date": "02.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-02/Japans%202035-2040%20NDC.pdf",
             "targets": [
               {
@@ -25156,7 +25156,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Australias%20Intended%20Nationally%20Determined%20Contribution%20to%20a%20new%20Climate%20Change%20Agreement%20-%20August%202015.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -25185,7 +25185,7 @@
             "date": "06.2022",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Australias%20NDC%20June%202022%20Update%20%283%29.pdf",
             "targets": [
               {
@@ -25241,7 +25241,7 @@
             "date": "10.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Australia%20Nationally%20Determined%20Contribution%20Update%20October%202021%20WEB.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -25257,7 +25257,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Australia%20NDC%20recommunication%20FINAL.PDF",
             "targets": [],
             "mitigation_measures": {
@@ -25296,7 +25296,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/Australias%20Second%20NDC.pdf",
             "targets": [
               {
@@ -26552,7 +26552,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC%20Malaysia%20Final%2027%20November%202015%20Revised%20Final%20UNFCCC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -26570,7 +26570,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Malaysia%20NDC%20Updated%20Submission%20to%20UNFCCC%20July%202021%20final.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -26597,7 +26597,7 @@
             "date": "10.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-10/Malaysia%20NDC%203.0%20to%20UNFCCC%202025%20final.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -26678,7 +26678,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/17112016%20NDC%20Revisada%202016.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -26696,7 +26696,7 @@
             "date": "11.2021",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-05/Actualizacio%CC%81n%20meta%20de%20emisiones%202030.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -26888,7 +26888,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Argentina_Segunda%20Contribuci%C3%B3n%20Nacional.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -26912,7 +26912,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Israel%20INDC.pdf",
             "targets": [
               {
@@ -26960,7 +26960,7 @@
             "date": "07.2021",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC%20update%20as%20submitted%20to%20the%20UNFCCC.docx",
             "targets": [
               {
@@ -27098,7 +27098,7 @@
             "date": "11.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC_Comores_Version_Francaise.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -27116,7 +27116,7 @@
             "date": "11.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/CDN_r%C3%A9vis%C3%A9e_Comores_vf.pdf",
             "targets": [
               {
@@ -27154,7 +27154,7 @@
             "date": "03.2026",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2026-03/CDN3.0%20Comores..pdf",
             "targets": [
               {
@@ -27254,7 +27254,7 @@
             "date": "12.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC%20Kz_eng.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -27272,7 +27272,7 @@
             "date": "06.2023",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-06/12updated%20NDC%20KAZ_Gov%20Decree313_19042023_en_cover%20page.pdf",
             "targets": [
               {
@@ -27349,7 +27349,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/NDC_Kazakhstan%203.0%20eng.pdf",
             "targets": [
               {
@@ -27968,7 +27968,7 @@
             "date": "12.2016",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC_Kingdom_of_Bahrain.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -27986,7 +27986,7 @@
             "date": "10.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC%20of%20the%20Kingdom%20of%20Bahrain%20under%20UNFCCC.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -28004,7 +28004,7 @@
             "date": "12.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-12/30112025_Bahrain_2025NDC3.0_vSubmitted.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -29135,7 +29135,7 @@
             "date": "02.2017",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Cambodia%27s%20INDC%20to%20the%20UNFCCC.pdf",
             "targets": [
               {
@@ -29222,7 +29222,7 @@
             "date": "12.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/20201231_NDC_Update_Cambodia.pdf",
             "targets": [
               {
@@ -29327,7 +29327,7 @@
             "date": "08.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-08/Cambodia-NDC%203.0_0.pdf",
             "targets": [
               {
@@ -29890,7 +29890,7 @@
             "date": "02.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC-Tunisia-English%20Version.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -29908,7 +29908,7 @@
             "date": "10.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Tunisia%20Update%20NDC-french.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -29956,7 +29956,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/Republic%20Of%20Tunisia-Draft%20preleminary%20elements%20of%20the%20NDC%203.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -29979,7 +29979,7 @@
             "date": "02.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC%20MAURITANIA.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -29997,7 +29997,7 @@
             "date": "12.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/CDN-actualis%C3%A9%202021_%20Mauritania.pdf",
             "targets": [
               {
@@ -30095,7 +30095,7 @@
             "date": "10.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-10/CDN3.0_Mauritanie_Signed.pdf",
             "targets": [
               {
@@ -30287,7 +30287,7 @@
             "date": "03.2017",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC-Ethiopia-100615.pdf",
             "targets": [
               {
@@ -30363,7 +30363,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Ethiopia's%20updated%20NDC%20JULY%202021%20Submission_.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -30427,7 +30427,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/Ethiopia%20NDC%203.0%20Final.pdf",
             "targets": [
               {
@@ -31096,7 +31096,7 @@
             "date": "03.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Andorra%20INDC-CPDN.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -31114,7 +31114,7 @@
             "date": "11.2022",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-11/20222410_Actualitzacio%20NDC.pdf",
             "targets": [
               {
@@ -31258,7 +31258,7 @@
             "date": "05.2020",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/20200514-%20Actualitzaci%C3%B3%20NDC.pdf",
             "targets": [
               {
@@ -31336,7 +31336,7 @@
             "date": "02.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-02/NDC%203.0%20ANDORRA.pdf",
             "targets": [
               {
@@ -31630,7 +31630,7 @@
             "date": "04.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Jamaica%27s%20INDC_2015-11-25.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -31659,7 +31659,7 @@
             "date": "07.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Updated%20NDC%20Jamaica%20-%20ICTU%20Guidance.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -31677,7 +31677,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/Jamaica%20ICTU%20Final%20Report%20Sep19.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -31900,7 +31900,7 @@
             "date": "05.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC_of_Georgia.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -31929,7 +31929,7 @@
             "date": "05.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC%20Georgia_ENG%20WEB-approved.pdf",
             "targets": [
               {
@@ -31958,7 +31958,7 @@
             "date": "03.2026",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2026-03/NDC_3.0_Georgia_EN.pdf",
             "targets": [
               {
@@ -32099,7 +32099,7 @@
             "date": "05.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC%20-%20Canada%20-%20English.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -32138,7 +32138,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/resource/Canada's%20Mid-Century%20Long-Term%20Low-GHG%20Strategy.pdf",
             "targets": [
               {
@@ -32232,7 +32232,7 @@
             "date": "02.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-02/Canada%27s%202035%20Nationally%20Determined%20Contribution_ENc.pdf",
             "targets": [
               {
@@ -32662,7 +32662,7 @@
             "date": "05.2017",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Approved%20Nigeria%27s%20INDC_271115.pdf",
             "targets": [
               {
@@ -32849,7 +32849,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC_File%20Amended%20_11222.pdf",
             "targets": [
               {
@@ -32943,7 +32943,7 @@
             "date": "05.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC%20INTERIM%20REPORT%20SUBMISSION%20-%20NIGERIA.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -32961,7 +32961,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/Nigeria%20NDC%203.0%20-%20Transimission%20Version%202.pdf",
             "targets": [
               {
@@ -34545,7 +34545,7 @@
             "date": "06.2017",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/MALAWI%20INDC%20SUBMITTED%20TO%20UNFCCC%20REV.pdf",
             "targets": [
               {
@@ -34604,7 +34604,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Malawi%20Updated%20NDC%20July%202021%20submitted.pdf",
             "targets": [
               {
@@ -34699,7 +34699,7 @@
             "date": "07.2026",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2026-07/NDC3.0%20Malawi_17June2026_Final%20Version.pdf",
             "targets": [
               {
@@ -35961,7 +35961,7 @@
             "date": "09.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Bhutan-INDC-20150930.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -36071,7 +36071,7 @@
             "date": "06.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Second%20NDC%20Bhutan.pdf",
             "targets": [
               {
@@ -36189,7 +36189,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/Third%20NDC%20%28Provisional%29_10%20November%202025.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -36603,7 +36603,7 @@
             "date": "09.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Cabo_Verde_INDC_.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -36642,7 +36642,7 @@
             "date": "02.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Cabo%20Verde_NDC%20Update%202021.pdf",
             "targets": [
               {
@@ -36878,7 +36878,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/NDC%203.0%20Cabo%20Verde.pdf",
             "targets": [
               {
@@ -37258,7 +37258,7 @@
             "date": "10.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/15%2002%2027_INDC%20Contribution%20of%20Switzerland.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -37276,7 +37276,7 @@
             "date": "12.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Swiss%20NDC%202021-2030%20incl%20ICTU_December%202021.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -37292,7 +37292,7 @@
             "date": "09.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Switzerland_Full%20NDC%20Communication%202021-2030%20incl%20ICTU.pdf",
             "targets": [
               {
@@ -37341,7 +37341,7 @@
             "date": "01.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-01/Switzerland%20second%20NDC%202031-2035.pdf",
             "targets": [
               {
@@ -37409,7 +37409,7 @@
             "date": "11.2024",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2024-11/Switzerlands%20First%20NDC_2021_2030_Update%202024_including%20ICTUs.pdf",
             "targets": [
               {
@@ -37631,7 +37631,7 @@
             "date": "11.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Uruguay_First%20Nationally%20Determined%20Contribution.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -37708,7 +37708,7 @@
             "date": "12.2022",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-12/Uruguay%20Segunda%20CDN.pdf",
             "targets": [
               {
@@ -37857,7 +37857,7 @@
             "date": "12.2024",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-01/20241220_Uruguay_NDC3.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -38143,7 +38143,7 @@
             "date": "12.2017",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDCSubmission_%20Montenegro.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -38161,7 +38161,7 @@
             "date": "06.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Updated%20NDC%20for%20Montenegro.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -38215,7 +38215,7 @@
             "date": "02.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-02/001_eng_NDC_Montenegro.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -39182,7 +39182,7 @@
             "date": "04.2018",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Kuwait%20First%20NDC_English.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -39211,7 +39211,7 @@
             "date": "12.2021",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Kuwait%20updating%20the%20first%20NDC-English.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -40522,7 +40522,7 @@
             "date": "08.2018",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/INDC%20Final%20Submission%20Sept%2030%202015%20Liberia.pdf",
             "targets": [
               {
@@ -40671,7 +40671,7 @@
             "date": "08.2021",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Liberia's%20Updated%20NDC_RL_FINAL%20(002).pdf",
             "targets": [
               {
@@ -40828,7 +40828,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/Liberias_2035_NDC_3.0_Final.pdf",
             "targets": [
               {
@@ -42324,7 +42324,7 @@
             "date": "05.2019",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/OMAN%20INDCs.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -42342,7 +42342,7 @@
             "date": "11.2023",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-11/Oman%201st%20Update%20of%20the%202nd%20NDC%20-%20Optimized%20Size%20%281%29.pdf",
             "targets": [
               {
@@ -42531,7 +42531,7 @@
             "date": "07.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/Second%20NDC%20Report%20Oman.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -42560,7 +42560,7 @@
             "date": "07.2026",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2026-07/The%20Sultanate%20of%20Omans%20Third%20Nationally%20Determined%20Contributions%20%20%28NDC%203.0%29.pdf",
             "targets": [
               {
@@ -43426,7 +43426,7 @@
             "date": "11.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC_RF_eng.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -43442,7 +43442,7 @@
             "date": "11.2020",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/NDC_RF_eng.pdf",
             "targets": [],
             "mitigation_measures": {},
@@ -43461,7 +43461,7 @@
             "date": "09.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-09/%D0%A0%D0%A4%20%D0%B2%D1%82%D0%BE%D1%80%D0%BE%D0%B9%20%D0%9E%D0%9D%D0%A3%D0%92.pdf",
             "targets": [
               {
@@ -43906,7 +43906,7 @@
             "date": "10.2021",
             "status": "Archived",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2022-06/The_INDC_of_TURKEY_v.15.19.30.pdf",
             "targets": [],
             "mitigation_measures": {
@@ -44031,7 +44031,7 @@
             "date": "04.2023",
             "status": "Archived",
             "has_transport_target": true,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/NDC/2023-04/T%C3%9CRK%C4%B0YE_UPDATED%201st%20NDC_EN.pdf",
             "targets": [
               {
@@ -44207,7 +44207,7 @@
             "date": "11.2025",
             "status": "Active",
             "has_transport_target": false,
-            "has_netzero_target": false,
+            "has_netzero_target": true,
             "url": "https://unfccc.int/sites/default/files/2025-11/The%20Second%20NDC%20of%20T%C3%BCrkiye.pdf",
             "targets": [
               {
