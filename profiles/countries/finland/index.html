@@ -9,6 +9,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../assets/design-tokens.css">
 <link rel="stylesheet" href="../../styles.css">
+<style>
+/* Coalitions — tile grid (see renderCoalitions()/coalitionTile() in country.js).
+   Scoped under #cp-coalitions so it can't collide with older .cp-coalition
+   rules still in styles.css; those are now unused dead CSS, safe to remove
+   later whenever convenient. */
+#cp-coalitions .cp-coal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;align-items:start;}
+#cp-coalitions .cp-coal-sector{grid-column:1/-1;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ct-muted);margin:.6rem 0 .1rem;}
+#cp-coalitions .cp-coal-tile{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:var(--ct-radius-lg,12px);overflow:hidden;box-shadow:var(--ct-shadow-sm);position:relative;transition:box-shadow .15s;}
+#cp-coalitions .cp-coal-tile::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ct-green);transform:scaleX(0);transform-origin:left;transition:transform .2s;}
+#cp-coalitions .cp-coal-tile.open::before,#cp-coalitions .cp-coal-tile:hover::before{transform:scaleX(1);}
+#cp-coalitions .cp-coal-tile:hover{box-shadow:var(--ct-shadow-md);}
+#cp-coalitions .cp-coal-tile-head{display:flex;align-items:center;gap:.6rem;width:100%;padding:.85rem 1rem;background:none;border:none;cursor:pointer;font-family:inherit;text-align:left;}
+#cp-coalitions .cp-coal-tile-icon{width:26px;height:26px;flex-shrink:0;border-radius:50%;background:rgba(157,190,61,.18);color:var(--ct-green-dark);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;}
+#cp-coalitions .cp-coal-tile-name{flex:1;font-weight:700;font-size:.9rem;color:var(--ct-navy);line-height:1.3;}
+#cp-coalitions .cp-coal-tile-count{font-size:.72rem;font-weight:700;color:var(--ct-muted);white-space:nowrap;}
+#cp-coalitions .cp-coal-tile-chevron{flex-shrink:0;color:var(--ct-muted);transition:transform .15s;}
+#cp-coalitions .cp-coal-tile.open .cp-coal-tile-chevron{transform:rotate(180deg);}
+#cp-coalitions .cp-coal-tile-body{padding:0 1rem 1rem;border-top:1px solid var(--ct-border);}
+#cp-coalitions .cp-coal-desc{font-size:.85rem;color:var(--ct-text);line-height:1.45;margin-top:.75rem;}
+#cp-coalitions .cp-coal-urls{display:flex;flex-direction:column;gap:.3rem;margin-top:.5rem;}
+#cp-coalitions .cp-coal-url{font-size:.8rem;color:var(--ct-teal);text-decoration:none;word-break:break-all;}
+#cp-coalitions .cp-coal-url:hover{text-decoration:underline;}
+#cp-coalitions .cp-coal-members{margin-top:.85rem;padding-top:.75rem;border-top:1px dashed var(--ct-border);}
+#cp-coalitions .cp-coal-members-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ct-muted);margin-bottom:.45rem;}
+#cp-coalitions .cp-coal-members-list{display:flex;flex-wrap:wrap;gap:.4rem;font-size:.78rem;color:var(--ct-muted);}
+#cp-coalitions .cp-coal-member{display:inline-flex;align-items:center;gap:.35rem;padding:.25rem .55rem;border:1px solid var(--ct-border);border-radius:999px;text-decoration:none;color:var(--ct-navy);font-weight:600;font-size:.78rem;transition:border-color .15s;}
+#cp-coalitions .cp-coal-member:hover{border-color:var(--ct-teal);}
+#cp-coalitions .cp-coal-member img{width:16px;height:11px;object-fit:cover;border-radius:2px;border:1px solid var(--ct-border);}
+#cp-coalitions .cp-coal-members-empty{font-size:.78rem;color:var(--ct-muted);font-style:italic;}
+</style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
   window.CP_CODE = undefined;
