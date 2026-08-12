@@ -14,38 +14,32 @@
    Scoped under #cp-coalitions so it can't collide with older .cp-coalition
    rules still in styles.css; those are now unused dead CSS, safe to remove
    later whenever convenient. */
-#cp-coalitions .cp-coal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.75rem;}
-#cp-coalitions .cp-coal-sector{grid-column:1/-1;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ct-muted);margin:.6rem 0 .1rem;}
-#cp-coalitions .cp-coal-tile{display:flex;align-items:flex-start;gap:.6rem;width:100%;min-height:80px;padding:.85rem 1rem;background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:var(--ct-radius-lg,12px);box-shadow:var(--ct-shadow-sm);cursor:pointer;font-family:inherit;text-align:left;transition:box-shadow .15s,border-color .15s,transform .15s;position:relative;overflow:hidden;}
-#cp-coalitions .cp-coal-tile::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ct-green);transform:scaleX(0);transform-origin:left;transition:transform .2s;}
-#cp-coalitions .cp-coal-tile:hover{box-shadow:var(--ct-shadow-md);border-color:var(--ct-green);transform:translateY(-1px);}
-#cp-coalitions .cp-coal-tile:hover::before{transform:scaleX(1);}
-#cp-coalitions .cp-coal-tile-icon{width:26px;height:26px;flex-shrink:0;border-radius:50%;background:rgba(157,190,61,.18);color:var(--ct-green-dark);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;margin-top:.05rem;}
-#cp-coalitions .cp-coal-tile-main{flex:1;min-width:0;}
-#cp-coalitions .cp-coal-tile-name{font-weight:700;font-size:.86rem;color:var(--ct-navy);line-height:1.32;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-#cp-coalitions .cp-coal-tile-count{font-size:.72rem;font-weight:700;color:var(--ct-muted);margin-top:.35rem;}
+#cp-coalitions .cp-coal-grid{display:flex;flex-wrap:wrap;gap:.6rem;}
+#cp-coalitions .cp-coal-sector{flex-basis:100%;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ct-muted);margin:.6rem 0 .1rem;}
+#cp-coalitions .cp-coal-card{display:flex;align-items:center;gap:.55rem;padding:.6rem .95rem;background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:var(--ct-radius-md,8px);cursor:pointer;transition:border-color .15s,box-shadow .15s;}
+#cp-coalitions .cp-coal-card:hover{border-color:var(--ct-green);box-shadow:var(--ct-shadow-sm);}
+#cp-coalitions .cp-coal-card.selected{border-color:var(--ct-green);box-shadow:var(--ct-shadow-md);background:rgba(157,190,61,.06);}
+#cp-coalitions .cp-coal-card-icon{width:22px;height:22px;flex-shrink:0;border-radius:50%;background:rgba(157,190,61,.18);color:var(--ct-green-dark);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;}
+#cp-coalitions .cp-coal-card-name{font-weight:700;font-size:.85rem;color:var(--ct-navy);}
+#cp-coalitions .cp-coal-card-count{font-size:.72rem;color:var(--ct-muted);white-space:nowrap;}
+#cp-coalitions .cp-coal-desc{font-size:.9rem;color:var(--ct-text);line-height:1.5;margin:0 0 .75rem;}
+#cp-coalitions .cp-coal-urls{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem;}
+#cp-coalitions .cp-coal-url{font-size:.83rem;color:var(--ct-teal);text-decoration:none;word-break:break-all;}
+#cp-coalitions .cp-coal-url:hover{text-decoration:underline;}
+#cp-coalitions .cp-coal-members{padding-top:.9rem;border-top:1px solid var(--ct-border);}
+#cp-coalitions .cp-coal-members-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ct-muted);margin-bottom:.55rem;}
+#cp-coalitions .cp-coal-members-list{display:flex;flex-wrap:wrap;gap:.4rem;font-size:.82rem;color:var(--ct-muted);}
+#cp-coalitions .cp-coal-member{display:inline-flex;align-items:center;gap:.35rem;padding:.25rem .55rem;border:1px solid var(--ct-border);border-radius:999px;text-decoration:none;color:var(--ct-navy);font-weight:600;font-size:.78rem;transition:border-color .15s;}
+#cp-coalitions .cp-coal-member:hover{border-color:var(--ct-teal);}
+#cp-coalitions .cp-coal-member img{width:16px;height:11px;object-fit:cover;border-radius:2px;border:1px solid var(--ct-border);}
+#cp-coalitions .cp-coal-members-empty{font-size:.8rem;color:var(--ct-muted);font-style:italic;}
 
-/* Shared modal — one instance, reused by every tile */
-.cp-coal-modal-overlay{position:fixed;inset:0;background:rgba(0,61,92,.45);display:flex;align-items:center;justify-content:center;padding:1.25rem;z-index:200;}
-.cp-coal-modal-overlay[hidden]{display:none;}
-body.cp-modal-open{overflow:hidden;}
-.cp-coal-modal-box{background:var(--ct-surface);border-radius:var(--ct-radius-lg,14px);box-shadow:var(--ct-shadow-lg);max-width:480px;width:100%;max-height:80vh;overflow-y:auto;padding:1.75rem;position:relative;}
-.cp-coal-modal-close{position:absolute;top:.85rem;right:.85rem;width:32px;height:32px;border-radius:50%;border:none;background:var(--ct-bg);color:var(--ct-muted);font-size:.95rem;cursor:pointer;}
-.cp-coal-modal-close:hover{background:var(--ct-border);color:var(--ct-navy);}
-.cp-coal-modal-icon{width:36px;height:36px;border-radius:50%;background:rgba(157,190,61,.18);color:var(--ct-green-dark);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;margin-bottom:.85rem;}
-.cp-coal-modal-title{font-size:1.15rem;font-weight:800;color:var(--ct-navy);line-height:1.32;margin-bottom:.6rem;padding-right:1.5rem;}
-.cp-coal-modal-desc{font-size:.9rem;color:var(--ct-text);line-height:1.5;margin-bottom:.75rem;}
-.cp-coal-modal-desc:empty{display:none;}
-.cp-coal-modal-urls{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem;}
-.cp-coal-modal-urls a{font-size:.83rem;color:var(--ct-teal);text-decoration:none;word-break:break-all;}
-.cp-coal-modal-urls a:hover{text-decoration:underline;}
-.cp-coal-modal-members{padding-top:.9rem;border-top:1px solid var(--ct-border);}
-.cp-coal-modal-members-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ct-muted);margin-bottom:.55rem;}
-.cp-coal-modal-members-list{display:flex;flex-wrap:wrap;gap:.4rem;font-size:.82rem;color:var(--ct-muted);}
-.cp-coal-member{display:inline-flex;align-items:center;gap:.35rem;padding:.25rem .55rem;border:1px solid var(--ct-border);border-radius:999px;text-decoration:none;color:var(--ct-navy);font-weight:600;font-size:.78rem;transition:border-color .15s;}
-.cp-coal-member:hover{border-color:var(--ct-teal);}
-.cp-coal-member img{width:16px;height:11px;object-fit:cover;border-radius:2px;border:1px solid var(--ct-border);}
-.cp-coal-members-empty{font-size:.8rem;color:var(--ct-muted);font-style:italic;}
+/* PNG export buttons */
+.cp-section-head-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;}
+.cp-png-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .8rem;font-family:inherit;font-size:.78rem;font-weight:700;color:var(--ct-navy);background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:999px;cursor:pointer;transition:border-color .15s,background .15s;white-space:nowrap;}
+.cp-png-btn:hover{border-color:var(--ct-teal);background:var(--ct-bg);}
+.cp-png-btn:disabled{opacity:.6;cursor:default;}
+.cp-png-btn svg{width:14px;height:14px;flex-shrink:0;}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
@@ -121,17 +115,25 @@ body.cp-modal-open{overflow:hidden;}
       <div class="cp-story" id="cp-story"></div>
       <h2 class="cp-section-title" style="margin-top:1.5rem;">Every climate document, in order</h2>
       <p class="cp-section-sub">Each submission under the Paris Agreement. <strong>Click any document for a summary.</strong></p>
-      <div class="cp-gen-block" id="cp-gen-block" hidden>
-        <h3 class="cp-trend-title">Transport content across NDC generations</h3>
-        <p class="cp-trend-sub" id="cp-gen-sub"></p>
-        <div class="cp-gen-wrap"><canvas id="cp-gen-chart" height="120" aria-label="Transport content per NDC generation" role="img"></canvas></div>
-        <p class="cp-chart-caption" style="text-align:center;">T = Targets, M = Measures</p>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:.4rem;">
+        <button class="cp-png-btn" id="cp-journey-png-btn" type="button" title="Download as HD PNG">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          PNG
+        </button>
       </div>
-      <div class="cp-journey" id="cp-journey"></div>
-      <div class="cp-jlegend">
-        <span><span class="cp-tl-dot-key is-active"></span> Active document</span>
-        <span><span class="cp-tl-dot-key is-archived"></span> Archived</span>
-        <span><span class="cp-tl-dot-key selected"></span> Selected (archived)</span>
+      <div id="cp-journey-capture">
+        <div class="cp-gen-block" id="cp-gen-block" hidden>
+          <h3 class="cp-trend-title">Transport content across NDC generations</h3>
+          <p class="cp-trend-sub" id="cp-gen-sub"></p>
+          <div class="cp-gen-wrap"><canvas id="cp-gen-chart" height="120" aria-label="Transport content per NDC generation" role="img"></canvas></div>
+          <p class="cp-chart-caption" style="text-align:center;">T = Targets, M = Measures</p>
+        </div>
+        <div class="cp-journey" id="cp-journey"></div>
+        <div class="cp-jlegend">
+          <span><span class="cp-tl-dot-key is-active"></span> Active document</span>
+          <span><span class="cp-tl-dot-key is-archived"></span> Archived</span>
+          <span><span class="cp-tl-dot-key selected"></span> Selected (archived)</span>
+        </div>
       </div>
       <div id="cp-journey-note"></div>
     </div>
@@ -143,7 +145,13 @@ body.cp-modal-open{overflow:hidden;}
       <p class="cp-kicker">Transport targets</p>
       <h2 class="cp-section-title">What this country has committed to</h2>
       <div class="cp-trend-block" id="emissions">
-        <h3 class="cp-trend-title">Transport CO&#8322; emissions and where the targets point</h3>
+        <div class="cp-section-head-row">
+          <h3 class="cp-trend-title" style="margin:0;">Transport CO&#8322; emissions and where the targets point</h3>
+          <button class="cp-png-btn" id="cp-trend-png-btn" type="button" title="Download as HD PNG">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            PNG
+          </button>
+        </div>
         <div class="cp-em-kpis" id="cp-em-kpis"></div>
         <p class="cp-trend-sub" id="cp-trend-sub"></p>
         <div class="cp-trend-views" id="cp-trend-views" hidden>
@@ -196,7 +204,7 @@ body.cp-modal-open{overflow:hidden;}
     <div class="cp-container">
       <p class="cp-kicker">Co-benefits</p>
       <h2 class="cp-section-title">Wider gains from transport action</h2>
-      <p class="cp-section-sub">Beyond cutting emissions — the wider benefits associated with transport climate action. <strong>Click a benefit to see what the documents say.</strong></p>
+      <p class="cp-section-sub">Beyond cutting emissions, the wider benefits associated with transport climate action. <strong>Click a benefit to see what the documents say.</strong></p>
       <div class="cp-benefits-grid" id="cp-benefits"></div>
       <div class="cp-sdg-row" id="cp-sdgs"></div>
     </div>
@@ -217,7 +225,7 @@ body.cp-modal-open{overflow:hidden;}
     <div class="cp-container">
       <p class="cp-kicker">Explore similar countries</p>
       <h2 class="cp-section-title">Peer discovery</h2>
-      <p class="cp-section-sub">Not a ranking — three neutral lenses for finding countries whose transport story may resonate. Click ⇄ to compare directly.</p>
+      <p class="cp-section-sub">Not a ranking, three neutral lenses for finding countries whose transport story may resonate. Click ⇄ to compare directly.</p>
       <div class="cp-similar-lenses" id="cp-similar"></div>
       <a class="cp-resource-cta" id="cp-compare-link" href="#" style="margin-top:1.25rem;">
         Compare this country's NDC evolution →
@@ -263,20 +271,6 @@ body.cp-modal-open{overflow:hidden;}
     <p id="cp-footer-meta" style="margin-top:0.5rem;opacity:0.7;"></p>
   </div>
 </footer>
-
-<div class="cp-coal-modal-overlay" id="cp-coal-modal" hidden>
-  <div class="cp-coal-modal-box" role="dialog" aria-modal="true" aria-labelledby="cp-coal-modal-title">
-    <button class="cp-coal-modal-close" id="cp-coal-modal-close" type="button" aria-label="Close">&#10005;</button>
-    <div class="cp-coal-modal-icon">&#10003;</div>
-    <h3 class="cp-coal-modal-title" id="cp-coal-modal-title"></h3>
-    <p class="cp-coal-modal-desc" id="cp-coal-modal-desc"></p>
-    <div class="cp-coal-modal-urls" id="cp-coal-modal-urls"></div>
-    <div class="cp-coal-modal-members">
-      <p class="cp-coal-modal-members-label">Other countries in this initiative</p>
-      <div class="cp-coal-modal-members-list" id="cp-coal-modal-members-list"></div>
-    </div>
-  </div>
-</div>
 
 <script src="js/country.js"></script>
 </body>

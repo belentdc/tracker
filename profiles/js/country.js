@@ -98,6 +98,57 @@ function makePanel(id) {
   return p;
 }
 
+/* Chart.js's own ResizeObserver doesn't always catch a browser zoom change
+   (varies by browser), which used to leave bars/lines misaligned to one
+   side until the next real window resize. Forcing resize() on every chart
+   whenever the window 'resize' event fires (zoom does trigger it) fixes
+   this reliably, cheaply, without touching aspect-ratio behavior. */
+const ACTIVE_CHARTS=[];
+let _chartResizeTimer=null;
+window.addEventListener("resize",()=>{
+  clearTimeout(_chartResizeTimer);
+  _chartResizeTimer=setTimeout(()=>{
+    ACTIVE_CHARTS.forEach(c=>{ try{ c.resize(); }catch(e){} });
+  },150);
+});
+
+/* ── PNG export (html2canvas, lazy-loaded only on first use, matching the
+   site's existing CDN-resilience pattern for Chart.js) ─────────────── */
+let _h2cPromise=null;
+function ensureHtml2Canvas(){
+  if(_h2cPromise) return _h2cPromise;
+  _h2cPromise=new Promise((resolve,reject)=>{
+    if(window.html2canvas){ resolve(window.html2canvas); return; }
+    const s=document.createElement("script");
+    s.src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+    s.onload=()=>resolve(window.html2canvas);
+    s.onerror=()=>reject(new Error("html2canvas failed to load"));
+    document.head.appendChild(s);
+  });
+  return _h2cPromise;
+}
+function wirePngButton(btnId, targetId, filename){
+  const btn=document.getElementById(btnId);
+  const target=document.getElementById(targetId);
+  if(!btn||!target) return;
+  btn.addEventListener("click",()=>{
+    if(btn.disabled) return;
+    btn.disabled=true;
+    const original=btn.innerHTML;
+    btn.innerHTML="Preparing…";
+    ensureHtml2Canvas()
+      .then(h2c=>h2c(target,{scale:3,backgroundColor:"#ffffff",useCORS:true}))
+      .then(canvas=>{
+        const a=document.createElement("a");
+        a.href=canvas.toDataURL("image/png");
+        a.download=filename;
+        document.body.appendChild(a); a.click(); a.remove();
+      })
+      .catch(()=>alert("Could not generate the image right now. Please try again, or use your browser's screenshot tool instead."))
+      .finally(()=>{ btn.disabled=false; btn.innerHTML=original; });
+  });
+}
+
 fetch(`${BASE}data/countries/${CODE}.json`)
   .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
   .then(profile=>{
@@ -130,12 +181,12 @@ function safeChart(canvas, cfg, fallbackEntries, colorFn){
     return;
   }
   if(!window.Chart){ chartFallbackBars(canvas, entries, colorFn); return; }
-  try { new Chart(canvas, cfg); }
+  try { const chart=new Chart(canvas, cfg); ACTIVE_CHARTS.push(chart); }
   catch(e){ console.warn("Chart render failed:", e); chartFallbackBars(canvas, entries, colorFn); }
 }
 
 function render(p, ghg, bench) {
-  document.title=`${p.name} \u2014 Transport in Climate Policy | GIZ-SLOCAT Transport Tracker`;
+  document.title=`${p.name}: Transport in Climate Policy | GIZ-SLOCAT Transport Tracker`;
   const flagEl=document.getElementById("cp-flag");
   if(flagEl){ flagEl.src=`${BASE}../assets/flags/${p.iso2}.png`; flagEl.onerror=()=>{flagEl.src=`https://flagcdn.com/w160/${p.iso2}.png`;}; flagEl.alt=`${p.name} flag`; }
   const nameEl=document.getElementById("cp-name"); if(nameEl) nameEl.textContent=p.name;
@@ -327,6 +378,10 @@ function renderTrend(p,bench){
   const allYears=years.slice();
   const maxPin=pinYears.length?Math.max(...pinYears.map(x=>x.year)):0;
   for(let yr=lastYear+1;yr<=maxPin;yr++) allYears.push(yr);
+  // A little breathing room past the last pin/line, as if the axis ran to
+  // roughly 2060, so the final vertical marker isn't flush against the edge.
+  const padTo=Math.max(maxPin,lastYear)+10;
+  for(let yr=Math.max(maxPin,lastYear)+1;yr<=padTo;yr++) allYears.push(yr);
   const legendEl=document.getElementById("cp-pin-legend");
   if(legendEl&&pinYears.length){
     const presentAreas=new Set(pinYears.flatMap(pn=>pn.types.map(t=>t.area)));
@@ -338,6 +393,7 @@ function renderTrend(p,bench){
 
   const canvas=document.getElementById("cp-trend-chart");
   if(!canvas) return;
+  wirePngButton("cp-trend-png-btn","emissions",`${(CODE||"country")}-transport-emissions.png`);
 
   const _pillRects=[];
   const pinPlugin={id:"targetPins",afterDatasetsDraw(chart){
@@ -386,13 +442,18 @@ function renderTrend(p,bench){
   }
 
   const F={family:"Source Sans 3",size:11};
+  const YEAR_TICKS=[2025,2030,2035,2040,2045,2050];
+  const hasYearTicks=YEAR_TICKS.some(y=>allYears.includes(y));
+  const xTicks=hasYearTicks
+    ? {font:F,autoSkip:false,maxRotation:0,callback:(val,idx)=>{ const y=allYears[idx]; return YEAR_TICKS.includes(y)?y:""; }}
+    : {font:F,maxTicksLimit:9};
   function mtConfig(){
     const ds=[{label:"Transport CO\u2082 (Mt)",data:transport,borderColor:TEAL,backgroundColor:"rgba(0,164,189,0.10)",fill:true,pointRadius:0,borderWidth:2.5,tension:0.25}];
     if(total.length&&total.some(v=>v!=null))
       ds.push({label:"National total (Mt)",data:total,borderColor:MUTED,borderDash:[6,4],fill:false,pointRadius:0,borderWidth:1.6,tension:0.25});
     return {type:"line",data:{labels:allYears,datasets:ds},
       options:{plugins:{legend:{position:"bottom",labels:{font:F,boxWidth:14,boxHeight:2,padding:12}}},interaction:{mode:"index",intersect:false},
-        scales:{x:{ticks:{font:F,maxTicksLimit:9},grid:{display:false}},
+        scales:{x:{ticks:xTicks,grid:{display:false}},
                 y:{ticks:{font:F},title:{display:true,text:"Mt CO\u2082",font:F},grid:{color:"rgba(0,0,0,0.05)"}}}},
       plugins:[pinPlugin]};
   }
@@ -405,14 +466,14 @@ function renderTrend(p,bench){
       ds.push({label:"World transport",data:idx100(globalT),borderColor:ORANGE,fill:false,pointRadius:0,borderWidth:1.8,tension:0.25});
     return {type:"line",data:{labels:allYears,datasets:ds},
       options:{plugins:{legend:{position:"bottom",labels:{font:F,boxWidth:14,boxHeight:2,padding:12}}},interaction:{mode:"index",intersect:false},
-        scales:{x:{ticks:{font:F,maxTicksLimit:9},grid:{display:false}},
+        scales:{x:{ticks:xTicks,grid:{display:false}},
                 y:{ticks:{font:F},title:{display:true,text:"Index (1990 = 100)",font:F},grid:{color:"rgba(0,0,0,0.05)"}}}},
       plugins:[pinPlugin]};
   }
 
   if(window.Chart){
     try{
-      let chart=new Chart(canvas,mtConfig());
+      let chart=new Chart(canvas,mtConfig()); ACTIVE_CHARTS.push(chart);
       setupPinInteraction(canvas);
       const views=document.getElementById("cp-trend-views");
       if(views){
@@ -421,7 +482,9 @@ function renderTrend(p,bench){
           views.querySelectorAll(".cp-view-chip").forEach(x=>x.classList.remove("on"));
           ch.classList.add("on");
           chart.destroy();
+          ACTIVE_CHARTS.splice(ACTIVE_CHARTS.indexOf(chart),1);
           chart=new Chart(canvas,ch.dataset.view==="idx"?idxConfig():mtConfig());
+          ACTIVE_CHARTS.push(chart);
           setupPinInteraction(canvas);
         }));
       }
@@ -433,7 +496,7 @@ function renderTrend(p,bench){
   const pts=transport.map((v,i)=>`${pad+i*(w-2*pad)/(transport.length-1)},${h-pad-((v-min)/(max-min||1))*(h-2*pad)}`).join(" ");
   canvas.outerHTML=`<svg class="cp-trend-fallback" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Transport emissions trend">
     <polyline points="${pts}" fill="none" stroke="#00A4BD" stroke-width="2.5"/></svg>
-    <div class="cp-pub-meta">${years[0]}\u2013${years[years.length-1]}: ${min}\u2013${max} Mt</div>`;
+    <div class="cp-pub-meta">${years[0]} to ${years[years.length-1]}: ${min} to ${max} Mt</div>`;
 }
 
 /* ── Generation evolution: is transport content deepening over time? ── */
@@ -483,13 +546,14 @@ function renderGenerations(p){
       scales:{x:{ticks:{font:{family:"Source Sans 3",size:11}},grid:{display:false}},
               y:{ticks:{font:{family:"Source Sans 3",size:11},precision:0},grid:{color:"rgba(0,0,0,0.05)"}}}},
     plugins:[letterPlugin]};
-  if(window.Chart){ try{ new Chart(canvas,cfg); return; }catch(e){ console.warn("Gen chart failed:",e); } }
+  if(window.Chart){ try{ const chart=new Chart(canvas,cfg); ACTIVE_CHARTS.push(chart); return; }catch(e){ console.warn("Gen chart failed:",e); } }
   chartFallbackBars(canvas, present.map(g=>[LBL[g],counts[g].t+counts[g].m]), g=>COL[present.find(x=>LBL[x]===g)]||TEAL);
 }
 
 /* ── Journey — timeline line + version labels + detail panel ─────── */
 function renderJourney(p, docUrlMap) {
   const wrap=document.getElementById("cp-journey"); if(!wrap)return;
+  wirePngButton("cp-journey-png-btn","cp-journey-capture",`${(p.code||CODE||"country")}-ndc-timeline.png`);
   // Strict chronological order (NDC, LTS, BTR interleaved by submission date)
   const docs=[...(p.documents||[])].sort((a,b)=>String(a.date||"").localeCompare(String(b.date||"")));
 
@@ -547,9 +611,16 @@ function renderJourney(p, docUrlMap) {
   // Paris deadlines
   PARIS_DEADLINES.filter(pd=>pd.year>=minY&&pd.year<=maxY).forEach(pd=>{
     const pct=((pd.year-minY)/span*100).toFixed(1);
+    const edge = pct<=3 ? "start" : pct>=97 ? "end" : "mid";
+    const tx = edge==="start" ? "0%" : edge==="end" ? "-100%" : "-50%";
+    const align = edge==="start" ? "left" : edge==="end" ? "right" : "center";
     const m=document.createElement("div");
-    m.style.cssText=`position:absolute;left:${pct}%;top:6px;transform:translateX(-50%);text-align:center;z-index:1;`;
-    m.innerHTML=`<div style="width:1px;height:22px;background:var(--ct-muted);margin:0 auto;opacity:0.45;"></div><div style="font-size:0.65rem;font-weight:700;color:var(--ct-muted);">${pd.year}</div><div style="font-size:0.6rem;color:var(--ct-muted);white-space:nowrap;line-height:1.1;">${esc(pd.label)}</div>`;
+    m.style.cssText=`position:absolute;left:${pct}%;top:6px;z-index:1;`;
+    m.innerHTML=`<div style="width:1px;height:22px;background:var(--ct-muted);opacity:0.45;"></div>
+      <div style="position:relative;transform:translateX(${tx});text-align:${align};white-space:nowrap;">
+        <div style="font-size:0.65rem;font-weight:700;color:var(--ct-muted);">${pd.year}</div>
+        <div style="font-size:0.6rem;color:var(--ct-muted);line-height:1.1;">${esc(pd.label)}</div>
+      </div>`;
     tlBar.appendChild(m);
   });
   wrap.parentNode.insertBefore(tlBar,wrap.nextSibling);
@@ -969,9 +1040,8 @@ function renderAdaptation(p, docUrlMap) {
   if(cmpLink){cmpLink.href=comparisonUrl("track",{c:p.code});cmpLink.hidden=false;}
 }
 
-/* ── Coalitions ───────────────────────────────────────────────────── */
-/* Cross-country membership lookup, fetched once and cached across tiles.
-   Source: profiles/data/initiatives-index.json, built by the pipeline. */
+/* ── Coalitions — simple card row + shared detail panel below,
+   same pattern as renderJourney()/renderBenefits() ────────────────── */
 let INITIATIVE_MEMBERS_CACHE=null, INITIATIVE_MEMBERS_LOADING=false, INITIATIVE_MEMBERS_QUEUE=[];
 function ensureInitiativeMembers(cb){
   if(INITIATIVE_MEMBERS_CACHE){ cb(INITIATIVE_MEMBERS_CACHE); return; }
@@ -996,12 +1066,10 @@ function ensureInitiativeMembers(cb){
 
 function renderCoalitions(p){
   const box=document.getElementById("cp-coalitions"); if(!box)return;
-  setupCoalitionModal();
   if(!p.coalitions||!p.coalitions.length){
-    box.innerHTML=`<div class="cp-empty">No transport coalitions registered for ${esc(p.name)}. Do you know one? <a href="mailto:transport-tracker@giz.de" class="cp-contact-link">Contact us</a></div>`;
+    box.innerHTML=`<div class="cp-empty">No transport coalitions registered for ${esc(p.name)}. Do you know one? <a href="mailto:maria.vasquez1@giz.de" class="cp-contact-link">Contact us</a></div>`;
     return;
   }
-  // Group by subsector; empty subsector = ungrouped (rendered flat)
   const grouped={};
   for(const c of p.coalitions){
     const s=c.subsector||"";
@@ -1010,83 +1078,67 @@ function renderCoalitions(p){
   }
   const hasSectors=Object.keys(grouped).some(s=>s!=="");
   const coalMap={};
-  const tile=c=>{
-    const slug=String(c.key).toLowerCase().replace(/[^a-z0-9]+/g,"-")+"-"+Object.keys(coalMap).length;
-    coalMap[slug]=c;
-    return coalitionTile(c,slug);
+  let i=0;
+  const card=c=>{
+    const key="c"+(i++);
+    coalMap[key]=c;
+    return `<div class="cp-coal-card" data-key="${key}">
+      <div class="cp-coal-card-icon">&#10003;</div>
+      <div class="cp-coal-card-name">${esc(c.key)}</div>
+      ${c.member_count!=null?`<div class="cp-coal-card-count">${c.member_count} ${c.member_count===1?"country":"countries"}</div>`:""}
+    </div>`;
   };
   let inner="";
   if(hasSectors){
-    // Named sectors first (alpha), ungrouped last
     const sectors=Object.keys(grouped).filter(s=>s).sort();
     if(grouped[""]) sectors.push("");
     for(const s of sectors){
       if(s) inner+=`<div class="cp-coal-sector">${esc(s)}</div>`;
-      inner+=grouped[s].map(tile).join("");
+      inner+=grouped[s].map(card).join("");
     }
   } else {
-    inner=p.coalitions.map(tile).join("");
+    inner=p.coalitions.map(card).join("");
   }
   box.innerHTML=`<div class="cp-coal-grid">${inner}</div>`;
 
-  box.querySelectorAll(".cp-coal-tile").forEach(el=>{
-    el.addEventListener("click",()=>openCoalitionModal(coalMap[el.dataset.slug],p.code));
+  const grid=box.querySelector(".cp-coal-grid");
+  const panel=makePanel("cp-coalitions-detail-panel");
+  grid.parentNode.insertBefore(panel,grid.nextSibling);
+  panel.querySelector(".cp-detail-panel-close").addEventListener("click",()=>{
+    panel.classList.remove("open");
+    grid.querySelectorAll(".cp-coal-card").forEach(c=>c.classList.remove("selected"));
   });
-}
 
-function coalitionTile(c, slug){
-  const count=c.member_count;
-  return `<button class="cp-coal-tile" type="button" data-slug="${esc(slug)}">
-    <div class="cp-coal-tile-icon">&#10003;</div>
-    <div class="cp-coal-tile-main">
-      <div class="cp-coal-tile-name">${esc(c.key)}</div>
-      ${count!=null?`<div class="cp-coal-tile-count">${count} ${count===1?"country":"countries"}</div>`:""}
-    </div>
-  </button>`;
-}
-
-/* Shared modal — one instance, reused for every tile, so the grid layout
-   itself never has to accommodate variable content height. */
-let _coalModalReady=false;
-function setupCoalitionModal(){
-  if(_coalModalReady) return;
-  const overlay=document.getElementById("cp-coal-modal");
-  if(!overlay) return;
-  _coalModalReady=true;
-  document.getElementById("cp-coal-modal-close").addEventListener("click", closeCoalitionModal);
-  overlay.addEventListener("click", e=>{ if(e.target===overlay) closeCoalitionModal(); });
-  document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !overlay.hidden) closeCoalitionModal(); });
-}
-
-function closeCoalitionModal(){
-  const overlay=document.getElementById("cp-coal-modal");
-  if(overlay) overlay.hidden=true;
-  document.body.classList.remove("cp-modal-open");
-}
-
-function openCoalitionModal(c, currentCode){
-  const overlay=document.getElementById("cp-coal-modal");
-  if(!overlay||!c) return;
-  document.getElementById("cp-coal-modal-title").textContent=c.key;
-  const descEl=document.getElementById("cp-coal-modal-desc");
-  descEl.textContent=c.description||"";
-  descEl.hidden=!c.description;
-  const urlsHtml=c.urls.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//,"").replace(/\/$/,""))}</a>`).join("");
-  const urlsEl=document.getElementById("cp-coal-modal-urls");
-  urlsEl.innerHTML=urlsHtml;
-  urlsEl.hidden=!c.urls.length;
-  const listEl=document.getElementById("cp-coal-modal-members-list");
-  listEl.innerHTML="Loading…";
-  overlay.hidden=false;
-  document.body.classList.add("cp-modal-open");
-  ensureInitiativeMembers(all=>{
-    const list=(all[c.key]||[]).filter(m=>m.code!==currentCode);
-    listEl.innerHTML = list.length
-      ? list.map(m=>`<a class="cp-coal-member" href="${BASE}countries/${esc(clientSlugify(m.name))}/">
-          <img src="${BASE}../assets/flags/${esc(m.iso2)}.png" onerror="this.onerror=null;this.src='https://flagcdn.com/w40/${esc(m.iso2)}.png'" alt="">
-          <span>${esc(m.name)}</span>
-        </a>`).join("")
-      : `<p class="cp-coal-members-empty">No other countries recorded yet.</p>`;
+  grid.querySelectorAll(".cp-coal-card").forEach(el=>{
+    el.addEventListener("click",()=>{
+      const c=coalMap[el.dataset.key];
+      const already=el.classList.contains("selected");
+      grid.querySelectorAll(".cp-coal-card").forEach(x=>x.classList.remove("selected"));
+      if(already){ panel.classList.remove("open"); return; }
+      el.classList.add("selected");
+      const urlsHtml=c.urls.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener" class="cp-coal-url">${esc(u.replace(/^https?:\/\//,"").replace(/\/$/,""))}</a>`).join("");
+      panel.querySelector(".cp-detail-panel-title").textContent=c.key;
+      panel.querySelector(".cp-detail-panel-body").innerHTML=`
+        ${c.description?`<p class="cp-coal-desc">${esc(c.description)}</p>`:""}
+        ${urlsHtml?`<div class="cp-coal-urls">${urlsHtml}</div>`:""}
+        <div class="cp-coal-members">
+          <p class="cp-coal-members-label">Other countries in this initiative</p>
+          <div class="cp-coal-members-list" data-role="coal-members-list">Loading…</div>
+        </div>`;
+      panel.classList.add("open");
+      panel.scrollIntoView({behavior:"smooth",block:"nearest"});
+      ensureInitiativeMembers(all=>{
+        const listEl=panel.querySelector('[data-role="coal-members-list"]');
+        if(!listEl) return; // a different card was opened meanwhile
+        const list=(all[c.key]||[]).filter(m=>m.code!==p.code);
+        listEl.innerHTML = list.length
+          ? list.map(m=>`<a class="cp-coal-member" href="${BASE}countries/${esc(clientSlugify(m.name))}/">
+              <img src="${BASE}../assets/flags/${esc(m.iso2)}.png" onerror="this.onerror=null;this.src='https://flagcdn.com/w40/${esc(m.iso2)}.png'" alt="">
+              <span>${esc(m.name)}</span>
+            </a>`).join("")
+          : `<p class="cp-coal-members-empty">No other countries recorded yet.</p>`;
+      });
+    });
   });
 }
 
