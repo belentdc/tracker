@@ -996,6 +996,7 @@ function ensureInitiativeMembers(cb){
 
 function renderCoalitions(p){
   const box=document.getElementById("cp-coalitions"); if(!box)return;
+  setupCoalitionModal();
   if(!p.coalitions||!p.coalitions.length){
     box.innerHTML=`<div class="cp-empty">No transport coalitions registered for ${esc(p.name)}. Do you know one? <a href="mailto:transport-tracker@giz.de" class="cp-contact-link">Contact us</a></div>`;
     return;
@@ -1008,6 +1009,12 @@ function renderCoalitions(p){
     grouped[s].push(c);
   }
   const hasSectors=Object.keys(grouped).some(s=>s!=="");
+  const coalMap={};
+  const tile=c=>{
+    const slug=String(c.key).toLowerCase().replace(/[^a-z0-9]+/g,"-")+"-"+Object.keys(coalMap).length;
+    coalMap[slug]=c;
+    return coalitionTile(c,slug);
+  };
   let inner="";
   if(hasSectors){
     // Named sectors first (alpha), ungrouped last
@@ -1015,63 +1022,72 @@ function renderCoalitions(p){
     if(grouped[""]) sectors.push("");
     for(const s of sectors){
       if(s) inner+=`<div class="cp-coal-sector">${esc(s)}</div>`;
-      inner+=grouped[s].map(c=>coalitionTile(c,p.code)).join("");
+      inner+=grouped[s].map(tile).join("");
     }
   } else {
-    inner=p.coalitions.map(c=>coalitionTile(c,p.code)).join("");
+    inner=p.coalitions.map(tile).join("");
   }
   box.innerHTML=`<div class="cp-coal-grid">${inner}</div>`;
 
-  // Toggle listeners — expanding a tile also lazy-loads its member list once
-  box.querySelectorAll(".cp-coal-tile-head").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      const tile=btn.closest(".cp-coal-tile");
-      const body=tile.querySelector(".cp-coal-tile-body");
-      const open=btn.getAttribute("aria-expanded")==="true";
-      btn.setAttribute("aria-expanded",String(!open));
-      tile.classList.toggle("open",!open);
-      body.hidden=open;
-      if(open) return;
-      const membersEl=tile.querySelector(".cp-coal-members");
-      const listEl=tile.querySelector(".cp-coal-members-list");
-      if(!membersEl||!listEl||membersEl.dataset.loaded) return;
-      membersEl.dataset.loaded="1";
-      const key=membersEl.dataset.key, currentCode=membersEl.dataset.code;
-      ensureInitiativeMembers(all=>{
-        const list=(all[key]||[]).filter(m=>m.code!==currentCode);
-        listEl.innerHTML = list.length
-          ? list.map(m=>`<a class="cp-coal-member" href="${BASE}countries/${esc(clientSlugify(m.name))}/">
-              <img src="${BASE}../assets/flags/${esc(m.iso2)}.png" onerror="this.onerror=null;this.src='https://flagcdn.com/w40/${esc(m.iso2)}.png'" alt="">
-              <span>${esc(m.name)}</span>
-            </a>`).join("")
-          : `<p class="cp-coal-members-empty">No other countries recorded yet.</p>`;
-      });
-    });
+  box.querySelectorAll(".cp-coal-tile").forEach(el=>{
+    el.addEventListener("click",()=>openCoalitionModal(coalMap[el.dataset.slug],p.code));
   });
 }
 
-function coalitionTile(c, currentCode){
-  const urlsHtml=c.urls.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener" class="cp-coal-url" onclick="event.stopPropagation()">${esc(u.replace(/^https?:\/\//,"").replace(/\/$/,""))}</a>`).join("");
+function coalitionTile(c, slug){
   const count=c.member_count;
-  const slug=String(c.key).toLowerCase().replace(/[^a-z0-9]+/g,"-");
-  return `<div class="cp-coal-tile">
-    <button class="cp-coal-tile-head" aria-expanded="false" aria-controls="cp-coal-${esc(slug)}-body">
-      <div class="cp-coal-tile-icon">&#10003;</div>
-      <div class="cp-coal-tile-main">
-        <div class="cp-coal-tile-name">${esc(c.key)}</div>
-        ${count!=null?`<div class="cp-coal-tile-count">${count} ${count===1?"country":"countries"}</div>`:""}
-      </div>
-      <div class="cp-coal-tile-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    </button>
-    <div class="cp-coal-tile-body" id="cp-coal-${esc(slug)}-body" hidden>
-      ${c.description?`<p class="cp-coal-desc">${esc(c.description)}</p>`:""}
-      ${urlsHtml?`<div class="cp-coal-urls">${urlsHtml}</div>`:""}
-      <div class="cp-coal-members" data-key="${esc(c.key)}" data-code="${esc(currentCode)}">
-        <p class="cp-coal-members-label">Other countries in this initiative</p>
-        <div class="cp-coal-members-list">Loading…</div>
-      </div>
+  return `<button class="cp-coal-tile" type="button" data-slug="${esc(slug)}">
+    <div class="cp-coal-tile-icon">&#10003;</div>
+    <div class="cp-coal-tile-main">
+      <div class="cp-coal-tile-name">${esc(c.key)}</div>
+      ${count!=null?`<div class="cp-coal-tile-count">${count} ${count===1?"country":"countries"}</div>`:""}
     </div>
-  </div>`;
+  </button>`;
+}
+
+/* Shared modal — one instance, reused for every tile, so the grid layout
+   itself never has to accommodate variable content height. */
+let _coalModalReady=false;
+function setupCoalitionModal(){
+  if(_coalModalReady) return;
+  const overlay=document.getElementById("cp-coal-modal");
+  if(!overlay) return;
+  _coalModalReady=true;
+  document.getElementById("cp-coal-modal-close").addEventListener("click", closeCoalitionModal);
+  overlay.addEventListener("click", e=>{ if(e.target===overlay) closeCoalitionModal(); });
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !overlay.hidden) closeCoalitionModal(); });
+}
+
+function closeCoalitionModal(){
+  const overlay=document.getElementById("cp-coal-modal");
+  if(overlay) overlay.hidden=true;
+  document.body.classList.remove("cp-modal-open");
+}
+
+function openCoalitionModal(c, currentCode){
+  const overlay=document.getElementById("cp-coal-modal");
+  if(!overlay||!c) return;
+  document.getElementById("cp-coal-modal-title").textContent=c.key;
+  const descEl=document.getElementById("cp-coal-modal-desc");
+  descEl.textContent=c.description||"";
+  descEl.hidden=!c.description;
+  const urlsHtml=c.urls.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//,"").replace(/\/$/,""))}</a>`).join("");
+  const urlsEl=document.getElementById("cp-coal-modal-urls");
+  urlsEl.innerHTML=urlsHtml;
+  urlsEl.hidden=!c.urls.length;
+  const listEl=document.getElementById("cp-coal-modal-members-list");
+  listEl.innerHTML="Loading…";
+  overlay.hidden=false;
+  document.body.classList.add("cp-modal-open");
+  ensureInitiativeMembers(all=>{
+    const list=(all[c.key]||[]).filter(m=>m.code!==currentCode);
+    listEl.innerHTML = list.length
+      ? list.map(m=>`<a class="cp-coal-member" href="${BASE}countries/${esc(clientSlugify(m.name))}/">
+          <img src="${BASE}../assets/flags/${esc(m.iso2)}.png" onerror="this.onerror=null;this.src='https://flagcdn.com/w40/${esc(m.iso2)}.png'" alt="">
+          <span>${esc(m.name)}</span>
+        </a>`).join("")
+      : `<p class="cp-coal-members-empty">No other countries recorded yet.</p>`;
+  });
 }
 
 /* ── Similar countries ────────────────────────────────────────────── */

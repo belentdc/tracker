@@ -14,31 +14,38 @@
    Scoped under #cp-coalitions so it can't collide with older .cp-coalition
    rules still in styles.css; those are now unused dead CSS, safe to remove
    later whenever convenient. */
-#cp-coalitions .cp-coal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.75rem;align-items:start;}
+#cp-coalitions .cp-coal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.75rem;}
 #cp-coalitions .cp-coal-sector{grid-column:1/-1;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ct-muted);margin:.6rem 0 .1rem;}
-#cp-coalitions .cp-coal-tile{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:var(--ct-radius-lg,12px);overflow:hidden;box-shadow:var(--ct-shadow-sm);position:relative;transition:box-shadow .15s;}
+#cp-coalitions .cp-coal-tile{display:flex;align-items:flex-start;gap:.6rem;width:100%;min-height:80px;padding:.85rem 1rem;background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:var(--ct-radius-lg,12px);box-shadow:var(--ct-shadow-sm);cursor:pointer;font-family:inherit;text-align:left;transition:box-shadow .15s,border-color .15s,transform .15s;position:relative;overflow:hidden;}
 #cp-coalitions .cp-coal-tile::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ct-green);transform:scaleX(0);transform-origin:left;transition:transform .2s;}
-#cp-coalitions .cp-coal-tile.open::before,#cp-coalitions .cp-coal-tile:hover::before{transform:scaleX(1);}
-#cp-coalitions .cp-coal-tile:hover{box-shadow:var(--ct-shadow-md);}
-#cp-coalitions .cp-coal-tile-head{display:flex;align-items:flex-start;gap:.6rem;width:100%;padding:.85rem 1rem;background:none;border:none;cursor:pointer;font-family:inherit;text-align:left;}
+#cp-coalitions .cp-coal-tile:hover{box-shadow:var(--ct-shadow-md);border-color:var(--ct-green);transform:translateY(-1px);}
+#cp-coalitions .cp-coal-tile:hover::before{transform:scaleX(1);}
 #cp-coalitions .cp-coal-tile-icon{width:26px;height:26px;flex-shrink:0;border-radius:50%;background:rgba(157,190,61,.18);color:var(--ct-green-dark);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;margin-top:.05rem;}
 #cp-coalitions .cp-coal-tile-main{flex:1;min-width:0;}
-#cp-coalitions .cp-coal-tile-name{font-weight:700;font-size:.88rem;color:var(--ct-navy);line-height:1.32;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-#cp-coalitions .cp-coal-tile-count{font-size:.72rem;font-weight:700;color:var(--ct-muted);margin-top:.3rem;}
-#cp-coalitions .cp-coal-tile-chevron{flex-shrink:0;color:var(--ct-muted);transition:transform .15s;margin-top:.15rem;}
-#cp-coalitions .cp-coal-tile.open .cp-coal-tile-chevron{transform:rotate(180deg);}
-#cp-coalitions .cp-coal-tile-body{padding:0 1rem 1rem;border-top:1px solid var(--ct-border);}
-#cp-coalitions .cp-coal-desc{font-size:.85rem;color:var(--ct-text);line-height:1.45;margin-top:.75rem;}
-#cp-coalitions .cp-coal-urls{display:flex;flex-direction:column;gap:.3rem;margin-top:.5rem;}
-#cp-coalitions .cp-coal-url{font-size:.8rem;color:var(--ct-teal);text-decoration:none;word-break:break-all;}
-#cp-coalitions .cp-coal-url:hover{text-decoration:underline;}
-#cp-coalitions .cp-coal-members{margin-top:.85rem;padding-top:.75rem;border-top:1px dashed var(--ct-border);}
-#cp-coalitions .cp-coal-members-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ct-muted);margin-bottom:.45rem;}
-#cp-coalitions .cp-coal-members-list{display:flex;flex-wrap:wrap;gap:.4rem;font-size:.78rem;color:var(--ct-muted);}
-#cp-coalitions .cp-coal-member{display:inline-flex;align-items:center;gap:.35rem;padding:.25rem .55rem;border:1px solid var(--ct-border);border-radius:999px;text-decoration:none;color:var(--ct-navy);font-weight:600;font-size:.78rem;transition:border-color .15s;}
-#cp-coalitions .cp-coal-member:hover{border-color:var(--ct-teal);}
-#cp-coalitions .cp-coal-member img{width:16px;height:11px;object-fit:cover;border-radius:2px;border:1px solid var(--ct-border);}
-#cp-coalitions .cp-coal-members-empty{font-size:.78rem;color:var(--ct-muted);font-style:italic;}
+#cp-coalitions .cp-coal-tile-name{font-weight:700;font-size:.86rem;color:var(--ct-navy);line-height:1.32;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+#cp-coalitions .cp-coal-tile-count{font-size:.72rem;font-weight:700;color:var(--ct-muted);margin-top:.35rem;}
+
+/* Shared modal — one instance, reused by every tile */
+.cp-coal-modal-overlay{position:fixed;inset:0;background:rgba(0,61,92,.45);display:flex;align-items:center;justify-content:center;padding:1.25rem;z-index:200;}
+.cp-coal-modal-overlay[hidden]{display:none;}
+body.cp-modal-open{overflow:hidden;}
+.cp-coal-modal-box{background:var(--ct-surface);border-radius:var(--ct-radius-lg,14px);box-shadow:var(--ct-shadow-lg);max-width:480px;width:100%;max-height:80vh;overflow-y:auto;padding:1.75rem;position:relative;}
+.cp-coal-modal-close{position:absolute;top:.85rem;right:.85rem;width:32px;height:32px;border-radius:50%;border:none;background:var(--ct-bg);color:var(--ct-muted);font-size:.95rem;cursor:pointer;}
+.cp-coal-modal-close:hover{background:var(--ct-border);color:var(--ct-navy);}
+.cp-coal-modal-icon{width:36px;height:36px;border-radius:50%;background:rgba(157,190,61,.18);color:var(--ct-green-dark);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;margin-bottom:.85rem;}
+.cp-coal-modal-title{font-size:1.15rem;font-weight:800;color:var(--ct-navy);line-height:1.32;margin-bottom:.6rem;padding-right:1.5rem;}
+.cp-coal-modal-desc{font-size:.9rem;color:var(--ct-text);line-height:1.5;margin-bottom:.75rem;}
+.cp-coal-modal-desc:empty{display:none;}
+.cp-coal-modal-urls{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem;}
+.cp-coal-modal-urls a{font-size:.83rem;color:var(--ct-teal);text-decoration:none;word-break:break-all;}
+.cp-coal-modal-urls a:hover{text-decoration:underline;}
+.cp-coal-modal-members{padding-top:.9rem;border-top:1px solid var(--ct-border);}
+.cp-coal-modal-members-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ct-muted);margin-bottom:.55rem;}
+.cp-coal-modal-members-list{display:flex;flex-wrap:wrap;gap:.4rem;font-size:.82rem;color:var(--ct-muted);}
+.cp-coal-member{display:inline-flex;align-items:center;gap:.35rem;padding:.25rem .55rem;border:1px solid var(--ct-border);border-radius:999px;text-decoration:none;color:var(--ct-navy);font-weight:600;font-size:.78rem;transition:border-color .15s;}
+.cp-coal-member:hover{border-color:var(--ct-teal);}
+.cp-coal-member img{width:16px;height:11px;object-fit:cover;border-radius:2px;border:1px solid var(--ct-border);}
+.cp-coal-members-empty{font-size:.8rem;color:var(--ct-muted);font-style:italic;}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
@@ -256,6 +263,20 @@
     <p id="cp-footer-meta" style="margin-top:0.5rem;opacity:0.7;"></p>
   </div>
 </footer>
+
+<div class="cp-coal-modal-overlay" id="cp-coal-modal" hidden>
+  <div class="cp-coal-modal-box" role="dialog" aria-modal="true" aria-labelledby="cp-coal-modal-title">
+    <button class="cp-coal-modal-close" id="cp-coal-modal-close" type="button" aria-label="Close">&#10005;</button>
+    <div class="cp-coal-modal-icon">&#10003;</div>
+    <h3 class="cp-coal-modal-title" id="cp-coal-modal-title"></h3>
+    <p class="cp-coal-modal-desc" id="cp-coal-modal-desc"></p>
+    <div class="cp-coal-modal-urls" id="cp-coal-modal-urls"></div>
+    <div class="cp-coal-modal-members">
+      <p class="cp-coal-modal-members-label">Other countries in this initiative</p>
+      <div class="cp-coal-modal-members-list" id="cp-coal-modal-members-list"></div>
+    </div>
+  </div>
+</div>
 
 <script src="js/country.js"></script>
 </body>
