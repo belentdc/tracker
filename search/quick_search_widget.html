@@ -75,14 +75,21 @@
     results.innerHTML = '';
 
     matches.slice(0, 3).forEach(function(e){
-      var row = document.createElement('a');
-      row.href = TRACKER_BASE + e.url;
-      row.target = '_blank';
-      row.rel = 'noopener';
-      row.style.cssText = 'display:block;padding:10px 12px;border:1px solid #eee;border-radius:8px;text-decoration:none;color:inherit;';
+      var isArchived = e.status && String(e.status).toLowerCase() === 'archived';
+      var row = document.createElement(isArchived ? 'div' : 'a');
+      if(!isArchived){
+        row.href = TRACKER_BASE + e.url;
+        row.target = '_blank';
+        row.rel = 'noopener';
+      }
+      row.style.cssText = 'display:block;padding:10px 12px;border:1px solid #eee;border-radius:8px;text-decoration:none;color:inherit;' + (isArchived ? 'cursor:default;' : '');
       var c = kindColor(e.kind);
+      var archivedBadge = isArchived
+        ? '<span title="Superseded document, not shown on the current country profile" style="display:inline-block;font-size:10px;font-weight:700;color:#4B5563;border:1px solid #4B5563;border-radius:8px;padding:1px 7px;margin-bottom:4px;margin-left:4px;">Archived</span>'
+        : '';
       row.innerHTML =
         '<span style="display:inline-block;font-size:10px;font-weight:700;color:' + c + ';border:1px solid ' + c + ';border-radius:8px;padding:1px 7px;margin-bottom:4px;">' + kindLabel(e.kind) + '</span>' +
+        archivedBadge +
         '<div style="font-size:13px;color:#003D5C;font-weight:600;line-height:1.4;">' + (e.text || e.country) + '</div>' +
         '<div style="font-size:11px;color:#888;margin-top:2px;">' + (e.country || '') + (e.category ? ' &middot; ' + e.category : '') + '</div>';
       results.appendChild(row);

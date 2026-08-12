@@ -257,6 +257,8 @@ body {
   padding: 0.55rem 0.75rem; transition: border-color 0.15s;
 }
 .qs-result:hover { border-color: var(--ct-teal, #00A4BD); }
+.qs-result-archived { cursor: default; }
+.qs-result-archived:hover { border-color: var(--ct-border); }
 .qs-kind {
   display: inline-block; font-size: 0.68rem; font-weight: 700;
   border-radius: 999px; padding: 0.05rem 0.5rem; margin-bottom: 0.25rem;
@@ -266,6 +268,12 @@ body {
 .qs-kind-target { background: rgba(0,61,92,0.1); color: var(--ct-navy); }
 .qs-kind-measure { background: rgba(0,164,189,0.12); color: #007a8d; }
 .qs-kind-adaptation { background: rgba(232,130,26,0.14); color: var(--ct-orange); }
+.qs-archived {
+  display: inline-block; font-size: 0.68rem; font-weight: 700;
+  border-radius: 999px; padding: 0.05rem 0.5rem; margin-bottom: 0.25rem; margin-left: 0.3rem;
+  text-transform: uppercase; letter-spacing: 0.03em;
+  background: rgba(75,85,99,0.12); color: #4B5563;
+}
 .qs-result-text { font-size: 0.88rem; font-weight: 400; color: var(--ct-text); line-height: 1.35; }
 .qs-result-text mark { background: rgba(157,190,61,.35); color: inherit; padding: 0 .1em; border-radius: 2px; }
 .qs-result-meta { font-size: 0.75rem; color: var(--ct-muted); margin-top: 0.1rem; }
@@ -541,12 +549,20 @@ function initQuickSearch() {
         );
 
         status.textContent = matches.length + " result" + (matches.length === 1 ? "" : "s");
-        results.innerHTML = matches.slice(0, 3).map(e => `
-            <a class="qs-result" href="../${esc(e.url)}" target="_blank" rel="noopener">
-              <span class="qs-kind qs-kind-${esc(e.kind)}">${esc(kindLabel[e.kind] || e.kind)}</span>
+        results.innerHTML = matches.slice(0, 3).map(e => {
+            const isArchived = e.status && normalize(e.status) === "archived";
+            const tag = isArchived ? "div" : "a";
+            const openAttrs = isArchived ? "" : ` href="../${esc(e.url)}" target="_blank" rel="noopener"`;
+            const archivedBadge = isArchived
+                ? `<span class="qs-archived" title="Superseded document, not shown on the current country profile">Archived</span>`
+                : "";
+            return `
+            <${tag} class="qs-result${isArchived ? " qs-result-archived" : ""}"${openAttrs}>
+              <span class="qs-kind qs-kind-${esc(e.kind)}">${esc(kindLabel[e.kind] || e.kind)}</span>${archivedBadge}
               <div class="qs-result-text">${highlight(e.text || e.country, term)}</div>
               <div class="qs-result-meta">${esc(e.country || "")}${e.category ? " · " + esc(e.category) : ""}</div>
-            </a>`).join("");
+            </${tag}>`;
+        }).join("");
 
         if (matches.length) {
             footer.hidden = false;

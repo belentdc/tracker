@@ -70,6 +70,7 @@ h1 { font-size: 1.7rem; font-weight: 800; color: var(--ct-navy, #003D5C); margin
 .badge.measure { background:rgba(0,164,189,.12); color:#007a8d; }
 .badge.adaptation { background:rgba(157,190,61,.18); color:#5c7522; }
 .badge.country { background:rgba(232,130,26,.14); color:#b05f0d; }
+.badge.archived { background:rgba(107,114,128,.14); color:#4B5563; }
 .r-meta { font-size:.74rem; color:var(--ct-muted,#6B7280); }
 .r-text { font-size:.9rem; line-height:1.45; }
 .r-text mark { background: rgba(157,190,61,.35); padding:0 .1em; border-radius:2px; }
@@ -274,10 +275,13 @@ footer a { color: var(--ct-teal,#00A4BD); }
 
     const view=list.slice(0,shown);
     $r.innerHTML = view.map(e=>{
-      const link = e.url ? '<a class="r-country" href="../'+esc(e.url)+'" target="_blank" rel="noopener">'+esc(e.country)+'</a>' : '<span class="r-country">'+esc(e.country)+'</span>';
-      const meta = [e.gen,e.version,e.status].filter(Boolean).join(', ');
+      const isArchived = norm(e.status)==='archived';
+      const link = (e.url && !isArchived) ? '<a class="r-country" href="../'+esc(e.url)+'" target="_blank" rel="noopener">'+esc(e.country)+'</a>' : '<span class="r-country">'+esc(e.country)+'</span>';
+      const archivedBadge = isArchived ? '<span class="badge archived" title="Superseded document, not shown on the current country profile">Archived</span>' : '';
+      const meta = [e.gen,e.version].filter(Boolean).join(', ');
       return '<div class="result"><div class="r-top">'+link+
         '<span class="badge '+esc(e.kind)+'">'+esc(e.kind)+'</span>'+
+        archivedBadge+
         (meta?'<span class="r-meta">'+esc(meta)+'</span>':'')+'</div>'+
         (e.kind!=='country'?'<div class="r-text">'+highlight(e.text,ts)+'</div>':'')+
         (e.category?'<div class="r-cat">'+esc(e.category)+'</div>':'')+
