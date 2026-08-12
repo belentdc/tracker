@@ -970,6 +970,30 @@ function renderAdaptation(p, docUrlMap) {
 }
 
 /* ── Coalitions ───────────────────────────────────────────────────── */
+/* Cross-country membership lookup, fetched once and cached across tiles.
+   Source: profiles/data/initiatives-index.json, built by the pipeline. */
+let INITIATIVE_MEMBERS_CACHE=null, INITIATIVE_MEMBERS_LOADING=false, INITIATIVE_MEMBERS_QUEUE=[];
+function ensureInitiativeMembers(cb){
+  if(INITIATIVE_MEMBERS_CACHE){ cb(INITIATIVE_MEMBERS_CACHE); return; }
+  INITIATIVE_MEMBERS_QUEUE.push(cb);
+  if(INITIATIVE_MEMBERS_LOADING) return;
+  INITIATIVE_MEMBERS_LOADING=true;
+  fetch(`${BASE}data/initiatives-index.json`)
+    .then(r=>r.ok?r.json():null)
+    .then(json=>{
+      INITIATIVE_MEMBERS_CACHE=(json&&json.initiatives)||{};
+      INITIATIVE_MEMBERS_LOADING=false;
+      INITIATIVE_MEMBERS_QUEUE.forEach(fn=>fn(INITIATIVE_MEMBERS_CACHE));
+      INITIATIVE_MEMBERS_QUEUE=[];
+    })
+    .catch(()=>{
+      INITIATIVE_MEMBERS_CACHE={};
+      INITIATIVE_MEMBERS_LOADING=false;
+      INITIATIVE_MEMBERS_QUEUE.forEach(fn=>fn({}));
+      INITIATIVE_MEMBERS_QUEUE=[];
+    });
+}
+
 function renderCoalitions(p){
   const box=document.getElementById("cp-coalitions"); if(!box)return;
   if(!p.coalitions||!p.coalitions.length){
@@ -984,46 +1008,67 @@ function renderCoalitions(p){
     grouped[s].push(c);
   }
   const hasSectors=Object.keys(grouped).some(s=>s!=="");
-  let html="";
+  let inner="";
   if(hasSectors){
-    // Render grouped: named sectors first (alpha), ungrouped last
+    // Named sectors first (alpha), ungrouped last
     const sectors=Object.keys(grouped).filter(s=>s).sort();
     if(grouped[""]) sectors.push("");
     for(const s of sectors){
-      if(s) html+=`<div class="cp-coal-sector">${esc(s)}</div>`;
-      html+=grouped[s].map(c=>coalitionCard(c)).join("");
+      if(s) inner+=`<div class="cp-coal-sector">${esc(s)}</div>`;
+      inner+=grouped[s].map(c=>coalitionTile(c,p.code)).join("");
     }
   } else {
-    html=p.coalitions.map(c=>coalitionCard(c)).join("");
+    inner=p.coalitions.map(c=>coalitionTile(c,p.code)).join("");
   }
-  box.innerHTML=html;
-  // Attach toggle listeners
-  box.querySelectorAll(".cp-coalition").forEach(el=>{
-    el.addEventListener("click",()=>{
-      const body=el.querySelector(".cp-coal-body");
-      if(!body) return;
-      const open=el.classList.toggle("open");
-      body.hidden=!open;
+  box.innerHTML=`<div class="cp-coal-grid">${inner}</div>`;
+
+  // Toggle listeners — expanding a tile also lazy-loads its member list once
+  box.querySelectorAll(".cp-coal-tile-head").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const tile=btn.closest(".cp-coal-tile");
+      const body=tile.querySelector(".cp-coal-tile-body");
+      const open=btn.getAttribute("aria-expanded")==="true";
+      btn.setAttribute("aria-expanded",String(!open));
+      tile.classList.toggle("open",!open);
+      body.hidden=open;
+      if(open) return;
+      const membersEl=tile.querySelector(".cp-coal-members");
+      const listEl=tile.querySelector(".cp-coal-members-list");
+      if(!membersEl||!listEl||membersEl.dataset.loaded) return;
+      membersEl.dataset.loaded="1";
+      const key=membersEl.dataset.key, currentCode=membersEl.dataset.code;
+      ensureInitiativeMembers(all=>{
+        const list=(all[key]||[]).filter(m=>m.code!==currentCode);
+        listEl.innerHTML = list.length
+          ? list.map(m=>`<a class="cp-coal-member" href="${BASE}countries/${esc(clientSlugify(m.name))}/">
+              <img src="${BASE}../assets/flags/${esc(m.iso2)}.png" onerror="this.onerror=null;this.src='https://flagcdn.com/w40/${esc(m.iso2)}.png'" alt="">
+              <span>${esc(m.name)}</span>
+            </a>`).join("")
+          : `<p class="cp-coal-members-empty">No other countries recorded yet.</p>`;
+      });
     });
   });
 }
 
-function coalitionCard(c){
-  const hasDetail=c.description||c.urls.length;
+function coalitionTile(c, currentCode){
   const urlsHtml=c.urls.map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener" class="cp-coal-url" onclick="event.stopPropagation()">${esc(u.replace(/^https?:\/\//,"").replace(/\/$/,""))}</a>`).join("");
-  const bodyHtml=hasDetail?`
-    <div class="cp-coal-body" hidden>
+  const count=c.member_count;
+  const slug=String(c.key).toLowerCase().replace(/[^a-z0-9]+/g,"-");
+  return `<div class="cp-coal-tile">
+    <button class="cp-coal-tile-head" aria-expanded="false" aria-controls="cp-coal-${esc(slug)}-body">
+      <div class="cp-coal-tile-icon">&#10003;</div>
+      <div class="cp-coal-tile-name">${esc(c.key)}</div>
+      ${count!=null?`<div class="cp-coal-tile-count">${count} ${count===1?"country":"countries"}</div>`:""}
+      <div class="cp-coal-tile-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    </button>
+    <div class="cp-coal-tile-body" id="cp-coal-${esc(slug)}-body" hidden>
       ${c.description?`<p class="cp-coal-desc">${esc(c.description)}</p>`:""}
       ${urlsHtml?`<div class="cp-coal-urls">${urlsHtml}</div>`:""}
-    </div>`:"";
-  return `<div class="cp-coalition${hasDetail?" cp-coal-clickable":""}">
-    <div class="cp-coalition-icon">&#10003;</div>
-    <div class="cp-coal-main">
-      <div class="cp-coalition-name">${esc(c.key)}</div>
-      ${hasDetail?`<div class="cp-coal-hint">Click to ${hasDetail?"expand":""}</div>`:""}
-      ${bodyHtml}
+      <div class="cp-coal-members" data-key="${esc(c.key)}" data-code="${esc(currentCode)}">
+        <p class="cp-coal-members-label">Other countries in this initiative</p>
+        <div class="cp-coal-members-list">Loading…</div>
+      </div>
     </div>
-    ${hasDetail?`<div class="cp-coal-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>`:""}
   </div>`;
 }
 

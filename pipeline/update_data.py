@@ -1094,6 +1094,22 @@ GEO_COLUMNS = ["Urban", "Rural", "Inter-city"]
 
 EXCEL_EPOCH = date(1899, 12, 30)
 
+# Cell values that explicitly mean "not a member" even though the cell
+# isn't blank. Without this, any non-empty cell (including the literal
+# text "No") registers a country as having joined the initiative.
+_NON_MEMBERSHIP_VALUES = {"no", "n", "0", "false", "-", "n/a", "na"}
+
+
+def _is_member_value(val):
+    """True if this Excel cell means 'this country joined the initiative'.
+    Blank, or a value that reads as a negative, both mean 'not a member'.
+    Anything else (Yes, X, a date, etc.) counts as membership."""
+    c = clean(val)
+    if not c:
+        return False
+    return str(c).strip().lower() not in _NON_MEMBERSHIP_VALUES
+
+
 # Columns in Country sheet that mark group boundaries (not initiatives)
 # Everything between the last membership col and "Net-zero target" is an initiative.
 _COUNTRY_NON_INITIATIVE_COLS = {
@@ -1471,6 +1487,22 @@ def process(excel_path, ghg_by_country=None):
     initiative_cols = get_initiative_cols(wb)
     print(f"   ✓ {len(initiative_cols)} initiative columns detected, "
           f"{len(initiative_meta)} with metadata from Initiatives sheet")
+
+    # Surface key mismatches now, at build time, instead of discovering a
+    # missing description on a live profile page later. A mismatch means
+    # a rename happened on one sheet but not the other.
+    col_keys = {c.strip().lower() for c in initiative_cols}
+    meta_keys = set(initiative_meta.keys())
+    cols_without_meta = sorted(c for c in initiative_cols if c.strip().lower() not in meta_keys)
+    meta_without_col = sorted(initiative_meta[k]["key"] for k in meta_keys if k not in col_keys)
+    if cols_without_meta:
+        print(f"   ⚠  {len(cols_without_meta)} initiative column(s) in the Country sheet "
+              f"have no matching 'Initiative key' in the Initiatives sheet "
+              f"(will show with no description/subsector/links): {cols_without_meta}")
+    if meta_without_col:
+        print(f"   ⚠  {len(meta_without_col)} 'Initiative key' entr(y/ies) in the Initiatives "
+              f"sheet match no column in the Country sheet (likely stale, from a rename "
+              f"that wasn't mirrored): {meta_without_col}")
     countries = {}
     for r in rows_as_dicts(wb["Country"]):
         code = clean(r.get("Country Codes"))
@@ -1481,7 +1513,7 @@ def process(excel_path, ghg_by_country=None):
         for col in initiative_cols:
             # tolerate trailing-space variants from Excel
             val = r.get(col) or r.get(col.rstrip() + " ") or r.get(" " + col.lstrip())
-            if not clean(val):
+            if not _is_member_value(val):
                 continue
             norm = col.strip().lower()
             info = initiative_meta.get(norm) or initiative_meta.get(norm + " ") or {}
@@ -1734,6 +1766,19 @@ def process(excel_path, ghg_by_country=None):
             })
     else:
         print("🔗  References sheet not present — skipping")
+
+    # ── Initiative cross-reference: how many countries share each one ──
+    # Mutates the coalition dicts in place, so the same objects referenced
+    # later by build_profiles() (via a shallow dict(base) copy) already
+    # carry member_count without any extra plumbing.
+    initiative_members = defaultdict(list)
+    for code, c in countries.items():
+        for coal in c["coalitions"]:
+            initiative_members[coal["key"]].append(
+                {"code": code, "name": c["name"], "iso2": c["iso2"]})
+    for c in countries.values():
+        for coal in c["coalitions"]:
+            coal["member_count"] = len(initiative_members[coal["key"]])
 
     wb.close()
     return (countries, docs_by_country, targets_by_country, measures_by_country,
@@ -2117,6 +2162,25 @@ def run_profiles(excel_path):
     }
     (OUT_DIR / "index.json").write_text(
         json.dumps(index, ensure_ascii=False, separators=(",", ":")),
+        encoding="utf-8")
+
+    # Shared cross-reference: for each initiative, who else has joined it.
+    # One file, fetched lazily by country.js only when a coalition tile is
+    # expanded — avoids repeating full member lists in all 199 profile JSONs.
+    initiative_members = defaultdict(list)
+    for code, p in profiles.items():
+        for coal in p.get("coalitions", []):
+            initiative_members[coal["key"]].append(
+                {"code": code, "name": p["name"], "iso2": p["iso2"]})
+    initiatives_index = {
+        "metadata": {"generated": today},
+        "initiatives": {
+            key: sorted(members, key=lambda m: m["name"])
+            for key, members in initiative_members.items()
+        },
+    }
+    (OUT_DIR.parent / "initiatives-index.json").write_text(
+        json.dumps(initiatives_index, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8")
 
     n_static = build_static_pages(profiles)
